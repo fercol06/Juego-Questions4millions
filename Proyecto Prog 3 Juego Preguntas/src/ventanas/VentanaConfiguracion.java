@@ -43,6 +43,12 @@ public class VentanaConfiguracion extends JFrame {
 		
 		JPanel panel_sur = new JPanel();
 		contentPane.add(panel_sur, BorderLayout.SOUTH);
+		
+		JPanel panel_izquierda = new JPanel();
+		contentPane.add(panel_izquierda, BorderLayout.WEST);
+		
+		JPanel panel_centro = new JPanel();
+		contentPane.add(panel_centro, BorderLayout.CENTER);
 	}
 
 }
