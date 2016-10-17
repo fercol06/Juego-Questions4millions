@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
 
 public class VentanaPregunta extends JFrame{
 
@@ -40,6 +42,23 @@ public class VentanaPregunta extends JFrame{
 		
 		JPanel panel_sur = new JPanel();
 		getContentPane().add(panel_sur, BorderLayout.SOUTH);
+		panel_sur.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		JPanel panel = new JPanel();
+		panel_sur.add(panel);
+		panel.setLayout(new GridLayout(2, 2, 0, 0));
+		
+		JButton btnRespuesta1 = new JButton("Respuesta 1");
+		panel.add(btnRespuesta1);
+		
+		JButton btnRespuesta2 = new JButton("Respuesta 2");
+		panel.add(btnRespuesta2);
+		
+		JButton btnRespuesta3 = new JButton("Respuesta 3");
+		panel.add(btnRespuesta3);
+		
+		JButton btnRespuesta4 = new JButton("Respuesta 4");
+		panel.add(btnRespuesta4);
 		
 		JPanel panel_izquierdo = new JPanel();
 		getContentPane().add(panel_izquierdo, BorderLayout.WEST);
@@ -49,6 +68,9 @@ public class VentanaPregunta extends JFrame{
 		
 		JPanel panel_centro = new JPanel();
 		getContentPane().add(panel_centro, BorderLayout.CENTER);
+		
+		JLabel lblPregunta = new JLabel("Pregunta");
+		panel_centro.add(lblPregunta);
 		initialize();
 	}
 
