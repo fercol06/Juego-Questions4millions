@@ -40,6 +40,9 @@ public class VentanaPregunta extends JFrame{
 		JPanel panel_norte = new JPanel();
 		getContentPane().add(panel_norte, BorderLayout.NORTH);
 		
+		JLabel lblUsuario = new JLabel("Turno para: ");
+		panel_norte.add(lblUsuario);
+		
 		JPanel panel_sur = new JPanel();
 		getContentPane().add(panel_sur, BorderLayout.SOUTH);
 		panel_sur.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
@@ -62,6 +65,9 @@ public class VentanaPregunta extends JFrame{
 		
 		JPanel panel_izquierdo = new JPanel();
 		getContentPane().add(panel_izquierdo, BorderLayout.WEST);
+		
+		JLabel lblReloj = new JLabel("Reloj");
+		panel_izquierdo.add(lblReloj);
 		
 		JPanel panel_derecho = new JPanel();
 		getContentPane().add(panel_derecho, BorderLayout.EAST);
