@@ -34,6 +34,7 @@ public class VentanaPregunta extends JFrame{
 	 * Create the application.
 	 */
 	public VentanaPregunta() {
+		setTitle("Atenci\u00F3n, \u00A1pregunta!");
 		
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		
