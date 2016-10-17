@@ -51,17 +51,29 @@ public class VentanaPregunta extends JFrame{
 		panel_sur.add(panel);
 		panel.setLayout(new GridLayout(2, 2, 0, 0));
 		
+		JPanel panel_11 = new JPanel();
+		panel.add(panel_11);
+		
 		JButton btnRespuesta1 = new JButton("Respuesta 1");
-		panel.add(btnRespuesta1);
+		panel_11.add(btnRespuesta1);
+		
+		JPanel panel_12 = new JPanel();
+		panel.add(panel_12);
 		
 		JButton btnRespuesta2 = new JButton("Respuesta 2");
-		panel.add(btnRespuesta2);
+		panel_12.add(btnRespuesta2);
+		
+		JPanel panel_21 = new JPanel();
+		panel.add(panel_21);
 		
 		JButton btnRespuesta3 = new JButton("Respuesta 3");
-		panel.add(btnRespuesta3);
+		panel_21.add(btnRespuesta3);
+		
+		JPanel panel_22 = new JPanel();
+		panel.add(panel_22);
 		
 		JButton btnRespuesta4 = new JButton("Respuesta 4");
-		panel.add(btnRespuesta4);
+		panel_22.add(btnRespuesta4);
 		
 		JPanel panel_izquierdo = new JPanel();
 		getContentPane().add(panel_izquierdo, BorderLayout.WEST);
