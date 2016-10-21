@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
+import javax.swing.ImageIcon;
 
 public class VentanaInicio extends JFrame{
 
