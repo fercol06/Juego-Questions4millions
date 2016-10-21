@@ -1,5 +1,7 @@
 package ventanas;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -49,6 +51,7 @@ public class VentanaInicio extends JFrame{
 		
 		JPanel panel_centro = new JPanel();
 		getContentPane().add(panel_centro, BorderLayout.CENTER);
+		
 		initialize();
 	}
 
