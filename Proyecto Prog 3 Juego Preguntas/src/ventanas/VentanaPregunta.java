@@ -76,11 +76,15 @@ public class VentanaPregunta extends JFrame{
 		JButton btnRespuesta4 = new JButton("Respuesta 4");
 		panel_22.add(btnRespuesta4);
 		
-		JPanel panel_izquierdo = new JPanel();
+		/*JPanel panel_izquierdo = new JPanel();
 		getContentPane().add(panel_izquierdo, BorderLayout.WEST);
 		
 		JLabel lblReloj = new JLabel("Reloj");
 		panel_izquierdo.add(lblReloj);
+		*/
+		ImagenTiempo imagenTiempo= new ImagenTiempo("/images/Progreso100.png"); //como le paso la foto?
+		getContentPane().add(imagenTiempo, BorderLayout.WEST);
+		
 		
 		JPanel panel_derecho = new JPanel();
 		getContentPane().add(panel_derecho, BorderLayout.EAST);
