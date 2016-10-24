@@ -2,6 +2,8 @@ package ventanas;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -11,9 +13,21 @@ import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import javax.swing.ImageIcon;
 
-public class VentanaInicio extends JFrame{
+public class VentanaInicio extends JFrame implements ActionListener{
 
-	JFrame frame;
+	private JFrame frame;
+	private JPanel panel_centro = new JPanel();
+	private JButton btnJugar = new JButton("Jugar");
+	private JButton btnMarcadores = new JButton("Marcadores");
+	private JButton btnInstrucciones = new JButton("Instrucciones");
+	private JButton btnSalir = new JButton("Salir");
+	private JPanel panel = new JPanel();
+
+
+
+
+
+
     
 	/**
 	 * Launch the application.
@@ -39,20 +53,23 @@ public class VentanaInicio extends JFrame{
 		
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		
-		JPanel panel_norte = new JPanel();
-		getContentPane().add(panel_norte, BorderLayout.NORTH);
-		
-		JPanel panel_sur = new JPanel();
-		getContentPane().add(panel_sur, BorderLayout.SOUTH);
-		
-		JPanel panel_izquierdo = new JPanel();
-		getContentPane().add(panel_izquierdo, BorderLayout.WEST);
-		
-		JPanel panel_derecho = new JPanel();
-		getContentPane().add(panel_derecho, BorderLayout.EAST);
-		
-		JPanel panel_centro = new JPanel();
 		getContentPane().add(panel_centro, BorderLayout.CENTER);
+		panel_centro.setLayout(null);
+		
+		btnJugar.setBounds(47, 154, 150, 29);
+		panel_centro.add(btnJugar);
+		
+		btnMarcadores.setBounds(47, 199, 150, 29);
+		panel_centro.add(btnMarcadores);
+		
+		btnInstrucciones.setBounds(212, 154, 150, 29);
+		panel_centro.add(btnInstrucciones);
+		
+		btnSalir.setBounds(212, 199, 150, 29);
+		panel_centro.add(btnSalir);
+		
+		panel.setBounds(69, 16, 267, 116);
+		panel_centro.add(panel);
 		
 		initialize();
 	}
@@ -71,4 +88,12 @@ public class VentanaInicio extends JFrame{
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
 	}
 
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		JButton source = (JButton) e.getSource();
+		if(source.equals(btnJugar)){
+			
+		}
+	}
 }
