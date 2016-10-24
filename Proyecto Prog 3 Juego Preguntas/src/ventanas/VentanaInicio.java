@@ -61,6 +61,8 @@ public class VentanaInicio extends JFrame implements ActionListener {
 		getContentPane().setLayout(null);
 
 		panel_centro = new JPanel();
+		panel_centro.setLocation(0, 0);
+		panel_centro.setSize(428, 244);
 		getContentPane().add(panel_centro, BorderLayout.CENTER);
 		panel_centro.setLayout(null);
 
