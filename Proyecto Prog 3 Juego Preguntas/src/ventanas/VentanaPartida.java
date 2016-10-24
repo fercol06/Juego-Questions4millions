@@ -57,7 +57,7 @@ public class VentanaPartida extends JFrame {
 		btnLanzarPregunta.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				
+				//JOptionPane.showConfirmDialog(null, "¿Seguro que desea terminar la partida?", "Salir", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 			}
 		});
 		panelSur.add(btnLanzarPregunta);
