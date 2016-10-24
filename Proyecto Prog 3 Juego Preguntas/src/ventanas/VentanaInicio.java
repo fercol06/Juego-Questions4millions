@@ -17,6 +17,7 @@ public class VentanaInicio extends JFrame{
     
 	/**
 	 * Launch the application.
+	 * Ventana Principal.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
