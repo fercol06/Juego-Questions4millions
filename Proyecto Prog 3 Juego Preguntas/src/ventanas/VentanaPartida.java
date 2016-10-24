@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 
@@ -23,7 +25,7 @@ public class VentanaPartida extends JFrame {
 				try {
 					VentanaPartida frame = new VentanaPartida();
 					frame.setVisible(true);
-					//JOptionPane.showConfirmDialog(null, "¿Seguro que desea terminar la partida?", "Salir", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -52,9 +54,21 @@ public class VentanaPartida extends JFrame {
 		contentPane.add(panelSur, BorderLayout.SOUTH);
 		
 		JButton btnLanzarPregunta = new JButton("Lanzar Pregunta");
+		btnLanzarPregunta.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+			}
+		});
 		panelSur.add(btnLanzarPregunta);
 		
 		JButton btnTerminarJuego = new JButton("Finalizar Partida");
+		btnTerminarJuego.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//JOptionPane.showConfirmDialog(null, "¿Seguro que desea terminar la partida?", "Salir", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+			}
+		});
 		panelSur.add(btnTerminarJuego);
 		
 		JPanel panelIzquierda = new JPanel();
