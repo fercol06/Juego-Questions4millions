@@ -8,6 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 
+
+
 public class VentanaPartida extends JFrame {
 
 	private JPanel contentPane;
@@ -21,6 +23,7 @@ public class VentanaPartida extends JFrame {
 				try {
 					VentanaPartida frame = new VentanaPartida();
 					frame.setVisible(true);
+					//JOptionPane.showConfirmDialog(null, "¿Seguro que desea terminar la partida?", "Salir", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -28,6 +31,9 @@ public class VentanaPartida extends JFrame {
 		});
 	}
 
+	
+	
+	
 	/**
 	 * Create the frame.
 	 */
