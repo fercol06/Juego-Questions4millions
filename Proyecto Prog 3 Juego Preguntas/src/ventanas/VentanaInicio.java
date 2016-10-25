@@ -59,29 +59,29 @@ public class VentanaInicio extends JFrame implements ActionListener {
 	private void initialize() {
 
 		getContentPane().setLayout(null);
-
-		panel_centro = new JPanel();
-		panel_centro.setLocation(0, 0);
-		panel_centro.setSize(428, 244);
-		getContentPane().add(panel_centro, BorderLayout.CENTER);
-		panel_centro.setLayout(null);
-
-		btnJugar = new JButton("Jugar");
-		btnJugar.setBounds(47, 154, 150, 29);
-		panel_centro.add(btnJugar);
-		btnJugar.addActionListener(this);
-
-		btnMarcadores = new JButton("Marcadores");
-		btnMarcadores.setBounds(47, 199, 150, 29);
-		panel_centro.add(btnMarcadores);
-
-		btnInstrucciones = new JButton("Instrucciones");
-		btnInstrucciones.setBounds(212, 154, 150, 29);
-		panel_centro.add(btnInstrucciones);
-
-		btnSalir = new JButton("Salir");
-		btnSalir.setBounds(212, 199, 150, 29);
-		panel_centro.add(btnSalir);
+		
+				panel_centro = new JPanel();
+				panel_centro.setLocation(0, 0);
+				panel_centro.setSize(428, 244);
+				getContentPane().add(panel_centro, BorderLayout.CENTER);
+				panel_centro.setLayout(null);
+				
+						btnJugar = new JButton("Jugar");
+						btnJugar.setBounds(47, 154, 150, 29);
+						panel_centro.add(btnJugar);
+						btnJugar.addActionListener(this);
+						
+								btnMarcadores = new JButton("Marcadores");
+								btnMarcadores.setBounds(47, 199, 150, 29);
+								panel_centro.add(btnMarcadores);
+								
+										btnInstrucciones = new JButton("Instrucciones");
+										btnInstrucciones.setBounds(212, 154, 150, 29);
+										panel_centro.add(btnInstrucciones);
+										
+												btnSalir = new JButton("Salir");
+												btnSalir.setBounds(212, 199, 150, 29);
+												panel_centro.add(btnSalir);
 
 	}
 
