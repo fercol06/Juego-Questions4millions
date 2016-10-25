@@ -82,7 +82,7 @@ public class VentanaPregunta extends JFrame{
 		JLabel lblReloj = new JLabel("Reloj");
 		panel_izquierdo.add(lblReloj);
 		*/
-		ImagenTiempo imagenTiempo= new ImagenTiempo("/images/Progreso100.png"); //como le paso la foto?
+		ImagenTiempo imagenTiempo= new ImagenTiempo("/images/Progreso100.png"); 
 		getContentPane().add(imagenTiempo, BorderLayout.WEST);
 		
 		

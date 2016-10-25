@@ -12,19 +12,24 @@ import javax.swing.JLabel;
 
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
+
+import BasesDeDatos.BD;
+
 import javax.swing.ImageIcon;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class VentanaInicio extends JFrame implements ActionListener {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private JPanel panel_centro = new JPanel();
 	private JButton btnJugar = new JButton("Jugar");
 	private JButton btnMarcadores = new JButton("Marcadores");
 	private JButton btnInstrucciones = new JButton("Instrucciones");
 	private JButton btnSalir = new JButton("Salir");
+	//Una unica conexión
+	public static BD bd;
 
 	/**
 	 * Launch the application. Ventana Principal.
@@ -49,7 +54,8 @@ public class VentanaInicio extends JFrame implements ActionListener {
 	 * Create the application.
 	 */
 	public VentanaInicio() {
-
+		
+		bd = new BD();
 		initialize();
 	}
 
@@ -59,29 +65,36 @@ public class VentanaInicio extends JFrame implements ActionListener {
 	private void initialize() {
 
 		getContentPane().setLayout(null);
-		
-				panel_centro = new JPanel();
-				panel_centro.setLocation(0, 0);
-				panel_centro.setSize(428, 244);
-				getContentPane().add(panel_centro, BorderLayout.CENTER);
-				panel_centro.setLayout(null);
-				
-						btnJugar = new JButton("Jugar");
-						btnJugar.setBounds(47, 154, 150, 29);
-						panel_centro.add(btnJugar);
-						btnJugar.addActionListener(this);
-						
-								btnMarcadores = new JButton("Marcadores");
-								btnMarcadores.setBounds(47, 199, 150, 29);
-								panel_centro.add(btnMarcadores);
-								
-										btnInstrucciones = new JButton("Instrucciones");
-										btnInstrucciones.setBounds(212, 154, 150, 29);
-										panel_centro.add(btnInstrucciones);
-										
-												btnSalir = new JButton("Salir");
-												btnSalir.setBounds(212, 199, 150, 29);
-												panel_centro.add(btnSalir);
+
+		panel_centro = new JPanel();
+		panel_centro.setLocation(0, 0);
+		panel_centro.setSize(428, 244);
+		getContentPane().add(panel_centro, BorderLayout.CENTER);
+		panel_centro.setLayout(null);
+
+		btnJugar = new JButton("Jugar");
+		btnJugar.setBounds(47, 154, 150, 29);
+		panel_centro.add(btnJugar);
+		btnJugar.addActionListener(this);
+
+		btnMarcadores = new JButton("Marcadores");
+		btnMarcadores.setBounds(47, 199, 150, 29);
+		panel_centro.add(btnMarcadores);
+
+		btnInstrucciones = new JButton("Instrucciones");
+		btnInstrucciones.setBounds(212, 154, 150, 29);
+		panel_centro.add(btnInstrucciones);
+
+		btnSalir = new JButton("Salir");
+		btnSalir.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				bd.desconectar();
+				System.exit(0);
+			}
+		});
+		btnSalir.setBounds(212, 199, 150, 29);
+		panel_centro.add(btnSalir);
 
 	}
 
