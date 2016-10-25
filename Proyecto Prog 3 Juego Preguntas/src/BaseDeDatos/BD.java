@@ -84,21 +84,21 @@ public class BD {
 	 * @return
 	 */
 	
-	/*public Cliente obtenerCliente(String dni){
+	/*public Usuario obtenerCliente(String dni){
 		String query;
-		Cliente c=null;
-		
-		query="SELECT * FROM cliente WHERE dni='"+dni+"'"; 
+		Usuario u=null;
+		//Preparamos la query
+		query="SELECT * FROM usuario WHERE dni='"+dni+"'"; 
 		try {
 			ResultSet rs = stmt.executeQuery(query);
-			if(rs.next()) //Si la select ha devuelto filas
-				c=new Cliente(rs.getString("dni"),rs.getString("nombre"),rs.getInt("edad"),rs.getString("contrasenia"));
+			// Comprobamos si ha devuelto filas
+			if(rs.next()) 
+				u=new Usuario(rs.getString("dni"),rs.getString("nombre"),rs.getInt("edad"),rs.getString("contrasenia"));
 			rs.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return c;
+		return u;
 	}
 	 */
 
