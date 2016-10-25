@@ -74,6 +74,11 @@ public class VentanaInicio extends JFrame implements ActionListener {
 		panel_centro.setLayout(null);
 
 		btnJugar = new JButton("Jugar");
+		btnJugar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		btnJugar.setBounds(47, 154, 150, 29);
 		panel_centro.add(btnJugar);
 		btnJugar.addActionListener(this);
@@ -86,13 +91,10 @@ public class VentanaInicio extends JFrame implements ActionListener {
 		btnInstrucciones.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JOptionPane.showMessageDialog(null, "Instrucciones...", "Instrucciones:", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Instrucciones...", "Instrucciones Q4M:", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
-		btnInstrucciones.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		
 		btnInstrucciones.setBounds(212, 154, 150, 29);
 		panel_centro.add(btnInstrucciones);
 
@@ -108,7 +110,9 @@ public class VentanaInicio extends JFrame implements ActionListener {
 		panel_centro.add(btnSalir);
 
 	}
-
+	/*???????????????????????????????????????????????????
+	 * PA KE?
+	???????????????????????????????????????????????????*/
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
