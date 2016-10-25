@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
@@ -82,6 +83,16 @@ public class VentanaInicio extends JFrame implements ActionListener {
 		panel_centro.add(btnMarcadores);
 
 		btnInstrucciones = new JButton("Instrucciones");
+		btnInstrucciones.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showMessageDialog(null, "Instrucciones...", "Instrucciones:", JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
+		btnInstrucciones.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnInstrucciones.setBounds(212, 154, 150, 29);
 		panel_centro.add(btnInstrucciones);
 
