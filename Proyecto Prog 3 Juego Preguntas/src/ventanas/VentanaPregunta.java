@@ -12,7 +12,13 @@ import java.awt.GridLayout;
 
 public class VentanaPregunta extends JFrame{
 
-	JFrame frame;
+	private JFrame frame;
+	private JPanel panel_norte,panel_sur,panel_centro,panel_derecho;
+	private JPanel panel, panel_11,panel_12,panel_21,panel_22;
+	private ImagenTiempo imagenTiempo;
+	private JButton btnRespuesta1, btnRespuesta2, btnRespuesta3, btnRespuesta4;
+	private JLabel lblPregunta, lblUsuario;
+	  
     
 	/**
 	 * Launch the application.
@@ -38,42 +44,42 @@ public class VentanaPregunta extends JFrame{
 		
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		
-		JPanel panel_norte = new JPanel();
+		panel_norte = new JPanel();
 		getContentPane().add(panel_norte, BorderLayout.NORTH);
 		
-		JLabel lblUsuario = new JLabel("Turno para: ");
+		lblUsuario = new JLabel("Turno para: ");
 		panel_norte.add(lblUsuario);
 		
-		JPanel panel_sur = new JPanel();
+		panel_sur = new JPanel();
 		getContentPane().add(panel_sur, BorderLayout.SOUTH);
 		panel_sur.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		panel_sur.add(panel);
 		panel.setLayout(new GridLayout(2, 2, 0, 0));
 		
-		JPanel panel_11 = new JPanel();
+		panel_11 = new JPanel();
 		panel.add(panel_11);
 		
-		JButton btnRespuesta1 = new JButton("Respuesta 1");
+		btnRespuesta1 = new JButton("Respuesta 1");
 		panel_11.add(btnRespuesta1);
 		
-		JPanel panel_12 = new JPanel();
+		panel_12 = new JPanel();
 		panel.add(panel_12);
 		
-		JButton btnRespuesta2 = new JButton("Respuesta 2");
+		btnRespuesta2 = new JButton("Respuesta 2");
 		panel_12.add(btnRespuesta2);
 		
-		JPanel panel_21 = new JPanel();
+		panel_21 = new JPanel();
 		panel.add(panel_21);
 		
-		JButton btnRespuesta3 = new JButton("Respuesta 3");
+		btnRespuesta3 = new JButton("Respuesta 3");
 		panel_21.add(btnRespuesta3);
 		
-		JPanel panel_22 = new JPanel();
+		panel_22 = new JPanel();
 		panel.add(panel_22);
 		
-		JButton btnRespuesta4 = new JButton("Respuesta 4");
+		btnRespuesta4 = new JButton("Respuesta 4");
 		panel_22.add(btnRespuesta4);
 		
 		/*JPanel panel_izquierdo = new JPanel();
@@ -82,17 +88,16 @@ public class VentanaPregunta extends JFrame{
 		JLabel lblReloj = new JLabel("Reloj");
 		panel_izquierdo.add(lblReloj);
 		*/
-		ImagenTiempo imagenTiempo= new ImagenTiempo("/images/Progreso100.png"); 
+		imagenTiempo= new ImagenTiempo("/images/Progreso100.png"); 
 		getContentPane().add(imagenTiempo, BorderLayout.WEST);
 		
-		
-		JPanel panel_derecho = new JPanel();
+		panel_derecho = new JPanel();
 		getContentPane().add(panel_derecho, BorderLayout.EAST);
 		
-		JPanel panel_centro = new JPanel();
+		panel_centro = new JPanel();
 		getContentPane().add(panel_centro, BorderLayout.CENTER);
 		
-		JLabel lblPregunta = new JLabel("Pregunta");
+		lblPregunta = new JLabel("Pregunta");
 		panel_centro.add(lblPregunta);
 		initialize();
 	}

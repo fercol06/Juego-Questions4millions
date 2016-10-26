@@ -17,7 +17,10 @@ import java.awt.event.ActionEvent;
 public class VentanaJugadores extends JFrame {
 
 	private JPanel contentPane;
-
+	private JPanel panelNorte,panelSur,panelIzquierda,panelCentro,panelDerecha;
+	private JButton btnConfigurarYJugar;
+	
+	
 	/**
 	 * Launch the application.
 	 */
@@ -49,13 +52,13 @@ public class VentanaJugadores extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		JPanel panelNorte = new JPanel();
+		panelNorte = new JPanel();
 		contentPane.add(panelNorte, BorderLayout.NORTH);
 		
-		JPanel panelSur = new JPanel();
+		panelSur = new JPanel();
 		contentPane.add(panelSur, BorderLayout.SOUTH);
 		
-		JButton btnConfigurarYJugar = new JButton("Configurar y Jugar");
+		btnConfigurarYJugar = new JButton("Configurar y Jugar");
 		btnConfigurarYJugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
@@ -68,13 +71,13 @@ public class VentanaJugadores extends JFrame {
 		});
 		panelSur.add(btnConfigurarYJugar);
 		
-		JPanel panelIzquierda = new JPanel();
+		panelIzquierda = new JPanel();
 		contentPane.add(panelIzquierda, BorderLayout.WEST);
 		
-		JPanel panelCentro = new JPanel();
+		panelCentro = new JPanel();
 		contentPane.add(panelCentro, BorderLayout.CENTER);
 		
-		JPanel panelDerecha = new JPanel();
+		panelDerecha = new JPanel();
 		contentPane.add(panelDerecha, BorderLayout.EAST);
 	}
 
