@@ -3,6 +3,7 @@ package ventanas;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -10,6 +11,8 @@ import BasesDeDatos.BD;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -34,6 +37,7 @@ public class VentanaPrincipal {
 	private JPanel panel_12;
 	private JPanel panel_21;
 	private JPanel panel_22;
+	private JLabel lblFoto;
 
 	/**
 	 * Launch the application.
@@ -130,8 +134,25 @@ public class VentanaPrincipal {
 		panel_centro.add(panel_centro_norte, BorderLayout.NORTH);
 		panel_centro_norte.setLayout(new FlowLayout(FlowLayout.RIGHT, 5, 5));
 		
-		btnAdmin = new JButton("Admin");
+		btnAdmin = new JButton();
+		//btnAdmin.setBounds(0, 0, 125, 125);
 		panel_centro_norte.add(btnAdmin);
+		
+	    //Creamos un objeto ImageIcon con el nombre de la imagen
+	    ImageIcon face = new ImageIcon(getClass().getResource("/images/admin50.png"));
+	    //Añadimos la imagen al boton
+	    btnAdmin.setIcon(face);
+	    //Creamos un objeto ImageIcon con el nombre de la imagen
+	    ImageIcon linked = new ImageIcon(getClass().getResource("/images/admin100.png"));
+	    //Añadimos la imagen al boton, con el metodo setRolloverIcon que hace que la imagen se muestre cuando pasamos el cursor encima del boton
+	    btnAdmin.setRolloverIcon(linked);
+
+
+		//ImageIcon im = new ImageIcon("/images/admin50.png");
+		//lblFoto = new JLabel(im);
+		//lblFoto.setBounds(10, 11, 154, 172);
+		//lblFoto.resize(im.getIconWidth(), im.getIconHeight());
+		
 
 	}
 
