@@ -17,6 +17,7 @@ import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.FlowLayout;
+import javax.swing.SwingConstants;
 
 public class VentanaPrincipal {
 
@@ -144,13 +145,12 @@ public class VentanaPrincipal {
 		});
 		//btnAdmin.setBounds(0, 0, 125, 125);
 		panel_centro_norte.add(btnAdmin);
-		
 	    //Creamos un objeto ImageIcon con el nombre de la imagen
-	    ImageIcon face = new ImageIcon(getClass().getResource("/images/admin40.png"));
+	    ImageIcon face = new ImageIcon(getClass().getResource("/images/admin40_25.png"));
 	    //Añadimos la imagen al boton
 	    btnAdmin.setIcon(face);
 	    //Creamos un objeto ImageIcon con el nombre de la imagen
-	    ImageIcon linked = new ImageIcon(getClass().getResource("/images/admin100.png"));
+	    ImageIcon linked = new ImageIcon(getClass().getResource("/images/admin100_25.png"));
 	    //Añadimos la imagen al boton, con el metodo setRolloverIcon que hace que la imagen se muestre cuando pasamos el cursor encima del boton
 	    btnAdmin.setRolloverIcon(linked);
 

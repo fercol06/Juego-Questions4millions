@@ -14,6 +14,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridLayout;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.JButton;
 
 public class VentanaLogin extends JFrame {
 
@@ -56,14 +57,14 @@ public class VentanaLogin extends JFrame {
 		
 		JPanel panel_centro = new JPanel();
 		contentPane.add(panel_centro, BorderLayout.CENTER);
-		panel_centro.setLayout(new GridLayout(0, 4, 0, 0));
+		panel_centro.setLayout(new BorderLayout(0, 0));
 		
-		JPanel panel_1 = new JPanel();
-		panel_centro.add(panel_1);
+		JPanel panel_4 = new JPanel();
+		panel_centro.add(panel_4);
 		
 		JPanel panel_2 = new JPanel();
-		panel_centro.add(panel_2);
-		panel_2.setLayout(new GridLayout(2, 0, 0, 0));
+		panel_4.add(panel_2);
+		panel_2.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JPanel panel = new JPanel();
 		panel_2.add(panel);
@@ -88,13 +89,15 @@ public class VentanaLogin extends JFrame {
 		panel_7.setLayout(new GridLayout(3, 1, 0, 0));
 		
 		JPanel panel_15 = new JPanel();
+		FlowLayout flowLayout = (FlowLayout) panel_15.getLayout();
+		flowLayout.setAlignment(FlowLayout.LEFT);
 		panel_7.add(panel_15);
 		
 		JLabel lblContrasenia = new JLabel("Contrase\u00F1a:");
 		panel_15.add(lblContrasenia);
 		
 		JPanel panel_3 = new JPanel();
-		panel_centro.add(panel_3);
+		panel_4.add(panel_3);
 		panel_3.setLayout(new GridLayout(2, 1, 0, 0));
 		
 		JPanel panel_9 = new JPanel();
@@ -126,8 +129,20 @@ public class VentanaLogin extends JFrame {
 		panel_14.add(textFieldContrasenia);
 		textFieldContrasenia.setColumns(10);
 		
-		JPanel panel_4 = new JPanel();
-		panel_centro.add(panel_4);
+		JPanel panel_16 = new JPanel();
+		panel_centro.add(panel_16, BorderLayout.NORTH);
+		
+		JPanel panel_17 = new JPanel();
+		panel_centro.add(panel_17, BorderLayout.SOUTH);
+		
+		JButton btnIniciarSesion = new JButton("Iniciar Sesi\u00F3n");
+		panel_17.add(btnIniciarSesion);
+		
+		JPanel panel_18 = new JPanel();
+		panel_centro.add(panel_18, BorderLayout.WEST);
+		
+		JPanel panel_19 = new JPanel();
+		panel_centro.add(panel_19, BorderLayout.EAST);
 	}
 
 }
