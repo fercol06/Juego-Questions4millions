@@ -30,6 +30,10 @@ public class VentanaPrincipal {
 	
 	//Una unica conexión
 	public static BD bd;
+	private JPanel panel_11;
+	private JPanel panel_12;
+	private JPanel panel_21;
+	private JPanel panel_22;
 
 	/**
 	 * Launch the application.
@@ -75,22 +79,17 @@ public class VentanaPrincipal {
 		panel_sur.add(panel);
 		panel.setLayout(new GridLayout(2, 2, 0, 0));
 		
+		panel_11 = new JPanel();
+		panel.add(panel_11);
+		
 		btnJugar = new JButton("Jugar");
-		panel.add(btnJugar);
+		panel_11.add(btnJugar);
 		
-		btnInstrucciones = new JButton("Instrucciones");
-		btnInstrucciones.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				JOptionPane.showMessageDialog(null, "Instrucciones...", "Instrucciones Q4M:", JOptionPane.INFORMATION_MESSAGE);
-			}
-		});
-		panel.add(btnInstrucciones);
-		
-		btnMarcadores = new JButton("Marcadores");
-		panel.add(btnMarcadores);
+		panel_12 = new JPanel();
+		panel.add(panel_12);
 		
 		btnSalir = new JButton("Salir");
+		panel_12.add(btnSalir);
 		btnSalir.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -98,7 +97,24 @@ public class VentanaPrincipal {
 				System.exit(0);
 			}
 		});
-		panel.add(btnSalir);
+		
+		panel_21 = new JPanel();
+		panel.add(panel_21);
+		
+		btnMarcadores = new JButton("Marcadores");
+		panel_21.add(btnMarcadores);
+		
+		panel_22 = new JPanel();
+		panel.add(panel_22);
+		
+		btnInstrucciones = new JButton("Instrucciones");
+		panel_22.add(btnInstrucciones);
+		btnInstrucciones.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				JOptionPane.showMessageDialog(null, "Instrucciones...", "Instrucciones Q4M:", JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
 		
 		panel_izquierda = new JPanel();
 		frame.getContentPane().add(panel_izquierda, BorderLayout.WEST);
