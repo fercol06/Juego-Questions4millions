@@ -33,6 +33,7 @@ public class VentanaPrincipal {
 	
 	//Una unica conexión
 	public static BD bd;
+	
 	private JPanel panel_11;
 	private JPanel panel_12;
 	private JPanel panel_21;
@@ -135,11 +136,17 @@ public class VentanaPrincipal {
 		panel_centro_norte.setLayout(new FlowLayout(FlowLayout.RIGHT, 5, 5));
 		
 		btnAdmin = new JButton();
+		btnAdmin.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				VentanaLogin vl = new VentanaLogin();
+			}
+		});
 		//btnAdmin.setBounds(0, 0, 125, 125);
 		panel_centro_norte.add(btnAdmin);
 		
 	    //Creamos un objeto ImageIcon con el nombre de la imagen
-	    ImageIcon face = new ImageIcon(getClass().getResource("/images/admin50.png"));
+	    ImageIcon face = new ImageIcon(getClass().getResource("/images/admin40.png"));
 	    //Añadimos la imagen al boton
 	    btnAdmin.setIcon(face);
 	    //Creamos un objeto ImageIcon con el nombre de la imagen
