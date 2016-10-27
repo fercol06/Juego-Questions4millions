@@ -29,6 +29,7 @@ public class VentanaInicio extends JFrame implements ActionListener {
 	private JButton btnMarcadores = new JButton("Marcadores");
 	private JButton btnInstrucciones = new JButton("Instrucciones");
 	private JButton btnSalir = new JButton("Salir");
+	private JButton btnAdministracion;
 	//Una unica conexión
 	public static BD bd;
 
@@ -108,6 +109,10 @@ public class VentanaInicio extends JFrame implements ActionListener {
 		});
 		btnSalir.setBounds(212, 199, 150, 29);
 		panel_centro.add(btnSalir);
+		
+		btnAdministracion = new JButton("Administraci\u00F3n");
+		btnAdministracion.setBounds(212, 54, 150, 29);
+		panel_centro.add(btnAdministracion);
 
 	}
 	/*???????????????????????????????????????????????????
