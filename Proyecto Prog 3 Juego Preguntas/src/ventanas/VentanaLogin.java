@@ -21,6 +21,7 @@ public class VentanaLogin extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldNombre;
 	private JTextField textFieldContrasenia;
+	private JButton btnIniciarSesion;
 
 	/**
 	 * Launch the application.
@@ -135,7 +136,7 @@ public class VentanaLogin extends JFrame {
 		JPanel panel_17 = new JPanel();
 		panel_centro.add(panel_17, BorderLayout.SOUTH);
 		
-		JButton btnIniciarSesion = new JButton("Iniciar Sesi\u00F3n");
+		btnIniciarSesion = new JButton("Iniciar Sesi\u00F3n");
 		panel_17.add(btnIniciarSesion);
 		
 		JPanel panel_18 = new JPanel();
