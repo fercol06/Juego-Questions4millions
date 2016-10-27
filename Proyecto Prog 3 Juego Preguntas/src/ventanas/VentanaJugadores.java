@@ -18,7 +18,8 @@ public class VentanaJugadores extends JFrame {
 
 	private JPanel contentPane;
 	private JPanel panelNorte,panelSur,panelIzquierda,panelCentro,panelDerecha;
-	private JButton btnConfigurarYJugar;
+	private JButton btnSiguiente;
+	private JButton btnAtras;
 	
 	
 	/**
@@ -58,18 +59,11 @@ public class VentanaJugadores extends JFrame {
 		panelSur = new JPanel();
 		contentPane.add(panelSur, BorderLayout.SOUTH);
 		
-		btnConfigurarYJugar = new JButton("Configurar y Jugar");
-		btnConfigurarYJugar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btnConfigurarYJugar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				//JOptionPane.showConfirmDialog(null, "¿Seguro que desea terminar la partida?", "Salir", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-			}
-		});
-		panelSur.add(btnConfigurarYJugar);
+		btnSiguiente = new JButton("Siguiente");
+		panelSur.add(btnSiguiente);
+		
+		btnAtras = new JButton("Atr\u00E1s");
+		panelSur.add(btnAtras);
 		
 		panelIzquierda = new JPanel();
 		contentPane.add(panelIzquierda, BorderLayout.WEST);

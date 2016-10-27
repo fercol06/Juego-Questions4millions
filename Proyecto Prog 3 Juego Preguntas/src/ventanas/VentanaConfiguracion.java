@@ -3,6 +3,7 @@ package ventanas;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -10,6 +11,9 @@ import javax.swing.border.EmptyBorder;
 public class VentanaConfiguracion extends JFrame {
 
 	private JPanel contentPane;
+	private JPanel panelNorte,panelSur,panelIzquierda,panelCentro,panelDerecha;
+	private JButton btnJugar;
+	private JButton btnAtras;
 
 	/**
 	 * Launch the application.
@@ -38,17 +42,26 @@ public class VentanaConfiguracion extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		JPanel panel_norte = new JPanel();
-		contentPane.add(panel_norte, BorderLayout.NORTH);
+		panelNorte = new JPanel();
+		contentPane.add(panelNorte, BorderLayout.NORTH);
 		
-		JPanel panel_sur = new JPanel();
-		contentPane.add(panel_sur, BorderLayout.SOUTH);
+		panelSur = new JPanel();
+		contentPane.add(panelSur, BorderLayout.SOUTH);
 		
-		JPanel panel_izquierda = new JPanel();
-		contentPane.add(panel_izquierda, BorderLayout.WEST);
+		btnJugar = new JButton("Jugar");
+		panelSur.add(btnJugar);
 		
-		JPanel panel_centro = new JPanel();
-		contentPane.add(panel_centro, BorderLayout.CENTER);
+		btnAtras = new JButton("Atr\u00E1s");
+		panelSur.add(btnAtras);
+		
+		panelIzquierda = new JPanel();
+		contentPane.add(panelIzquierda, BorderLayout.WEST);
+		
+		panelCentro = new JPanel();
+		contentPane.add(panelCentro, BorderLayout.CENTER);
+		
+		panelDerecha = new JPanel();
+		contentPane.add(panelDerecha, BorderLayout.EAST);
 	}
 
 }
