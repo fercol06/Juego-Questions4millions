@@ -6,6 +6,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JComboBox;
+import javax.swing.JButton;
 
 public class VentanaAdministracion extends JFrame {
 
@@ -43,6 +45,25 @@ public class VentanaAdministracion extends JFrame {
 		
 		JPanel panel_centro = new JPanel();
 		contentPane.add(panel_centro, BorderLayout.CENTER);
+		panel_centro.setLayout(new BorderLayout(0, 0));
+		
+		JPanel panel_c_derecha = new JPanel();
+		panel_centro.add(panel_c_derecha, BorderLayout.EAST);
+		
+		JPanel panel_c_centro = new JPanel();
+		panel_centro.add(panel_c_centro, BorderLayout.CENTER);
+		
+		JComboBox comboBox = new JComboBox();
+		panel_c_centro.add(comboBox);
+		
+		JPanel panel_c_sur = new JPanel();
+		panel_centro.add(panel_c_sur, BorderLayout.SOUTH);
+		
+		JButton btnNewButton_1 = new JButton("New button");
+		panel_c_sur.add(btnNewButton_1);
+		
+		JButton btnNewButton = new JButton("New button");
+		panel_c_sur.add(btnNewButton);
 		
 		JPanel panel_sur = new JPanel();
 		contentPane.add(panel_sur, BorderLayout.SOUTH);
