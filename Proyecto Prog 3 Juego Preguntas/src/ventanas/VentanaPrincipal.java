@@ -18,6 +18,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.FlowLayout;
 import javax.swing.SwingConstants;
+import java.awt.Toolkit;
 
 public class VentanaPrincipal {
 
@@ -141,6 +142,7 @@ public class VentanaPrincipal {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				VentanaLogin vl = new VentanaLogin();
+				vl.setVisible(true);
 			}
 		});
 		//btnAdmin.setBounds(0, 0, 125, 125);
