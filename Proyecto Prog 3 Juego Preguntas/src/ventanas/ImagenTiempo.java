@@ -12,7 +12,6 @@ public class ImagenTiempo extends JPanel {
 	private String nombreImagen;
 	
 	
-	
 	public ImagenTiempo(String nombreImagen) {
 		this.nombreImagen = nombreImagen;
 	}
