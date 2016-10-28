@@ -59,11 +59,11 @@ public class VentanaAdministracion extends JFrame {
 		JPanel panel_c_sur = new JPanel();
 		panel_centro.add(panel_c_sur, BorderLayout.SOUTH);
 		
-		JButton btnNewButton_1 = new JButton("New button");
-		panel_c_sur.add(btnNewButton_1);
+		JButton btnEditar = new JButton("Editar");
+		panel_c_sur.add(btnEditar);
 		
-		JButton btnNewButton = new JButton("New button");
-		panel_c_sur.add(btnNewButton);
+		JButton btnNueva = new JButton("Nueva");
+		panel_c_sur.add(btnNueva);
 		
 		JPanel panel_sur = new JPanel();
 		contentPane.add(panel_sur, BorderLayout.SOUTH);
