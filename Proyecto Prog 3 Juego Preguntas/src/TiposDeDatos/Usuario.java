@@ -6,6 +6,7 @@ public class Usuario {
 	private String email;
 	private String con;
 	private static int record;
+	private String tipoUser;
 	
 	
 	/**
@@ -77,6 +78,12 @@ public class Usuario {
 		Usuario.record = record;
 	}
 	
+	/**
+	 * @return the tipoUser
+	 */
+	public String getTipoUser() {
+		return tipoUser;
+	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */

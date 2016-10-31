@@ -8,6 +8,7 @@ public class Pregunta {
 	private String resp3;
 	private String resp4;
 	private String respCorrecta;
+	private int nivel;
 	
 	/**
 	 * Constructor clase pregunta
@@ -18,13 +19,14 @@ public class Pregunta {
 	 * @param resp4
 	 * @param respCorrecta
 	 */
-	public Pregunta(String pregunta, String resp1, String resp2, String resp3, String resp4, String respCorrecta) {
+	public Pregunta(String pregunta, String resp1, String resp2, String resp3, String resp4, String respCorrecta, int nivel) {
 		this.pregunta = pregunta;
 		this.resp1 = resp1;
 		this.resp2 = resp2;
 		this.resp3 = resp3;
 		this.resp4 = resp4;
 		this.respCorrecta = respCorrecta;
+		this.nivel = nivel; 
 	}
 	/**
 	 * Constructor por defecto de clase Pregunta
