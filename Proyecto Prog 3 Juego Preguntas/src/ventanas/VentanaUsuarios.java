@@ -1,3 +1,4 @@
+
 package ventanas;
 import java.awt.EventQueue;
 
@@ -7,7 +8,6 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JPanel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Color;
-import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JSlider;
 import javax.swing.JLabel;
@@ -46,9 +46,12 @@ public class VentanaUsuarios extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaUsuarios() {
+		
+		// Relative layout 
+
 		getContentPane().setBackground(new Color(0, 128, 0));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 510, 488);
+		setBounds(100, 100, 510, 528);
 		
 		JPanel panel =  new JPanel();
 		panel.setBackground(new Color(0, 0, 205));
@@ -111,6 +114,7 @@ public class VentanaUsuarios extends JFrame {
 		JButton btnEliminar = new JButton("Eliminar");
 		btnEliminar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
+		
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
@@ -143,6 +147,9 @@ public class VentanaUsuarios extends JFrame {
 		panel_1.setLayout(gl_panel_1);
 		
 		JSlider slider = new JSlider();
+		slider.setMinorTickSpacing(50);
+		slider.setPaintTicks(true);
+		slider.setSnapToTicks(true);
 		slider.setName("Dificultad");
 		
 		//Label table de slider
@@ -157,6 +164,9 @@ public class VentanaUsuarios extends JFrame {
 		slider.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		
 		JSlider slider_1 = new JSlider();
+		slider_1.setSnapToTicks(true);
+		slider_1.setPaintTicks(true);
+		slider_1.setMinorTickSpacing(50);
 		slider_1.setName("Jugadores");
 		//Label table de slider
 				Hashtable<Integer, JLabel> labelTable_1 = new Hashtable<Integer, JLabel>();
@@ -171,6 +181,9 @@ public class VentanaUsuarios extends JFrame {
 		slider_1.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		
 		JSlider slider_2 = new JSlider();
+		slider_2.setMinorTickSpacing(50);
+		slider_2.setPaintTicks(true);
+		slider_2.setSnapToTicks(true);
 		slider_2.setName("Tiempo");
 		//Label table de slider
 		Hashtable<Integer, JLabel> labelTable_2= new Hashtable<Integer, JLabel>();
@@ -183,15 +196,17 @@ public class VentanaUsuarios extends JFrame {
 		slider_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		slider_2.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		
+		
 		JLabel lblAjusteCaract = new JLabel("AJUSTE CARACTERISTICA");
 		lblAjusteCaract.setForeground(Color.WHITE);
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
 		gl_panel_2.setHorizontalGroup(
-			gl_panel_2.createParallelGroup(Alignment.LEADING)
+			gl_panel_2.createParallelGroup(Alignment.CENTER)
 				.addGroup(gl_panel_2.createSequentialGroup()
 					.addGap(29)
 					.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
 						.addComponent(slider_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						
 						.addComponent(slider_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(slider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap(43, Short.MAX_VALUE))
@@ -207,7 +222,8 @@ public class VentanaUsuarios extends JFrame {
 					.addComponent(lblAjusteCaract, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(slider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+					
+					.addGap(29)
 					.addComponent(slider_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addGap(29)
 					.addComponent(slider_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -217,3 +233,4 @@ public class VentanaUsuarios extends JFrame {
 		getContentPane().setLayout(groupLayout);
 	}
 }
+

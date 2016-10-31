@@ -1,12 +1,16 @@
 package ventanas;
 import java.awt.EventQueue;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
+
+import Threads.ThreadTiempo;
+
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
@@ -15,9 +19,11 @@ public class VentanaPregunta extends JFrame{
 	private JFrame frame;
 	private JPanel panel_norte,panel_sur,panel_centro,panel_derecho;
 	private JPanel panel, panel_11,panel_12,panel_21,panel_22;
-	private ImagenTiempo imagenTiempo;
 	private JButton btnRespuesta1, btnRespuesta2, btnRespuesta3, btnRespuesta4;
 	private JLabel lblPregunta, lblUsuario;
+	private JPanel panel_Iniciar;
+
+
 	  
     
 	/**
@@ -40,18 +46,45 @@ public class VentanaPregunta extends JFrame{
 	 * Create the application.
 	 */
 	public VentanaPregunta() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Atenci\u00F3n, \u00A1pregunta!");
 		
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		
+		panel_Iniciar = new JPanel();
+		getContentPane().add(panel_Iniciar, BorderLayout.CENTER);
+		panel_Iniciar.setLayout(new BorderLayout(0, 0));
+		
+		
+		
 		panel_norte = new JPanel();
-		getContentPane().add(panel_norte, BorderLayout.NORTH);
+		panel_Iniciar.add(panel_norte, BorderLayout.NORTH);
 		
 		lblUsuario = new JLabel("Turno para: ");
 		panel_norte.add(lblUsuario);
 		
+	
+		panel_derecho = new JPanel();
+		panel_Iniciar.add(panel_derecho, BorderLayout.EAST);
+		
+		/*
+		ThreadTiempo ttiempo = new ThreadTiempo();
+		ttiempo.start();
+		*/
+		
+		ImagenTiempo imagenTiempo= new ImagenTiempo("/images/Progreso100.png");
+		panel_Iniciar.add(imagenTiempo, BorderLayout.WEST);
+		
+		
+		
+		panel_centro = new JPanel();
+		panel_Iniciar.add(panel_centro, BorderLayout.CENTER);
+		
+		lblPregunta = new JLabel("Pregunta");
+		panel_centro.add(lblPregunta);
+		
 		panel_sur = new JPanel();
-		getContentPane().add(panel_sur, BorderLayout.SOUTH);
+		panel_Iniciar.add(panel_sur, BorderLayout.SOUTH);
 		panel_sur.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		panel = new JPanel();
@@ -82,23 +115,6 @@ public class VentanaPregunta extends JFrame{
 		btnRespuesta4 = new JButton("Respuesta 4");
 		panel_22.add(btnRespuesta4);
 		
-		/*JPanel panel_izquierdo = new JPanel();
-		getContentPane().add(panel_izquierdo, BorderLayout.WEST);
-		
-		JLabel lblReloj = new JLabel("Reloj");
-		panel_izquierdo.add(lblReloj);
-		*/
-		imagenTiempo= new ImagenTiempo("/images/Progreso100.png"); 
-		getContentPane().add(imagenTiempo, BorderLayout.WEST);
-		
-		panel_derecho = new JPanel();
-		getContentPane().add(panel_derecho, BorderLayout.EAST);
-		
-		panel_centro = new JPanel();
-		getContentPane().add(panel_centro, BorderLayout.CENTER);
-		
-		lblPregunta = new JLabel("Pregunta");
-		panel_centro.add(lblPregunta);
 		initialize();
 	}
 
