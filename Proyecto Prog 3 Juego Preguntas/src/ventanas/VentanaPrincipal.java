@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import BasesDeDatos.BD;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 
 import javax.swing.ImageIcon;
@@ -81,7 +82,7 @@ public class VentanaPrincipal {
 		
 		ImagenPanel imagenLogo= new ImagenPanel("/images/AppLogo768x68.png");
 		frame.getContentPane().add(imagenLogo, BorderLayout.NORTH);
-		//imagenLogo.setSize(2000,1500);
+		//imagenLogo.setSize(new Dimension(3000, 3000));
 		//imagenLogo.setBounds(imagenLogo.getX(), imagenLogo.getY(), imagenLogo.getWidth(), imagenLogo.getHeight());
 		
 		panel_sur = new JPanel();
