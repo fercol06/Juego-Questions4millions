@@ -9,16 +9,16 @@ public class ThreadTiempo extends Thread{
 	
 	public long miliSegundos;
 	
-	public ThreadTiempo(){
+	public ThreadTiempo(long miliSegundos){
 		super();
 		this.miliSegundos = miliSegundos;
 	}
 	
 	public void run(){
 		
-		String aRutas[]={"/images/Progreso100.png","/images/Progreso90.png","/images/Progreso80.png", "/images/Progreso70.png",
-				"/images/Progreso60.png","/images/Progreso50.png","/images/Progreso40.png","/images/Progreso30.png",
-				"/images/Progreso20.png", "/images/Progreso10.png", "/images/Progreso0.png"};
+		String aRutas[]={"/images/Progreso100.png","/images/Progreso090.png","/images/Progreso080.png", "/images/Progreso070.png",
+				"/images/Progreso060.png","/images/Progreso050.png","/images/Progreso040.png","/images/Progreso030.png",
+				"/images/Progreso020.png", "/images/Progreso010.png", "/images/Progreso000.png"};
 		int i=0;
 		
 		while(true){
