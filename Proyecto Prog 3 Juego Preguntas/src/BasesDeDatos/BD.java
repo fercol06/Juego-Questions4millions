@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import TiposDeDatos.Pregunta;
 import TiposDeDatos.Usuario;
 
 public class BD {
@@ -76,6 +77,25 @@ public class BD {
 	
 	public BD(){
 		conectar();
+	}
+	
+	/**
+	 * Método para obtener preguntas
+	 */
+	public Pregunta obtenerPregunta(){
+		Pregunta p=null;
+		//Preparamos la query
+		String query="SELECT * FROM preguntas"; 
+		try {
+			ResultSet rs = stmt.executeQuery(query);
+			// Comprobamos si ha devuelto filas
+			if(rs.next()) 
+				p=new Pregunta(rs.getString("pregunta"),rs.getString("resp1"),rs.getString("resp2"),rs.getString("resp3"),rs.getString("resp4"),rs.getString("respOk"),rs.getInt("nivel"));
+			rs.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return p;
 	}
 	
 	/**

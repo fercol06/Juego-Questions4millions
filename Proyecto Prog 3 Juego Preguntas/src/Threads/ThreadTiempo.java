@@ -2,7 +2,7 @@ package Threads;
 
 import javax.swing.ImageIcon;
 
-import ventanas.ImagenTiempo;
+import ventanas.ImagenPanel;
 import ventanas.VentanaPregunta;
 
 public class ThreadTiempo extends Thread{
@@ -22,7 +22,7 @@ public class ThreadTiempo extends Thread{
 		int i=0;
 		
 		while(true){
-			ImagenTiempo im = new ImagenTiempo(aRutas[i]);
+			ImagenPanel im = new ImagenPanel(aRutas[i]);
 			//imagenTiempo.setIcon(imagenTiempos); 
 			i++;
 			if(i==aRutas.length){

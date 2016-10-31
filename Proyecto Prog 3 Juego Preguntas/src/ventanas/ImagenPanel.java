@@ -6,13 +6,13 @@ import java.awt.Graphics;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-public class ImagenTiempo extends JPanel {
+public class ImagenPanel extends JPanel {
 
 	private ImageIcon imagenTiempo;
 	private String nombreImagen;
 	
 	
-	public ImagenTiempo(String nombreImagen) {
+	public ImagenPanel(String nombreImagen) {
 		this.nombreImagen = nombreImagen;
 	}
 	protected void paintComponent (Graphics g){

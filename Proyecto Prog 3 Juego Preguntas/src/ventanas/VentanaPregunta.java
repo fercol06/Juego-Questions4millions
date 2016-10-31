@@ -72,7 +72,7 @@ public class VentanaPregunta extends JFrame{
 		ttiempo.start();
 		*/
 		
-		ImagenTiempo imagenTiempo= new ImagenTiempo("/images/Progreso100.png");
+		ImagenPanel imagenTiempo= new ImagenPanel("/images/Progreso100.png");
 		panel_Iniciar.add(imagenTiempo, BorderLayout.WEST);
 		
 		

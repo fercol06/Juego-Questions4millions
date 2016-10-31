@@ -6,7 +6,7 @@ public class Usuario {
 	private String email;
 	private String con;
 	private static int record;
-	private String tipoUser;
+	private String tipoUser; //1-admin ;  2-user
 	
 	
 	/**
@@ -14,12 +14,15 @@ public class Usuario {
 	 * @param user
 	 * @param email
 	 * @param con
+	 * @param record
+	 * @param tipoUser
 	 */
 	
-	public Usuario(String user, String email, String con) {
+	public Usuario(String user, String email, String con, String tipouser) {
 		this.user = user;
 		this.email = email;
 		this.con = con;
+		this.tipoUser = tipouser;
 	}
 	/**
 	 * Contructor sin parametros
@@ -77,13 +80,13 @@ public class Usuario {
 	public static void setRecord(int record) {
 		Usuario.record = record;
 	}
-	
 	/**
 	 * @return the tipoUser
 	 */
 	public String getTipoUser() {
 		return tipoUser;
 	}
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */

@@ -40,7 +40,6 @@ public class VentanaPrincipal {
 	private JPanel panel_12;
 	private JPanel panel_21;
 	private JPanel panel_22;
-	private JLabel lblFoto;
 
 	/**
 	 * Launch the application.
@@ -77,8 +76,13 @@ public class VentanaPrincipal {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 		
-		panel_norte = new JPanel();
-		frame.getContentPane().add(panel_norte, BorderLayout.NORTH);
+		//panel_norte = new JPanel();
+		//frame.getContentPane().add(panel_norte, BorderLayout.NORTH);
+		
+		ImagenPanel imagenLogo= new ImagenPanel("/images/AppLogo768x68.png");
+		frame.getContentPane().add(imagenLogo, BorderLayout.NORTH);
+		//imagenLogo.setSize(2000,1500);
+		//imagenLogo.setBounds(imagenLogo.getX(), imagenLogo.getY(), imagenLogo.getWidth(), imagenLogo.getHeight());
 		
 		panel_sur = new JPanel();
 		frame.getContentPane().add(panel_sur, BorderLayout.SOUTH);
