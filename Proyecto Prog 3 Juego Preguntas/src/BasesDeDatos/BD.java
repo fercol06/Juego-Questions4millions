@@ -104,11 +104,11 @@ public class BD {
 	 * @return
 	 */
 	
-	/*public Usuario obtenerCliente(String dni){
+	/*public Usuario obtenerUsuarioAdmin(String nombre){
 		String query;
 		Usuario u=null;
 		//Preparamos la query
-		query="SELECT * FROM usuario WHERE dni='"+dni+"'"; 
+		query="SELECT * FROM usuario WHERE user='"+nombre+"' AND tipo='admin'"; 
 		try {
 			ResultSet rs = stmt.executeQuery(query);
 			// Comprobamos si ha devuelto filas

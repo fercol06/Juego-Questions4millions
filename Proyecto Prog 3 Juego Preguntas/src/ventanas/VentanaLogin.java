@@ -6,7 +6,12 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import TiposDeDatos.Usuario;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.FlowLayout;
 import java.awt.CardLayout;
 import java.awt.GridBagLayout;
@@ -15,6 +20,8 @@ import java.awt.GridLayout;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VentanaLogin extends JFrame {
 
@@ -137,6 +144,34 @@ public class VentanaLogin extends JFrame {
 		panel_centro.add(panel_17, BorderLayout.SOUTH);
 		
 		btnIniciarSesion = new JButton("Iniciar Sesi\u00F3n");
+		btnIniciarSesion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String txtnombre = textFieldNombre.getText();
+				String txtcontraseña = textFieldContrasenia.getText();
+				
+				if (txtnombre.equals("") || txtcontraseña.equals("")) {
+					JOptionPane.showMessageDialog(null,"Para poder administrar el juego tienes que insertar un nombre de usuario y una contraseña validos",	"Error!", JOptionPane.ERROR_MESSAGE);
+				} else {
+				/*	Usuario u = bd.obtenerUsuarioAdmin(txtnombre);
+					if (u == null) {
+					 	//No existe
+						JOptionPane.showMessageDialog(null, "Lo siento pero no tienes permisos para acceder a esta página","Fallo de Autenticación!", JOptionPane.ERROR_MESSAGE);
+
+					} else if (!u.getCon().equals(textFieldContrasenia.getText())) {
+						//contraseña incorrecta
+						JOptionPane.showMessageDialog(null, "Lo sentimos, la contraseña no es correcta", "Error!", JOptionPane.ERROR_MESSAGE);
+					} else {
+						//Contraseña Correcta
+						new VentanaAdministracion(ventana, c);
+						ventana.dispose();
+					}*/
+				}
+				limpiarCampos();
+				 
+				
+			}
+		});
 		panel_17.add(btnIniciarSesion);
 		
 		JPanel panel_18 = new JPanel();
@@ -144,6 +179,13 @@ public class VentanaLogin extends JFrame {
 		
 		JPanel panel_19 = new JPanel();
 		panel_centro.add(panel_19, BorderLayout.EAST);
+	}
+	/**
+	 * Método para borrar campos
+	 */
+	private void limpiarCampos() {
+		textFieldNombre.setText("");
+		textFieldContrasenia.setText("");
 	}
 
 }
