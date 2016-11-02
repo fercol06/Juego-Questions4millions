@@ -153,7 +153,7 @@ public class VentanaLogin extends JFrame {
 				if (txtnombre.equals("") || txtcontraseña.equals("")) {
 					JOptionPane.showMessageDialog(null,"Para poder administrar el juego tienes que insertar un nombre de usuario y una contraseña validos",	"Error!", JOptionPane.ERROR_MESSAGE);
 				} else {
-				/*	Usuario u = bd.obtenerUsuarioAdmin(txtnombre);
+					Usuario u = VentanaPrincipal.bd.obtenerUsuarioAdmin(txtnombre);
 					if (u == null) {
 					 	//No existe
 						JOptionPane.showMessageDialog(null, "Lo siento pero no tienes permisos para acceder a esta página","Fallo de Autenticación!", JOptionPane.ERROR_MESSAGE);
@@ -163,9 +163,9 @@ public class VentanaLogin extends JFrame {
 						JOptionPane.showMessageDialog(null, "Lo sentimos, la contraseña no es correcta", "Error!", JOptionPane.ERROR_MESSAGE);
 					} else {
 						//Contraseña Correcta
-						new VentanaAdministracion(ventana, c);
-						ventana.dispose();
-					}*/
+						VentanaAdministracion va = new VentanaAdministracion();
+						va.dispose();
+					}
 				}
 				limpiarCampos();
 				 
@@ -179,6 +179,7 @@ public class VentanaLogin extends JFrame {
 		
 		JPanel panel_19 = new JPanel();
 		panel_centro.add(panel_19, BorderLayout.EAST);
+		
 	}
 	/**
 	 * Método para borrar campos

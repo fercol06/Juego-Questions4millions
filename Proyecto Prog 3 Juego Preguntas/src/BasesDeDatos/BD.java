@@ -104,7 +104,7 @@ public class BD {
 	 * @return
 	 */
 	
-	/*public Usuario obtenerUsuarioAdmin(String nombre){
+	public Usuario obtenerUsuarioAdmin(String nombre){
 		String query;
 		Usuario u=null;
 		//Preparamos la query
@@ -113,14 +113,14 @@ public class BD {
 			ResultSet rs = stmt.executeQuery(query);
 			// Comprobamos si ha devuelto filas
 			if(rs.next()) 
-				u=new Usuario(rs.getString("dni"),rs.getString("nombre"),rs.getInt("edad"),rs.getString("contrasenia"));
+				u=new Usuario(rs.getString("user"),rs.getString("email"),rs.getString("pass"),rs.getInt("record"),rs.getString("tipo"));
 			rs.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return u;
 	}
-	 */
+	 
 
 
 

@@ -5,7 +5,7 @@ public class Usuario {
 	private String user;
 	private String email;
 	private String con;
-	private static int record;
+	private int record;
 	private String tipoUser; //1-admin ;  2-user
 	
 	
@@ -18,10 +18,11 @@ public class Usuario {
 	 * @param tipoUser
 	 */
 	
-	public Usuario(String user, String email, String con, String tipouser) {
+	public Usuario(String user, String email, String con, int record, String tipouser) {
 		this.user = user;
 		this.email = email;
 		this.con = con;
+		this.record = record;
 		this.tipoUser = tipouser;
 	}
 	/**
@@ -32,17 +33,13 @@ public class Usuario {
 		
 	}
 	
+	
+	
 	/**
 	 * @return the user
 	 */
 	public String getUser() {
 		return user;
-	}
-	/**
-	 * @param user the user to set
-	 */
-	public void setUser(String user) {
-		this.user = user;
 	}
 	/**
 	 * @return the email
@@ -51,16 +48,34 @@ public class Usuario {
 		return email;
 	}
 	/**
-	 * @param email the email to set
-	 */
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	/**
 	 * @return the con
 	 */
 	public String getCon() {
 		return con;
+	}
+	/**
+	 * @return the record
+	 */
+	public int getRecord() {
+		return record;
+	}
+	/**
+	 * @return the tipoUser
+	 */
+	public String getTipoUser() {
+		return tipoUser;
+	}
+	/**
+	 * @param user the user to set
+	 */
+	public void setUser(String user) {
+		this.user = user;
+	}
+	/**
+	 * @param email the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	/**
 	 * @param con the con to set
@@ -69,24 +84,17 @@ public class Usuario {
 		this.con = con;
 	}
 	/**
-	 * @return the record
-	 */
-	public static int getRecord() {
-		return record;
-	}
-	/**
 	 * @param record the record to set
 	 */
-	public static void setRecord(int record) {
-		Usuario.record = record;
+	public void setRecord(int record) {
+		this.record = record;
 	}
 	/**
-	 * @return the tipoUser
+	 * @param tipoUser the tipoUser to set
 	 */
-	public String getTipoUser() {
-		return tipoUser;
+	public void setTipoUser(String tipoUser) {
+		this.tipoUser = tipoUser;
 	}
-	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */

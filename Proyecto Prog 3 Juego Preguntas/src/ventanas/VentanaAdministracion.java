@@ -5,9 +5,16 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
+
+import TiposDeDatos.Pregunta;
+
 import javax.swing.JComboBox;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JList;
 
 public class VentanaAdministracion extends JFrame {
 
@@ -50,11 +57,28 @@ public class VentanaAdministracion extends JFrame {
 		JPanel panel_c_derecha = new JPanel();
 		panel_centro.add(panel_c_derecha, BorderLayout.EAST);
 		
-		JPanel panel_c_centro = new JPanel();
-		panel_centro.add(panel_c_centro, BorderLayout.CENTER);
 		
-		JComboBox comboBox = new JComboBox();
-		panel_c_centro.add(comboBox);
+		
+		
+		
+		JPanel panel_c_centro = new JPanel();
+		panel_centro.add(panel_c_centro,BorderLayout.CENTER);
+		
+		JScrollPane slistPreguntas = new JScrollPane();
+		panel_c_centro.add(slistPreguntas);
+		
+		JList listPreguntas = new JList<Pregunta>();
+		listPreguntas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		listPreguntas.setModel(new DefaultListModel<Pregunta>());
+		slistPreguntas.setViewportView(listPreguntas);
+		
+		/*JList listPreguntas = new JList();
+		listPreguntas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		JScrollPane slistPreguntas = new JScrollPane(listPreguntas);
+		*/
+		
+		
+		//panel_centro.add(panel_c_centro, BorderLayout.CENTER);
 		
 		JPanel panel_c_sur = new JPanel();
 		panel_centro.add(panel_c_sur, BorderLayout.SOUTH);
