@@ -165,12 +165,12 @@ public class VentanaLogin extends JFrame {
 
 					} else if (!u.getCon().equals(txtcontraseña)) {
 						//contraseña incorrecta
-						JOptionPane.showMessageDialog(null, "Lo sentimos, la contraseña no es correcta", "Error!", JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null, "Lo sentimos, la contraseña o el usuario no es correcto", "Error!", JOptionPane.ERROR_MESSAGE);
 					} else {
 						//Contraseña Correcta
 						VentanaAdministracion va = new VentanaAdministracion();
 						va.setVisible(true);
-						// cerrar ventana??
+						dispose();
 					}
 				}
 				limpiarCampos();

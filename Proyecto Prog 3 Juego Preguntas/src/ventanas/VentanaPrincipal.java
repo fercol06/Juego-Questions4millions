@@ -81,6 +81,7 @@ public class VentanaPrincipal {
 		
 		ImagenPanel imagenLogo= new ImagenPanel("/images/AppLogo768x68.png");
 		frame.getContentPane().add(imagenLogo, BorderLayout.NORTH);
+		imagenLogo.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		//imagenLogo.setSize(new Dimension(3000, 3000));
 		//imagenLogo.setBounds(imagenLogo.getX(), imagenLogo.getY(), imagenLogo.getWidth(), imagenLogo.getHeight());
 		
