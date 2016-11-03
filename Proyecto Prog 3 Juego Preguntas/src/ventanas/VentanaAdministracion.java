@@ -10,15 +10,20 @@ import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
 
 import TiposDeDatos.Pregunta;
+import TiposDeDatos.Usuario;
 
 import javax.swing.JComboBox;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JList;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class VentanaAdministracion extends JFrame {
 
 	private JPanel contentPane;
+	private JList listPreguntas;
+	private JScrollPane slistPreguntas;
 
 	/**
 	 * Launch the application.
@@ -64,10 +69,10 @@ public class VentanaAdministracion extends JFrame {
 		JPanel panel_c_centro = new JPanel();
 		panel_centro.add(panel_c_centro,BorderLayout.CENTER);
 		
-		JScrollPane slistPreguntas = new JScrollPane();
+		slistPreguntas = new JScrollPane();
 		panel_c_centro.add(slistPreguntas);
 		
-		JList listPreguntas = new JList<Pregunta>();
+		listPreguntas = new JList<Pregunta>();
 		listPreguntas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		listPreguntas.setModel(new DefaultListModel<Pregunta>());
 		slistPreguntas.setViewportView(listPreguntas);
@@ -76,8 +81,6 @@ public class VentanaAdministracion extends JFrame {
 		listPreguntas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		JScrollPane slistPreguntas = new JScrollPane(listPreguntas);
 		*/
-		
-		
 		//panel_centro.add(panel_c_centro, BorderLayout.CENTER);
 		
 		JPanel panel_c_sur = new JPanel();
@@ -92,11 +95,38 @@ public class VentanaAdministracion extends JFrame {
 		JPanel panel_sur = new JPanel();
 		contentPane.add(panel_sur, BorderLayout.SOUTH);
 		
+		JButton btnCerrarSesion = new JButton("Cerrar Sesi\u00F3n ");
+		btnCerrarSesion.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				//Cierra la sesion de Admin
+				dispose();
+			}
+		});
+		panel_sur.add(btnCerrarSesion);
+		
 		JPanel panel_izquierda = new JPanel();
 		contentPane.add(panel_izquierda, BorderLayout.WEST);
 		
 		JPanel panel_derecha = new JPanel();
 		contentPane.add(panel_derecha, BorderLayout.EAST);
 	}
-
+	
+	/**
+	 * Método que inserta en la lista las preguntas.
+	 */
+	private void insertarPreguntaEnLista() {
+		
+		//Hago aqui la llamada a la bd para todas las preguntas?
+		// o lo guardo en un array?
+		Pregunta p = VentanaPrincipal.bd.obtenerPregunta(); // me devuelve 1????
+		/*
+		DefaultListModel<Pregunta> dlm = (DefaultListModel<Pregunta>) listPreguntas.getModel();
+		for(int i=0; i<){
+			dlm.addElement(element);
+		}
+		listPreguntas.setModel(dlm);
+		*/
+	}
+	
 }

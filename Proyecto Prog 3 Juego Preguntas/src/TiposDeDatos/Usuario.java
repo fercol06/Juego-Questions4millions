@@ -100,7 +100,8 @@ public class Usuario {
 	 */
 	@Override
 	public String toString() {
-		return "Usuario [user=" + user + ", email=" + email + ", con=" + con + "]";
+		return "Usuario [user=" + user + ", email=" + email + ", con=" + con + ", record=" + record + ", tipoUser="
+				+ tipoUser + "]";
 	}
 	
 

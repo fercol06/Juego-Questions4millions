@@ -22,13 +22,14 @@ import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JPasswordField;
 
 public class VentanaLogin extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldNombre;
-	private JTextField textFieldContrasenia;
 	private JButton btnIniciarSesion;
+	private JPasswordField passwordFieldContrasenia;
 
 	/**
 	 * Launch the application.
@@ -133,12 +134,15 @@ public class VentanaLogin extends JFrame {
 		JPanel panel_14 = new JPanel();
 		panel_10.add(panel_14);
 		
-		textFieldContrasenia = new JTextField();
-		panel_14.add(textFieldContrasenia);
-		textFieldContrasenia.setColumns(10);
+		passwordFieldContrasenia = new JPasswordField();
+		passwordFieldContrasenia.setColumns(10);
+		panel_14.add(passwordFieldContrasenia);
 		
 		JPanel panel_16 = new JPanel();
 		panel_centro.add(panel_16, BorderLayout.NORTH);
+		
+		JLabel lblAccesoAlPanel = new JLabel("Acceso al panel de Administraci\u00F3n: ");
+		panel_16.add(lblAccesoAlPanel);
 		
 		JPanel panel_17 = new JPanel();
 		panel_centro.add(panel_17, BorderLayout.SOUTH);
@@ -148,9 +152,10 @@ public class VentanaLogin extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				String txtnombre = textFieldNombre.getText();
-				String txtcontraseña = textFieldContrasenia.getText();
+				String txtcontraseña = passwordFieldContrasenia.getText();
 				
 				if (txtnombre.equals("") || txtcontraseña.equals("")) {
+					//Datos vacios
 					JOptionPane.showMessageDialog(null,"Para poder administrar el juego tienes que insertar un nombre de usuario y una contraseña validos",	"Error!", JOptionPane.ERROR_MESSAGE);
 				} else {
 					Usuario u = VentanaPrincipal.bd.obtenerUsuarioAdmin(txtnombre);
@@ -158,18 +163,18 @@ public class VentanaLogin extends JFrame {
 					 	//No existe
 						JOptionPane.showMessageDialog(null, "Lo siento pero no tienes permisos para acceder a esta página","Fallo de Autenticación!", JOptionPane.ERROR_MESSAGE);
 
-					} else if (!u.getCon().equals(textFieldContrasenia.getText())) {
+					} else if (!u.getCon().equals(txtcontraseña)) {
 						//contraseña incorrecta
 						JOptionPane.showMessageDialog(null, "Lo sentimos, la contraseña no es correcta", "Error!", JOptionPane.ERROR_MESSAGE);
 					} else {
 						//Contraseña Correcta
 						VentanaAdministracion va = new VentanaAdministracion();
-						va.dispose();
+						va.setVisible(true);
+						// cerrar ventana??
 					}
 				}
 				limpiarCampos();
 				 
-				
 			}
 		});
 		panel_17.add(btnIniciarSesion);
@@ -186,7 +191,7 @@ public class VentanaLogin extends JFrame {
 	 */
 	private void limpiarCampos() {
 		textFieldNombre.setText("");
-		textFieldContrasenia.setText("");
+		passwordFieldContrasenia.setText("");
 	}
 
 }

@@ -70,6 +70,14 @@ public class Pregunta {
 	public String getRespCorrecta() {
 		return respCorrecta;
 	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Pregunta [pregunta=" + pregunta + ", resp1=" + resp1 + ", resp2=" + resp2 + ", resp3=" + resp3
+				+ ", resp4=" + resp4 + ", respCorrecta=" + respCorrecta + ", nivel=" + nivel + "]";
+	}
 
 	
 	
