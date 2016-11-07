@@ -106,7 +106,7 @@ public class VentanaAdministracion extends JFrame {
 		btnCerrarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				//numVentanasLogin=0;
+				VentanaPrincipal.numVentanasLogin=false;
 			}
 			
 		});

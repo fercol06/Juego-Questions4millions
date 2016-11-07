@@ -24,6 +24,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 import java.awt.Toolkit;
+import javax.swing.JSeparator;
 
 public class VentanaLogin extends JFrame {
 
@@ -142,9 +143,13 @@ public class VentanaLogin extends JFrame {
 		
 		JPanel panel_16 = new JPanel();
 		panel_centro.add(panel_16, BorderLayout.NORTH);
+		panel_16.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JLabel lblAccesoAlPanel = new JLabel("Acceso al panel de Administraci\u00F3n: ");
 		panel_16.add(lblAccesoAlPanel);
+		
+		JSeparator separator = new JSeparator();
+		panel_16.add(separator);
 		
 		JPanel panel_17 = new JPanel();
 		panel_centro.add(panel_17, BorderLayout.SOUTH);

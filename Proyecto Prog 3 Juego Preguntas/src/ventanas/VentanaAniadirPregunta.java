@@ -25,6 +25,7 @@ public class VentanaAniadirPregunta extends JFrame {
 	private JTextField textFieldRespuestaIncorrecta2;
 	private JTextField textFieldRespuestaIncorrecta3;
 	private JTextField textFieldRespuestaCorrecta;
+	private JComboBox comboBoxNivel;
 
 	/**
 	 * Launch the application.
@@ -127,7 +128,7 @@ public class VentanaAniadirPregunta extends JFrame {
 		JLabel lblNivel = new JLabel("Nivel:");
 		panel_C_Centro.add(lblNivel);
 		
-		JComboBox comboBoxNivel = new JComboBox();
+		comboBoxNivel = new JComboBox();
 		comboBoxNivel.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3"}));
 		comboBoxNivel.setMaximumRowCount(3);
 		panel_C_Centro.add(comboBoxNivel);
