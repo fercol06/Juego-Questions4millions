@@ -97,9 +97,31 @@ public class BD {
 		}
 		return p;
 	}
+	/**
+	 * Método para añadir pregunta
+	 */
+	public void aniadirPregunta(Pregunta p){
+		
+		/*Preparamos la query
+		 * @param pregunta
+		 * @param resp1
+		 * @param resp2
+		 * @param resp3
+		 * @param resp4
+		 * @param respCorrecta
+		 * @param nivel
+		 */
+		String query="INSERT INTO preguntas (pregunta,resp1,resp2,resp3,resp4,respOk,nivel) VALUES ('"+p.getPregunta()+"','"+p.getResp1()+"',"+p.getResp2()+",'"+p.getResp3()+",'"+p.getResp4()+"','"+p.getRespCorrecta()+",'"+p.getNivel()+"')"; 
+		try {
+			stmt.executeUpdate(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	/**
-	 * Metodo para obtener Usuario
+	 * Método para obtener Usuario Admin
 	 * @param dni
 	 * @return
 	 */

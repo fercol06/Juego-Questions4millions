@@ -10,7 +10,7 @@ public class Usuario {
 	
 	
 	/**
-	 * Contructor con parametros
+	 * Contructor con parametros de la clase Usuario
 	 * @param user
 	 * @param email
 	 * @param con
@@ -26,7 +26,7 @@ public class Usuario {
 		this.tipoUser = tipouser;
 	}
 	/**
-	 * Contructor sin parametros
+	 * Contructor sin parametros clase Usuario
 	 */
 	
 	public Usuario() {

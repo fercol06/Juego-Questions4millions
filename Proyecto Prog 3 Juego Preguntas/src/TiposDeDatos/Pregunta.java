@@ -11,13 +11,14 @@ public class Pregunta {
 	private int nivel;
 	
 	/**
-	 * Constructor clase pregunta
+	 * Constructor con parametros clase pregunta
 	 * @param pregunta
 	 * @param resp1
 	 * @param resp2
 	 * @param resp3
 	 * @param resp4
 	 * @param respCorrecta
+	 * @param nivel
 	 */
 	public Pregunta(String pregunta, String resp1, String resp2, String resp3, String resp4, String respCorrecta, int nivel) {
 		this.pregunta = pregunta;
@@ -69,7 +70,14 @@ public class Pregunta {
 	 */
 	public String getRespCorrecta() {
 		return respCorrecta;
+	}	
+	/**
+	 * @return the nivel
+	 */
+	public int getNivel() {
+		return nivel;
 	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */

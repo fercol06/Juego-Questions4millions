@@ -20,6 +20,8 @@ import java.awt.event.MouseEvent;
 import java.awt.FlowLayout;
 import javax.swing.SwingConstants;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VentanaPrincipal {
 
@@ -41,6 +43,8 @@ public class VentanaPrincipal {
 	private JPanel panel_12;
 	private JPanel panel_21;
 	private JPanel panel_22;
+	
+	//protected int numVentanasLogin=0; //comprobar 1 vez crear ventana login
 
 	/**
 	 * Launch the application.
@@ -144,13 +148,17 @@ public class VentanaPrincipal {
 		panel_centro_norte.setLayout(new FlowLayout(FlowLayout.RIGHT, 5, 5));
 		
 		btnAdmin = new JButton();
-		btnAdmin.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				VentanaLogin vl = new VentanaLogin();
-				vl.setVisible(true);
+		
+		btnAdmin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//numVentanasLogin++;
+				//if(numVentanasLogin==1){ //comprobar que solo crea 1 ventana.
+					VentanaLogin vl = new VentanaLogin();
+					vl.setVisible(true);
+				//}
 			}
 		});
+		
 		//btnAdmin.setBounds(0, 0, 125, 125);
 		panel_centro_norte.add(btnAdmin);
 	    //Creamos un objeto ImageIcon con el nombre de la imagen

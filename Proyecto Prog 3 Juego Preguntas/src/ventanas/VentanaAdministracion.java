@@ -18,6 +18,10 @@ import javax.swing.JButton;
 import javax.swing.JList;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JLabel;
+import javax.swing.JSeparator;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VentanaAdministracion extends JFrame {
 
@@ -54,6 +58,9 @@ public class VentanaAdministracion extends JFrame {
 		
 		JPanel panel_norte = new JPanel();
 		contentPane.add(panel_norte, BorderLayout.NORTH);
+		
+		JLabel lblPreguntasQm = new JLabel("Preguntas Q4M:");
+		panel_norte.add(lblPreguntasQm);
 		
 		JPanel panel_centro = new JPanel();
 		contentPane.add(panel_centro, BorderLayout.CENTER);
@@ -96,12 +103,12 @@ public class VentanaAdministracion extends JFrame {
 		contentPane.add(panel_sur, BorderLayout.SOUTH);
 		
 		JButton btnCerrarSesion = new JButton("Cerrar Sesi\u00F3n ");
-		btnCerrarSesion.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				//Cierra la sesion de Admin
+		btnCerrarSesion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				dispose();
+				//numVentanasLogin=0;
 			}
+			
 		});
 		panel_sur.add(btnCerrarSesion);
 		
