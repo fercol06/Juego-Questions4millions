@@ -106,14 +106,13 @@ public class VentanaPrincipal {
 		panel.add(panel_12);
 		
 		btnSalir = new JButton("Salir");
-		panel_12.add(btnSalir);
-		btnSalir.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
 				bd.desconectar();
 				System.exit(0);
 			}
 		});
+		panel_12.add(btnSalir);
 		
 		panel_21 = new JPanel();
 		panel.add(panel_21);
@@ -125,13 +124,12 @@ public class VentanaPrincipal {
 		panel.add(panel_22);
 		
 		btnInstrucciones = new JButton("Instrucciones");
-		panel_22.add(btnInstrucciones);
-		btnInstrucciones.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
+		btnInstrucciones.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null, "Instrucciones...", "Instrucciones Q4M:", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
+		panel_22.add(btnInstrucciones);
 		
 		panel_izquierda = new JPanel();
 		frame.getContentPane().add(panel_izquierda, BorderLayout.WEST);
