@@ -44,8 +44,8 @@ public class VentanaPrincipal {
 	private JPanel panel_21;
 	private JPanel panel_22;
 	
-	//protected int numVentanasLogin=0; //comprobar 1 vez crear ventana login
-
+	protected static boolean numVentanasLogin=false; //false no se ha creado ventana login 
+	
 	/**
 	 * Launch the application.
 	 */
@@ -151,11 +151,11 @@ public class VentanaPrincipal {
 		
 		btnAdmin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//numVentanasLogin++;
-				//if(numVentanasLogin==1){ //comprobar que solo crea 1 ventana.
+				if(!numVentanasLogin){ //comprobar que solo crea 1 ventana.
+					numVentanasLogin=true;
 					VentanaLogin vl = new VentanaLogin();
 					vl.setVisible(true);
-				//}
+				}
 			}
 		});
 		
