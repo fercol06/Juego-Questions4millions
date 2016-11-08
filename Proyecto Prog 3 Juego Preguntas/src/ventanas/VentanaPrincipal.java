@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import BasesDeDatos.BD;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 
@@ -80,12 +81,6 @@ public class VentanaPrincipal {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 		
-		//panel_norte = new JPanel();
-		//frame.getContentPane().add(panel_norte, BorderLayout.NORTH);
-		
-		ImagenPanel imagenLogo= new ImagenPanel("/images/AppLogo768x68.png");
-		frame.getContentPane().add(imagenLogo, BorderLayout.NORTH);
-		imagenLogo.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		//imagenLogo.setSize(new Dimension(3000, 3000));
 		//imagenLogo.setBounds(imagenLogo.getX(), imagenLogo.getY(), imagenLogo.getWidth(), imagenLogo.getHeight());
 		
@@ -105,31 +100,31 @@ public class VentanaPrincipal {
 		panel_12 = new JPanel();
 		panel.add(panel_12);
 		
+		btnMarcadores = new JButton("Marcadores");
+		panel_12.add(btnMarcadores);
+		
+		panel_21 = new JPanel();
+		panel.add(panel_21);
+		
+		btnInstrucciones = new JButton("Instrucciones");
+		panel_21.add(btnInstrucciones);
+		btnInstrucciones.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "Instrucciones...", "Instrucciones Q4M:", JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
+		
+		panel_22 = new JPanel();
+		panel.add(panel_22);
+		
 		btnSalir = new JButton("Salir");
+		panel_22.add(btnSalir);
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				bd.desconectar();
 				System.exit(0);
 			}
 		});
-		panel_12.add(btnSalir);
-		
-		panel_21 = new JPanel();
-		panel.add(panel_21);
-		
-		btnMarcadores = new JButton("Marcadores");
-		panel_21.add(btnMarcadores);
-		
-		panel_22 = new JPanel();
-		panel.add(panel_22);
-		
-		btnInstrucciones = new JButton("Instrucciones");
-		btnInstrucciones.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Instrucciones...", "Instrucciones Q4M:", JOptionPane.INFORMATION_MESSAGE);
-			}
-		});
-		panel_22.add(btnInstrucciones);
 		
 		panel_izquierda = new JPanel();
 		frame.getContentPane().add(panel_izquierda, BorderLayout.WEST);
@@ -143,7 +138,6 @@ public class VentanaPrincipal {
 		
 		panel_centro_norte = new JPanel();
 		panel_centro.add(panel_centro_norte, BorderLayout.NORTH);
-		panel_centro_norte.setLayout(new FlowLayout(FlowLayout.RIGHT, 5, 5));
 		
 		btnAdmin = new JButton();
 		
@@ -156,9 +150,10 @@ public class VentanaPrincipal {
 				}
 			}
 		});
+		panel_centro_norte.setLayout(new BorderLayout(0, 0));
 		
 		//btnAdmin.setBounds(0, 0, 125, 125);
-		panel_centro_norte.add(btnAdmin);
+		panel_centro_norte.add(btnAdmin, BorderLayout.EAST);
 	    //Creamos un objeto ImageIcon con el nombre de la imagen
 	    ImageIcon face = new ImageIcon(getClass().getResource("/images/admin40_25.png"));
 	    //Añadimos la imagen al boton
@@ -167,6 +162,13 @@ public class VentanaPrincipal {
 	    ImageIcon linked = new ImageIcon(getClass().getResource("/images/admin100_25.png"));
 	    //Añadimos la imagen al boton, con el metodo setRolloverIcon que hace que la imagen se muestre cuando pasamos el cursor encima del boton
 	    btnAdmin.setRolloverIcon(linked);
+	    
+	    //panel_norte = new JPanel();
+	    //frame.getContentPane().add(panel_norte, BorderLayout.NORTH);
+	    
+	    ImagenPanel imagenLogo= new ImagenPanel("/images/AppLogo768x68.png");
+	    panel_centro_norte.add(imagenLogo, BorderLayout.CENTER);
+	    imagenLogo.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
 
 		//ImageIcon im = new ImageIcon("/images/admin50.png");
