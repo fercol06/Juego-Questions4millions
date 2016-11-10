@@ -9,6 +9,7 @@ public class Partida {
 	private ConfiguracionJuego config;
 	private ArrayList<Usuario> aUsuario;
 	// private ArrayList<Pregunta> aPregunta;
+	
 
 	public Partida(ConfiguracionJuego config, ArrayList<Usuario> aUsuario) {
 		this.config = config;

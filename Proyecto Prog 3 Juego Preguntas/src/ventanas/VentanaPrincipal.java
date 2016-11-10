@@ -110,7 +110,14 @@ public class VentanaPrincipal {
 		panel_21.add(btnInstrucciones);
 		btnInstrucciones.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Instrucciones...", "Instrucciones Q4M:", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null,
+						"Bienvenido a Questions4Millions!\n"
+								+ "Q4M es un juego de preguntas y respuestas donde deberás contestar"
+								+ "a todas las preguntas dentro de un límite de tiempo "
+								+ "mientras se incrementa la dificultad de estas.\n"
+								+ "Tu objetivo será contestár más preguntas que tus rivales y llevarte el gran premio.\n"
+								+ "Mucha suerte!",
+						"Instrucciones Q4M:", JOptionPane.DEFAULT_OPTION);
 			}
 		});
 		

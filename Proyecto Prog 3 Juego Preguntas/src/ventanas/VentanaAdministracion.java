@@ -18,6 +18,8 @@ import javax.swing.JButton;
 import javax.swing.JList;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+
 import javax.swing.JLabel;
 import javax.swing.JSeparator;
 import java.awt.event.ActionListener;
@@ -126,7 +128,8 @@ public class VentanaAdministracion extends JFrame {
 		
 		//Hago aqui la llamada a la bd para todas las preguntas?
 		// o lo guardo en un array?
-		Pregunta p = VentanaPrincipal.bd.obtenerPregunta(); // me devuelve 1????
+		Pregunta p ;
+		ArrayList<Pregunta> aPreguntas= VentanaPrincipal.bd.obtenerPregunta(); // me devuelve 1????
 		/*
 		DefaultListModel<Pregunta> dlm = (DefaultListModel<Pregunta>) listPreguntas.getModel();
 		for(int i=0; i<){
