@@ -100,7 +100,9 @@ public class VentanaAdministracion extends JFrame {
 		JButton btnNueva = new JButton("Nueva");
 		btnNueva.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				VentanaAniadirPregunta vap = new VentanaAniadirPregunta();
+				vap.setVisible(true);
+				dispose();
 			}
 		});
 		panel_c_sur.add(btnNueva);

@@ -46,6 +46,7 @@ public class VentanaPrincipal {
 	private JPanel panel_22;
 	
 	protected static boolean numVentanasLogin=false; //false no se ha creado ventana login 
+	private JPanel panel_1;
 	
 	/**
 	 * Launch the application.
@@ -139,6 +140,9 @@ public class VentanaPrincipal {
 		
 		panel_derecha = new JPanel();
 		frame.getContentPane().add(panel_derecha, BorderLayout.EAST);
+		
+		panel_1 = new JPanel();
+		frame.getContentPane().add(panel_1, BorderLayout.NORTH);
 		
 		panel_centro = new JPanel();
 		frame.getContentPane().add(panel_centro, BorderLayout.CENTER);
