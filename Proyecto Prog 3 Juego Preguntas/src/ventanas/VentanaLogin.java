@@ -25,12 +25,14 @@ import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 import java.awt.Toolkit;
 import javax.swing.JSeparator;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class VentanaLogin extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldNombre;
-	private JButton btnIniciarSesion;
+	private JButton btnIniciarSesion, btnAtras;
 	private JPasswordField passwordFieldContrasenia;
 
 	/**
@@ -186,6 +188,15 @@ public class VentanaLogin extends JFrame {
 			}
 		});
 		panel_17.add(btnIniciarSesion);
+		
+		btnAtras = new JButton("Atr\u00E1s");
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				VentanaPrincipal.numVentanasLogin=false;	
+			}
+		});
+		panel_17.add(btnAtras);
 		
 		JPanel panel_18 = new JPanel();
 		panel_centro.add(panel_18, BorderLayout.WEST);

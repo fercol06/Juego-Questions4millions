@@ -98,6 +98,11 @@ public class VentanaAdministracion extends JFrame {
 		panel_c_sur.add(btnEditar);
 		
 		JButton btnNueva = new JButton("Nueva");
+		btnNueva.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
 		panel_c_sur.add(btnNueva);
 		
 		JPanel panel_sur = new JPanel();
