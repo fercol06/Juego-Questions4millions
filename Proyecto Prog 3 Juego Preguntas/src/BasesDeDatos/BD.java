@@ -88,7 +88,7 @@ public class BD {
 			ResultSet rs = stmt.executeQuery(query);
 			while (rs.next()) {
 				// Comprobamos si ha devuelto filas
-				p = new Pregunta(rs.getString("pregunta"), rs.getString("resp1"), rs.getString("resp2"),
+				p = new Pregunta(rs.getInt("cod_pr"),rs.getString("pregunta"), rs.getString("resp1"), rs.getString("resp2"),
 						rs.getString("resp3"), rs.getString("resp4"), rs.getString("respOk"), rs.getInt("nivel"));
 				aP.add(p);
 			}
@@ -107,6 +107,8 @@ public class BD {
 
 		/*
 		 * Preparamos la query
+		 * 
+		 * CUIDADO con el cod_pr que es autoincremental
 		 * 
 		 * @param pregunta
 		 * 
@@ -149,7 +151,7 @@ public class BD {
 			ResultSet rs = stmt.executeQuery(query);
 			// Comprobamos si ha devuelto filas
 			if (rs.next())
-				u = new Usuario(rs.getString("user"), rs.getString("email"), rs.getString("pass"), rs.getInt("record"),
+				u = new Usuario(rs.getInt("cod_usr"), rs.getString("user"), rs.getString("email"), rs.getString("pass"), rs.getInt("record"),
 						rs.getString("tipo"));
 			rs.close();
 		} catch (SQLException e) {

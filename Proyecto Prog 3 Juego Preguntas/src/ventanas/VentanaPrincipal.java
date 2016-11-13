@@ -80,6 +80,7 @@ public class VentanaPrincipal {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
+		frame.setTitle("Questions4Millions!");
 		
 		//imagenLogo.setSize(new Dimension(3000, 3000));
 		//imagenLogo.setBounds(imagenLogo.getX(), imagenLogo.getY(), imagenLogo.getWidth(), imagenLogo.getHeight());

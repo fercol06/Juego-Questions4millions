@@ -28,8 +28,8 @@ import java.awt.event.ActionEvent;
 public class VentanaAdministracion extends JFrame {
 
 	private JPanel contentPane;
-	private JList listPreguntas;
-	private JScrollPane slistPreguntas;
+	private JList <Pregunta> lstPreguntas;
+	private JScrollPane scrlPnlPreguntas;
 
 	/**
 	 * Launch the application.
@@ -71,25 +71,24 @@ public class VentanaAdministracion extends JFrame {
 		JPanel panel_c_derecha = new JPanel();
 		panel_centro.add(panel_c_derecha, BorderLayout.EAST);
 		
-		
-		
-		
-		
 		JPanel panel_c_centro = new JPanel();
 		panel_centro.add(panel_c_centro,BorderLayout.CENTER);
 		
-		slistPreguntas = new JScrollPane();
-		panel_c_centro.add(slistPreguntas);
 		
-		listPreguntas = new JList<Pregunta>();
-		listPreguntas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		listPreguntas.setModel(new DefaultListModel<Pregunta>());
-		slistPreguntas.setViewportView(listPreguntas);
+		/* INICIO Lista con Scroll*/
+		scrlPnlPreguntas = new JScrollPane();
+		panel_c_centro.add(scrlPnlPreguntas);
 		
-		/*JList listPreguntas = new JList();
-		listPreguntas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		JScrollPane slistPreguntas = new JScrollPane(listPreguntas);
-		*/
+		lstPreguntas = new JList<Pregunta>();
+		lstPreguntas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		lstPreguntas.setModel(new DefaultListModel<Pregunta>());
+		scrlPnlPreguntas.setViewportView(lstPreguntas);
+		
+		insertarPreguntaEnLista();
+		
+		/* FIN Lista con Scroll*/
+		
+		
 		//panel_centro.add(panel_c_centro, BorderLayout.CENTER);
 		
 		JPanel panel_c_sur = new JPanel();
@@ -126,17 +125,13 @@ public class VentanaAdministracion extends JFrame {
 	 */
 	private void insertarPreguntaEnLista() {
 		
-		//Hago aqui la llamada a la bd para todas las preguntas?
-		// o lo guardo en un array?
-		Pregunta p ;
-		ArrayList<Pregunta> aPreguntas= VentanaPrincipal.bd.obtenerPregunta(); // me devuelve 1????
-		/*
-		DefaultListModel<Pregunta> dlm = (DefaultListModel<Pregunta>) listPreguntas.getModel();
-		for(int i=0; i<){
-			dlm.addElement(element);
+		ArrayList<Pregunta> aPreguntas= VentanaPrincipal.bd.obtenerPregunta(); // me devuelve arrayList
+		
+		DefaultListModel<Pregunta> dlm = (DefaultListModel<Pregunta>) lstPreguntas.getModel();
+		for(int i=0;i<aPreguntas.size();i++){
+			dlm.addElement(aPreguntas.get(i));
 		}
-		listPreguntas.setModel(dlm);
-		*/
+		lstPreguntas.setModel(dlm);
 	}
 	
 }

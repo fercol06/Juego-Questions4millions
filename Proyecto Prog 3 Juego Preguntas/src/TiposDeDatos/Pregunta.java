@@ -2,6 +2,7 @@ package TiposDeDatos;
 
 public class Pregunta {
 
+	private int cod_pr;
 	private String pregunta;
 	private String resp1;
 	private String resp2;
@@ -12,6 +13,7 @@ public class Pregunta {
 	
 	/**
 	 * Constructor con parametros clase pregunta
+	 * @param cod_pr
 	 * @param pregunta
 	 * @param resp1
 	 * @param resp2
@@ -20,7 +22,8 @@ public class Pregunta {
 	 * @param respCorrecta
 	 * @param nivel
 	 */
-	public Pregunta(String pregunta, String resp1, String resp2, String resp3, String resp4, String respCorrecta, int nivel) {
+	public Pregunta(int cod_pr, String pregunta, String resp1, String resp2, String resp3, String resp4, String respCorrecta, int nivel) {
+		this.cod_pr = cod_pr;
 		this.pregunta = pregunta;
 		this.resp1 = resp1;
 		this.resp2 = resp2;
@@ -35,6 +38,13 @@ public class Pregunta {
 	public Pregunta() {
 	}
 	
+	
+	/**
+	 * @return the cod_pr
+	 */
+	public int getCod_pr() {
+		return cod_pr;
+	}
 	/**
 	 * @return the pregunta
 	 */
@@ -77,15 +87,18 @@ public class Pregunta {
 	public int getNivel() {
 		return nivel;
 	}
-
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "Pregunta [pregunta=" + pregunta + ", resp1=" + resp1 + ", resp2=" + resp2 + ", resp3=" + resp3
-				+ ", resp4=" + resp4 + ", respCorrecta=" + respCorrecta + ", nivel=" + nivel + "]";
+		/*
+		return "Pregunta [cod_pr=" + cod_pr + ", pregunta=" + pregunta + ", resp1=" + resp1 + ", resp2=" + resp2
+				+ ", resp3=" + resp3 + ", resp4=" + resp4 + ", respCorrecta=" + respCorrecta + ", nivel=" + nivel + "]";
+		*/
+		return cod_pr + ". " + pregunta + " ; " + respCorrecta + " [" + nivel + "]";
 	}
+
 
 	
 	

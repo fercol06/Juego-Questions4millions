@@ -2,6 +2,7 @@ package TiposDeDatos;
 
 public class Usuario {
 	
+	private int cod_user;
 	private String user;
 	private String email;
 	private String con;
@@ -11,6 +12,7 @@ public class Usuario {
 	
 	/**
 	 * Contructor con parametros de la clase Usuario
+	 * @param cod_user
 	 * @param user
 	 * @param email
 	 * @param con
@@ -18,7 +20,8 @@ public class Usuario {
 	 * @param tipoUser
 	 */
 	
-	public Usuario(String user, String email, String con, int record, String tipouser) {
+	public Usuario(int cod_user, String user, String email, String con, int record, String tipouser) {
+		this.cod_user= cod_user;
 		this.user = user;
 		this.email = email;
 		this.con = con;
@@ -35,6 +38,12 @@ public class Usuario {
 	
 	
 	
+	/**
+	 * @return the cod_user
+	 */
+	public int getCod_user() {
+		return cod_user;
+	}
 	/**
 	 * @return the user
 	 */
@@ -100,9 +109,10 @@ public class Usuario {
 	 */
 	@Override
 	public String toString() {
-		return "Usuario [user=" + user + ", email=" + email + ", con=" + con + ", record=" + record + ", tipoUser="
-				+ tipoUser + "]";
+		return "Usuario [cod_user=" + cod_user + ", user=" + user + ", email=" + email + ", con=" + con + ", record="
+				+ record + ", tipoUser=" + tipoUser + "]";
 	}
+	
 	
 
 }

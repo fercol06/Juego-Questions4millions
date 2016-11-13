@@ -53,6 +53,7 @@ public class VentanaLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaLogin() {
+		setTitle("Acceso login");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaLogin.class.getResource("/images/logoCuadrado125.png")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -191,6 +192,11 @@ public class VentanaLogin extends JFrame {
 		
 		JPanel panel_19 = new JPanel();
 		panel_centro.add(panel_19, BorderLayout.EAST);
+		
+		/* Hacer metodo para comprobar que si se cierra esta ventana, cambia el valor de 
+		numVentanasLogin=false
+		*/
+		
 		
 	}
 	/**
