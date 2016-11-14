@@ -75,14 +75,15 @@ public class VentanaAniadirPregunta extends JFrame {
 				//Comprobar que los campos no esten vacios. 
 				// Si es True campos vacios
 				if(comprobarCampos()){
-					JOptionPane.showInputDialog(null, "Recuerde que los campos no pueden estar vacios.","Error" ,JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Recuerde que los campos no pueden estar vacios.","Error" ,JOptionPane.ERROR_MESSAGE);
 					limpiarCampos();
 				}else{
-					int nivel=(int) comboBoxNivel.getSelectedItem();
+					int nivel=1;
+					nivel+= comboBoxNivel.getSelectedIndex();//selecciono el indice del array
 					//Pregunta p= crearPregunta(textFieldPregunta, textFieldRespuestaIncorrecta1, textFieldRespuestaIncorrecta2, textFieldRespuestaIncorrecta3, textFieldRespuestaCorrecta, nivel);
 					Pregunta p= crearPregunta(nivel);
 					VentanaPrincipal.bd.aniadirPregunta(p);
-					JOptionPane.showInputDialog(null, "Su pregunta se ha añadido correctamente.","Pregunta añadida", JOptionPane.OK_OPTION);
+					JOptionPane.showMessageDialog(null, "Su pregunta se ha añadido correctamente.","Pregunta añadida", JOptionPane.DEFAULT_OPTION);
 					limpiarCampos();
 				}
 				
