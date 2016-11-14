@@ -124,7 +124,7 @@ public class BD {
 		 */
 		String query = "INSERT INTO preguntas (pregunta,resp1,resp2,resp3,resp4,respOk,nivel) VALUES ('"
 				+ p.getPregunta() + "','" + p.getResp1() + "'," + p.getResp2() + ",'" + p.getResp3() + ",'"
-				+ p.getResp4() + "','" + p.getRespCorrecta() + ",'" + p.getNivel() + "')";
+				+ p.getResp4() + "','" + p.getRespCorrecta() + "'," + p.getNivel() + ")";
 		try {
 			stmt.executeUpdate(query);
 		} catch (SQLException e) {
