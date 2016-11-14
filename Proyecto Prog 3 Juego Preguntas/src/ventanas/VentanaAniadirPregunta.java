@@ -17,9 +17,12 @@ import java.awt.FlowLayout;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VentanaAniadirPregunta extends JFrame {
 
@@ -66,9 +69,37 @@ public class VentanaAniadirPregunta extends JFrame {
 		contentPane.add(panelSur, BorderLayout.SOUTH);
 		
 		JButton btnAniadir = new JButton("A\u00F1adir");
+		btnAniadir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				//Comprobar que los campos no esten vacios. 
+				// Si es True campos vacios
+				if(comprobarCampos()){
+					JOptionPane.showInputDialog(null, "Recuerde que los campos no pueden estar vacios.","Error" ,JOptionPane.ERROR_MESSAGE);
+					limpiarCampos();
+				}else{
+					int nivel=(int) comboBoxNivel.getSelectedItem();
+					//Pregunta p= crearPregunta(textFieldPregunta, textFieldRespuestaIncorrecta1, textFieldRespuestaIncorrecta2, textFieldRespuestaIncorrecta3, textFieldRespuestaCorrecta, nivel);
+					Pregunta p= crearPregunta(nivel);
+					VentanaPrincipal.bd.aniadirPregunta(p);
+					JOptionPane.showInputDialog(null, "Su pregunta se ha añadido correctamente.","Pregunta añadida", JOptionPane.OK_OPTION);
+					limpiarCampos();
+				}
+				
+				
+			}
+		});
 		panelSur.add(btnAniadir);
 		
 		JButton btnAtras = new JButton("Atr\u00E1s");
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Volver a la otra ventana
+				VentanaAdministracion va= new VentanaAdministracion();
+				va.setVisible(true);
+				dispose();
+			}
+		});
 		panelSur.add(btnAtras);
 		
 		JPanel panelIzquierda = new JPanel();
@@ -138,40 +169,76 @@ public class VentanaAniadirPregunta extends JFrame {
 		comboBoxNivel.setMaximumRowCount(3);
 		panel_C_Centro.add(comboBoxNivel);
 		
-		int nivel=(int) comboBoxNivel.getSelectedItem();
-		Pregunta p= crearPregunta(textFieldPregunta, textFieldRespuestaIncorrecta1, textFieldRespuestaIncorrecta2, textFieldRespuestaIncorrecta3, textFieldRespuestaCorrecta, nivel);
-		VentanaPrincipal.bd.aniadirPregunta(p);
+		
+		
+		
 	}
-/*
-	private int cod_pr;
-	private String pregunta;
-	private String resp1;
-	private String resp2;
-	private String resp3;
-	private String resp4;
-	private String respCorrecta;
-	private int nivel;
-	
-	private JTextField textFieldPregunta;
-	private JTextField textFieldRespuestaIncorrecta1;
-	private JTextField textFieldRespuestaIncorrecta2;
-	private JTextField textFieldRespuestaIncorrecta3;
-	private JTextField textFieldRespuestaCorrecta;
-	*/
-	private Pregunta crearPregunta(JTextField textFieldPregunta,JTextField textFieldRespuestaIncorrecta1, JTextField textFieldRespuestaIncorrecta2, JTextField textFieldRespuestaIncorrecta3, JTextField textFieldRespuestaCorrecta, int nivel ){
-		//Para colocar la respuesta correcta
+
+
+	/**
+	 * Metodo que crea un obeto pregunta tras recibir los parametros. 
+	 * Este metodo se encarga de reordenar las respuestas de manera aleatoria.
+	 * @param textFieldPregunta
+	 * @param textFieldRespuestaIncorrecta1
+	 * @param textFieldRespuestaIncorrecta2
+	 * @param textFieldRespuestaIncorrecta3
+	 * @param textFieldRespuestaCorrecta
+	 * @param nivel
+	 * @return Pregunta
+	 */
+	//private Pregunta crearPregunta(JTextField textFieldPregunta,JTextField textFieldRespuestaIncorrecta1, JTextField textFieldRespuestaIncorrecta2, JTextField textFieldRespuestaIncorrecta3, JTextField textFieldRespuestaCorrecta, int nivel ){
+	private Pregunta crearPregunta(int nivel){	
+		//Para colocar la respuesta correcta en orden aleatorio
 		Random rnd = new Random(System.currentTimeMillis());
 		int numOK= rnd.nextInt(3);
 		
 		String preg,resp1,resp2,resp3,resp4,respOk;
 		preg=textFieldPregunta.getText();
+		resp1=textFieldRespuestaIncorrecta1.getText();
+		resp2=textFieldRespuestaIncorrecta2.getText();
+		resp3=textFieldRespuestaIncorrecta3.getText();
 		respOk=textFieldRespuestaCorrecta.getText();
 		
+		Pregunta p=null;
 		
-		
-		Pregunta p = new Pregunta(preg, resp1, resp2, resp3, resp4, respOk, nivel);
-		
+		switch(numOK){
+		case 0:
+			p = new Pregunta(preg, respOk, resp1, resp2, resp3, respOk, nivel);
+			break;
+		case 1:
+			p = new Pregunta(preg, resp1, respOk, resp2, resp3, respOk, nivel);
+			break;
+		case 2:
+			p = new Pregunta(preg, resp1, resp2, respOk, resp3, respOk, nivel);
+			break;
+		case 3:
+			p = new Pregunta(preg, resp1, resp2, resp3, respOk, respOk, nivel);
+			break;
+		}
 		return p;
-		
+	}
+	
+	private boolean comprobarCampos(){
+		String preg=textFieldPregunta.getText();
+		String resp1=textFieldRespuestaIncorrecta1.getText();
+		String resp2=textFieldRespuestaIncorrecta2.getText();
+		String resp3=textFieldRespuestaIncorrecta3.getText();
+		String respOk=textFieldRespuestaCorrecta.getText();
+		boolean vacio=false;
+		if(preg.trim().length()==0 && resp1.trim().length()==0 && resp2.trim().length()==0 && resp3.trim().length()==0&& respOk.trim().length()==0){
+			vacio=true;
+		}
+		return vacio;
+	}
+	/**
+	 * Metodo que limpia los campos
+	 */
+	private void limpiarCampos() {
+		textFieldPregunta.setText("");
+		textFieldRespuestaIncorrecta1.setText("");
+		textFieldRespuestaIncorrecta2.setText("");
+		textFieldRespuestaIncorrecta3.setText("");
+		textFieldRespuestaCorrecta.setText("");
+		comboBoxNivel.setSelectedIndex(0);
 	}
 }
