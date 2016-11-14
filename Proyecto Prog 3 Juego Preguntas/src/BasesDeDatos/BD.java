@@ -76,6 +76,12 @@ public class BD {
 		conectar();
 	}
 
+	/////////////////////////////////////////////////////////////////
+	////////////			Metodos con datos			////////////
+	/////////////////////////////////////////////////////////////////
+	
+	//////////////METODOS PREGUNTAS	///////////
+	
 	/**
 	 * Método para obtener preguntas
 	 */
@@ -107,21 +113,13 @@ public class BD {
 
 		/*
 		 * Preparamos la query
-		 * 
 		 * CUIDADO con el cod_pr que es autoincremental
-		 * 
 		 * @param pregunta
-		 * 
 		 * @param resp1
-		 * 
 		 * @param resp2
-		 * 
 		 * @param resp3
-		 * 
 		 * @param resp4
-		 * 
 		 * @param respCorrecta
-		 * 
 		 * @param nivel
 		 */
 		String query = "INSERT INTO preguntas (pregunta,resp1,resp2,resp3,resp4,respOk,nivel) VALUES ('"
@@ -135,6 +133,9 @@ public class BD {
 		}
 	}
 
+	//////////////	METODOS USUARIOS	///////////
+	
+	
 	/**
 	 * Método para obtener Usuario Admin
 	 * 

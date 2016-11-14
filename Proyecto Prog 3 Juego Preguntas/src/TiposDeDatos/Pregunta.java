@@ -13,6 +13,26 @@ public class Pregunta {
 	
 	/**
 	 * Constructor con parametros clase pregunta
+	 * @param pregunta
+	 * @param resp1
+	 * @param resp2
+	 * @param resp3
+	 * @param resp4
+	 * @param respCorrecta
+	 * @param nivel
+	 */
+	public Pregunta(String pregunta, String resp1, String resp2, String resp3, String resp4, String respCorrecta, int nivel) {
+		this.cod_pr=0; //Inicializamos a 0 porque no vale.
+		this.pregunta = pregunta;
+		this.resp1 = resp1;
+		this.resp2 = resp2;
+		this.resp3 = resp3;
+		this.resp4 = resp4;
+		this.respCorrecta = respCorrecta;
+		this.nivel = nivel; 
+	}
+	/**
+	 * Constructor con parametros clase pregunta
 	 * @param cod_pr
 	 * @param pregunta
 	 * @param resp1
@@ -23,7 +43,7 @@ public class Pregunta {
 	 * @param nivel
 	 */
 	public Pregunta(int cod_pr, String pregunta, String resp1, String resp2, String resp3, String resp4, String respCorrecta, int nivel) {
-		this.cod_pr = cod_pr;
+		this.cod_pr=cod_pr; 
 		this.pregunta = pregunta;
 		this.resp1 = resp1;
 		this.resp2 = resp2;

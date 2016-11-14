@@ -6,8 +6,12 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import TiposDeDatos.Pregunta;
+
 import javax.swing.JButton;
 import java.awt.GridLayout;
+import java.util.Random;
 import java.awt.CardLayout;
 import java.awt.FlowLayout;
 import javax.swing.JLabel;
@@ -53,6 +57,7 @@ public class VentanaAniadirPregunta extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		setTitle("Nueva pregunta");
 		
 		JPanel panelNorte = new JPanel();
 		contentPane.add(panelNorte, BorderLayout.NORTH);
@@ -132,6 +137,41 @@ public class VentanaAniadirPregunta extends JFrame {
 		comboBoxNivel.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3"}));
 		comboBoxNivel.setMaximumRowCount(3);
 		panel_C_Centro.add(comboBoxNivel);
+		
+		int nivel=(int) comboBoxNivel.getSelectedItem();
+		Pregunta p= crearPregunta(textFieldPregunta, textFieldRespuestaIncorrecta1, textFieldRespuestaIncorrecta2, textFieldRespuestaIncorrecta3, textFieldRespuestaCorrecta, nivel);
+		VentanaPrincipal.bd.aniadirPregunta(p);
 	}
-
+/*
+	private int cod_pr;
+	private String pregunta;
+	private String resp1;
+	private String resp2;
+	private String resp3;
+	private String resp4;
+	private String respCorrecta;
+	private int nivel;
+	
+	private JTextField textFieldPregunta;
+	private JTextField textFieldRespuestaIncorrecta1;
+	private JTextField textFieldRespuestaIncorrecta2;
+	private JTextField textFieldRespuestaIncorrecta3;
+	private JTextField textFieldRespuestaCorrecta;
+	*/
+	private Pregunta crearPregunta(JTextField textFieldPregunta,JTextField textFieldRespuestaIncorrecta1, JTextField textFieldRespuestaIncorrecta2, JTextField textFieldRespuestaIncorrecta3, JTextField textFieldRespuestaCorrecta, int nivel ){
+		//Para colocar la respuesta correcta
+		Random rnd = new Random(System.currentTimeMillis());
+		int numOK= rnd.nextInt(3);
+		
+		String preg,resp1,resp2,resp3,resp4,respOk;
+		preg=textFieldPregunta.getText();
+		respOk=textFieldRespuestaCorrecta.getText();
+		
+		
+		
+		Pregunta p = new Pregunta(preg, resp1, resp2, resp3, resp4, respOk, nivel);
+		
+		return p;
+		
+	}
 }
