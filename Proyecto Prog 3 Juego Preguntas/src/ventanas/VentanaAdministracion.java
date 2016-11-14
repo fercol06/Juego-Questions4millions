@@ -98,7 +98,11 @@ public class VentanaAdministracion extends JFrame {
 		btnEditar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//EDitar
-				VentanaEditarPregunta vep = new VentanaEditarPregunta();
+				//String tipo="Editar";
+				VentanaAniadirPregunta vap = new VentanaAniadirPregunta();
+				vap.setVisible(true);
+				//pasar datos a vap
+				dispose();
 			}
 		});
 		panel_c_sur.add(btnEditar);
@@ -106,6 +110,7 @@ public class VentanaAdministracion extends JFrame {
 		JButton btnNueva = new JButton("Nueva");
 		btnNueva.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				//String tipo="Nueva";
 				VentanaAniadirPregunta vap = new VentanaAniadirPregunta();
 				vap.setVisible(true);
 				dispose();
