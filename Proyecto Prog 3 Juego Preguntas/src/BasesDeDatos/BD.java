@@ -107,7 +107,7 @@ public class BD {
 	}
 
 	/**
-	 * Método para añadir pregunta
+	 * Método para añadir una pregunta a la BD
 	 */
 	public void aniadirPregunta(Pregunta p) {
 
@@ -123,9 +123,10 @@ public class BD {
 		 * @param nivel
 		 */
 		String query = "INSERT INTO preguntas (pregunta,resp1,resp2,resp3,resp4,respOk,nivel) VALUES ('"
-				+ p.getPregunta() + "','" + p.getResp1() + "'," + p.getResp2() + ",'" + p.getResp3() + ",'"
+				+ p.getPregunta() + "','" + p.getResp1() + "','" + p.getResp2() + "','" + p.getResp3() + "','"
 				+ p.getResp4() + "','" + p.getRespCorrecta() + "'," + p.getNivel() + ")";
 		try {
+			System.out.println(query);
 			stmt.executeUpdate(query);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

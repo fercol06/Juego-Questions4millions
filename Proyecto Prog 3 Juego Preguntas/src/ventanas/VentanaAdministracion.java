@@ -95,6 +95,12 @@ public class VentanaAdministracion extends JFrame {
 		panel_centro.add(panel_c_sur, BorderLayout.SOUTH);
 		
 		JButton btnEditar = new JButton("Editar");
+		btnEditar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				//EDitar
+				VentanaEditarPregunta vep = new VentanaEditarPregunta();
+			}
+		});
 		panel_c_sur.add(btnEditar);
 		
 		JButton btnNueva = new JButton("Nueva");
