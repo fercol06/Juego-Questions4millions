@@ -31,5 +31,7 @@ public class Partida {
 	public void setaUsuario(ArrayList<Usuario> aUsuario) {
 		this.aUsuario = aUsuario;
 	}
+	
+	
 
 }

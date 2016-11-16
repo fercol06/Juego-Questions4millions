@@ -3,22 +3,22 @@ package TiposDeDatos;
 public class ConfiguracionJuego {
 
 	private int dificultad; // 3 niveles de dificultad: 1- Baja; 2- Media; 3- Alta.
-	private int numPreguntas;
-	private int minutosPreguntas; 
+	private int numJugadores;
+	private int segundosPreguntas; 
 	private int numVidas;
 	
 	/**
 	 * Constructor de la configuración del juego con parametros
 	 * @param dificultad
 	 * @param numPreguntas
-	 * @param minutosPreguntas
+	 * @param segundosPreguntas
 	 * @param numVidas
 	 */
-	public ConfiguracionJuego(int dificultad, int numPreguntas, int minutosPreguntas, int numVidas) {
+	public ConfiguracionJuego(int dificultad, int numPreguntas, int minutosPreguntas) {
 		this.dificultad = dificultad;
-		this.numPreguntas = numPreguntas;
-		this.minutosPreguntas = minutosPreguntas;
-		this.numVidas = numVidas;
+		this.numJugadores = numPreguntas;
+		this.segundosPreguntas = minutosPreguntas;
+		numVidas = dificultad;
 	}
 	/**
 	 * Constructor sin parametros de la configuracion del juego.
@@ -30,19 +30,19 @@ public class ConfiguracionJuego {
 	 * @return the dificultad
 	 */
 	public int getDificultad() {
-		return dificultad;
+		return dificultad*2/100;
 	}
 	/**
 	 * @return the numPreguntas
 	 */
-	public int getNumPreguntas() {
-		return numPreguntas;
+	public int getNumJugadores() {
+		return 2+ numJugadores*4/100;
 	}
 	/**
 	 * @return the minutosPreguntas
 	 */
 	public int getMinutosPreguntas() {
-		return minutosPreguntas;
+		return segundosPreguntas;
 	}
 	/**
 	 * @return the numVidas
@@ -51,5 +51,11 @@ public class ConfiguracionJuego {
 		return numVidas;
 	}
 	
+	@Override
+	public String toString(){
+		return (" Dificultad: "+dificultad*2/100
+				+ "\n Numero de Jugadores: "+(2 +numJugadores*4/100)
+				+ "\n Segundos Preguntas: "+(20 + segundosPreguntas*40/100));
+	}
 	
 }

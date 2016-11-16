@@ -32,8 +32,9 @@ public class Usuario {
 	 * Contructor sin parametros clase Usuario
 	 */
 	
-	public Usuario() {
-		
+	public Usuario(String user) {
+		//Para meter solo un nombre
+		this.user = user;
 	}
 	
 	
