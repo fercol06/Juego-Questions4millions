@@ -117,10 +117,27 @@ public class VentanaUsuarios extends JFrame {
 		panel_1.add(panel_4, BorderLayout.SOUTH);
 		
 		JButton btnQuitar = new JButton("Quitar");
+
+//------------------------>Text Area
 		
+		JTextArea textPane = new JTextArea();
+		textPane.setText(" Inserte las características"
+						+ "\n de la partida: ");
+		textPane.setBackground(Color.BLACK);
+		textPane.setForeground(Color.WHITE);
+
+//------------------------>Text Area
+				
 		btnQuitar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		JButton btnAñadir = new JButton("A\u00F1adir");
-		
+		btnAñadir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String text1 =textField.getText();
+				int max=6;
+				String av1= anadirUsuario(aUsuario,max,text1);
+				textPane.append("\n "+av1);
+			}
+		});
 		
 		
 		panel_4.add(btnAñadir);
@@ -144,12 +161,8 @@ public class VentanaUsuarios extends JFrame {
 		JScrollBar scrollBar = new JScrollBar();
 		scrollBar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
-		JTextArea textPane = new JTextArea();
-		textPane.setText(" Inserte las características"
-						+ "\n de la partida: ");
 		
-		textPane.setBackground(Color.BLACK);
-		textPane.setForeground(Color.WHITE);
+		
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.TRAILING)
@@ -247,14 +260,7 @@ public class VentanaUsuarios extends JFrame {
 				
 					btnAñadir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 					//Escuchador botonAñadir
-					btnAñadir.addActionListener(new ActionListener() {
-						public void actionPerformed(ActionEvent e) {
-							String text1 =textField.getText();
-							int max=6;
-							String av1= anadirUsuario(aUsuario,max,text1);
-							textPane.append("\n "+av1);
-						}
-					});
+					
 			}
 		});
 		
