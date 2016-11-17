@@ -89,7 +89,7 @@ public class VentanaAdministracion extends JFrame {
 		/* FIN Lista con Scroll*/
 		
 		
-		//panel_centro.add(panel_c_centro, BorderLayout.CENTER);
+
 		
 		JPanel panel_c_sur = new JPanel();
 		panel_centro.add(panel_c_sur, BorderLayout.SOUTH);
@@ -97,11 +97,12 @@ public class VentanaAdministracion extends JFrame {
 		JButton btnEditar = new JButton("Editar");
 		btnEditar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//EDitar
 				//String tipo="Editar";
-				VentanaAniadirPregunta vap = new VentanaAniadirPregunta();
+				System.out.println(lstPreguntas.getSelectedIndex());
+				//le pasa desde 0.
+				VentanaAniadirPregunta vap = new VentanaAniadirPregunta(lstPreguntas.getSelectedIndex());
+			
 				vap.setVisible(true);
-				//pasar datos a vap
 				dispose();
 			}
 		});

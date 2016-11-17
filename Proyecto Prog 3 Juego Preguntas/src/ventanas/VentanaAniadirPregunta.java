@@ -11,6 +11,7 @@ import TiposDeDatos.Pregunta;
 
 import javax.swing.JButton;
 import java.awt.GridLayout;
+import java.util.ArrayList;
 import java.util.Random;
 import java.awt.CardLayout;
 import java.awt.FlowLayout;
@@ -41,7 +42,7 @@ public class VentanaAniadirPregunta extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaAniadirPregunta frame = new VentanaAniadirPregunta();
+					VentanaAniadirPregunta frame = new VentanaAniadirPregunta(0);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -51,7 +52,7 @@ public class VentanaAniadirPregunta extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
+	 * Crea el frame de añadir nuevas preguntas.
 	 */
 	public VentanaAniadirPregunta() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -71,8 +72,6 @@ public class VentanaAniadirPregunta extends JFrame {
 		JButton btnAniadir = new JButton("A\u00F1adir");
 		btnAniadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				//Comprobar que los campos no esten vacios. 
 				// Si es True campos vacios
 				if(comprobarCampos()){
 					JOptionPane.showMessageDialog(null, "Recuerde que los campos no pueden estar vacios.","Error" ,JOptionPane.ERROR_MESSAGE);
@@ -82,12 +81,16 @@ public class VentanaAniadirPregunta extends JFrame {
 					nivel+= comboBoxNivel.getSelectedIndex();//selecciono el indice del array
 					//Pregunta p= crearPregunta(textFieldPregunta, textFieldRespuestaIncorrecta1, textFieldRespuestaIncorrecta2, textFieldRespuestaIncorrecta3, textFieldRespuestaCorrecta, nivel);
 					Pregunta p= crearPregunta(nivel);
-					VentanaPrincipal.bd.aniadirPregunta(p);
-					JOptionPane.showMessageDialog(null, "Su pregunta se ha añadido correctamente.","Pregunta añadida", JOptionPane.DEFAULT_OPTION);
-					limpiarCampos();
+					//Comprobar si existe pregunta
+					if(existePregunta(p)){
+						JOptionPane.showMessageDialog(null, "Su pregunta ya existe en la Base de Datos.","Pregunta repetida", JOptionPane.ERROR_MESSAGE);
+						limpiarCampos();
+					}else{
+						VentanaPrincipal.bd.aniadirPregunta(p);
+						JOptionPane.showMessageDialog(null, "Su pregunta se ha añadido correctamente.","Pregunta añadida", JOptionPane.DEFAULT_OPTION);
+						limpiarCampos();
+					}	
 				}
-				
-				
 			}
 		});
 		panelSur.add(btnAniadir);
@@ -170,11 +173,140 @@ public class VentanaAniadirPregunta extends JFrame {
 		comboBoxNivel.setMaximumRowCount(3);
 		panel_C_Centro.add(comboBoxNivel);
 		
-		
-		
-		
+
 	}
 
+	
+	/**
+	 * Crea el frame de editar preguntas.
+	 */
+	public VentanaAniadirPregunta( int pos) {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		setTitle("Editar pregunta");
+		
+		JPanel panelNorte = new JPanel();
+		contentPane.add(panelNorte, BorderLayout.NORTH);
+		
+		JPanel panelSur = new JPanel();
+		contentPane.add(panelSur, BorderLayout.SOUTH);
+		
+		//Obtener pregunta
+		Pregunta p=obtenerPreguntaPos(pos);
+		
+		JButton btnAniadir = new JButton("Editar");
+		btnAniadir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				/*// Si es True campos vacios
+				if(comprobarCampos()){
+					JOptionPane.showMessageDialog(null, "Recuerde que los campos no pueden estar vacios.","Error" ,JOptionPane.ERROR_MESSAGE);
+					limpiarCampos();
+				}else{
+					int nivel=1;
+					nivel+= comboBoxNivel.getSelectedIndex();//selecciono el indice del array
+					//Pregunta p= crearPregunta(textFieldPregunta, textFieldRespuestaIncorrecta1, textFieldRespuestaIncorrecta2, textFieldRespuestaIncorrecta3, textFieldRespuestaCorrecta, nivel);
+					Pregunta p= crearPregunta(nivel);
+					//Comprobar si existe pregunta
+					if(existePregunta(p)){
+						JOptionPane.showMessageDialog(null, "Su pregunta ya existe en la Base de Datos.","Pregunta repetida", JOptionPane.ERROR_MESSAGE);
+						limpiarCampos();
+					}else{
+						VentanaPrincipal.bd.aniadirPregunta(p);
+						JOptionPane.showMessageDialog(null, "Su pregunta se ha añadido correctamente.","Pregunta añadida", JOptionPane.DEFAULT_OPTION);
+						limpiarCampos();
+					}	
+				}*/
+			}
+		});
+		panelSur.add(btnAniadir);
+		
+		JButton btnAtras = new JButton("Atr\u00E1s");
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Volver a la otra ventana
+				VentanaAdministracion va= new VentanaAdministracion();
+				va.setVisible(true);
+				dispose();
+			}
+		});
+		panelSur.add(btnAtras);
+		
+		JPanel panelIzquierda = new JPanel();
+		contentPane.add(panelIzquierda, BorderLayout.WEST);
+		
+		JPanel panelDerecha = new JPanel();
+		contentPane.add(panelDerecha, BorderLayout.EAST);
+		
+		JPanel panelCentro = new JPanel();
+		contentPane.add(panelCentro, BorderLayout.CENTER);
+		panelCentro.setLayout(new BorderLayout(0, 0));
+		
+		JPanel panel_C_Norte = new JPanel();
+		panelCentro.add(panel_C_Norte, BorderLayout.NORTH);
+		panel_C_Norte.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		JLabel lblTexto = new JLabel("Edita la pregunta: ");
+		panel_C_Norte.add(lblTexto);
+		
+		JSeparator separator = new JSeparator();
+		panel_C_Norte.add(separator);
+		
+		JPanel panel_C_Centro = new JPanel();
+		panelCentro.add(panel_C_Centro, BorderLayout.CENTER);
+		panel_C_Centro.setLayout(new GridLayout(0, 2, 0, 0));
+		
+		
+		JLabel lblPregunta = new JLabel("Pregunta:");
+		panel_C_Centro.add(lblPregunta);
+		
+		textFieldPregunta = new JTextField();
+		panel_C_Centro.add(textFieldPregunta);
+		textFieldPregunta.setColumns(10);
+		
+		JLabel lblRespuestaIncorrecta = new JLabel("Respuesta Incorrecta 1:");
+		panel_C_Centro.add(lblRespuestaIncorrecta);
+		
+		textFieldRespuestaIncorrecta1 = new JTextField();
+		panel_C_Centro.add(textFieldRespuestaIncorrecta1);
+		textFieldRespuestaIncorrecta1.setColumns(10);
+		
+		JLabel lblRespuestaIncorrecta_1 = new JLabel("Respuesta Incorrecta 2:");
+		panel_C_Centro.add(lblRespuestaIncorrecta_1);
+		
+		textFieldRespuestaIncorrecta2 = new JTextField();
+		panel_C_Centro.add(textFieldRespuestaIncorrecta2);
+		textFieldRespuestaIncorrecta2.setColumns(10);
+		
+		JLabel lblRespuestaIncorrecta_2 = new JLabel("Respuesta Incorrecta 3:");
+		panel_C_Centro.add(lblRespuestaIncorrecta_2);
+		
+		textFieldRespuestaIncorrecta3 = new JTextField();
+		panel_C_Centro.add(textFieldRespuestaIncorrecta3);
+		textFieldRespuestaIncorrecta3.setColumns(10);
+		
+		JLabel lblRespuestaCorrecta = new JLabel("Respuesta Correcta:");
+		panel_C_Centro.add(lblRespuestaCorrecta);
+		
+		textFieldRespuestaCorrecta = new JTextField();
+		panel_C_Centro.add(textFieldRespuestaCorrecta);
+		textFieldRespuestaCorrecta.setColumns(10);
+		
+		JLabel lblNivel = new JLabel("Nivel:");
+		panel_C_Centro.add(lblNivel);
+		
+		comboBoxNivel = new JComboBox();
+		comboBoxNivel.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3"}));
+		comboBoxNivel.setMaximumRowCount(3);
+		panel_C_Centro.add(comboBoxNivel);
+		
+		aniadeCampos(p);
+		
+
+	}
 
 	/**
 	 * Metodo que crea un obeto pregunta tras recibir los parametros. 
@@ -187,7 +319,6 @@ public class VentanaAniadirPregunta extends JFrame {
 	 * @param nivel
 	 * @return Pregunta
 	 */
-	//private Pregunta crearPregunta(JTextField textFieldPregunta,JTextField textFieldRespuestaIncorrecta1, JTextField textFieldRespuestaIncorrecta2, JTextField textFieldRespuestaIncorrecta3, JTextField textFieldRespuestaCorrecta, int nivel ){
 	private Pregunta crearPregunta(int nivel){	
 		//Para colocar la respuesta correcta en orden aleatorio
 		Random rnd = new Random(System.currentTimeMillis());
@@ -219,6 +350,10 @@ public class VentanaAniadirPregunta extends JFrame {
 		return p;
 	}
 	
+	/**
+	 * Metodo que comprueba que los campos no esten vacios
+	 * @return true si está vacio. 
+	 */
 	private boolean comprobarCampos(){
 		String preg=textFieldPregunta.getText();
 		String resp1=textFieldRespuestaIncorrecta1.getText();
@@ -242,4 +377,62 @@ public class VentanaAniadirPregunta extends JFrame {
 		textFieldRespuestaCorrecta.setText("");
 		comboBoxNivel.setSelectedIndex(0);
 	}
+	
+	/**
+	 * Metodo que añade datos a los campos
+	 */
+	private void aniadeCampos(Pregunta p) {
+		textFieldPregunta.setText(p.getPregunta());
+		textFieldRespuestaCorrecta.setText(p.getRespCorrecta());
+		//para mostrar erroneas
+		int i=0;
+		if(p.getResp1().equals(p.getRespCorrecta())){
+			i=1;
+		}else if(p.getResp2().equals(p.getRespCorrecta())){
+			i=2;
+		}else if(p.getResp3().equals(p.getRespCorrecta())){
+			i=3;
+		}else{
+			i=4;
+		}
+		String campo="p.getResp"+i+"()";
+		textFieldRespuestaIncorrecta1.setText(campo);
+		textFieldRespuestaIncorrecta2.setText(campo);
+		textFieldRespuestaIncorrecta3.setText(campo);
+		comboBoxNivel.setSelectedIndex(p.getNivel());
+	}
+	
+	/**
+	 * Comprueba si existe pregunta
+	 */
+	private boolean existePregunta(Pregunta p){
+		boolean existe=false;
+		String pregunta=p.getPregunta();
+		String preguntaBD="";
+		
+		//Obtengo un arrayList de Preguntas para comprobar
+		ArrayList<Pregunta> aP= VentanaPrincipal.bd.obtenerPregunta();
+		for(int i=0; i<aP.size();i++){
+			 preguntaBD=aP.get(i).getPregunta();
+			 //compruebo si son iguales 
+			 if(preguntaBD.equals(pregunta)){
+				 existe=true;
+			 }
+		}
+		return existe;
+	}
+	
+	/**
+	 * Método para obtener 1 pregunta dependiendo de la posicion del panel de admin
+	 */
+	private Pregunta obtenerPreguntaPos(int i) {
+		Pregunta p=null;
+		//obtengo todas las preguntas en orden
+		ArrayList<Pregunta> aP=VentanaPrincipal.bd.obtenerPregunta();
+		//Selecciono la posicion en la que estaba en la lista
+		p=aP.get(i);
+		return p;
+	}
+	
+	
 }

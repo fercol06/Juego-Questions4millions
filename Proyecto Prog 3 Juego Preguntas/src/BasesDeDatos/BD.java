@@ -80,7 +80,7 @@ public class BD {
 	////////////			Metodos con datos			////////////
 	/////////////////////////////////////////////////////////////////
 	
-	//////////////METODOS PREGUNTAS	///////////
+	////////////// METODOS PREGUNTAS	///////////
 	
 	/**
 	 * Método para obtener preguntas
@@ -113,7 +113,7 @@ public class BD {
 
 		/*
 		 * Preparamos la query
-		 * CUIDADO con el cod_pr que es autoincremental
+		 * CUIDADO con cod_pr que es autoincremental
 		 * @param pregunta
 		 * @param resp1
 		 * @param resp2
@@ -133,6 +133,7 @@ public class BD {
 			e.printStackTrace();
 		}
 	}
+	
 
 	//////////////	METODOS USUARIOS	///////////
 	
