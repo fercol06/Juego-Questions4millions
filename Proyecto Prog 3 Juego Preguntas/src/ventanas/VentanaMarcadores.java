@@ -10,6 +10,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VentanaMarcadores extends JFrame {
 
@@ -20,6 +23,9 @@ public class VentanaMarcadores extends JFrame {
 	private JPanel contentPane;
 	private JTable tabla;
 	private JScrollPane scroll;
+	private JPanel panel_sur;
+	private JPanel panel_norte;
+	private JButton btnAtras;
 
 	/**
 	 * Launch the application.
@@ -55,6 +61,20 @@ public class VentanaMarcadores extends JFrame {
 
 		String[] columnNames = { "Usuario", "Puntuación máxima"};
 		Object[][] datos = {{"Emilio", "2340"},{"Augusto","8304"},{"Martín","450"}};
+		
+		panel_norte = new JPanel();
+		contentPane.add(panel_norte, BorderLayout.NORTH);
+		
+		panel_sur = new JPanel();
+		contentPane.add(panel_sur, BorderLayout.SOUTH);
+		
+		btnAtras = new JButton("Atr\u00E1s");
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+			}
+		});
+		panel_sur.add(btnAtras);
 
 		tabla = new JTable(datos, columnNames); 
 		tabla.setPreferredScrollableViewportSize(new Dimension(500, 70));

@@ -16,6 +16,8 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -51,6 +53,7 @@ public class VentanaAdministracion extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaAdministracion() {
+		setTitle("Lista de preguntas");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -98,14 +101,19 @@ public class VentanaAdministracion extends JFrame {
 		btnEditar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//String tipo="Editar";
-				//System.out.println(lstPreguntas.getSelectedIndex());
 				//le pasa desde 0.
-				int posSeleccionado=lstPreguntas.getSelectedIndex();
-				Pregunta p=obtenerPreguntaPos(posSeleccionado);
-				VentanaAniadirPregunta vap = new VentanaAniadirPregunta(p);
-			
-				vap.setVisible(true);
-				dispose();
+				//Compruebo que se ha seleccionado un valor para editar
+				if(lstPreguntas.isSelectionEmpty()){
+					JOptionPane.showMessageDialog(null, "No has seleccionado ninguna pregunta.", "Error al seleccionar!", JOptionPane.ERROR_MESSAGE);
+				}else{
+					int posSeleccionado=lstPreguntas.getSelectedIndex();
+					Pregunta p=obtenerPreguntaPos(posSeleccionado);
+					VentanaAniadirPregunta vap = new VentanaAniadirPregunta(p);
+				
+					vap.setVisible(true);
+					dispose();
+				}
+				
 			}
 		});
 		panel_c_sur.add(btnEditar);
