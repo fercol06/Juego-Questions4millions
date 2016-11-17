@@ -417,7 +417,7 @@ public class VentanaAniadirPregunta extends JFrame {
 		textFieldRespuestaIncorrecta1.setText(campo);
 		textFieldRespuestaIncorrecta2.setText(campo);
 		textFieldRespuestaIncorrecta3.setText(campo);
-		comboBoxNivel.setSelectedIndex(p.getNivel());
+		comboBoxNivel.setSelectedIndex(p.getNivel()-1);
 		
 		
 	}
