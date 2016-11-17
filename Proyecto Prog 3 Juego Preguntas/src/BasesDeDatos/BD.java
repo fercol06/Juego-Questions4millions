@@ -134,6 +134,21 @@ public class BD {
 		}
 	}
 	
+	/**
+	 * Método para borrar una pregunta a la BD
+	 */
+	public void borrarPregunta(Pregunta p) {
+		
+		String query = "DELETE FROM preguntas WHERE pregunta='"+ p.getPregunta() +"'";
+		try {
+			System.out.println(query);
+			stmt.executeUpdate(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 
 	//////////////	METODOS USUARIOS	///////////
 	

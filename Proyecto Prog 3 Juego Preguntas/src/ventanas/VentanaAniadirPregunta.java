@@ -76,7 +76,7 @@ public class VentanaAniadirPregunta extends JFrame {
 				// Si es True campos vacios
 				if(comprobarCampos()){
 					JOptionPane.showMessageDialog(null, "Recuerde que los campos no pueden estar vacios.","Error" ,JOptionPane.ERROR_MESSAGE);
-					limpiarCampos();
+					//limpiarCampos();
 				}else{
 					int nivel=1;
 					nivel+= comboBoxNivel.getSelectedIndex();//selecciono el indice del array
@@ -200,25 +200,24 @@ public class VentanaAniadirPregunta extends JFrame {
 		btnAniadir = new JButton("Editar");
 		btnAniadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				/*// Si es True campos vacios
+				//compruebo que los campos no esten vacios. 
+				// Si es True campos vacios
 				if(comprobarCampos()){
 					JOptionPane.showMessageDialog(null, "Recuerde que los campos no pueden estar vacios.","Error" ,JOptionPane.ERROR_MESSAGE);
-					limpiarCampos();
+					//limpiarCampos();
 				}else{
 					int nivel=1;
 					nivel+= comboBoxNivel.getSelectedIndex();//selecciono el indice del array
-					//Pregunta p= crearPregunta(textFieldPregunta, textFieldRespuestaIncorrecta1, textFieldRespuestaIncorrecta2, textFieldRespuestaIncorrecta3, textFieldRespuestaCorrecta, nivel);
-					Pregunta p= crearPregunta(nivel);
-					//Comprobar si existe pregunta
-					if(existePregunta(p)){
-						JOptionPane.showMessageDialog(null, "Su pregunta ya existe en la Base de Datos.","Pregunta repetida", JOptionPane.ERROR_MESSAGE);
-						limpiarCampos();
-					}else{
-						VentanaPrincipal.bd.aniadirPregunta(p);
-						JOptionPane.showMessageDialog(null, "Su pregunta se ha añadido correctamente.","Pregunta añadida", JOptionPane.DEFAULT_OPTION);
-						limpiarCampos();
-					}	
-				}*/
+					Pregunta pNueva= crearPregunta(nivel);
+					
+					//Borrar la vieja y crear la nueva
+					VentanaPrincipal.bd.borrarPregunta(p); //p vieja
+					
+					VentanaPrincipal.bd.aniadirPregunta(pNueva);
+					JOptionPane.showMessageDialog(null, "Su pregunta se ha editado correctamente.","Pregunta editada", JOptionPane.INFORMATION_MESSAGE);
+					limpiarCampos();
+						
+				}
 			}
 		});
 		panelSur.add(btnAniadir);
