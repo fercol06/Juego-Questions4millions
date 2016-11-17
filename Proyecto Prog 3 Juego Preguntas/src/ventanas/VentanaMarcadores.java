@@ -13,6 +13,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.JSeparator;
+import java.awt.GridLayout;
 
 public class VentanaMarcadores extends JFrame {
 
@@ -26,6 +29,8 @@ public class VentanaMarcadores extends JFrame {
 	private JPanel panel_sur;
 	private JPanel panel_norte;
 	private JButton btnAtras;
+	private JLabel lblMarcadores;
+	private JSeparator separator;
 
 	/**
 	 * Launch the application.
@@ -64,6 +69,13 @@ public class VentanaMarcadores extends JFrame {
 		
 		panel_norte = new JPanel();
 		contentPane.add(panel_norte, BorderLayout.NORTH);
+		panel_norte.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		lblMarcadores = new JLabel("Marcadores:");
+		panel_norte.add(lblMarcadores);
+		
+		separator = new JSeparator();
+		panel_norte.add(separator);
 		
 		panel_sur = new JPanel();
 		contentPane.add(panel_sur, BorderLayout.SOUTH);
