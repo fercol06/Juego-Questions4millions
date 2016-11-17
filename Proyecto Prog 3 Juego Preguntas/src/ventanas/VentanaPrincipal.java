@@ -111,12 +111,12 @@ public class VentanaPrincipal {
 		btnMarcadores.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				if (!numVentanasMarcadores) { // comprobar que solo crea 1
+				//if (!numVentanasMarcadores) { // comprobar que solo crea 1
 												// ventana.
-					numVentanasMarcadores = true;
+					//numVentanasMarcadores = true;
 					VentanaMarcadores vl = new VentanaMarcadores();
 					vl.setVisible(true);
-				}
+				//}
 
 			}
 		});
