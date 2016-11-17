@@ -98,9 +98,11 @@ public class VentanaAdministracion extends JFrame {
 		btnEditar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//String tipo="Editar";
-				System.out.println(lstPreguntas.getSelectedIndex());
+				//System.out.println(lstPreguntas.getSelectedIndex());
 				//le pasa desde 0.
-				VentanaAniadirPregunta vap = new VentanaAniadirPregunta(lstPreguntas.getSelectedIndex());
+				int posSeleccionado=lstPreguntas.getSelectedIndex();
+				Pregunta p=obtenerPreguntaPos(posSeleccionado);
+				VentanaAniadirPregunta vap = new VentanaAniadirPregunta(p);
 			
 				vap.setVisible(true);
 				dispose();
@@ -153,4 +155,16 @@ public class VentanaAdministracion extends JFrame {
 		lstPreguntas.setModel(dlm);
 	}
 	
+
+	/**
+	 * Método para obtener 1 pregunta dependiendo de la posicion del panel de admin
+	 */
+	private Pregunta obtenerPreguntaPos(int i) {
+		Pregunta p=null;
+		//obtengo todas las preguntas en orden
+		ArrayList<Pregunta> aP=VentanaPrincipal.bd.obtenerPregunta();
+		//Selecciono la posicion en la que estaba en la lista
+		p=aP.get(i);
+		return p;
+	}
 }

@@ -34,6 +34,7 @@ public class VentanaAniadirPregunta extends JFrame {
 	private JTextField textFieldRespuestaIncorrecta3;
 	private JTextField textFieldRespuestaCorrecta;
 	private JComboBox comboBoxNivel;
+	private JButton btnAtras,btnAniadir;
 
 	/**
 	 * Launch the application.
@@ -42,7 +43,7 @@ public class VentanaAniadirPregunta extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaAniadirPregunta frame = new VentanaAniadirPregunta(0);
+					VentanaAniadirPregunta frame = new VentanaAniadirPregunta();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -95,7 +96,7 @@ public class VentanaAniadirPregunta extends JFrame {
 		});
 		panelSur.add(btnAniadir);
 		
-		JButton btnAtras = new JButton("Atr\u00E1s");
+		btnAtras = new JButton("Atr\u00E1s");
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Volver a la otra ventana
@@ -180,7 +181,7 @@ public class VentanaAniadirPregunta extends JFrame {
 	/**
 	 * Crea el frame de editar preguntas.
 	 */
-	public VentanaAniadirPregunta( int pos) {
+	public VentanaAniadirPregunta( Pregunta p) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -195,10 +196,8 @@ public class VentanaAniadirPregunta extends JFrame {
 		JPanel panelSur = new JPanel();
 		contentPane.add(panelSur, BorderLayout.SOUTH);
 		
-		//Obtener pregunta
-		Pregunta p=obtenerPreguntaPos(pos);
 		
-		JButton btnAniadir = new JButton("Editar");
+		btnAniadir = new JButton("Editar");
 		btnAniadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				/*// Si es True campos vacios
@@ -224,7 +223,7 @@ public class VentanaAniadirPregunta extends JFrame {
 		});
 		panelSur.add(btnAniadir);
 		
-		JButton btnAtras = new JButton("Atr\u00E1s");
+		btnAtras = new JButton("Atr\u00E1s");
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Volver a la otra ventana
@@ -388,18 +387,40 @@ public class VentanaAniadirPregunta extends JFrame {
 		int i=0;
 		if(p.getResp1().equals(p.getRespCorrecta())){
 			i=1;
+			/*
+			textFieldRespuestaIncorrecta1.setText(p.getResp2());
+			textFieldRespuestaIncorrecta2.setText(p.getResp3());
+			textFieldRespuestaIncorrecta3.setText(p.getResp4());
+			 */
 		}else if(p.getResp2().equals(p.getRespCorrecta())){
 			i=2;
+			/*
+			textFieldRespuestaIncorrecta1.setText(p.getResp1());
+			textFieldRespuestaIncorrecta2.setText(p.getResp3());
+			textFieldRespuestaIncorrecta3.setText(p.getResp4());
+			 */
 		}else if(p.getResp3().equals(p.getRespCorrecta())){
 			i=3;
+			/*
+			textFieldRespuestaIncorrecta1.setText(p.getResp1());
+			textFieldRespuestaIncorrecta2.setText(p.getResp2());
+			textFieldRespuestaIncorrecta3.setText(p.getResp4());
+			 */
 		}else{
 			i=4;
+			/*
+			textFieldRespuestaIncorrecta1.setText(p.getResp1());
+			textFieldRespuestaIncorrecta2.setText(p.getResp2());
+			textFieldRespuestaIncorrecta3.setText(p.getResp3());
+			 */
 		}
 		String campo="p.getResp"+i+"()";
 		textFieldRespuestaIncorrecta1.setText(campo);
 		textFieldRespuestaIncorrecta2.setText(campo);
 		textFieldRespuestaIncorrecta3.setText(campo);
 		comboBoxNivel.setSelectedIndex(p.getNivel());
+		
+		
 	}
 	
 	/**
@@ -415,24 +436,13 @@ public class VentanaAniadirPregunta extends JFrame {
 		for(int i=0; i<aP.size();i++){
 			 preguntaBD=aP.get(i).getPregunta();
 			 //compruebo si son iguales 
-			 if(preguntaBD.equals(pregunta)){
+			 if(preguntaBD.equalsIgnoreCase(pregunta)){
 				 existe=true;
 			 }
 		}
 		return existe;
 	}
 	
-	/**
-	 * Método para obtener 1 pregunta dependiendo de la posicion del panel de admin
-	 */
-	private Pregunta obtenerPreguntaPos(int i) {
-		Pregunta p=null;
-		//obtengo todas las preguntas en orden
-		ArrayList<Pregunta> aP=VentanaPrincipal.bd.obtenerPregunta();
-		//Selecciono la posicion en la que estaba en la lista
-		p=aP.get(i);
-		return p;
-	}
 	
 	
 }
