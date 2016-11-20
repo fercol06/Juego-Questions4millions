@@ -71,9 +71,6 @@ public class VentanaAdministracion extends JFrame {
 		contentPane.add(panel_centro, BorderLayout.CENTER);
 		panel_centro.setLayout(new BorderLayout(0, 0));
 		
-		JPanel panel_c_derecha = new JPanel();
-		panel_centro.add(panel_c_derecha, BorderLayout.EAST);
-		
 		JPanel panel_c_centro = new JPanel();
 		panel_centro.add(panel_c_centro,BorderLayout.CENTER);
 		
