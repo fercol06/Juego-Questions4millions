@@ -82,6 +82,8 @@ public class BD {
 	
 	////////////// METODOS PREGUNTAS	///////////
 	
+	
+	
 	/**
 	 * Método para obtener preguntas
 	 */
@@ -154,10 +156,11 @@ public class BD {
 	
 	
 	/**
-	 * Método para obtener Usuario Admin
+	 * Método para obtener el objeto Usuario admin del que le hemos pasado el nombre.
+	 * En este caso utilizamos para el login.
 	 * 
-	 * @param dni
-	 * @return
+	 * @param String nombre - Le pasamos un 'nombre' con el usuario a buscar en la base de datos.
+	 * @return Usuario u - Nos devuelve el objeto usuario que habiamos consultado.
 	 */
 
 	public Usuario obtenerUsuarioAdmin(String nombre) {
@@ -176,6 +179,31 @@ public class BD {
 			e.printStackTrace();
 		}
 		return u;
+	}
+	
+	/**
+	 * Metodo que devuelve la lista completa de usuarios con sus puntuaciones.
+	 * @return ArrayList<Usuario> aU - Devuelve un arraylist de usuarios con sus datos para poder crear la tabla de marcadores.
+	 */
+	
+	public ArrayList<Usuario> obtenerUsuarioPuntuacion (){
+		Usuario u=null;
+		ArrayList<Usuario> aU=new ArrayList<>();
+		String query = "SELECT * FROM usuarios";
+		try {
+			ResultSet rs = stmt.executeQuery(query);
+			while (rs.next()) {
+				// Comprobamos si ha devuelto filas
+				u = new Usuario(rs.getInt("cod_usr"), rs.getString("user"), rs.getString("email"), rs.getString("pass"), rs.getInt("record"),
+						rs.getString("tipo"));
+				aU.add(u);
+			}
+			rs.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return aU;
 	}
 
 }
