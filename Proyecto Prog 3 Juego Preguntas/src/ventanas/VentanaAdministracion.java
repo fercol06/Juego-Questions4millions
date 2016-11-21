@@ -26,6 +26,9 @@ import javax.swing.JLabel;
 import javax.swing.JSeparator;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import javax.swing.JProgressBar;
 
 public class VentanaAdministracion extends JFrame {
 
@@ -60,39 +63,40 @@ public class VentanaAdministracion extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		
-		JPanel panel_norte = new JPanel();
-		contentPane.add(panel_norte, BorderLayout.NORTH);
-		
-		JLabel lblPreguntasQm = new JLabel("Preguntas Q4M:");
-		panel_norte.add(lblPreguntasQm);
-		
-		JPanel panel_centro = new JPanel();
-		contentPane.add(panel_centro, BorderLayout.CENTER);
-		panel_centro.setLayout(new BorderLayout(0, 0));
-		
-		JPanel panel_c_centro = new JPanel();
-		panel_centro.add(panel_c_centro,BorderLayout.CENTER);
-		
-		
-		/* INICIO Lista con Scroll*/
 		scrlPnlPreguntas = new JScrollPane();
-		panel_c_centro.add(scrlPnlPreguntas);
+		contentPane.add(scrlPnlPreguntas, BorderLayout.CENTER);
 		
 		lstPreguntas = new JList<Pregunta>();
 		lstPreguntas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		lstPreguntas.setModel(new DefaultListModel<Pregunta>());
 		scrlPnlPreguntas.setViewportView(lstPreguntas);
 		
+		JPanel panel_norte = new JPanel();
+		contentPane.add(panel_norte, BorderLayout.NORTH);
+		panel_norte.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		JLabel lblPreguntasQm = new JLabel("Preguntas Q4M:");
+		panel_norte.add(lblPreguntasQm);
+		
+		JSeparator separator = new JSeparator();
+		panel_norte.add(separator);
+		
+		
+		/* INICIO Lista con Scroll*/
+		
 		insertarPreguntaEnLista();
 		
 		/* FIN Lista con Scroll*/
+		
+		JPanel panel_sur = new JPanel();
+		contentPane.add(panel_sur, BorderLayout.SOUTH);
+		panel_sur.setLayout(new GridLayout(2, 2, 0, 0));
 		
 		
 
 		
 		JPanel panel_c_sur = new JPanel();
-		panel_centro.add(panel_c_sur, BorderLayout.SOUTH);
+		panel_sur.add(panel_c_sur);
 		
 		JButton btnEditar = new JButton("Editar");
 		btnEditar.addActionListener(new ActionListener() {
@@ -145,10 +149,11 @@ public class VentanaAdministracion extends JFrame {
 		panel_c_sur.add(btnBorrar);
 		panel_c_sur.add(btnNueva);
 		
-		JPanel panel_sur = new JPanel();
-		contentPane.add(panel_sur, BorderLayout.SOUTH);
+		JPanel panel_bajo = new JPanel();
+		panel_sur.add(panel_bajo);
 		
 		JButton btnCerrarSesion = new JButton("Cerrar Sesi\u00F3n ");
+		panel_bajo.add(btnCerrarSesion);
 		btnCerrarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -156,7 +161,6 @@ public class VentanaAdministracion extends JFrame {
 			}
 			
 		});
-		panel_sur.add(btnCerrarSesion);
 		
 		JPanel panel_izquierda = new JPanel();
 		contentPane.add(panel_izquierda, BorderLayout.WEST);
