@@ -124,6 +124,29 @@ public class VentanaAdministracion extends JFrame {
 				dispose();
 			}
 		});
+		
+		JButton btnBorrar = new JButton("Borrar");
+		btnBorrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				/*
+				if(lstPreguntas.isSelectionEmpty()){
+					JOptionPane.showMessageDialog(null, "No has seleccionado ninguna pregunta.", "Error al seleccionar!", JOptionPane.ERROR_MESSAGE);
+				}else{
+				
+					//Confirmación que se desea borrar pregunta. 
+					 * JOptionPane.showConfirmDialog(
+					int posSeleccionado=lstPreguntas.getSelectedIndex();
+					Pregunta p=obtenerPreguntaPos(posSeleccionado);
+					VentanaAniadirPregunta vap = new VentanaAniadirPregunta(p);
+				
+					vap.setVisible(true);
+					dispose();
+				}
+				
+				*/
+			}
+		});
+		panel_c_sur.add(btnBorrar);
 		panel_c_sur.add(btnNueva);
 		
 		JPanel panel_sur = new JPanel();
