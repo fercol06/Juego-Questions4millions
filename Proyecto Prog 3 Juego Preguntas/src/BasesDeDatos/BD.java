@@ -128,7 +128,7 @@ public class BD {
 				+ p.getPregunta() + "','" + p.getResp1() + "','" + p.getResp2() + "','" + p.getResp3() + "','"
 				+ p.getResp4() + "','" + p.getRespCorrecta() + "'," + p.getNivel() + ")";
 		try {
-			System.out.println(query);
+			//System.out.println(query);
 			stmt.executeUpdate(query);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -143,7 +143,7 @@ public class BD {
 		
 		String query = "DELETE FROM preguntas WHERE pregunta='"+ p.getPregunta() +"'";
 		try {
-			System.out.println(query);
+			//System.out.println(query);
 			stmt.executeUpdate(query);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

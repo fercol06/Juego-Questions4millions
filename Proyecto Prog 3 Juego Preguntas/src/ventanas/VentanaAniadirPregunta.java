@@ -90,6 +90,7 @@ public class VentanaAniadirPregunta extends JFrame {
 						VentanaPrincipal.bd.aniadirPregunta(p);
 						JOptionPane.showMessageDialog(null, "Su pregunta se ha añadido correctamente.","Pregunta añadida", JOptionPane.DEFAULT_OPTION);
 						limpiarCampos();
+						
 					}	
 				}
 			}
@@ -216,7 +217,11 @@ public class VentanaAniadirPregunta extends JFrame {
 					VentanaPrincipal.bd.aniadirPregunta(pNueva);
 					JOptionPane.showMessageDialog(null, "Su pregunta se ha editado correctamente.","Pregunta editada", JOptionPane.INFORMATION_MESSAGE);
 					limpiarCampos();
-						
+					
+					//vuelva atras
+					VentanaAdministracion va = new VentanaAdministracion();
+					va.setVisible(true);
+					dispose();	
 				}
 			}
 		});
@@ -383,40 +388,24 @@ public class VentanaAniadirPregunta extends JFrame {
 		textFieldPregunta.setText(p.getPregunta());
 		textFieldRespuestaCorrecta.setText(p.getRespCorrecta());
 		//para mostrar erroneas
-		int i=0;
+
 		if(p.getResp1().equals(p.getRespCorrecta())){
-			i=1;
-			/*
 			textFieldRespuestaIncorrecta1.setText(p.getResp2());
 			textFieldRespuestaIncorrecta2.setText(p.getResp3());
 			textFieldRespuestaIncorrecta3.setText(p.getResp4());
-			 */
 		}else if(p.getResp2().equals(p.getRespCorrecta())){
-			i=2;
-			/*
 			textFieldRespuestaIncorrecta1.setText(p.getResp1());
 			textFieldRespuestaIncorrecta2.setText(p.getResp3());
 			textFieldRespuestaIncorrecta3.setText(p.getResp4());
-			 */
 		}else if(p.getResp3().equals(p.getRespCorrecta())){
-			i=3;
-			/*
 			textFieldRespuestaIncorrecta1.setText(p.getResp1());
 			textFieldRespuestaIncorrecta2.setText(p.getResp2());
 			textFieldRespuestaIncorrecta3.setText(p.getResp4());
-			 */
 		}else{
-			i=4;
-			/*
 			textFieldRespuestaIncorrecta1.setText(p.getResp1());
 			textFieldRespuestaIncorrecta2.setText(p.getResp2());
 			textFieldRespuestaIncorrecta3.setText(p.getResp3());
-			 */
 		}
-		String campo="p.getResp"+i+"()";
-		textFieldRespuestaIncorrecta1.setText(campo);
-		textFieldRespuestaIncorrecta2.setText(campo);
-		textFieldRespuestaIncorrecta3.setText(campo);
 		comboBoxNivel.setSelectedIndex(p.getNivel()-1);
 		
 		

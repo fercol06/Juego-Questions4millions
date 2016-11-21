@@ -128,22 +128,18 @@ public class VentanaAdministracion extends JFrame {
 		JButton btnBorrar = new JButton("Borrar");
 		btnBorrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				/*
+				
 				if(lstPreguntas.isSelectionEmpty()){
 					JOptionPane.showMessageDialog(null, "No has seleccionado ninguna pregunta.", "Error al seleccionar!", JOptionPane.ERROR_MESSAGE);
 				}else{
-				
 					//Confirmación que se desea borrar pregunta. 
-					 * JOptionPane.showConfirmDialog(
-					int posSeleccionado=lstPreguntas.getSelectedIndex();
-					Pregunta p=obtenerPreguntaPos(posSeleccionado);
-					VentanaAniadirPregunta vap = new VentanaAniadirPregunta(p);
-				
-					vap.setVisible(true);
-					dispose();
+					int respuesta = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea eliminar esta pregunta?", "Confirmación borrar pregnta", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+					if(respuesta== JOptionPane.YES_OPTION){
+						int posSeleccionado=lstPreguntas.getSelectedIndex();
+						Pregunta p=obtenerPreguntaPos(posSeleccionado);
+						VentanaPrincipal.bd.borrarPregunta(p);
+					}
 				}
-				
-				*/
 			}
 		});
 		panel_c_sur.add(btnBorrar);
