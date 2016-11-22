@@ -1,6 +1,6 @@
 package Threads;
 
-import ventanas.VentanaConfiguracion;
+import ventanas.VentanaCaragarPregunta;
 
 public class ThreadCargarPregunta extends Thread{
 	
@@ -12,10 +12,10 @@ public class ThreadCargarPregunta extends Thread{
 		
 		try {
 			Thread.sleep(1500);
-			VentanaConfiguracion.lblmagenCargar.setVisible(false);
+			VentanaCaragarPregunta.lblmagenCargar.setVisible(false);
 			Thread.sleep(100);
-			VentanaConfiguracion.btnJugar.setVisible(true);
-			VentanaConfiguracion.lblmagenOk.setVisible(true);
+			VentanaCaragarPregunta.btnJugar.setVisible(true);
+			VentanaCaragarPregunta.lblmagenOk.setVisible(true);
 			
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block

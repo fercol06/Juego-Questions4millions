@@ -16,7 +16,7 @@ import javax.swing.JSeparator;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 
-public class VentanaConfiguracion extends JFrame {
+public class VentanaCaragarPregunta extends JFrame {
 
 	private JPanel contentPane;
 	private JPanel panelNorte,panelSur,panelIzquierda,panelCentro,panelDerecha;
@@ -33,7 +33,7 @@ public class VentanaConfiguracion extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaConfiguracion frame = new VentanaConfiguracion();
+					VentanaCaragarPregunta frame = new VentanaCaragarPregunta();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,7 +45,7 @@ public class VentanaConfiguracion extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaConfiguracion() {
+	public VentanaCaragarPregunta() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -81,12 +81,12 @@ public class VentanaConfiguracion extends JFrame {
 		contentPane.add(panelCentro, BorderLayout.CENTER);
 		
 		lblmagenCargar = new JLabel();
-		lblmagenCargar.setIcon(new ImageIcon(VentanaConfiguracion.class.getResource("/images/gears125.gif")));
+		lblmagenCargar.setIcon(new ImageIcon(VentanaCaragarPregunta.class.getResource("/images/gears125.gif")));
 		panelCentro.add(lblmagenCargar);
 		
 		lblmagenOk = new JLabel();
 		lblmagenOk.setHorizontalAlignment(SwingConstants.CENTER);
-		lblmagenOk.setIcon(new ImageIcon(VentanaConfiguracion.class.getResource("/images/ok.gif")));
+		lblmagenOk.setIcon(new ImageIcon(VentanaCaragarPregunta.class.getResource("/images/ok.gif")));
 		panelCentro.add(lblmagenOk);
 		lblmagenOk.setVisible(false);
 	
