@@ -29,6 +29,7 @@ import java.awt.event.ActionEvent;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import javax.swing.JProgressBar;
+import javax.swing.ImageIcon;
 
 public class VentanaAdministracion extends JFrame {
 
@@ -148,6 +149,17 @@ public class VentanaAdministracion extends JFrame {
 		});
 		panel_c_sur.add(btnBorrar);
 		panel_c_sur.add(btnNueva);
+		
+		JPanel panel = new JPanel();
+		panel_c_sur.add(panel);
+		panel.setLayout(new BorderLayout(0, 0));
+		
+		JPanel panel_1 = new JPanel();
+		panel.add(panel_1, BorderLayout.WEST);
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setIcon(new ImageIcon(VentanaAdministracion.class.getResource("/images/basura_25.png")));
+		panel.add(btnNewButton, BorderLayout.EAST);
 		
 		JPanel panel_bajo = new JPanel();
 		panel_sur.add(panel_bajo);
