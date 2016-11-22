@@ -225,5 +225,24 @@ public class BD {
 		}
 		return false; //no hay admin
 	}
+	
+	/**
+	 * Metodo que se le pasa un usuario de tipo usuario para crear un administrador en la base de datos
+	 * @param u - Se le pasa un objeto de tipo usuario. 
+	 */
+	public void insertarAdmin(Usuario u){
+		
+		String query = "INSERT INTO usuario (user,email,pass,record,tipo) VALUES ('"
+				+ u.getUser() + "','" + u.getEmail() + "','" + u.getCon() + "'," + u.getRecord() + ",'"
+				+ u.getTipoUser() + "')";
+		try {
+			//System.out.println(query);
+			stmt.executeUpdate(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 
 }
