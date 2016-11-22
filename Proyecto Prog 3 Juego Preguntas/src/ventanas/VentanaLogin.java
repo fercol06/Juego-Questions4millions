@@ -34,7 +34,7 @@ public class VentanaLogin extends JFrame {
 	private JTextField textFieldNombre;
 	private JButton btnIniciarSesion, btnAtras;
 	private JPasswordField passwordFieldContrasenia;
-
+	private JLabel lblNombre, lblContrasenia;
 	/**
 	 * Launch the application.
 	 */
@@ -96,7 +96,7 @@ public class VentanaLogin extends JFrame {
 		flowLayout_1.setAlignment(FlowLayout.LEFT);
 		panel.add(panel_5);
 		
-		JLabel lblNombre = new JLabel("Nombre:");
+		lblNombre = new JLabel("Nombre:");
 		panel_5.add(lblNombre);
 		
 		JPanel panel_7 = new JPanel();
@@ -108,7 +108,7 @@ public class VentanaLogin extends JFrame {
 		flowLayout.setAlignment(FlowLayout.LEFT);
 		panel_7.add(panel_15);
 		
-		JLabel lblContrasenia = new JLabel("Contrase\u00F1a:");
+		lblContrasenia = new JLabel("Contrase\u00F1a:");
 		panel_15.add(lblContrasenia);
 		
 		JPanel panel_3 = new JPanel();
