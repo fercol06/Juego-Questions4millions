@@ -205,5 +205,25 @@ public class BD {
 		
 		return aU;
 	}
+	
+	/**
+	 * Metodo que comprueba si hay un usuario administrador en la base de datos. 
+	 * @return boolean - Devuelve 'true' si hay administrador en la Base de datos y 'false' si no hay.
+	 */
+	public boolean hayAdmin(){
+		String query = "SELECT user FROM usuario WHERE tipo='admin'";
+		try {
+			ResultSet rs = stmt.executeQuery(query);
+			// Comprobamos si ha devuelto filas
+			if (rs.next()){
+				rs.close();
+				return true; //hay admin
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false; //no hay admin
+	}
 
 }

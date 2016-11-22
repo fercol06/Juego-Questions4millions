@@ -58,7 +58,14 @@ public class VentanaPrincipal {
 			public void run() {
 				try {
 					VentanaPrincipal window = new VentanaPrincipal();
-					window.frame.setVisible(true);
+					
+					if(VentanaPrincipal.bd.hayAdmin()){
+						//hay admin
+						window.frame.setVisible(true);
+					}else{
+						//no admin
+						VentanaLogin vl= new VentanaLogin();
+					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
