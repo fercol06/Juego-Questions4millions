@@ -64,7 +64,7 @@ public class VentanaPrincipal {
 						window.frame.setVisible(true);
 					}else{
 						//no admin
-						VentanaLogin vl= new VentanaLogin();
+						VentanaLogin vl= new VentanaLogin(false);
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -73,12 +73,16 @@ public class VentanaPrincipal {
 		});
 	}
 
+	public JFrame getWindow(){
+		return frame;
+	}
 	/**
 	 * Create the application.
 	 */
 	public VentanaPrincipal() {
 		bd = new BD();
 		initialize();
+		
 	}
 
 	/**
@@ -118,12 +122,12 @@ public class VentanaPrincipal {
 		btnMarcadores.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				//if (!numVentanasMarcadores) { // comprobar que solo crea 1
+				if (!numVentanasMarcadores) { // comprobar que solo crea 1
 												// ventana.
-					//numVentanasMarcadores = true;
+					numVentanasMarcadores = true;
 					VentanaMarcadores vl = new VentanaMarcadores();
 					vl.setVisible(true);
-				//}
+				}
 
 			}
 		});
@@ -180,7 +184,7 @@ public class VentanaPrincipal {
 			public void actionPerformed(ActionEvent e) {
 				if (!numVentanasLogin) { // comprobar que solo crea 1 ventana.
 					numVentanasLogin = true;
-					VentanaLogin vl = new VentanaLogin();
+					VentanaLogin vl = new VentanaLogin(true);
 					vl.setVisible(true);
 				}
 			}

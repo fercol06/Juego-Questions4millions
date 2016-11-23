@@ -32,9 +32,10 @@ public class VentanaLogin extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldNombre;
-	private JButton btnIniciarSesion, btnAtras;
+	private JButton btnIniciarSesion, btnAtras,btnRegistrarse;
 	private JPasswordField passwordFieldContrasenia;
 	private JLabel lblNombre, lblContrasenia;
+	private boolean situacion;
 	/**
 	 * Launch the application.
 	 */
@@ -42,7 +43,7 @@ public class VentanaLogin extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaLogin frame = new VentanaLogin();
+					VentanaLogin frame = new VentanaLogin(true);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -54,7 +55,8 @@ public class VentanaLogin extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaLogin() {
+	public VentanaLogin(boolean situacion) {
+		this.situacion=situacion;
 		setTitle("Acceso login");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaLogin.class.getResource("/images/logoCuadrado125.png")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -187,6 +189,25 @@ public class VentanaLogin extends JFrame {
 				 
 			}
 		});
+		JFrame v=this;
+		btnRegistrarse = new JButton("Registrarse");
+		btnRegistrarse.addActionListener(new ActionListener() {
+		
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				if(!textFieldNombre.getText().equals("") && !passwordFieldContrasenia.getText().equals("")){
+					VentanaPrincipal.bd.insertarAdmin(new Usuario(textFieldNombre.getText(),passwordFieldContrasenia.getText()));
+					v.dispose();
+					VentanaPrincipal window = new VentanaPrincipal();
+					window.getWindow().setVisible(true);
+					
+				}
+				else
+					JOptionPane.showMessageDialog(null, "Para registrarte, tienes que introducir un nombre de usuario y una contraseña");
+			}
+		});
+		panel_17.add(btnRegistrarse);
 		panel_17.add(btnIniciarSesion);
 		
 		btnAtras = new JButton("Atr\u00E1s");
@@ -207,8 +228,14 @@ public class VentanaLogin extends JFrame {
 		/* Hacer metodo para comprobar que si se cierra esta ventana, cambia el valor de 
 		numVentanasLogin=false
 		*/
-		
-		
+		if(situacion)
+			btnRegistrarse.setVisible(false);
+		else{
+			btnIniciarSesion.setVisible(false);
+			btnAtras.setVisible(false);
+		}
+			
+		this.setVisible(true);
 	}
 	/**
 	 * Método para borrar campos

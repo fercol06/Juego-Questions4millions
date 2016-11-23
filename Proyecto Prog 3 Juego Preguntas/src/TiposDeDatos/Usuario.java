@@ -37,6 +37,11 @@ public class Usuario {
 		this.user = user;
 	}
 	
+	public Usuario(String user,String pass){
+		this.user=user;
+		this.con=pass;
+		this.tipoUser="admin";
+	}
 	
 	
 	/**

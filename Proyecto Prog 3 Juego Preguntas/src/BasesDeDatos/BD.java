@@ -151,6 +151,33 @@ public class BD {
 		}
 	}
 	
+	public boolean crearTablas(){
+		String queryP = "CREATE TABLE preguntas (cod_pr autoincremet, pregunta string, resp1 string, resp2 string, resp3 string, resp4 string, respOk string, nivel integer)";
+		String queryU = "CREATE TABLE usuario (cod_usr autoincremet, user string, email string, pass string, record string, tipo string)";
+		try {
+			stmt.executeUpdate(queryU);
+			stmt.executeUpdate(queryP);
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		return false;
+	}
+	public boolean BorrarTablas(){ 
+		String queryP = "DROP TABLE if exists preguntas";
+		String queryU = "DROP TABLE if exists usuario";
+		try {
+			stmt.executeUpdate(queryU);
+			stmt.executeUpdate(queryP);
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		return false;
+	}
+	
 
 	//////////////	METODOS USUARIOS	///////////
 	

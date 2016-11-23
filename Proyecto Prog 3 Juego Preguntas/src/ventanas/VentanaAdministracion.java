@@ -36,6 +36,7 @@ public class VentanaAdministracion extends JFrame {
 	private JPanel contentPane;
 	private JList <Pregunta> lstPreguntas;
 	private JScrollPane scrlPnlPreguntas;
+	private JButton btnNueva,btnBorrar,btnCerrarSesion,btnBasura;
 
 	/**
 	 * Launch the application.
@@ -120,7 +121,7 @@ public class VentanaAdministracion extends JFrame {
 		});
 		panel_c_sur.add(btnEditar);
 		
-		JButton btnNueva = new JButton("Nueva");
+		btnNueva = new JButton("Nueva");
 		btnNueva.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//String tipo="Nueva";
@@ -130,7 +131,7 @@ public class VentanaAdministracion extends JFrame {
 			}
 		});
 		
-		JButton btnBorrar = new JButton("Borrar");
+		btnBorrar = new JButton("Borrar");
 		btnBorrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -157,14 +158,35 @@ public class VentanaAdministracion extends JFrame {
 		JPanel panel_1 = new JPanel();
 		panel.add(panel_1, BorderLayout.WEST);
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon(VentanaAdministracion.class.getResource("/images/basura_25.png")));
-		panel.add(btnNewButton, BorderLayout.EAST);
+		btnBasura = new JButton("");
+		btnBasura.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			
+				int respuesta = JOptionPane.showConfirmDialog(
+						null, "Has solicitado volver a los ajustes iniciales del juego. Perderá todos los ajustes guardados.\n ¿Está seguro que desea restaurar el juego a los ajustes iniciales? ",
+						"Confirmación restaurar juego", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+				if(respuesta== JOptionPane.YES_OPTION){
+					boolean borrarTabla=VentanaPrincipal.bd.BorrarTablas();
+					boolean crearTabla=VentanaPrincipal.bd.crearTablas();
+					if(borrarTabla && crearTabla){
+						JOptionPane.showMessageDialog(null, "Todo ha salido perfectamente.\n Recuerda que la próxima vez que inicie deberá añadir un administrador. ",
+								"Ajustes reiniciado!", JOptionPane.INFORMATION_MESSAGE);
+					}else{
+						JOptionPane.showMessageDialog(null, "No se pudo restaurar a los ajustes niciales.",
+								"Sucedio un error!", JOptionPane.ERROR_MESSAGE);
+					}
+					
+				}
+				
+			}
+		});
+		btnBasura.setIcon(new ImageIcon(VentanaAdministracion.class.getResource("/images/basura_25.png")));
+		panel.add(btnBasura, BorderLayout.EAST);
 		
 		JPanel panel_bajo = new JPanel();
 		panel_sur.add(panel_bajo);
 		
-		JButton btnCerrarSesion = new JButton("Cerrar Sesi\u00F3n ");
+		btnCerrarSesion = new JButton("Cerrar Sesi\u00F3n ");
 		panel_bajo.add(btnCerrarSesion);
 		btnCerrarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

@@ -16,6 +16,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JSeparator;
 import java.awt.GridLayout;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class VentanaMarcadores extends JFrame {
 
@@ -53,6 +55,17 @@ public class VentanaMarcadores extends JFrame {
 	 */
 	public VentanaMarcadores() {
 		
+		/*
+		 * Cuando cierro la ventana me pone la variable estatica a false para que se pueda 
+		 * volver a abrir la ventana Marcadores.
+		 */
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent arg0) {
+				VentanaPrincipal.numVentanasMarcadores = false;
+			}
+		});
+		
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(VentanaPrincipal.class.getResource("/images/logoCuadrado125.png")));
 		setBounds(100, 100, 450, 300);
@@ -83,6 +96,7 @@ public class VentanaMarcadores extends JFrame {
 		btnAtras = new JButton("Atr\u00E1s");
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				VentanaPrincipal.numVentanasMarcadores = false;
 				dispose();
 			}
 		});
