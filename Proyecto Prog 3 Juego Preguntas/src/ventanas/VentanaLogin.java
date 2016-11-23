@@ -91,15 +91,20 @@ public class VentanaLogin extends JFrame {
 		panel.add(panel_6);
 		
 		JPanel panel_8 = new JPanel();
+		FlowLayout flowLayout_3 = (FlowLayout) panel_8.getLayout();
+		flowLayout_3.setAlignment(FlowLayout.LEFT);
 		panel.add(panel_8);
+		
+		lblNombre = new JLabel("Nombre:");
+		panel_8.add(lblNombre);
 		
 		JPanel panel_5 = new JPanel();
 		FlowLayout flowLayout_1 = (FlowLayout) panel_5.getLayout();
 		flowLayout_1.setAlignment(FlowLayout.LEFT);
 		panel.add(panel_5);
 		
-		lblNombre = new JLabel("Nombre:");
-		panel_5.add(lblNombre);
+		lblContrasenia = new JLabel("Contrase\u00F1a:");
+		panel_5.add(lblContrasenia);
 		
 		JPanel panel_7 = new JPanel();
 		panel_2.add(panel_7);
@@ -109,9 +114,6 @@ public class VentanaLogin extends JFrame {
 		FlowLayout flowLayout = (FlowLayout) panel_15.getLayout();
 		flowLayout.setAlignment(FlowLayout.LEFT);
 		panel_7.add(panel_15);
-		
-		lblContrasenia = new JLabel("Contrase\u00F1a:");
-		panel_15.add(lblContrasenia);
 		
 		JPanel panel_3 = new JPanel();
 		panel_4.add(panel_3);
@@ -127,13 +129,17 @@ public class VentanaLogin extends JFrame {
 		JPanel panel_12 = new JPanel();
 		panel_9.add(panel_12);
 		
+		textFieldNombre = new JTextField();
+		panel_12.add(textFieldNombre);
+		textFieldNombre.setHorizontalAlignment(SwingConstants.LEFT);
+		textFieldNombre.setColumns(10);
+		
 		JPanel panel_13 = new JPanel();
 		panel_9.add(panel_13);
 		
-		textFieldNombre = new JTextField();
-		panel_13.add(textFieldNombre);
-		textFieldNombre.setHorizontalAlignment(SwingConstants.LEFT);
-		textFieldNombre.setColumns(10);
+		passwordFieldContrasenia = new JPasswordField();
+		panel_13.add(passwordFieldContrasenia);
+		passwordFieldContrasenia.setColumns(10);
 		
 		JPanel panel_10 = new JPanel();
 		panel_3.add(panel_10);
@@ -142,16 +148,21 @@ public class VentanaLogin extends JFrame {
 		JPanel panel_14 = new JPanel();
 		panel_10.add(panel_14);
 		
-		passwordFieldContrasenia = new JPasswordField();
-		passwordFieldContrasenia.setColumns(10);
-		panel_14.add(passwordFieldContrasenia);
-		
 		JPanel panel_16 = new JPanel();
 		panel_centro.add(panel_16, BorderLayout.NORTH);
-		panel_16.setLayout(new GridLayout(0, 1, 0, 0));
+		panel_16.setLayout(new GridLayout(2, 1, 0, 0));
+		
+		JPanel panel_1 = new JPanel();
+		FlowLayout flowLayout_2 = (FlowLayout) panel_1.getLayout();
+		flowLayout_2.setAlignment(FlowLayout.LEFT);
+		panel_16.add(panel_1);
 		
 		JLabel lblAccesoAlPanel = new JLabel("Acceso al panel de Administraci\u00F3n: ");
-		panel_16.add(lblAccesoAlPanel);
+		panel_1.add(lblAccesoAlPanel);
+		JLabel lblAccesoPanel = new JLabel("Crear un administrador: ");
+		panel_1.add(lblAccesoPanel);
+		lblAccesoPanel.setVisible(false);
+		
 		
 		JSeparator separator = new JSeparator();
 		panel_16.add(separator);
@@ -228,11 +239,21 @@ public class VentanaLogin extends JFrame {
 		/* Hacer metodo para comprobar que si se cierra esta ventana, cambia el valor de 
 		numVentanasLogin=false
 		*/
-		if(situacion)
+		
+		/*Depende si recibe un true o un false, se muestran unos datos u otros
+		 * Si se pasa un:
+		 * true - Ventana iniciar sesion
+		 * false - Ventana Registrarse
+		 * */
+		
+		if(situacion){
 			btnRegistrarse.setVisible(false);
+		}
 		else{
 			btnIniciarSesion.setVisible(false);
 			btnAtras.setVisible(false);
+			lblAccesoAlPanel.setVisible(false);
+			lblAccesoPanel.setVisible(true);
 		}
 			
 		this.setVisible(true);
