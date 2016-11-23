@@ -16,7 +16,7 @@ import javax.swing.JSeparator;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 
-public class VentanaCaragarPregunta extends JFrame {
+public class VentanaCargarPregunta extends JFrame {
 
 	private JPanel contentPane;
 	private JPanel panelNorte,panelSur,panelIzquierda,panelCentro,panelDerecha;
@@ -33,7 +33,7 @@ public class VentanaCaragarPregunta extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaCaragarPregunta frame = new VentanaCaragarPregunta();
+					VentanaCargarPregunta frame = new VentanaCargarPregunta();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,14 +45,14 @@ public class VentanaCaragarPregunta extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaCaragarPregunta() {
+	public VentanaCargarPregunta() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		setTitle("Proxima pregunta");
+		setTitle("Próxima pregunta");
 		
 		panelNorte = new JPanel();
 		contentPane.add(panelNorte, BorderLayout.NORTH);
@@ -81,12 +81,12 @@ public class VentanaCaragarPregunta extends JFrame {
 		contentPane.add(panelCentro, BorderLayout.CENTER);
 		
 		lblmagenCargar = new JLabel();
-		lblmagenCargar.setIcon(new ImageIcon(VentanaCaragarPregunta.class.getResource("/images/gears125.gif")));
+		lblmagenCargar.setIcon(new ImageIcon(VentanaCargarPregunta.class.getResource("/images/gears125.gif")));
 		panelCentro.add(lblmagenCargar);
 		
 		lblmagenOk = new JLabel();
 		lblmagenOk.setHorizontalAlignment(SwingConstants.CENTER);
-		lblmagenOk.setIcon(new ImageIcon(VentanaCaragarPregunta.class.getResource("/images/ok.gif")));
+		lblmagenOk.setIcon(new ImageIcon(VentanaCargarPregunta.class.getResource("/images/ok.gif")));
 		panelCentro.add(lblmagenOk);
 		lblmagenOk.setVisible(false);
 	
