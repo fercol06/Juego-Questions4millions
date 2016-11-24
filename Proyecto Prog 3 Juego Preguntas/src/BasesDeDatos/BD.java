@@ -116,13 +116,6 @@ public class BD {
 		/*
 		 * Preparamos la query
 		 * CUIDADO con cod_pr que es autoincremental
-		 * @param pregunta
-		 * @param resp1
-		 * @param resp2
-		 * @param resp3
-		 * @param resp4
-		 * @param respCorrecta
-		 * @param nivel
 		 */
 		String query = "INSERT INTO preguntas (pregunta,resp1,resp2,resp3,resp4,respOk,nivel) VALUES ('"
 				+ p.getPregunta() + "','" + p.getResp1() + "','" + p.getResp2() + "','" + p.getResp3() + "','"
@@ -178,7 +171,8 @@ public class BD {
 	 * @return Devuelve un true si se ha ejecutado correctamente
 	 */
 	public boolean crearTablas(){
-		//Revisar autoincrement
+		//INTEGER AUTOINCREMENT
+		//https://www.tutorialspoint.com/sqlite/sqlite_using_autoincrement.htm
 		String queryP = "CREATE TABLE preguntas (cod_pr INTEGER PRIMARY KEY, pregunta string, resp1 string, resp2 string, resp3 string, resp4 string, respOk string, nivel integer)";
 		String queryU = "CREATE TABLE usuario (cod_usr INTEGER PRIMARY KEY, user string, email string, pass string, record string, tipo string)";
 		try {
