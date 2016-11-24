@@ -58,7 +58,12 @@ public class Pregunta {
 	public Pregunta() {
 	}
 	
-	
+	/**
+	 * @param cod_pr the cod_pr to set
+	 */
+	public void setCod_pr(int cod_pr) {
+		this.cod_pr = cod_pr;
+	}
 	/**
 	 * @return the cod_pr
 	 */

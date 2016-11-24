@@ -150,8 +150,32 @@ public class BD {
 			e.printStackTrace();
 		}
 	}
+	/**
+	 * Metodo que recive una pregunta y edita la pregunta en la base de datos
+	 * gracias a su cod_pr
+	 * @param p - Objeto pregunta
+	 */
+	public void editarPregunta(Pregunta p){
+		String query = "UPDATE preguntas SET "+
+				"pregunta ='"+p.getPregunta() + "', " +
+				"resp1 ='"+p.getResp1()+ "', " +
+				"resp2 ='"+p.getResp2()+ "', " +
+				"resp3 ='"+p.getResp3()+ "', " +
+				"resp4 ='"+p.getResp4()+ "', " +
+				"respOk ='"+p.getRespCorrecta()+ "', " +
+				"nivel ="+p.getNivel()+ " " +
+				"WHERE cod_pr="+p.getCod_pr();
+		try {
+			stmt.executeUpdate(query);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}				
+	}
+	
+	
 	
 	public boolean crearTablas(){
+		//Revisar autoincrement
 		String queryP = "CREATE TABLE preguntas (cod_pr INTEGER PRIMARY KEY, pregunta string, resp1 string, resp2 string, resp3 string, resp4 string, respOk string, nivel integer)";
 		String queryU = "CREATE TABLE usuario (cod_usr INTEGER PRIMARY KEY, user string, email string, pass string, record string, tipo string)";
 		try {

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-11-24T11:08:09</date>
+  <millis>1479982089958</millis>
+  <sequence>0</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>ventanas.VentanaPrincipal$1</class>
+  <method>run</method>
+  <thread>15</thread>
+  <message>Inicio Q4M</message>
+</record>
+<record>
+  <date>2016-11-24T11:08:10</date>
+  <millis>1479982090301</millis>
+  <sequence>1</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>ventanas.VentanaPrincipal$1</class>
+  <method>run</method>
+  <thread>15</thread>
+  <message>Hay Admin</message>
+</record>
+<record>
+  <date>2016-11-24T11:08:11</date>
+  <millis>1479982091496</millis>
+  <sequence>2</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>ventanas.VentanaPrincipal$5</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Botón Administracion</message>
+</record>

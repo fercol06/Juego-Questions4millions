@@ -213,11 +213,15 @@ public class VentanaAniadirPregunta extends JFrame {
 					int nivel=1;
 					nivel+= comboBoxNivel.getSelectedIndex();//selecciono el indice del array
 					Pregunta pNueva= crearPregunta(nivel);
+					//En la nueva pregunta que genero, guardo tambien el codigo que tenia la vieja pregunta. 
+					pNueva.setCod_pr(p.getCod_pr());
 					
 					//Borrar la vieja y crear la nueva
-					VentanaPrincipal.bd.borrarPregunta(p); //p vieja
+					//VentanaPrincipal.bd.borrarPregunta(p); //p vieja
+					//VentanaPrincipal.bd.aniadirPregunta(pNueva);
+					//Edito la pregunta con el mismo cod_pr. 
+					VentanaPrincipal.bd.editarPregunta(pNueva);
 					
-					VentanaPrincipal.bd.aniadirPregunta(pNueva);
 					JOptionPane.showMessageDialog(null, "Su pregunta se ha editado correctamente.","Pregunta editada", JOptionPane.INFORMATION_MESSAGE);
 					limpiarCampos();
 					
@@ -410,8 +414,7 @@ public class VentanaAniadirPregunta extends JFrame {
 			textFieldRespuestaIncorrecta3.setText(p.getResp3());
 		}
 		comboBoxNivel.setSelectedIndex(p.getNivel()-1);
-		
-		
+			
 	}
 	
 	/**
