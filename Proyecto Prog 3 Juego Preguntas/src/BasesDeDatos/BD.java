@@ -150,6 +150,7 @@ public class BD {
 			e.printStackTrace();
 		}
 	}
+	
 	/**
 	 * Metodo que recive una pregunta y edita la pregunta en la base de datos
 	 * gracias a su cod_pr
@@ -172,8 +173,10 @@ public class BD {
 		}				
 	}
 	
-	
-	
+	/**
+	 * Metodo que crea las tablas de la base de datos. 
+	 * @return Devuelve un true si se ha ejecutado correctamente
+	 */
 	public boolean crearTablas(){
 		//Revisar autoincrement
 		String queryP = "CREATE TABLE preguntas (cod_pr INTEGER PRIMARY KEY, pregunta string, resp1 string, resp2 string, resp3 string, resp4 string, respOk string, nivel integer)";
@@ -188,6 +191,11 @@ public class BD {
 		}	
 		return false;
 	}
+	
+	/**
+	 * Metodo que borra las tablas de la base de datos si existe. 
+	 * @return Devuelve un true si se ha ejecutado correctamente.
+	 */
 	public boolean BorrarTablas(){ 
 		String queryP = "DROP TABLE if exists preguntas";
 		String queryU = "DROP TABLE if exists usuario";
@@ -213,7 +221,6 @@ public class BD {
 	 * @param String nombre - Le pasamos un 'nombre' con el usuario a buscar en la base de datos.
 	 * @return Usuario u - Nos devuelve el objeto usuario que habiamos consultado.
 	 */
-
 	public Usuario obtenerUsuarioAdmin(String nombre) {
 		String query;
 		Usuario u = null;
@@ -236,7 +243,6 @@ public class BD {
 	 * Metodo que devuelve la lista completa de usuarios con sus puntuaciones.
 	 * @return ArrayList<Usuario> aU - Devuelve un arraylist de usuarios con sus datos para poder crear la tabla de marcadores.
 	 */
-	
 	public ArrayList<Usuario> obtenerUsuarioPuntuacion (){
 		Usuario u=null;
 		ArrayList<Usuario> aU=new ArrayList<>();
