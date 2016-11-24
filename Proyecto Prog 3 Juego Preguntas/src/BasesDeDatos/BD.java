@@ -152,8 +152,8 @@ public class BD {
 	}
 	
 	public boolean crearTablas(){
-		String queryP = "CREATE TABLE preguntas (cod_pr autoincremet, pregunta string, resp1 string, resp2 string, resp3 string, resp4 string, respOk string, nivel integer)";
-		String queryU = "CREATE TABLE usuario (cod_usr autoincremet, user string, email string, pass string, record string, tipo string)";
+		String queryP = "CREATE TABLE preguntas (cod_pr INTEGER PRIMARY KEY, pregunta string, resp1 string, resp2 string, resp3 string, resp4 string, respOk string, nivel integer)";
+		String queryU = "CREATE TABLE usuario (cod_usr INTEGER PRIMARY KEY, user string, email string, pass string, record string, tipo string)";
 		try {
 			stmt.executeUpdate(queryU);
 			stmt.executeUpdate(queryP);

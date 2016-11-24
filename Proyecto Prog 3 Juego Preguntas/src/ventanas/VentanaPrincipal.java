@@ -59,11 +59,14 @@ public class VentanaPrincipal {
 				try {
 					VentanaPrincipal window = new VentanaPrincipal();
 					
+					/*Me salta error si no hay tabla. */
 					if(VentanaPrincipal.bd.hayAdmin()){
 						//hay admin
 						window.frame.setVisible(true);
 					}else{
 						//no admin
+						VentanaPrincipal.bd.BorrarTablas();
+						VentanaPrincipal.bd.crearTablas();
 						VentanaLogin vl= new VentanaLogin(false);
 					}
 				} catch (Exception e) {
