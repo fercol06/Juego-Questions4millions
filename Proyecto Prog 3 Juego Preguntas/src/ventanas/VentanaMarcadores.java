@@ -18,6 +18,7 @@ import javax.swing.JSeparator;
 import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.ScrollPaneConstants;
 
 public class VentanaMarcadores extends JFrame {
 
@@ -106,6 +107,7 @@ public class VentanaMarcadores extends JFrame {
 		tabla.setPreferredScrollableViewportSize(new Dimension(500, 70));
 		tabla.setFillsViewportHeight(true);
 		scroll = new JScrollPane(tabla);
+		scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		contentPane.add(scroll);
 	}
 
