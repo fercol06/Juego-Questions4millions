@@ -30,6 +30,7 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import javax.swing.JProgressBar;
 import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 public class VentanaAdministracion extends JFrame {
 
@@ -58,6 +59,7 @@ public class VentanaAdministracion extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaAdministracion() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaAdministracion.class.getResource("/images/logoCuadrado125.png")));
 		setTitle("Lista de preguntas");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);

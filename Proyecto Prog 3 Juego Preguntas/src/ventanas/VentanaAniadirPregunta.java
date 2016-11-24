@@ -24,6 +24,7 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 
 public class VentanaAniadirPregunta extends JFrame {
 
@@ -56,6 +57,7 @@ public class VentanaAniadirPregunta extends JFrame {
 	 * Crea el frame de añadir nuevas preguntas.
 	 */
 	public VentanaAniadirPregunta() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaAniadirPregunta.class.getResource("/images/logoCuadrado125.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -183,6 +185,7 @@ public class VentanaAniadirPregunta extends JFrame {
 	 * Crea el frame de editar preguntas.
 	 */
 	public VentanaAniadirPregunta( Pregunta p) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaAniadirPregunta.class.getResource("/images/logoCuadrado125.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

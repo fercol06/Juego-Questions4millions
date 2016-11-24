@@ -18,6 +18,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.logging.*;
 import java.awt.FlowLayout;
 import javax.swing.SwingConstants;
 import java.awt.Toolkit;
@@ -49,6 +50,9 @@ public class VentanaPrincipal {
 														// ventana login
 	protected static boolean numVentanasMarcadores = false;
 	private JPanel panel_1;
+	
+	// Obtener un logger
+	private static Logger logger = Logger.getLogger( "Q4M" );
 
 	/**
 	 * Launch the application.
@@ -56,21 +60,33 @@ public class VentanaPrincipal {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
+				logger.setLevel( Level.ALL );
 				try {
+					/*Logs*/
+					Handler h = new StreamHandler( System.out, new SimpleFormatter() );
+					h.setLevel( Level.FINEST );
+					logger.addHandler( h );  // Saca todos los errores a out
+					logger.addHandler( new FileHandler( "Q4M.log.xml") );
+					logger.log( Level.INFO, "Inicio Q4M");
+					/*Logs*/
+					
 					VentanaPrincipal window = new VentanaPrincipal();
 					
 					/*Me salta error si no hay tabla. */
 					if(VentanaPrincipal.bd.hayAdmin()){
 						//hay admin
+						logger.log( Level.INFO, "Hay Admin");
 						window.frame.setVisible(true);
 					}else{
 						//no admin
+						logger.log( Level.INFO, "No hay Admin");
 						VentanaPrincipal.bd.BorrarTablas();
 						VentanaPrincipal.bd.crearTablas();
 						VentanaLogin vl= new VentanaLogin(false);
 					}
 				} catch (Exception e) {
-					e.printStackTrace();
+					//e.printStackTrace();
+					logger.log( Level.SEVERE, e.toString(), e );
 				}
 			}
 		});
@@ -125,6 +141,7 @@ public class VentanaPrincipal {
 		btnMarcadores.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
+				logger.log( Level.INFO, "Botón Marcadores");
 				if (!numVentanasMarcadores) { // comprobar que solo crea 1
 												// ventana.
 					numVentanasMarcadores = true;
@@ -142,6 +159,7 @@ public class VentanaPrincipal {
 		panel_21.add(btnInstrucciones);
 		btnInstrucciones.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				logger.log( Level.INFO, "Botón Instrucciones");
 				JOptionPane.showMessageDialog(null,
 						"Bienvenido a Questions4Millions!\n"
 								+ "Q4M es un juego de preguntas y respuestas donde deberás contestar"
@@ -160,6 +178,7 @@ public class VentanaPrincipal {
 		panel_22.add(btnSalir);
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				logger.log( Level.INFO, "Botón Salir");
 				bd.desconectar();
 				System.exit(0);
 			}
@@ -185,6 +204,7 @@ public class VentanaPrincipal {
 
 		btnAdmin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				logger.log( Level.INFO, "Botón Administracion");
 				if (!numVentanasLogin) { // comprobar que solo crea 1 ventana.
 					numVentanasLogin = true;
 					VentanaLogin vl = new VentanaLogin(true);
