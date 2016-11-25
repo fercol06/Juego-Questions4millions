@@ -177,6 +177,7 @@ public class Pregunta {
 		      String linea;
 		      while((linea = br.readLine()) != null){
 		    	  p.setPregunta(linea);
+		    	  
 		    	  //leo las respuestas
 		    	  linea = br.readLine();
 		    	  p.setResp1(linea);
@@ -188,6 +189,7 @@ public class Pregunta {
 		    	  p.setResp4(linea);
 		    	  linea = br.readLine();
 		    	  p.setRespCorrecta(linea);
+		    	  //nivel???
 		    	  
 		    	  //meto arrayList
 		    	  aP.add(p);
