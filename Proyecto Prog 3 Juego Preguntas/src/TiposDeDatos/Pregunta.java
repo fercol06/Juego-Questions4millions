@@ -59,6 +59,48 @@ public class Pregunta {
 	}
 	
 	/**
+	 * @param pregunta the pregunta to set
+	 */
+	public void setPregunta(String pregunta) {
+		this.pregunta = pregunta;
+	}
+	/**
+	 * @param resp1 the resp1 to set
+	 */
+	public void setResp1(String resp1) {
+		this.resp1 = resp1;
+	}
+	/**
+	 * @param resp2 the resp2 to set
+	 */
+	public void setResp2(String resp2) {
+		this.resp2 = resp2;
+	}
+	/**
+	 * @param resp3 the resp3 to set
+	 */
+	public void setResp3(String resp3) {
+		this.resp3 = resp3;
+	}
+	/**
+	 * @param resp4 the resp4 to set
+	 */
+	public void setResp4(String resp4) {
+		this.resp4 = resp4;
+	}
+	/**
+	 * @param respCorrecta the respCorrecta to set
+	 */
+	public void setRespCorrecta(String respCorrecta) {
+		this.respCorrecta = respCorrecta;
+	}
+	/**
+	 * @param nivel the nivel to set
+	 */
+	public void setNivel(int nivel) {
+		this.nivel = nivel;
+	}
+	/**
 	 * @param cod_pr the cod_pr to set
 	 */
 	public void setCod_pr(int cod_pr) {
