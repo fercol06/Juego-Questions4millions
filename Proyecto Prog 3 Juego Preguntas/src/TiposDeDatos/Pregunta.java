@@ -198,7 +198,7 @@ public class Pregunta {
 		      fr.close();
 		    }
 		    catch(Exception e) {
-		      System.out.println("Excepcion leyendo fichero "+ fichero + ": " + e);
+		      e.printStackTrace();
 		    }
 		return aP;
 	}
