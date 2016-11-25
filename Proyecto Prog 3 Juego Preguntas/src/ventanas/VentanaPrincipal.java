@@ -8,6 +8,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import BasesDeDatos.BD;
+import TiposDeDatos.Pregunta;
+import TiposDeDatos.Usuario;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -18,6 +20,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.logging.*;
 import java.awt.FlowLayout;
 import javax.swing.SwingConstants;
@@ -240,4 +243,5 @@ public class VentanaPrincipal {
 
 	}
 
+	
 }

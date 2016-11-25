@@ -166,7 +166,41 @@ public class Pregunta {
 		return cod_pr + ". " + pregunta + " ; " + respCorrecta + " [" + nivel + "]";
 	}
 
-
+	/*
+	public ArrayList<Pregunta> leerFchero(String fichero){
+		Pregunta p = null;
+		ArrayList<Pregunta> aP=new ArrayList<>();
+		try {
+		      FileReader fr = new FileReader(fichero);
+		      BufferedReader br = new BufferedReader(fr);
+		 
+		      String linea;
+		      while((linea = br.readLine()) != null){
+		    	  p.setPregunta(linea);
+		    	  //leo las respuestas
+		    	  linea = br.readLine();
+		    	  p.setResp1(linea);
+		    	  linea = br.readLine();
+		    	  p.setResp2(linea);
+		    	  linea = br.readLine();
+		    	  p.setResp3(linea);
+		    	  linea = br.readLine();
+		    	  p.setResp4(linea);
+		    	  linea = br.readLine();
+		    	  p.setRespCorrecta(linea);
+		    	  
+		    	  //meto arrayList
+		    	  aP.add(p);
+		      }
+		 
+		      fr.close();
+		    }
+		    catch(Exception e) {
+		      System.out.println("Excepcion leyendo fichero "+ fichero + ": " + e);
+		    }
+		return aP;
+	}
+	*/
 	
 	
 }
