@@ -51,8 +51,7 @@ public class VentanaPrincipal {
 	private JPanel panel_22;
 	private JPanel panel_1;
 
-	protected static boolean numVentanasLogin = false; // false no se ha creado
-														// ventana login
+	protected static boolean numVentanasLogin = false; // false no se ha creado ventana login
 	protected static boolean numVentanasMarcadores = false;
 	
 	//nombre fichero de preguntas;

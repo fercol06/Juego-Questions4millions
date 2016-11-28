@@ -160,6 +160,7 @@ public class VentanaAdministracion extends JFrame {
 		JPanel panel_1 = new JPanel();
 		panel.add(panel_1, BorderLayout.WEST);
 		
+		//Boton Papelera
 		btnBasura = new JButton("");
 		btnBasura.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -173,6 +174,9 @@ public class VentanaAdministracion extends JFrame {
 					if(borrarTabla && crearTabla){
 						JOptionPane.showMessageDialog(null, "Todo ha salido perfectamente.\n Recuerda que la próxima vez que inicie deberá añadir un administrador. ",
 								"Ajustes reiniciado!", JOptionPane.INFORMATION_MESSAGE);
+						//cerrar sesion admin
+						VentanaPrincipal.numVentanasLogin=false;
+						dispose();
 					}else{
 						JOptionPane.showMessageDialog(null, "No se pudo restaurar a los ajustes niciales.",
 								"Sucedio un error!", JOptionPane.ERROR_MESSAGE);

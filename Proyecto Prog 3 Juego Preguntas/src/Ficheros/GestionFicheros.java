@@ -17,6 +17,7 @@ public class GestionFicheros {
 		 
 		      String linea;
 		      while((linea = br.readLine()) != null){
+		    	  p = new Pregunta();
 		    	  p.setPregunta(linea.trim());
 		    	  
 		    	  //leo las respuestas quitando los espacios en blanco
