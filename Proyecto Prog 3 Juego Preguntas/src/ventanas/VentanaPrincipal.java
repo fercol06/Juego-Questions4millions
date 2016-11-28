@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import BasesDeDatos.BD;
+import Ficheros.GestionFicheros;
 import TiposDeDatos.Pregunta;
 import TiposDeDatos.Usuario;
 
@@ -48,11 +49,14 @@ public class VentanaPrincipal {
 	private JPanel panel_12;
 	private JPanel panel_21;
 	private JPanel panel_22;
+	private JPanel panel_1;
 
 	protected static boolean numVentanasLogin = false; // false no se ha creado
 														// ventana login
 	protected static boolean numVentanasMarcadores = false;
-	private JPanel panel_1;
+	
+	//nombre fichero de preguntas;
+	private static final String fichero = "Preguntados.txt";
 	
 	// Obtener un logger
 	private static Logger logger = Logger.getLogger( "Q4M" );
@@ -85,6 +89,8 @@ public class VentanaPrincipal {
 						logger.log( Level.INFO, "No hay Admin");
 						VentanaPrincipal.bd.BorrarTablas();
 						VentanaPrincipal.bd.crearTablas();
+						VentanaPrincipal.bd.aniadirArrayPreguntas(GestionFicheros.leerFichero(fichero)); 
+						
 						VentanaLogin vl= new VentanaLogin(false);
 					}
 				} catch (Exception e) {

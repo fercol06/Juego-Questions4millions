@@ -130,6 +130,18 @@ public class BD {
 	}
 	
 	/**
+	 * Metodo que le pasamos un arrayList de preguntas, lo recorremos y vamos llamando a la funcion
+	 * aniadirPregunta para que las vaya añadiendo a la base de datos.
+	 * @param aP -ArrayList de tipo preguntas que recibimos.
+	 */
+	public void aniadirArrayPreguntas(ArrayList<Pregunta> aP){
+		
+		for(Pregunta p: aP){	
+			aniadirPregunta(p);
+		}
+	}
+	
+	/**
 	 * Método para borrar una pregunta a la BD
 	 */
 	public void borrarPregunta(Pregunta p) {
