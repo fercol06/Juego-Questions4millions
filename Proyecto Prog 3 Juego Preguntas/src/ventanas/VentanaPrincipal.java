@@ -143,10 +143,13 @@ public class VentanaPrincipal {
 			public void actionPerformed(ActionEvent arg0) {
 				if(VentanaPrincipal.bd.hayPreguntas()){
 					//Hay preguntas
+					logger.log( Level.INFO, "Hay Preguntas en BD");
+					
 				}else{
 					//No hay preguntas
+					logger.log( Level.INFO, "No hay Preguntas en BD");
 					JOptionPane.showMessageDialog(null, "No hay ninguna pregunta en la Base de datos.\n"
-							+"Por favor, reinicie el juevo para establecerlas por defecto", "No hay preguntas!", JOptionPane.ERROR_MESSAGE);
+							+"Por favor, reinicie el juevo para establecerlas por defecto.", "No hay preguntas!", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});
