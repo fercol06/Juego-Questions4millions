@@ -139,6 +139,17 @@ public class VentanaPrincipal {
 		panel.add(panel_11);
 
 		btnJugar = new JButton("Jugar");
+		btnJugar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(VentanaPrincipal.bd.hayPreguntas()){
+					//Hay preguntas
+				}else{
+					//No hay preguntas
+					JOptionPane.showMessageDialog(null, "No hay ninguna pregunta en la Base de datos.\n"
+							+"Por favor, reinicie el juevo para establecerlas por defecto", "No hay preguntas!", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+		});
 		panel_11.add(btnJugar);
 
 		panel_12 = new JPanel();

@@ -82,6 +82,26 @@ public class BD {
 	
 	////////////// METODOS PREGUNTAS	///////////
 	
+	/**
+	 * Metodo que comprueba si hay preguntas en la base de datos.
+	 * @return Devuelve un true si hay preguntas en la BD.
+	 */
+	public boolean hayPreguntas(){
+		String query = "SELECT * FROM preguntas";
+		try {
+			ResultSet rs = stmt.executeQuery(query);
+			// Comprobamos si ha devuelto filas
+			if (rs.next()){
+				rs.close();
+				return true; //hay preguntas
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false; //no hay preguntas
+	}
+	
 	
 	
 	/**
