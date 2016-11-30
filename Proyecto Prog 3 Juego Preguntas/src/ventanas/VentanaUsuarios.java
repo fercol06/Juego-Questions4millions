@@ -84,6 +84,7 @@ public class VentanaUsuarios extends JFrame {
 		//getContentPane().setBackground(new Color(0, 128, 0));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 503, 681);
+		setTitle("Configuración de la partida:");
 		
 		JPanel panel =  new JPanel();
 		panel.setBackground(Color.BLACK);
