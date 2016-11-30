@@ -109,7 +109,7 @@ public class VentanaUsuarios extends JFrame {
 					textPane.append("partida creada\n comenzando...");
 					vcp.setVisible(true);
 				
-				}else{textPane.append("\n Faltan mas usuarios!");}
+				}else{textPane.append("\n Faltan más usuarios!");}
 				
 			}
 		});
@@ -300,7 +300,7 @@ public class VentanaUsuarios extends JFrame {
 				config = new ConfiguracionJuego(val1,val2,val3);
 				textPane_1.setText("Inserte Jugadores:");
 				textPane.setText(config.toString());
-				textPane_1.setText("\n Ahora inserte los usuarios: ");
+				textPane_1.setText("\nAhora inserte los usuarios: ");
 				btnComenzar.setVisible(true);
 					
 					//Escuchador botonAñadir
