@@ -363,10 +363,10 @@ public class VentanaUsuarios extends JFrame {
 			arr.add(us1);
 			
 			
-			return "Usuario numero: "+arr.size()+" añadido:"+
+			return "Usuario número "+arr.size()+" añadido:"+
 					"\n "+user;
 					
-		}else	{return "lista completa\n por favor\n comience partida";}
+		}else	{return "\nLista completa.\nPor favor,\ncomience la partida!";}
 	}
 }
 
