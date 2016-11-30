@@ -48,7 +48,13 @@ public class VentanaUsuarios extends JFrame {
 	private ArrayList<Usuario> aUsuario;
 	private ConfiguracionJuego config;
 	private JTextArea textPane;
-	private JButton btnComenzar;
+	private JButton btnComenzar,btnQuitar,btnAñadir,caractButton;
+	private JSlider difslider,tiempslider,jugslider;
+	private JTextPane textPane_1; 
+	private JScrollBar scrollBar;
+	private JSplitPane splitPane;
+	private JLabel lblAjusteCaract,lblNivel,lblNumJugadores,lblTiempoPregunta;
+
 	/**
 	 * Launch the application.
 	 */
@@ -88,7 +94,9 @@ public class VentanaUsuarios extends JFrame {
 		JPanel panel_2 = new JPanel();
 		
 //----------------------------------------------------->Comenzar
+		
 		btnComenzar = new JButton("Comenzar");
+		btnComenzar.setVisible(false);
 		btnComenzar.addActionListener(new ActionListener() {
 			
 			@Override
@@ -147,7 +155,7 @@ public class VentanaUsuarios extends JFrame {
 		JPanel panel_4 = new JPanel();
 		panel_1.add(panel_4, BorderLayout.SOUTH);
 		
-		JButton btnQuitar = new JButton("Quitar");
+		btnQuitar = new JButton("Quitar");
 
 //------------------------>Text Area
 		
@@ -161,7 +169,7 @@ public class VentanaUsuarios extends JFrame {
 				
 		btnQuitar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	
-		JButton btnAñadir = new JButton("A\u00F1adir");
+		btnAñadir = new JButton("A\u00F1adir");
 		btnAñadir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAñadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -179,7 +187,7 @@ public class VentanaUsuarios extends JFrame {
 		
 //----------------------------------------------------->Comenzar
 		
-		JSplitPane splitPane = new JSplitPane();
+		splitPane = new JSplitPane();
 		splitPane.setOneTouchExpandable(true);
 		splitPane.setResizeWeight(0.5);
 		panel_1.add(splitPane, BorderLayout.CENTER);
@@ -188,13 +196,13 @@ public class VentanaUsuarios extends JFrame {
 		splitPane.setRightComponent(textField);
 		textField.setColumns(10);
 		
-		JTextPane textPane_1 = new JTextPane();
+		textPane_1 = new JTextPane();
 		splitPane.setLeftComponent(textPane_1);
 		
 		//Devuelve el numero de usuarios insertados hasta ahora
 		
 		
-		JScrollBar scrollBar = new JScrollBar();
+		scrollBar = new JScrollBar();
 		scrollBar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		
@@ -222,7 +230,7 @@ public class VentanaUsuarios extends JFrame {
 		
 		
 		
-		JSlider difslider = new JSlider();
+		difslider = new JSlider();
 		difslider.setMinorTickSpacing(50);
 		difslider.setPaintTicks(true);
 		difslider.setSnapToTicks(true);
@@ -239,7 +247,7 @@ public class VentanaUsuarios extends JFrame {
 		difslider.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		difslider.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		
-		JSlider jugslider = new JSlider();
+		jugslider = new JSlider();
 		jugslider.setSnapToTicks(true);
 		jugslider.setPaintTicks(true);
 		jugslider.setMinorTickSpacing(50);
@@ -256,7 +264,7 @@ public class VentanaUsuarios extends JFrame {
 		jugslider.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		jugslider.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		
-		JSlider tiempslider = new JSlider();
+		tiempslider = new JSlider();
 		tiempslider.setMinorTickSpacing(50);
 		tiempslider.setPaintTicks(true);
 		tiempslider.setSnapToTicks(true);
@@ -273,10 +281,10 @@ public class VentanaUsuarios extends JFrame {
 		tiempslider.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		
 		
-		JLabel lblAjusteCaract = new JLabel("Ajustes de Caracter\u00EDsticas:");
+		lblAjusteCaract = new JLabel("Ajustes de Caracter\u00EDsticas:");
 		lblAjusteCaract.setForeground(Color.BLACK);
 		
-		JButton caractButton = new JButton();
+		caractButton = new JButton();
 		caractButton.setText("A\u00F1adir Usuarios");
 		caractButton.addActionListener(new ActionListener() {
 			
@@ -293,18 +301,18 @@ public class VentanaUsuarios extends JFrame {
 				textPane_1.setText("Inserte Jugadores:");
 				textPane.setText(config.toString());
 				textPane_1.setText("\n Ahora inserte los usuarios: ");
-				
+				btnComenzar.setVisible(true);
 					
 					//Escuchador botonAñadir
 					
 			}
 		});
 		
-		JLabel lblNivel = new JLabel("Nivel de preguntas:");
+		lblNivel = new JLabel("Nivel de preguntas:");
 		
-		JLabel lblNumJugadores = new JLabel("N\u00FAmero jugadores:");
+		lblNumJugadores = new JLabel("N\u00FAmero jugadores:");
 		
-		JLabel lblTiempoPregunta = new JLabel("Tiempo por pregunta:");
+		lblTiempoPregunta = new JLabel("Tiempo por pregunta:");
 		
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
 		gl_panel_2.setHorizontalGroup(
