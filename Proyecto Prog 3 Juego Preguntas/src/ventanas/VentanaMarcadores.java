@@ -13,6 +13,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -120,10 +121,15 @@ public class VentanaMarcadores extends JFrame {
 				Component def = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 				if(row %2==0){
 					def.setBackground(Color.WHITE);
-				//	def.setForeground(new Color(172, 172, 172));
 				}else{
 					def.setBackground(new Color(225, 225, 225));
 				}
+				/*
+				DefaultTableModel dtm= (DefaultTableModel)table.getModel();
+				if(((String)dtm.getValueAt(row, column)).charAt(0)=='X'){
+					def.setForeground(Color.GREEN);
+				}
+				*/
 				return def;
 			}
 		});
