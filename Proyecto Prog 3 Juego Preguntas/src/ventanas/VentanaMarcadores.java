@@ -1,6 +1,8 @@
 package ventanas;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
@@ -10,6 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableCellRenderer;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -106,6 +110,25 @@ public class VentanaMarcadores extends JFrame {
 		tabla = new JTable(datos, columnNames); 
 		tabla.setPreferredScrollableViewportSize(new Dimension(500, 70));
 		tabla.setFillsViewportHeight(true);
+		//Renderer
+		tabla.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+			
+			@Override
+			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+					int row, int column) {
+				
+				Component def = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+				if(row %2==0){
+					def.setBackground(Color.WHITE);
+				//	def.setForeground(new Color(172, 172, 172));
+				}else{
+					def.setBackground(new Color(225, 225, 225));
+				}
+				return def;
+			}
+		});
+		
+		
 		scroll = new JScrollPane(tabla);
 		scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		contentPane.add(scroll);
