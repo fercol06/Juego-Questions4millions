@@ -18,7 +18,7 @@ public class ConfiguracionJuego {
 		this.dificultad = dificultad;
 		this.numJugadores = numPreguntas;
 		this.segundosPreguntas = minutosPreguntas;
-		numVidas = dificultad;
+		this.numVidas = dificultad;
 	}
 	/**
 	 * Constructor sin parametros de la configuracion del juego.
@@ -30,13 +30,13 @@ public class ConfiguracionJuego {
 	 * @return the dificultad
 	 */
 	public int getDificultad() {
-		return dificultad*2/100;
+		return dificultad;
 	}
 	/**
 	 * @return the numPreguntas
 	 */
 	public int getNumJugadores() {
-		return 2+ numJugadores*4/100;
+		return numJugadores;
 	}
 	/**
 	 * @return the minutosPreguntas
@@ -53,9 +53,9 @@ public class ConfiguracionJuego {
 	
 	@Override
 	public String toString(){
-		return (" Dificultad: "+dificultad*2/100
-				+ "\n Numero de Jugadores: "+(2 +numJugadores*4/100)
-				+ "\n Segundos Preguntas: "+(20 + segundosPreguntas*40/100));
+		return (" Dificultad: "+dificultad
+				+ "\n Numero de Jugadores: "+(numJugadores)
+				+ "\n Segundos Preguntas: "+segundosPreguntas);
 	}
 	
 }

@@ -144,7 +144,9 @@ public class VentanaPrincipal {
 				if(VentanaPrincipal.bd.hayPreguntas()){
 					//Hay preguntas
 					logger.log( Level.INFO, "Hay Preguntas en BD");
-					
+					VentanaUsuarios vu = new VentanaUsuarios(); 
+					frame.dispose();
+					vu.setVisible(true);
 				}else{
 					//No hay preguntas
 					logger.log( Level.INFO, "No hay Preguntas en BD");

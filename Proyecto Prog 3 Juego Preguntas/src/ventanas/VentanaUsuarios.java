@@ -45,7 +45,10 @@ import javax.swing.JEditorPane;
 public class VentanaUsuarios extends JFrame {
 
 	private JTextField textField;
-	private ArrayList<Usuario> aUsuario=new ArrayList<Usuario>();
+	private ArrayList<Usuario> aUsuario;
+	private ConfiguracionJuego config;
+	private JTextArea textPane;
+	private JButton btnComenzar;
 	/**
 	 * Launch the application.
 	 */
@@ -53,8 +56,8 @@ public class VentanaUsuarios extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {					
-					VentanaUsuarios frame = new VentanaUsuarios();
-					frame.setVisible(true);
+					VentanaUsuarios ventuser = new VentanaUsuarios();
+					ventuser.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -67,30 +70,56 @@ public class VentanaUsuarios extends JFrame {
 	 */
 	public VentanaUsuarios() {
 		
+		//Incializar arrays
+		aUsuario=new ArrayList<Usuario>();
+		config=new ConfiguracionJuego();
 		// Relative layout 
 
-		getContentPane().setBackground(new Color(0, 128, 0));
+		//getContentPane().setBackground(new Color(0, 128, 0));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 510, 528);
+		setBounds(100, 100, 503, 681);
 		
 		JPanel panel =  new JPanel();
 		panel.setBackground(Color.BLACK);
 		
-		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(0, 128, 128));
+		//panel_1.setBackground(new Color(0, 128, 128));
 		panel_1.setVisible(false);
 		JPanel panel_2 = new JPanel();
-		panel_2.setBackground(new Color(0, 0, 255));
+		
+//----------------------------------------------------->Comenzar
+		btnComenzar = new JButton("Comenzar");
+		btnComenzar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				int tam = aUsuario.size();
+				int tamMax = config.getNumJugadores();
+				if(tam == tamMax){
+					Partida partida = new Partida(config,aUsuario);
+					VentanaCargarPregunta vcp = new VentanaCargarPregunta();
+					textPane.append("partida creada\n comenzando...");
+					vcp.setVisible(true);
+				
+				}else{textPane.append("\n Faltan mas usuarios!");}
+				
+			}
+		});
+		//panel_2.setBackground(new Color(0, 0, 255));
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 201, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addComponent(panel_2, GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
-						.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE))
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(panel, GroupLayout.PREFERRED_SIZE, 201, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+								.addComponent(panel_2, GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
+								.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(184)
+							.addComponent(btnComenzar)))
 					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
@@ -98,11 +127,13 @@ public class VentanaUsuarios extends JFrame {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addComponent(panel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(panel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 161, GroupLayout.PREFERRED_SIZE)
 							.addGap(16)
-							.addComponent(panel_2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+							.addComponent(panel_2, GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnComenzar, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap())
 		);
 		panel_1.setLayout(new BorderLayout(0, 0));
@@ -120,7 +151,7 @@ public class VentanaUsuarios extends JFrame {
 
 //------------------------>Text Area
 		
-		JTextArea textPane = new JTextArea();
+		textPane = new JTextArea();
 		textPane.setText(" Inserte las características"
 						+ "\n de la partida: ");
 		textPane.setBackground(Color.BLACK);
@@ -129,19 +160,24 @@ public class VentanaUsuarios extends JFrame {
 //------------------------>Text Area
 				
 		btnQuitar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+	
 		JButton btnAñadir = new JButton("A\u00F1adir");
+		btnAñadir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAñadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String text1 =textField.getText();
-				int max=6;
-				String av1= anadirUsuario(aUsuario,max,text1);
+		//		int max=6;
+				String av1= anadirUsuario(aUsuario, config, text1);
 				textPane.append("\n "+av1);
+				
 			}
 		});
 		
 		
 		panel_4.add(btnAñadir);
 		panel_4.add(btnQuitar);
+		
+//----------------------------------------------------->Comenzar
 		
 		JSplitPane splitPane = new JSplitPane();
 		splitPane.setOneTouchExpandable(true);
@@ -167,17 +203,18 @@ public class VentanaUsuarios extends JFrame {
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(6)
 					.addComponent(textPane, GroupLayout.PREFERRED_SIZE, 162, Short.MAX_VALUE)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(scrollBar, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap())
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addComponent(scrollBar, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
+				.addComponent(scrollBar, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addComponent(textPane, GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
-					.addGap(16))
+					.addComponent(textPane, GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
+					.addContainerGap())
 		);
 		panel.setLayout(gl_panel);
 		
@@ -236,10 +273,11 @@ public class VentanaUsuarios extends JFrame {
 		tiempslider.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		
 		
-		JLabel lblAjusteCaract = new JLabel("AJUSTE CARACTERISTICA");
-		lblAjusteCaract.setForeground(Color.WHITE);
+		JLabel lblAjusteCaract = new JLabel("Ajustes de Caracter\u00EDsticas:");
+		lblAjusteCaract.setForeground(Color.BLACK);
 		
 		JButton caractButton = new JButton();
+		caractButton.setText("A\u00F1adir Usuarios");
 		caractButton.addActionListener(new ActionListener() {
 			
 			@Override
@@ -247,66 +285,80 @@ public class VentanaUsuarios extends JFrame {
 				panel_1.setVisible(true);
 				caractButton.setVisible(false);
 				
-				int val1= difslider.getValue();
-				int val2= jugslider.getValue();
-				int val3= tiempslider.getValue();
+				int val1= (difslider.getValue())*2/100;
+				int val2= 2 +(jugslider.getValue())*4/100;
+				int val3= 20+(tiempslider.getValue())*40/100;
 				
-				ConfiguracionJuego config = new ConfiguracionJuego(val1,val2,val3);
-				ArrayList<Usuario> impUsuarios= new ArrayList<>();
+				config = new ConfiguracionJuego(val1,val2,val3);
 				textPane_1.setText("Inserte Jugadores:");
 				textPane.setText(config.toString());
 				textPane_1.setText("\n Ahora inserte los usuarios: ");
-				Partida part=new Partida(config,impUsuarios);
 				
-					btnAñadir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+					
 					//Escuchador botonAñadir
 					
 			}
 		});
 		
+		JLabel lblNivel = new JLabel("Nivel de preguntas:");
+		
+		JLabel lblNumJugadores = new JLabel("N\u00FAmero jugadores:");
+		
+		JLabel lblTiempoPregunta = new JLabel("Tiempo por pregunta:");
+		
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
 		gl_panel_2.setHorizontalGroup(
 			gl_panel_2.createParallelGroup(Alignment.LEADING)
+				.addGroup(Alignment.TRAILING, gl_panel_2.createSequentialGroup()
+					.addContainerGap(89, Short.MAX_VALUE)
+					.addComponent(lblAjusteCaract, GroupLayout.PREFERRED_SIZE, 199, GroupLayout.PREFERRED_SIZE)
+					.addGap(36))
 				.addGroup(gl_panel_2.createSequentialGroup()
-					.addContainerGap(37, Short.MAX_VALUE)
+					.addGap(34)
 					.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
-						.addGroup(Alignment.TRAILING, gl_panel_2.createSequentialGroup()
-							.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
-								.addComponent(tiempslider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(difslider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblAjusteCaract, GroupLayout.PREFERRED_SIZE, 199, GroupLayout.PREFERRED_SIZE)
-								.addComponent(jugslider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addGap(35))
-						.addGroup(Alignment.TRAILING, gl_panel_2.createSequentialGroup()
-							.addComponent(caractButton, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
-							.addGap(112))))
+						.addComponent(caractButton, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
+						.addComponent(tiempslider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNumJugadores)
+						.addComponent(lblNivel)
+						.addComponent(difslider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(jugslider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblTiempoPregunta))
+					.addContainerGap(22, Short.MAX_VALUE))
 		);
 		gl_panel_2.setVerticalGroup(
 			gl_panel_2.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_2.createSequentialGroup()
 					.addComponent(lblAjusteCaract, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblNivel)
+					.addGap(11)
 					.addComponent(difslider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(26)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblNumJugadores)
+					.addGap(4)
 					.addComponent(jugslider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(27)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblTiempoPregunta)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(tiempslider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
-					.addComponent(caractButton, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addComponent(caractButton, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(51, Short.MAX_VALUE))
 		);
 		panel_2.setLayout(gl_panel_2);
 		getContentPane().setLayout(groupLayout);
 	}
-	public String anadirUsuario (ArrayList<Usuario> arr, int Max,String user ){
-		if(arr.size()<Max && user!=null){
+	public String anadirUsuario (ArrayList<Usuario> arr, ConfiguracionJuego config,String user){
+			
+		if(arr.size()<config.getNumJugadores() && user!=null){
 			Usuario us1=new Usuario(user);
 			arr.add(us1);
+			
 			
 			return "Usuario numero: "+arr.size()+" añadido:"+
 					"\n "+user;
 					
-		}else	{return "error";}
+		}else	{return "lista completa\n por favor\n comience partida";}
 	}
 }
 
