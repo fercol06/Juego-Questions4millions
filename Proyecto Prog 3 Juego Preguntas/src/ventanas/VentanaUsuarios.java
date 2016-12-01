@@ -40,6 +40,7 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.JList;
 import javax.swing.JEditorPane;
+import java.awt.Font;
 
 @SuppressWarnings("serial")
 public class VentanaUsuarios extends JFrame {
@@ -83,7 +84,7 @@ public class VentanaUsuarios extends JFrame {
 
 		//getContentPane().setBackground(new Color(0, 128, 0));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 503, 681);
+		setBounds(100, 100, 503, 570);
 		setTitle("Configuración de la partida:");
 		
 		JPanel panel =  new JPanel();
@@ -283,6 +284,7 @@ public class VentanaUsuarios extends JFrame {
 		
 		
 		lblAjusteCaract = new JLabel("Ajustes de Caracter\u00EDsticas:");
+		lblAjusteCaract.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblAjusteCaract.setForeground(Color.BLACK);
 		
 		caractButton = new JButton();
@@ -317,14 +319,11 @@ public class VentanaUsuarios extends JFrame {
 		
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
 		gl_panel_2.setHorizontalGroup(
-			gl_panel_2.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_panel_2.createSequentialGroup()
-					.addContainerGap(89, Short.MAX_VALUE)
-					.addComponent(lblAjusteCaract, GroupLayout.PREFERRED_SIZE, 199, GroupLayout.PREFERRED_SIZE)
-					.addGap(36))
-				.addGroup(gl_panel_2.createSequentialGroup()
+			gl_panel_2.createParallelGroup(Alignment.TRAILING)
+				.addGroup(Alignment.LEADING, gl_panel_2.createSequentialGroup()
 					.addGap(34)
 					.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblAjusteCaract, GroupLayout.PREFERRED_SIZE, 199, GroupLayout.PREFERRED_SIZE)
 						.addComponent(caractButton, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
 						.addComponent(tiempslider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblNumJugadores)
