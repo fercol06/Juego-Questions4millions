@@ -1,4 +1,4 @@
-package ventanas;
+package Ventanas;
 
 import java.awt.Dimension;
 import java.awt.Graphics;

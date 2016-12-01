@@ -1,5 +1,5 @@
 
-package ventanas;
+package Ventanas;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;

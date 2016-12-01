@@ -2,7 +2,7 @@ package Threads;
 
 import java.awt.Color;
 
-import ventanas.VentanaSolucion;
+import Ventanas.VentanaSolucion;
 
 public class ThreadSolucion extends Thread{
 	

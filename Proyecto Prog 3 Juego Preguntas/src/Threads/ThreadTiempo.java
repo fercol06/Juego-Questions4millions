@@ -2,8 +2,8 @@ package Threads;
 
 import javax.swing.ImageIcon;
 
-import ventanas.ImagenPanel;
-import ventanas.VentanaPregunta;
+import Ventanas.ImagenPanel;
+import Ventanas.VentanaPregunta;
 
 public class ThreadTiempo extends Thread{
 	

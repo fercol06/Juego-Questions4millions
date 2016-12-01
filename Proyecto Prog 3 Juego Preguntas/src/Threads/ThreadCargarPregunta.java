@@ -1,6 +1,6 @@
 package Threads;
 
-import ventanas.VentanaCargarPregunta;
+import Ventanas.VentanaCargarPregunta;
 
 public class ThreadCargarPregunta extends Thread{
 	
