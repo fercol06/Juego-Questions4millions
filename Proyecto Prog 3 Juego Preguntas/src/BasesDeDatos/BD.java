@@ -207,9 +207,11 @@ public class BD {
 		//https://www.tutorialspoint.com/sqlite/sqlite_using_autoincrement.htm
 		String queryP = "CREATE TABLE preguntas (cod_pr INTEGER PRIMARY KEY, pregunta string, resp1 string, resp2 string, resp3 string, resp4 string, respOk string, nivel integer)";
 		String queryU = "CREATE TABLE usuario (cod_usr INTEGER PRIMARY KEY, user string, email string, pass string, record string, tipo string)";
+		String queryR = "CREATE TABLE preguntasUsuario (user string, pregunta string, acertado string)";
 		try {
 			stmt.executeUpdate(queryU);
 			stmt.executeUpdate(queryP);
+			stmt.executeUpdate(queryR);
 			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -225,9 +227,11 @@ public class BD {
 	public boolean BorrarTablas(){ 
 		String queryP = "DROP TABLE if exists preguntas";
 		String queryU = "DROP TABLE if exists usuario";
+		String queryR = "DROP TABLE if exists preguntasUsuario";
 		try {
 			stmt.executeUpdate(queryU);
 			stmt.executeUpdate(queryP);
+			stmt.executeUpdate(queryR);
 			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
