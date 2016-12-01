@@ -309,7 +309,7 @@ public class VentanaUsuarios extends JFrame {
 			}
 		});
 		
-		lblNivel = new JLabel("Nivel de preguntas:");
+		lblNivel = new JLabel("Nivel de dificultad:");
 		
 		lblNumJugadores = new JLabel("N\u00FAmero jugadores:");
 		

@@ -15,6 +15,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumnModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -78,13 +79,14 @@ public class VentanaMarcadores extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		setTitle("Marcadores Q4M!");
+		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 
-		String[] columnNames = { "Usuario", "Puntuación máxima"};
-		Object[][] datos = {{"Emilio", "2340"},{"Augusto","8304"},{"Martín","450"}};
+		String[] columnNames = {"#", "Usuario", "Puntuación máxima"};
+		Object[][] datos = {{"1","Emilio", "2340"},{"2","Augusto","8304"},{"3","Martín","450"}};
 		
 		panel_norte = new JPanel();
 		contentPane.add(panel_norte, BorderLayout.NORTH);
@@ -111,6 +113,11 @@ public class VentanaMarcadores extends JFrame {
 		tabla = new JTable(datos, columnNames); 
 		tabla.setPreferredScrollableViewportSize(new Dimension(500, 70));
 		tabla.setFillsViewportHeight(true);
+		
+		//TABLA tamaño 1º columna
+		TableColumnModel columnModel = tabla.getColumnModel();
+		tabla.getColumnModel().getColumn(0).setMaxWidth(20);
+		
 		//Renderer
 		tabla.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
 			
@@ -118,12 +125,24 @@ public class VentanaMarcadores extends JFrame {
 			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
 					int row, int column) {
 				
-				Component def = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-				if(row %2==0){
+				Component def = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);				
+				
+				if(row == 0 ){
+					def.setBackground(new Color(101, 255, 135));
+				}
+				else if(row == columnNames.length-1){
+					def.setBackground(new Color(255, 101, 111));
+				}
+				else{
+					def.setBackground(Color.WHITE);
+				}
+				/*
+				if(row %2==0){ 
 					def.setBackground(Color.WHITE);
 				}else{
 					def.setBackground(new Color(225, 225, 225));
 				}
+				*/
 				/*
 				DefaultTableModel dtm= (DefaultTableModel)table.getModel();
 				if(((String)dtm.getValueAt(row, column)).charAt(0)=='X'){
