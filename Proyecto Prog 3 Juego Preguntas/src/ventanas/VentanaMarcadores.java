@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
@@ -115,7 +116,7 @@ public class VentanaMarcadores extends JFrame {
 		tabla.setFillsViewportHeight(true);
 		
 		//TABLA tamaño 1º columna
-		TableColumnModel columnModel = tabla.getColumnModel();
+		//TableColumnModel columnModel = tabla.getColumnModel();
 		tabla.getColumnModel().getColumn(0).setMaxWidth(20);
 		
 		//Renderer
@@ -126,6 +127,9 @@ public class VentanaMarcadores extends JFrame {
 					int row, int column) {
 				
 				Component def = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);				
+				if(column==0){
+					def.setFont(new Font("Tahoma", Font.BOLD, 12));
+				}
 				
 				if(row == 0 ){
 					def.setBackground(new Color(101, 255, 135));
