@@ -240,9 +240,9 @@ public class VentanaUsuarios extends JFrame {
 		
 		//Label table de slider
 		Hashtable<Integer, JLabel> labelTable = new Hashtable<Integer, JLabel>();
-		labelTable.put( new Integer( 0 ), new JLabel("Facil") );
+		labelTable.put( new Integer( 0 ), new JLabel("Fácil") );
 		labelTable.put( new Integer( 50 ), new JLabel("Medio") );
-		labelTable.put( new Integer( 100 ), new JLabel("Dificil") );
+		labelTable.put( new Integer( 100 ), new JLabel("Difícil") );
 		difslider.setLabelTable( labelTable ); //ERROR
 		difslider.setPaintLabels(true);
 		
