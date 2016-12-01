@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import TiposDeDatos.Usuario;
+import TiposDeDatos.Administrador;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -181,7 +181,7 @@ public class VentanaLogin extends JFrame {
 					//Datos vacios
 					JOptionPane.showMessageDialog(null,"Para poder administrar el juego tienes que insertar un nombre de usuario y una contraseña validos",	"Error!", JOptionPane.ERROR_MESSAGE);
 				} else {
-					Usuario u = VentanaPrincipal.bd.obtenerUsuarioAdmin(txtnombre);
+					Administrador u = VentanaPrincipal.bd.obtenerUsuarioAdmin(txtnombre);
 					if (u == null) {
 					 	//No existe
 						JOptionPane.showMessageDialog(null, "Lo siento pero no tienes permisos para acceder a esta página","Fallo de Autenticación!", JOptionPane.ERROR_MESSAGE);
@@ -208,7 +208,7 @@ public class VentanaLogin extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				if(!textFieldNombre.getText().equals("") && !passwordFieldContrasenia.getText().equals("")){
-					VentanaPrincipal.bd.insertarAdmin(new Usuario(textFieldNombre.getText(),passwordFieldContrasenia.getText()));
+					VentanaPrincipal.bd.insertarAdmin(new Administrador(textFieldNombre.getText(),passwordFieldContrasenia.getText()));
 					v.dispose();
 					VentanaPrincipal window = new VentanaPrincipal();
 					window.getWindow().setVisible(true);

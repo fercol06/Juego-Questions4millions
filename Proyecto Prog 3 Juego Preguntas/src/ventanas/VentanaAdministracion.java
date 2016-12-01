@@ -10,7 +10,6 @@ import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
 
 import TiposDeDatos.Pregunta;
-import TiposDeDatos.Usuario;
 
 import javax.swing.JComboBox;
 import javax.swing.DefaultListModel;

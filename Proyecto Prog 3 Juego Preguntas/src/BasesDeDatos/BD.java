@@ -7,8 +7,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import TiposDeDatos.Administrador;
+import TiposDeDatos.Jugador;
 import TiposDeDatos.Pregunta;
-import TiposDeDatos.Usuario;
+
 
 public class BD {
 
@@ -244,23 +246,17 @@ public class BD {
 	//////////////	METODOS USUARIOS	///////////
 	
 	
-	/**
-	 * Método para obtener el objeto Usuario admin del que le hemos pasado el nombre.
-	 * En este caso utilizamos para el login.
-	 * 
-	 * @param String nombre - Le pasamos un 'nombre' con el usuario a buscar en la base de datos.
-	 * @return Usuario u - Nos devuelve el objeto usuario que habiamos consultado.
-	 */
-	public Usuario obtenerUsuarioAdmin(String nombre) {
+	
+	public Administrador obtenerUsuarioAdmin(String nombre) {
 		String query;
-		Usuario u = null;
+		Administrador u = null;
 		// Preparamos la query
 		query = "SELECT * FROM usuario WHERE user='" + nombre + "' AND tipo='admin'";
 		try {
 			ResultSet rs = stmt.executeQuery(query);
 			// Comprobamos si ha devuelto filas
 			if (rs.next())
-				u = new Usuario(rs.getInt("cod_usr"), rs.getString("user"), rs.getString("email"), rs.getString("pass"), rs.getInt("record"),
+				u = new Administrador(rs.getInt("cod_usr"), rs.getString("user"), rs.getString("email"), rs.getString("pass"),
 						rs.getString("tipo"));
 			rs.close();
 		} catch (SQLException e) {
@@ -269,19 +265,16 @@ public class BD {
 		return u;
 	}
 	
-	/**
-	 * Metodo que devuelve la lista completa de usuarios con sus puntuaciones.
-	 * @return ArrayList<Usuario> aU - Devuelve un arraylist de usuarios con sus datos para poder crear la tabla de marcadores.
-	 */
-	public ArrayList<Usuario> obtenerUsuarioPuntuacion (){
-		Usuario u=null;
-		ArrayList<Usuario> aU=new ArrayList<>();
+	
+	public ArrayList<Jugador> obtenerUsuarioPuntuacion (){
+		Jugador u=null;
+		ArrayList<Jugador> aU=new ArrayList<Jugador>();
 		String query = "SELECT * FROM usuarios";
 		try {
 			ResultSet rs = stmt.executeQuery(query);
 			while (rs.next()) {
 				// Comprobamos si ha devuelto filas
-				u = new Usuario(rs.getInt("cod_usr"), rs.getString("user"), rs.getString("email"), rs.getString("pass"), rs.getInt("record"),
+				u = new Jugador(rs.getInt("cod_usr"), rs.getString("user"), rs.getString("pass"), rs.getInt("record"),
 						rs.getString("tipo"));
 				aU.add(u);
 			}
@@ -313,14 +306,11 @@ public class BD {
 		return false; //no hay admin
 	}
 	
-	/**
-	 * Metodo que se le pasa un usuario de tipo usuario para crear un administrador en la base de datos
-	 * @param u - Se le pasa un objeto de tipo usuario. 
-	 */
-	public void insertarAdmin(Usuario u){
+	
+	public void insertarAdmin(Administrador u){
 		
 		String query = "INSERT INTO usuario (user,email,pass,record,tipo) VALUES ('"
-				+ u.getUser() + "','" + u.getEmail() + "','" + u.getCon() + "'," + u.getRecord() + ",'"
+				+ u.getUser() + "','" + u.getEmail() + "','" + u.getCon() + "', 0" +", '"
 				+ u.getTipoUser() + "')";
 		try {
 			//System.out.println(query);

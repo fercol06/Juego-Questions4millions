@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2016-11-30T17:27:49</date>
-  <millis>1480523269974</millis>
+  <date>2016-12-01T11:31:19</date>
+  <millis>1480588279332</millis>
   <sequence>0</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -13,19 +13,19 @@
   <message>Inicio Q4M</message>
 </record>
 <record>
-  <date>2016-11-30T17:27:50</date>
-  <millis>1480523270412</millis>
+  <date>2016-12-01T11:31:19</date>
+  <millis>1480588279616</millis>
   <sequence>1</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
   <class>ventanas.VentanaPrincipal$1</class>
   <method>run</method>
   <thread>15</thread>
-  <message>Hay Admin</message>
+  <message>No hay Admin</message>
 </record>
 <record>
-  <date>2016-11-30T17:27:52</date>
-  <millis>1480523272128</millis>
+  <date>2016-12-01T11:31:28</date>
+  <millis>1480588288654</millis>
   <sequence>2</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -33,16 +33,5 @@
   <method>actionPerformed</method>
   <thread>15</thread>
   <message>Botón Administracion</message>
-</record>
-<record>
-  <date>2016-11-30T17:27:59</date>
-  <millis>1480523279015</millis>
-  <sequence>3</sequence>
-  <logger>Q4M</logger>
-  <level>INFO</level>
-  <class>ventanas.VentanaPrincipal$2</class>
-  <method>actionPerformed</method>
-  <thread>15</thread>
-  <message>Hay Preguntas en BD</message>
 </record>
 </log>

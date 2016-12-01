@@ -27,8 +27,8 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
 
 import TiposDeDatos.ConfiguracionJuego;
+import TiposDeDatos.Jugador;
 import TiposDeDatos.Partida;
-import TiposDeDatos.Usuario;
 
 import java.awt.Cursor;
 import java.awt.BorderLayout;
@@ -45,7 +45,7 @@ import javax.swing.JEditorPane;
 public class VentanaUsuarios extends JFrame {
 
 	private JTextField textField;
-	private ArrayList<Usuario> aUsuario;
+	private ArrayList<Jugador> aUsuario;
 	private ConfiguracionJuego config;
 	private JTextArea textPane;
 	private JButton btnComenzar,btnQuitar,btnAñadir,caractButton;
@@ -77,7 +77,7 @@ public class VentanaUsuarios extends JFrame {
 	public VentanaUsuarios() {
 		
 		//Incializar arrays
-		aUsuario=new ArrayList<Usuario>();
+		aUsuario=new ArrayList<Jugador>();
 		config=new ConfiguracionJuego();
 		// Relative layout 
 
@@ -357,10 +357,10 @@ public class VentanaUsuarios extends JFrame {
 		panel_2.setLayout(gl_panel_2);
 		getContentPane().setLayout(groupLayout);
 	}
-	public String anadirUsuario (ArrayList<Usuario> arr, ConfiguracionJuego config,String user){
+	public String anadirUsuario (ArrayList<Jugador> arr, ConfiguracionJuego config,String user){
 			
 		if(arr.size()<config.getNumJugadores() && user!=null){
-			Usuario us1=new Usuario(user);
+			Jugador us1=new Jugador(user);
 			arr.add(us1);
 			
 			

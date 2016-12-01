@@ -10,7 +10,6 @@ import javax.swing.JPanel;
 import BasesDeDatos.BD;
 import Ficheros.GestionFicheros;
 import TiposDeDatos.Pregunta;
-import TiposDeDatos.Usuario;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
