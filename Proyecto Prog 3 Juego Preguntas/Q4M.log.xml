@@ -2,34 +2,34 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2016-12-01T11:38:36</date>
-  <millis>1480588716540</millis>
+  <date>2016-12-03T13:51:26</date>
+  <millis>1480769486741</millis>
   <sequence>0</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
-  <class>ventanas.VentanaPrincipal$1</class>
+  <class>Ventanas.VentanaPrincipal$1</class>
   <method>run</method>
   <thread>15</thread>
   <message>Inicio Q4M</message>
 </record>
 <record>
-  <date>2016-12-01T11:38:36</date>
-  <millis>1480588716850</millis>
+  <date>2016-12-03T13:51:27</date>
+  <millis>1480769487045</millis>
   <sequence>1</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
-  <class>ventanas.VentanaPrincipal$1</class>
+  <class>Ventanas.VentanaPrincipal$1</class>
   <method>run</method>
   <thread>15</thread>
   <message>Hay Admin</message>
 </record>
 <record>
-  <date>2016-12-01T11:38:40</date>
-  <millis>1480588720202</millis>
+  <date>2016-12-03T13:51:28</date>
+  <millis>1480769488854</millis>
   <sequence>2</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
-  <class>ventanas.VentanaPrincipal$2</class>
+  <class>Ventanas.VentanaPrincipal$2</class>
   <method>actionPerformed</method>
   <thread>15</thread>
   <message>Hay Preguntas en BD</message>
