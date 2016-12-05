@@ -82,7 +82,7 @@ public class BD {
 	////////////			Metodos con datos			////////////
 	/////////////////////////////////////////////////////////////////
 	
-	////////////// METODOS PREGUNTAS	///////////
+	////////////// METODOS TABLA PREGUNTAS	///////////
 	
 	/**
 	 * Metodo que comprueba si hay preguntas en la base de datos.
@@ -243,7 +243,7 @@ public class BD {
 	}
 	
 
-	//////////////	METODOS USUARIOS	///////////
+	//////////////	METODOS TABLA USUARIOS	///////////
 	
 	
 	
@@ -319,6 +319,12 @@ public class BD {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+	}
+	
+	//////////////	METODOS TABLA PREGUNTAS USUARIO	///////////
+	
+	public void inertarPreguntaContestada (Jugador j, Pregunta p, boolean acertado){
 		
 	}
 
