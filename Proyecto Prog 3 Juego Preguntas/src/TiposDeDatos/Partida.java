@@ -14,11 +14,8 @@ public class Partida {
 	//NO porque hay que comprobar una tabla
 	//private ArrayList<Pregunta> aPregunta;
 	
-	/**
-	 * 
-	 * @param config
-	 * @param aUsuario
-	 */
+	
+	
 	public Partida(ConfiguracionJuego config, ArrayList<Jugador> aUsuario) {
 		this.config = config;
 		this.aUsuario = aUsuario;
@@ -28,7 +25,6 @@ public class Partida {
 		for(int i=0; i<config.getNumJugadores(); i++){
 			aVidas.add(config.getNumVidas());
 		}
-		
 	}
 
 	public ConfiguracionJuego getConfig() {

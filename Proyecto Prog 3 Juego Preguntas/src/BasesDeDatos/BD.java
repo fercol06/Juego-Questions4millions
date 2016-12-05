@@ -326,6 +326,15 @@ public class BD {
 	
 	public void inertarPreguntaContestada (Jugador j, Pregunta p, boolean acertado){
 		
+		String query = "INSERT INTO preguntasUsuario (user, pregunta, acertado) VALUES ('"
+				+ j.getUser() + "','" + p.getPregunta() + "','" + acertado + "')";
+		try {
+			stmt.executeUpdate(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 }
