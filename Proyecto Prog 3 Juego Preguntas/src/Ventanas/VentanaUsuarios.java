@@ -109,9 +109,10 @@ public class VentanaUsuarios extends JFrame {
 				int tamMax = config.getNumJugadores();
 				if (tam == tamMax) {
 					partida = new Partida(config, aUsuario);
-					VentanaCargarPregunta vcp = new VentanaCargarPregunta();
+					//VentanaCargarPregunta vcp = new VentanaCargarPregunta();
 					textPane.append("partida creada\n comenzando...");
-					vcp.setVisible(true);
+					//vcp.setVisible(true);
+					System.out.println(config.getNumJugadores());
 
 				} else {
 					textPane.append("\n Faltan más usuarios!");
@@ -168,6 +169,16 @@ public class VentanaUsuarios extends JFrame {
 		// ------------------------>Text Area
 
 		btnQuitar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
+		btnQuitar.addActionListener(new ActionListener() {
+					
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					String texto1=textField.getText();
+					String av2= quitarUsuario(aUsuario, config, texto1);
+					textPane.append("\n "+av2);
+				}
+		});
 
 		btnAñadir = new JButton("A\u00F1adir");
 		btnAñadir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -177,7 +188,7 @@ public class VentanaUsuarios extends JFrame {
 				// int max=6;
 				String av1 = anadirUsuario(aUsuario, config, text1);
 				textPane.append("\n " + av1);
-
+				limpiarCampos();
 			}
 		});
 
@@ -338,6 +349,8 @@ public class VentanaUsuarios extends JFrame {
 								.addContainerGap(51, Short.MAX_VALUE)));
 		panel_2.setLayout(gl_panel_2);
 		getContentPane().setLayout(groupLayout);
+		
+		
 	}
 
 	public String anadirUsuario(ArrayList<Jugador> arr, ConfiguracionJuego config, String user) {
@@ -374,5 +387,29 @@ public class VentanaUsuarios extends JFrame {
 
 		}
 		return repe;
+	}
+	
+	public String quitarUsuario (ArrayList<Jugador> arr, ConfiguracionJuego config,String user){
+		
+			int i=0;
+			
+			while(i<arr.size()){
+				String	jugador1=arr.get(i).getUser();
+				
+						if(jugador1.equals(user)){
+							int iaux=i;
+							arr.remove(i);
+							return "Usuario numero "+(iaux+1)+"\n quitado"+
+									"\n Nombre: "+user+"\n Nuevo tama\u00F1o: "+arr.size();	
+														
+						}else{i++;}									
+					
+			}				
+		
+		return "Error no existe el usuario";
+	}
+	
+	public void limpiarCampos(){
+		textField.setText("");
 	}
 }
