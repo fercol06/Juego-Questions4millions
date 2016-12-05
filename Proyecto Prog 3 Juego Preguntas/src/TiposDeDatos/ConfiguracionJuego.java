@@ -5,7 +5,7 @@ public class ConfiguracionJuego {
 	private int dificultad; // 3 niveles de dificultad: 1- Baja; 2- Media; 3- Alta.
 	private int numJugadores;
 	private int segundosPreguntas; 
-	private int numVidas; //Vidas inversas al nivel. 
+	private int numVidas; //Vidas inversas al nivel. // 3 Vidas, 2 Vidas, 1 vida, 0 vidas, -1 ha terminado
 	
 	/**
 	 * Constructor de la configuración del juego con parametros

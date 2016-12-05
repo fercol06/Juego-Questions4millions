@@ -213,7 +213,7 @@ public class VentanaAdministracion extends JFrame {
 	 */
 	private void insertarPreguntaEnLista() {
 		
-		ArrayList<Pregunta> aPreguntas= VentanaPrincipal.bd.obtenerPregunta(); // me devuelve arrayList
+		ArrayList<Pregunta> aPreguntas= VentanaPrincipal.bd.obtenerPreguntas(); // me devuelve arrayList
 		
 		DefaultListModel<Pregunta> dlm = (DefaultListModel<Pregunta>) lstPreguntas.getModel();
 		for(int i=0;i<aPreguntas.size();i++){
@@ -229,7 +229,7 @@ public class VentanaAdministracion extends JFrame {
 	private Pregunta obtenerPreguntaPos(int i) {
 		Pregunta p=null;
 		//obtengo todas las preguntas en orden
-		ArrayList<Pregunta> aP=VentanaPrincipal.bd.obtenerPregunta();
+		ArrayList<Pregunta> aP=VentanaPrincipal.bd.obtenerPreguntas();
 		//Selecciono la posicion en la que estaba en la lista
 		p=aP.get(i);
 		return p;

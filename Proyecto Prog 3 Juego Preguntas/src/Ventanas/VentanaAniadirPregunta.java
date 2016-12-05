@@ -426,7 +426,7 @@ public class VentanaAniadirPregunta extends JFrame {
 		String preguntaBD="";
 		
 		//Obtengo un arrayList de Preguntas para comprobar
-		ArrayList<Pregunta> aP= VentanaPrincipal.bd.obtenerPregunta();
+		ArrayList<Pregunta> aP= VentanaPrincipal.bd.obtenerPreguntas();
 		for(int i=0; i<aP.size();i++){
 			 preguntaBD=aP.get(i).getPregunta();
 			 //compruebo si son iguales 

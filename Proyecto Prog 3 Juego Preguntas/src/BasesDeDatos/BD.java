@@ -82,6 +82,51 @@ public class BD {
 	////////////			Metodos con datos			////////////
 	/////////////////////////////////////////////////////////////////
 	
+	////////////////	Metodos generales tablas	/////////////////
+	
+	/**
+	 * Metodo que crea las tablas de la base de datos. 
+	 * @return Devuelve un true si se ha ejecutado correctamente
+	 */
+	public boolean crearTablas(){
+		//INTEGER AUTOINCREMENT
+		//https://www.tutorialspoint.com/sqlite/sqlite_using_autoincrement.htm
+		String queryP = "CREATE TABLE preguntas (cod_pr INTEGER PRIMARY KEY, pregunta string, resp1 string, resp2 string, resp3 string, resp4 string, respOk string, nivel integer)";
+		String queryU = "CREATE TABLE usuario (cod_usr INTEGER PRIMARY KEY, user string, email string, pass string, record string, tipo string)";
+		String queryR = "CREATE TABLE preguntasUsuario (user string, pregunta string, acertado string)";
+		try {
+			stmt.executeUpdate(queryU);
+			stmt.executeUpdate(queryP);
+			stmt.executeUpdate(queryR);
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		return false;
+	}
+	
+	/**
+	 * Metodo que borra las tablas de la base de datos si existe. 
+	 * @return Devuelve un true si se ha ejecutado correctamente.
+	 */
+	public boolean BorrarTablas(){ 
+		String queryP = "DROP TABLE if exists preguntas";
+		String queryU = "DROP TABLE if exists usuario";
+		String queryR = "DROP TABLE if exists preguntasUsuario";
+		try {
+			stmt.executeUpdate(queryU);
+			stmt.executeUpdate(queryP);
+			stmt.executeUpdate(queryR);
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		return false;
+	}
+	
+	
 	////////////// METODOS TABLA PREGUNTAS	///////////
 	
 	/**
@@ -109,7 +154,7 @@ public class BD {
 	/**
 	 * Método para obtener preguntas
 	 */
-	public ArrayList<Pregunta> obtenerPregunta() {
+	public ArrayList<Pregunta> obtenerPreguntas() {
 		Pregunta p = null;
 		ArrayList<Pregunta> aP = new ArrayList<>();
 		// Preparamos la query
@@ -201,46 +246,31 @@ public class BD {
 	}
 	
 	/**
-	 * Metodo que crea las tablas de la base de datos. 
-	 * @return Devuelve un true si se ha ejecutado correctamente
+	 * Nos devuelve el numero de preguntas de la BD
+	 * @return
 	 */
-	public boolean crearTablas(){
-		//INTEGER AUTOINCREMENT
-		//https://www.tutorialspoint.com/sqlite/sqlite_using_autoincrement.htm
-		String queryP = "CREATE TABLE preguntas (cod_pr INTEGER PRIMARY KEY, pregunta string, resp1 string, resp2 string, resp3 string, resp4 string, respOk string, nivel integer)";
-		String queryU = "CREATE TABLE usuario (cod_usr INTEGER PRIMARY KEY, user string, email string, pass string, record string, tipo string)";
-		String queryR = "CREATE TABLE preguntasUsuario (user string, pregunta string, acertado string)";
+	public int numPreguntas(){
+		int num=0;
+		String query ="SELECT * FROM preguntas";
 		try {
-			stmt.executeUpdate(queryU);
-			stmt.executeUpdate(queryP);
-			stmt.executeUpdate(queryR);
-			return true;
+			ResultSet rs = stmt.executeQuery(query);
+			while (rs.next()){
+				num++;
+			}
+			rs.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	
-		return false;
+		}
+		return num;
 	}
 	
-	/**
-	 * Metodo que borra las tablas de la base de datos si existe. 
-	 * @return Devuelve un true si se ha ejecutado correctamente.
-	 */
-	public boolean BorrarTablas(){ 
-		String queryP = "DROP TABLE if exists preguntas";
-		String queryU = "DROP TABLE if exists usuario";
-		String queryR = "DROP TABLE if exists preguntasUsuario";
-		try {
-			stmt.executeUpdate(queryU);
-			stmt.executeUpdate(queryP);
-			stmt.executeUpdate(queryR);
-			return true;
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}	
-		return false;
+	
+	public Pregunta obtenerPreguntaAleatoria(){
+		Pregunta p=null;
+		
+		return p;
 	}
+	
 	
 
 	//////////////	METODOS TABLA USUARIOS	///////////

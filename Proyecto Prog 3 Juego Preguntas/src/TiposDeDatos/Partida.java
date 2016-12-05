@@ -2,55 +2,70 @@ package TiposDeDatos;
 
 import java.util.ArrayList;
 
+import Ventanas.VentanaPrincipal;
+
 public class Partida {
 
 	
 
 	private ConfiguracionJuego config;
 	private ArrayList<Jugador> aUsuario;
-	//ArrayList de vidas por sus metodos
+	//ArrayList de vidas 
 	private ArrayList<Integer> aVidas;
-	
-	//NO porque hay que comprobar una tabla
-	//private ArrayList<Pregunta> aPregunta;
-	
+	//Arraylist de Preguntas hechas
+	private ArrayList<Pregunta> aPreguntas;
 	
 	
+	/**
+	 * COnstructor que inicializa la partida dependiendo de los parametros que se le han pasado.
+	 * @param config - Se le pasa un objeto config con la configuracion de la partida
+	 * @param aUsuario - Se pasa un array de usuarios con los integrantes de la partda
+	 */
 	public Partida(ConfiguracionJuego config, ArrayList<Jugador> aUsuario) {
 		this.config = config;
 		this.aUsuario = aUsuario;
 		//Reservo tantas posiciones de un arrayVidas como usuarios participen. 
-		aVidas = new ArrayList<Integer>(config.getNumJugadores());
+		this.aVidas = new ArrayList<Integer>(config.getNumJugadores());
 		//Inicializo a las vidas designadas en configuracion
 		for(int i=0; i<config.getNumJugadores(); i++){
 			aVidas.add(config.getNumVidas());
 		}
+		//Reservo memoria para el arraylist de preguntas
+		this.aPreguntas = new ArrayList<Pregunta>();
 	}
 
-	public ConfiguracionJuego getConfig() {
-		return config;
-	}
-
-	public void setConfig(ConfiguracionJuego config) {
-		this.config = config;
-	}
-
-	public ArrayList<Jugador> getaUsuario() {
-		return aUsuario;
-	}
-
-	public void setaUsuario(ArrayList<Jugador> aUsuario) {
-		this.aUsuario = aUsuario;
-	}
 	
-	//MEcanica del juego
+	
+	//Mecanica del juego
 	public void jugarPartida(){
+		
+		//obtengo el numero total de preguntas en BD
+		int numPreguntas = VentanaPrincipal.bd.numPreguntas(); 
+		
 		//Recorro array x dnd me he quedado para 1 usuario
-		//miro si el usuario tiene vidas
+		for(int i=0; i<aUsuario.size(); i++){
+			aUsuario.get(i);//usuario
+			
+			if(aVidas.get(i)!= -1){ //Miro si ha terminado la partida (-1 FIN PARTIDA)
+				//NO ha terminado la partida
+				
+				
+			}else{
+				//FIN PARTIDA PARA JUGADOR
+			}
+		}
+		
+		for(Pregunta p: aPreguntas){	
+			
+		}
+		
+		
 		//Extraigo una pregunta
-			//comprobando que no haya salido 
+			//comprobando que no haya salido (en el array de preguntas)
 			//ni que le haya tocado anteriormente
 		//Dependiendo si gana o no puntos o resto vida.
+			//añado pregunta a arraylist
+			//añado a la base de datos la pregunta.
 		
 	}
 }
