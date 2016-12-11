@@ -58,6 +58,8 @@ public class Partida {
 					//comprobando que no haya salido (en el array de preguntas)
 					//ni que le haya tocado anteriormente (base de datos)
 				
+				//Si al de 100 sigue saliendo repetida, se pregunta una cualquiera.
+				
 			}else{
 				//FIN PARTIDA PARA JUGADOR
 			}
