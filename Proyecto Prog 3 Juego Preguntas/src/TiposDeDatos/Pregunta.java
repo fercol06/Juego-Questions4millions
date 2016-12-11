@@ -165,7 +165,7 @@ public class Pregunta {
 		*/
 		return cod_pr + ". " + pregunta + " ; " + respCorrecta + " [" + nivel + "]";
 	}
-
+	
 	
 	
 }

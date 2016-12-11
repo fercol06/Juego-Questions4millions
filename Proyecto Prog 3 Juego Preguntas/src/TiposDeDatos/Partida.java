@@ -39,25 +39,31 @@ public class Partida {
 	//Mecanica del juego
 	public void jugarPartida(){
 		
-		//obtengo el numero total de preguntas en BD
+		//obtengo el numero total de preguntas en la BD
 		int numPreguntas = VentanaPrincipal.bd.numPreguntas(); 
+		Pregunta preguntaAleatoria=null; 
+		Jugador jugadorTurno=null;
 		
 		//Recorro array x dnd me he quedado para 1 usuario
 		for(int i=0; i<aUsuario.size(); i++){
-			aUsuario.get(i);//usuario
+			jugadorTurno=aUsuario.get(i);//usuario del que es el turno 
 			
 			if(aVidas.get(i)!= -1){ //Miro si ha terminado la partida (-1 FIN PARTIDA)
-				//NO ha terminado la partida
+				//NO HA TERMINADO LA PARTIDA EL JUGADOR 
 				
+				//preguntaAleatoria = VentanaPrincipal.bd.obtenerPreguntaAleatoria();
+				
+				
+				//Extraigo una pregunta
+					//comprobando que no haya salido (en el array de preguntas)
+					//ni que le haya tocado anteriormente (base de datos)
 				
 			}else{
 				//FIN PARTIDA PARA JUGADOR
 			}
 		}
 		
-		for(Pregunta p: aPreguntas){	
-			
-		}
+		
 		
 		
 		//Extraigo una pregunta
@@ -68,4 +74,18 @@ public class Partida {
 			//añado a la base de datos la pregunta.
 		
 	}
+	
+	//Busco en el array de preguntas si ha salido. 
+	private boolean buscarPreguntaDicha(Pregunta p){
+		boolean encontrado=false;
+		//recorro todo el arraylist aPreguntas a ver si ha salido. 
+		for(Pregunta au: aPreguntas){	
+			if(au.equals(p)){ //crear compare to? //codigo y nivel da igual
+				encontrado=true;
+			}
+		}
+		
+		return encontrado;
+	}
+	
 }

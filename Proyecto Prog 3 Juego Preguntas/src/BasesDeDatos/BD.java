@@ -354,6 +354,12 @@ public class BD {
 	
 	//////////////	METODOS TABLA PREGUNTAS USUARIO	///////////
 	
+	/**
+	 * Metodo que inserta una pregunta que se le ha hecho a un usuario.
+	 * @param j
+	 * @param p
+	 * @param acertado
+	 */
 	public void inertarPreguntaContestada (Jugador j, Pregunta p, boolean acertado){
 		
 		String query = "INSERT INTO preguntasUsuario (user, pregunta, acertado) VALUES ('"
@@ -364,7 +370,28 @@ public class BD {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * Metodo que comprueba si a un jugador se le ha hecho una prgunta
+	 * @param p - Pregunta
+	 * @param j - Jugador
+ 	 * @return true si se le ha hecho la pregunta
+	 */
+	public boolean comprobarPregunta(Pregunta p, Jugador j){
+
+		String query = "SELECT * FROM preguntasUsuario WHERE pregunta='"+p.getPregunta()+"' AND user='" +j.getUser()+"'";
+		try {
+			ResultSet rs = stmt.executeQuery(query);
+			if (rs.next()){
+				rs.close();
+				return true; //se ha dicho la pregunta al user
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
+		return false;
 	}
 
 }
