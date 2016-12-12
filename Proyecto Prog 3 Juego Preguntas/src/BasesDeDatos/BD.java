@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Random;
 
 import TiposDeDatos.Administrador;
 import TiposDeDatos.Jugador;
@@ -249,7 +250,7 @@ public class BD {
 	 * Nos devuelve el numero de preguntas de la BD
 	 * @return
 	 */
-	public int numPreguntas(){
+	/*public int numPreguntas(){
 		int num=0;
 		String query ="SELECT * FROM preguntas";
 		try {
@@ -262,11 +263,21 @@ public class BD {
 			e.printStackTrace();
 		}
 		return num;
-	}
+	}*/
 	
 	
 	public Pregunta obtenerPreguntaAleatoria(){
 		Pregunta p=null;
+		ArrayList<Pregunta> aP;
+		
+		//obtenemos todas las preguntas en arrayList
+		aP=obtenerPreguntas();
+		
+		Random rnd = new Random();
+		rnd.setSeed(System.currentTimeMillis());
+		int numAleatorio= rnd.nextInt(aP.size()-1);
+		
+		p=aP.get(numAleatorio);
 		
 		return p;
 	}

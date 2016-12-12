@@ -1,6 +1,6 @@
 package TiposDeDatos;
 
-public class Pregunta {
+public class Pregunta implements Comparable<Pregunta>{
 
 	private int cod_pr;
 	private String pregunta;
@@ -164,6 +164,16 @@ public class Pregunta {
 				+ ", resp3=" + resp3 + ", resp4=" + resp4 + ", respCorrecta=" + respCorrecta + ", nivel=" + nivel + "]";
 		*/
 		return cod_pr + ". " + pregunta + " ; " + respCorrecta + " [" + nivel + "]";
+	}
+	@Override
+	public int compareTo(Pregunta p) {
+		// TODO Auto-generated method stub
+		int resul=0;
+		//si son iguales devuelvo 1.
+		if(this.getPregunta().equals(p.getPregunta())){
+			resul=1;
+		}
+		return resul;
 	}
 	
 	

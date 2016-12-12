@@ -40,7 +40,7 @@ public class Partida {
 	public void jugarPartida(){
 		
 		//obtengo el numero total de preguntas en la BD
-		int numPreguntas = VentanaPrincipal.bd.numPreguntas(); 
+		//int numPreguntas = VentanaPrincipal.bd.numPreguntas(); //-->Dentro metodo
 		Pregunta preguntaAleatoria=null; 
 		Jugador jugadorTurno=null;
 		
@@ -51,17 +51,37 @@ public class Partida {
 			if(aVidas.get(i)!= -1){ //Miro si ha terminado la partida (-1 FIN PARTIDA)
 				//NO HA TERMINADO LA PARTIDA EL JUGADOR 
 				
-				//preguntaAleatoria = VentanaPrincipal.bd.obtenerPreguntaAleatoria();
 				
+				boolean enElJuego;
+				boolean alUsuario;
+				int busquedaPregunta=0;
 				
-				//Extraigo una pregunta
+				do{
+					//Extraigo una pregunta
+					preguntaAleatoria = VentanaPrincipal.bd.obtenerPreguntaAleatoria();
+					
 					//comprobando que no haya salido (en el array de preguntas)
+					enElJuego = buscarPreguntaDicha(preguntaAleatoria);
+					
 					//ni que le haya tocado anteriormente (base de datos)
+					alUsuario = VentanaPrincipal.bd.comprobarPregunta(preguntaAleatoria,jugadorTurno);
 				
-				//Si al de 100 sigue saliendo repetida, se pregunta una cualquiera.
+					//busquedapregunta incremento para que no se quede mirando siempre
+					//Si al de 100 sigue saliendo repetida, se pregunta una cualquiera.
+					busquedaPregunta++;
+					
+				}while((!enElJuego && !alUsuario)|| busquedaPregunta>100);	
+					
+				//Mandar pregunta a la ventana pregunta
+					//hay que pasar por cargar pregunta. 
+				
+				//Dependiendo la respuesta de ventanaPregunta
+					//actualizamos base de datos
+					//mandamos ventana solucion
 				
 			}else{
 				//FIN PARTIDA PARA JUGADOR
+				//NO tiene que hacer nada xke le tokará al proximo. 
 			}
 		}
 		
@@ -82,7 +102,7 @@ public class Partida {
 		boolean encontrado=false;
 		//recorro todo el arraylist aPreguntas a ver si ha salido. 
 		for(Pregunta au: aPreguntas){	
-			if(au.equals(p)){ //crear compare to? //codigo y nivel da igual
+			if(au.compareTo(p)==1){ //implementar comparable:  compare to? //codigo y nivel da igual //1 - misma pregunta
 				encontrado=true;
 			}
 		}
