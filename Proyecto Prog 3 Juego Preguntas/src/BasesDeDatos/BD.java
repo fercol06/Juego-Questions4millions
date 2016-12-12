@@ -266,7 +266,7 @@ public class BD {
 	}*/
 	
 	
-	public Pregunta obtenerPreguntaAleatoria(){
+	/*public Pregunta obtenerPreguntaAleatoria(){
 		Pregunta p=null;
 		ArrayList<Pregunta> aP;
 		
@@ -281,7 +281,7 @@ public class BD {
 		
 		return p;
 	}
-	
+*/
 	
 
 	//////////////	METODOS TABLA USUARIOS	///////////
@@ -347,7 +347,10 @@ public class BD {
 		return false; //no hay admin
 	}
 	
-	
+	/**
+	 * Metodo que inserta un administrador en la base de datos. 
+	 * @param u
+	 */
 	public void insertarAdmin(Administrador u){
 		
 		String query = "INSERT INTO usuario (user,email,pass,record,tipo) VALUES ('"
