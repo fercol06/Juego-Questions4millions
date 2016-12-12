@@ -9,12 +9,16 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Threads.ThreadCargarPregunta;
+import TiposDeDatos.Jugador;
+import TiposDeDatos.Pregunta;
 
 import javax.swing.JLabel;
 import java.awt.GridLayout;
 import javax.swing.JSeparator;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VentanaCargarPregunta extends JFrame {
 
@@ -24,28 +28,15 @@ public class VentanaCargarPregunta extends JFrame {
 	private JLabel lblGenerarPregunta;
 	private JSeparator separator;
 	public static JLabel lblmagenCargar,lblmagenOk;
+	private Pregunta pregunta;
 
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaCargarPregunta frame = new VentanaCargarPregunta();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public VentanaCargarPregunta() {
+	public VentanaCargarPregunta(Pregunta pregunta) {
+		this.pregunta=pregunta;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -68,6 +59,14 @@ public class VentanaCargarPregunta extends JFrame {
 		contentPane.add(panelSur, BorderLayout.SOUTH);
 		
 		btnJugar = new JButton("Jugar");
+		btnJugar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				VentanaPregunta vp = new VentanaPregunta(pregunta);
+				dispose();
+				vp.setVisible(true);
+				
+			}
+		});
 		panelSur.add(btnJugar);
 		btnJugar.setVisible(false);
 		

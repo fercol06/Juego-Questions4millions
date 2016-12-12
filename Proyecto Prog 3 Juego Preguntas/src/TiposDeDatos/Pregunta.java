@@ -177,5 +177,4 @@ public class Pregunta implements Comparable<Pregunta>{
 	}
 	
 	
-	
 }

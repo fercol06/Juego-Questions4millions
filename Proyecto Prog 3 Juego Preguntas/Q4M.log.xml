@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2016-12-05T12:37:21</date>
-  <millis>1480937841578</millis>
+  <date>2016-12-12T17:55:36</date>
+  <millis>1481561736130</millis>
   <sequence>0</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -13,8 +13,8 @@
   <message>Inicio Q4M</message>
 </record>
 <record>
-  <date>2016-12-05T12:37:21</date>
-  <millis>1480937841881</millis>
+  <date>2016-12-12T17:55:36</date>
+  <millis>1481561736449</millis>
   <sequence>1</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
