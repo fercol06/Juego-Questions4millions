@@ -109,10 +109,11 @@ public class VentanaUsuarios extends JFrame {
 				int tamMax = config.getNumJugadores();
 				if (tam == tamMax) {
 					partida = new Partida(config, aUsuario);
-					//VentanaCargarPregunta vcp = new VentanaCargarPregunta();
-					textPane.append("partida creada\n comenzando...");
-					//vcp.setVisible(true);
-					System.out.println(config.getNumJugadores());
+					textPane.append("\n Partida creada\n Comenzando...");
+					//APARTIR DE AQUI JUEGO:
+					
+					
+					
 
 				} else {
 					textPane.append("\n Faltan más usuarios!");
@@ -353,6 +354,7 @@ public class VentanaUsuarios extends JFrame {
 		
 	}
 
+	
 	public String anadirUsuario(ArrayList<Jugador> arr, ConfiguracionJuego config, String user) {
 
 		user = user.trim();
@@ -360,16 +362,19 @@ public class VentanaUsuarios extends JFrame {
 		if (arr.size() < config.getNumJugadores() && user != null) {
 
 			boolean repe = validateUsuario(arr, user);
-			if (repe == false) {
+			if (repe == false && 2<user.length() ) {
 				Jugador jug1 = new Jugador(user);
 				arr.add(jug1);
 				return "Usuario número "+arr.size()+" añadido:"+ "\n "+user;
 			} else {
-				return "Error usuario repetido";
+				if(repe == false )
+					return "Tama\u00F1o min \n no alcanzado";
+				else 
+					return "Error usuario repetido\n";
 			}
 
 		}
-		return "Usuarios Max alcanzados";
+		return "Usuarios Max alcanzados\n Comience la partida!";
 	}
 
 	public boolean validateUsuario(ArrayList<Jugador> arr, String jugador) {

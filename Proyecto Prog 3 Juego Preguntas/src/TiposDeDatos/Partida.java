@@ -14,12 +14,12 @@ public class Partida {
 	private ConfiguracionJuego config;
 	private ArrayList<Jugador> aUsuario;
 	//ArrayList de vidas 
-	private ArrayList<Integer> aVidas;
+	public static ArrayList<Integer> aVidas; // para poder pasarlo por ventanas
 	//Arraylist de Preguntas hechas
 	private ArrayList<Pregunta> aPreguntas;
 	//ArrayList de preguntas de BD
 	private ArrayList<Pregunta> aPreguntasBD;
-	public static Jugador jugadorTurno;
+	public static Jugador jugadorTurno; //para poder pasarlo por ventanas
 	
 	/**
 	 * COnstructor que inicializa la partida dependiendo de los parametros que se le han pasado.
@@ -49,7 +49,7 @@ public class Partida {
 	    jugadorTurno=null;
 		
 		//Recorro el array de vidas y mientras haya alguno diferente de -1
-		//while()
+		//while(!haTerminadoJuego())
 		
 		//Recorro array x dnd me he quedado para 1 usuario
 		for(int i=0; i<aUsuario.size(); i++){
@@ -109,7 +109,12 @@ public class Partida {
 		
 	}
 	
-	//Busco en el array de preguntas si ha salido. 
+	 
+	/**
+	 * Metodo que busca en el array de preguntas si ha salido una pregunta que se le pasa por parametro. 
+	 * @param p
+	 * @return
+	 */
 	private boolean buscarPreguntaDicha(Pregunta p){
 		boolean encontrado=false;
 		//recorro todo el arraylist aPreguntas a ver si ha salido. 
@@ -136,11 +141,28 @@ public class Partida {
 		return p;
 	}
 	
-	/*private boolean haTerminadoJuego(){
+	/**
+	 * Metod que nos devuelve un true si ha terminado el juego
+	 * @return
+	 */
+	private boolean haTerminadoJuego(){
+		boolean encontrado=false;
+		int numUsers=aUsuario.size();
+		int numEnJuego=0;
+		
 		for(Integer vi: aVidas){	
-			if(au.compareTo(p)==1){ //implementar comparable:  compare to? //codigo y nivel da igual //1 - misma pregunta
-				encontrado=true;
+			if(vi==-1){ 
+				numEnJuego++;
 			}
 		}
+		if(numEnJuego == numUsers){
+			encontrado=true; //Ha finalizado el juego
+		}
+		return encontrado;
+	}
+	
+	/*private quitarVidaAUsuario(){
+		
 	}*/
+	
 }

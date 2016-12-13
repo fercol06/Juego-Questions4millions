@@ -70,8 +70,7 @@ public class VentanaCargarPregunta extends JFrame {
 		panelSur.add(btnJugar);
 		btnJugar.setVisible(false);
 		
-		
-		
+				
 		
 		panelIzquierda = new JPanel();
 		contentPane.add(panelIzquierda, BorderLayout.WEST);

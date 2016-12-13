@@ -10,10 +10,12 @@ import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
 import Threads.ThreadTiempo;
+import TiposDeDatos.Partida;
 import TiposDeDatos.Pregunta;
 
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.Font;
 
 public class VentanaPregunta extends JFrame{
 
@@ -24,6 +26,7 @@ public class VentanaPregunta extends JFrame{
 	private JLabel lblPregunta, lblUsuario;
 	private JPanel panel_Iniciar;
 	private Pregunta pregunta;
+	private JLabel lblNomUsuario;
 
 	  
 	/**
@@ -52,6 +55,10 @@ public class VentanaPregunta extends JFrame{
 		lblUsuario = new JLabel("Turno para: ");
 		panel_norte.add(lblUsuario);
 		
+		lblNomUsuario = new JLabel(Partida.jugadorTurno.getUser());
+		lblNomUsuario.setFont(new Font("Tahoma", Font.ITALIC, 16));
+		panel_norte.add(lblNomUsuario);
+		
 	
 		panel_derecho = new JPanel();
 		panel_Iniciar.add(panel_derecho, BorderLayout.EAST);
@@ -69,7 +76,8 @@ public class VentanaPregunta extends JFrame{
 		panel_centro = new JPanel();
 		panel_Iniciar.add(panel_centro, BorderLayout.CENTER);
 		
-		lblPregunta = new JLabel("Pregunta");
+		lblPregunta = new JLabel(pregunta.getPregunta());
+		lblPregunta.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		panel_centro.add(lblPregunta);
 		
 		panel_sur = new JPanel();
@@ -83,29 +91,30 @@ public class VentanaPregunta extends JFrame{
 		panel_11 = new JPanel();
 		panel.add(panel_11);
 		
-		btnRespuesta1 = new JButton("Respuesta 1");
+		btnRespuesta1 = new JButton(pregunta.getResp1());
 		panel_11.add(btnRespuesta1);
 		
 		panel_12 = new JPanel();
 		panel.add(panel_12);
 		
-		btnRespuesta2 = new JButton("Respuesta 2");
+		btnRespuesta2 = new JButton(pregunta.getResp2());
 		panel_12.add(btnRespuesta2);
 		
 		panel_21 = new JPanel();
 		panel.add(panel_21);
 		
-		btnRespuesta3 = new JButton("Respuesta 3");
+		btnRespuesta3 = new JButton(pregunta.getResp3());
 		panel_21.add(btnRespuesta3);
 		
 		panel_22 = new JPanel();
 		panel.add(panel_22);
 		
-		btnRespuesta4 = new JButton("Respuesta 4");
+		btnRespuesta4 = new JButton(pregunta.getResp4());
 		panel_22.add(btnRespuesta4);
 		
 		
 	}
+	
 
 
 
