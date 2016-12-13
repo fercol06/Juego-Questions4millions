@@ -21,6 +21,21 @@ public class Jugador extends Persona{
 		super(cod_user, user, con, tipoUser);
 		this.record=record;
 	}
+	/**
+	 * @return the record
+	 */
+	public int getRecord() {
+		return record;
+	}
+
+	/**
+	 * CUIDADO CON ESTE SET RECORD. SUMA
+	 * @param record the record to set
+	 */
+	public void setRecord(int record) {
+		this.record =this.record + record;
+	}
+
 	public Jugador (String user){
 		super(user);
 	}
