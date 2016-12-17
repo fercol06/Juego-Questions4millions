@@ -15,6 +15,7 @@ import TiposDeDatos.Pregunta;
 
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
 import java.awt.Font;
 
 public class VentanaPregunta extends JFrame{
@@ -27,6 +28,7 @@ public class VentanaPregunta extends JFrame{
 	private JPanel panel_Iniciar;
 	private Pregunta pregunta;
 	private JLabel lblNomUsuario;
+	private boolean respuesta;
 
 	  
 	/**
@@ -53,10 +55,11 @@ public class VentanaPregunta extends JFrame{
 		panel_Iniciar.add(panel_norte, BorderLayout.NORTH);
 		
 		lblUsuario = new JLabel("Turno para: ");
+		lblUsuario.setFont(new Font("Tahoma", Font.ITALIC, 16));
 		panel_norte.add(lblUsuario);
 		
 		lblNomUsuario = new JLabel(Partida.jugadorTurno.getUser());
-		lblNomUsuario.setFont(new Font("Tahoma", Font.ITALIC, 16));
+		lblNomUsuario.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		panel_norte.add(lblNomUsuario);
 		
 	
@@ -70,7 +73,6 @@ public class VentanaPregunta extends JFrame{
 		
 		ImagenPanel imagenTiempo= new ImagenPanel("/images/Progreso100.png");
 		panel_Iniciar.add(imagenTiempo, BorderLayout.WEST);
-		
 		
 		
 		panel_centro = new JPanel();
@@ -115,7 +117,47 @@ public class VentanaPregunta extends JFrame{
 		
 	}
 	
-
+	//AQUI?
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		JButton botonPulsado =(JButton) e.getSource();
+		String respCorrecta= pregunta.getRespCorrecta();
+		
+		if(botonPulsado == btnRespuesta1){
+			if(btnRespuesta1.getText().equals(respCorrecta)){
+				respuesta=true;
+			}else{
+				respuesta=false;
+			}
+		}
+		else if(botonPulsado == btnRespuesta2){
+			if(btnRespuesta2.getText().equals(respCorrecta)){
+				respuesta=true;
+			}else{
+				respuesta=false;
+			}
+		}
+		else if(botonPulsado == btnRespuesta3){
+			if(btnRespuesta3.getText().equals(respCorrecta)){
+				respuesta=true;
+			}else{
+				respuesta=false;
+			}
+		}
+		else if(botonPulsado == btnRespuesta4){
+			if(btnRespuesta4.getText().equals(respCorrecta)){
+				respuesta=true;
+			}else{
+				respuesta=false;
+			}
+		}
+		//Ya sabemos si ha acertado o fallado.
+		//Mandamos respuesta.
+		VentanaSolucion vs = new VentanaSolucion(respuesta,pregunta);
+		vs.setVisible(true);
+		this.dispose();
+		
+	}
 
 
 }

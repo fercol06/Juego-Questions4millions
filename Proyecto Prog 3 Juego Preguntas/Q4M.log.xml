@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2016-12-13T20:19:34</date>
-  <millis>1481656774250</millis>
+  <date>2016-12-17T00:04:53</date>
+  <millis>1481929493025</millis>
   <sequence>0</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -13,8 +13,8 @@
   <message>Inicio Q4M</message>
 </record>
 <record>
-  <date>2016-12-13T20:19:34</date>
-  <millis>1481656774551</millis>
+  <date>2016-12-17T00:04:53</date>
+  <millis>1481929493661</millis>
   <sequence>1</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -24,8 +24,8 @@
   <message>Hay Admin</message>
 </record>
 <record>
-  <date>2016-12-13T20:19:37</date>
-  <millis>1481656777235</millis>
+  <date>2016-12-17T00:04:55</date>
+  <millis>1481929495245</millis>
   <sequence>2</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -34,4 +34,3 @@
   <thread>15</thread>
   <message>Hay Preguntas en BD</message>
 </record>
-</log>

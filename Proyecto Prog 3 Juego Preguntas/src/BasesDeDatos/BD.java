@@ -307,16 +307,15 @@ public class BD {
 	}
 	
 	
-	public ArrayList<Jugador> obtenerUsuarioPuntuacion (){
+	public ArrayList<Jugador> obtenerUsuarios (){
 		Jugador u=null;
 		ArrayList<Jugador> aU=new ArrayList<Jugador>();
-		String query = "SELECT * FROM usuarios";
+		String query = "SELECT * FROM usuario";
 		try {
 			ResultSet rs = stmt.executeQuery(query);
 			while (rs.next()) {
 				// Comprobamos si ha devuelto filas
-				u = new Jugador(rs.getInt("cod_usr"), rs.getString("user"), rs.getString("pass"), rs.getInt("record"),
-						rs.getString("tipo"));
+				u = new Jugador(rs.getInt("cod_usr"), rs.getString("user"), rs.getString("pass"), rs.getInt("record"));
 				aU.add(u);
 			}
 			rs.close();
@@ -365,6 +364,58 @@ public class BD {
 		}
 		
 	}
+	
+	public boolean comprobarUsuario(Jugador jugador){
+		String query = "SELECT * FROM usuario WHERE user='"+jugador.getUser()+ "' AND tipo='jugador'";
+		try {
+			ResultSet rs = stmt.executeQuery(query);
+			// Comprobamos si ha devuelto filas
+			if (rs.next()){
+				rs.close();
+				return true; //Esta jugador
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false; //no está jugador
+	}
+	
+	public void insertarUsuario(Jugador j){
+		
+		String query = "INSERT INTO usuario (user,email,pass,record,tipo) VALUES ('"
+				+ j.getUser() + "','" + null + "','" + null + "',"+j.getRecord()+ ",'"
+				+ j.getTipoUser() + "')";
+		try {
+			//System.out.println(query);
+			stmt.executeUpdate(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public Jugador ObtenerUsuario(Jugador jugador){
+		Jugador j=null;
+		String query = "SELECT * FROM usuario WHERE user='"+jugador.getUser()+ "' AND tipo='jugador'";
+		try {
+			ResultSet rs = stmt.executeQuery(query);
+			// Comprobamos si ha devuelto filas
+			if (rs.next()) {
+				// Comprobamos si ha devuelto filas
+				j = new Jugador(rs.getInt("cod_usr"), rs.getString("user"), rs.getString("pass"), rs.getInt("record"));
+			}
+			rs.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return j;
+	}
+	
+	
+	
 	
 	//////////////	METODOS TABLA PREGUNTAS USUARIO	///////////
 	

@@ -17,8 +17,8 @@ public class Jugador extends Persona{
 	 * @param con
 	 * @param tipoUser
 	 */
-	public Jugador(int cod_user, String user, String con,int record, String tipoUser) {
-		super(cod_user, user, con, tipoUser);
+	public Jugador(int cod_user, String user, String con,int record) {
+		super(cod_user, user, con, "jugador");
 		this.record=record;
 	}
 	/**

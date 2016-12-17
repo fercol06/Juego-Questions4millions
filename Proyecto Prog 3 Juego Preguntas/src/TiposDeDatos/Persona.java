@@ -12,7 +12,7 @@ public class Persona {
 	 * Constructor sin parametros
 	 */
 	public Persona() {
-
+		tipoUser="jugador";
 	}
 
 	/**

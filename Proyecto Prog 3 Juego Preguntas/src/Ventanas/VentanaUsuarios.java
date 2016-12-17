@@ -49,14 +49,16 @@ public class VentanaUsuarios extends JFrame {
 	private JTextField textField;
 	private ArrayList<Jugador> aUsuario;
 	private ConfiguracionJuego config;
-	private JTextArea textPane;
 	private JButton btnComenzar, btnQuitar, btnAñadir, caractButton;
 	private JSlider difslider, tiempslider, jugslider;
 	private JTextPane textPane_1;
-	private JScrollBar scrollBar;
 	private JSplitPane splitPane;
 	private JLabel lblAjusteCaract, lblNivel, lblNumJugadores, lblTiempoPregunta;
 	public static Partida partida; 
+	private JScrollPane scrollPane;
+	private JPanel panel;
+	private JScrollPane scrollPane_1;
+	private JTextArea textArea;
 
 	/**
 	 * Launch the application.
@@ -86,11 +88,8 @@ public class VentanaUsuarios extends JFrame {
 
 		// getContentPane().setBackground(new Color(0, 128, 0));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 503, 570);
+		setBounds(100, 100, 503, 641);
 		setTitle("Configuración de la partida:");
-
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.BLACK);
 
 		JPanel panel_1 = new JPanel();
 		// panel_1.setBackground(new Color(0, 128, 128));
@@ -109,44 +108,66 @@ public class VentanaUsuarios extends JFrame {
 				int tamMax = config.getNumJugadores();
 				if (tam == tamMax) {
 					partida = new Partida(config, aUsuario);
-					textPane.append("\n Partida creada\n Comenzando...");
+					textArea.append("\n Partida creada\n Comenzando...");
 					//APARTIR DE AQUI JUEGO:
 					
-					
-					
+					partida.jugarPartida();
+					setVisible(false);
 
 				} else {
-					textPane.append("\n Faltan más usuarios!");
+					textArea.append("\n Faltan más usuarios!");
 				}
 
 			}
 		});
+		
+		//-----------------------------------------------------> Panel de texto
+		
+		panel = new JPanel();
+		panel.setLayout(new BorderLayout(0, 0));
+		
+		scrollPane_1 = new JScrollPane();
+		panel.add(scrollPane_1);
+		
+		textArea = new JTextArea();
+		textArea.setForeground(Color.WHITE);
+		textArea.setBackground(Color.BLACK);
+		scrollPane_1.setViewportView(textArea);
+				
+		//-----------------------------------------------------> Panel de texto
 		// panel_2.setBackground(new Color(0, 0, 255));
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-						.addGroup(groupLayout
-								.createParallelGroup(Alignment.LEADING).addGroup(groupLayout.createSequentialGroup()
-										.addComponent(panel, GroupLayout.PREFERRED_SIZE, 201,
-												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.RELATED)
-										.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-												.addComponent(panel_2, GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
-												.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)))
-								.addGroup(groupLayout.createSequentialGroup().addGap(184).addComponent(btnComenzar)))
-						.addContainerGap()));
-		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-				.addGroup(groupLayout.createSequentialGroup().addContainerGap()
-						.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-								.addComponent(panel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)
-								.addGroup(groupLayout.createSequentialGroup()
-										.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 161,
-												GroupLayout.PREFERRED_SIZE)
-										.addGap(16)
-										.addComponent(panel_2, GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)))
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addComponent(btnComenzar, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap()));
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(panel, GroupLayout.PREFERRED_SIZE, 185, GroupLayout.PREFERRED_SIZE)
+							.addGap(10)
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+								.addComponent(panel_2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(182)
+							.addComponent(btnComenzar)))
+					.addContainerGap())
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.TRAILING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 161, GroupLayout.PREFERRED_SIZE)
+							.addGap(16)
+							.addComponent(panel_2, GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE))
+						.addComponent(panel, GroupLayout.DEFAULT_SIZE, 513, Short.MAX_VALUE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnComenzar, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
+					.addGap(11))
+		);
+		
 		panel_1.setLayout(new BorderLayout(0, 0));
 
 		JPanel panel_3 = new JPanel();
@@ -162,13 +183,6 @@ public class VentanaUsuarios extends JFrame {
 
 		// ------------------------>Text Area
 
-		textPane = new JTextArea();
-		textPane.setText(" Inserte las características" + "\n de la partida: ");
-		textPane.setBackground(Color.BLACK);
-		textPane.setForeground(Color.WHITE);
-
-		// ------------------------>Text Area
-
 		btnQuitar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		btnQuitar.addActionListener(new ActionListener() {
@@ -177,7 +191,7 @@ public class VentanaUsuarios extends JFrame {
 				public void actionPerformed(ActionEvent arg0) {
 					String texto1=textField.getText();
 					String av2= quitarUsuario(aUsuario, config, texto1);
-					textPane.append("\n "+av2);
+					textArea.append("\n "+av2);
 				}
 		});
 
@@ -188,7 +202,7 @@ public class VentanaUsuarios extends JFrame {
 				String text1 = textField.getText();
 				// int max=6;
 				String av1 = anadirUsuario(aUsuario, config, text1);
-				textPane.append("\n " + av1);
+				textArea.append("\n " + av1);
 				limpiarCampos();
 			}
 		});
@@ -209,26 +223,9 @@ public class VentanaUsuarios extends JFrame {
 
 		textPane_1 = new JTextPane();
 		splitPane.setLeftComponent(textPane_1);
-
-		// Devuelve el numero de usuarios insertados hasta ahora
-
-		scrollBar = new JScrollBar();
-		scrollBar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-
-		GroupLayout gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_panel.createSequentialGroup().addGap(6)
-						.addComponent(textPane, GroupLayout.PREFERRED_SIZE, 162, Short.MAX_VALUE)
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addComponent(scrollBar, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap()));
-		gl_panel.setVerticalGroup(
-				gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(scrollBar, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
-						.addGroup(gl_panel.createSequentialGroup()
-								.addComponent(textPane, GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
-								.addContainerGap()));
-		panel.setLayout(gl_panel);
+		
+		
+		
 
 		difslider = new JSlider();
 		difslider.setMinorTickSpacing(50);
@@ -299,7 +296,7 @@ public class VentanaUsuarios extends JFrame {
 
 				config = new ConfiguracionJuego(val1, val2, val3);
 				textPane_1.setText("Inserte Jugadores:");
-				textPane.setText(config.toString());
+				textArea.setText(config.toString());
 				textPane_1.setText("\nAhora inserte los usuarios: ");
 				btnComenzar.setVisible(true);
 
@@ -358,6 +355,7 @@ public class VentanaUsuarios extends JFrame {
 	public String anadirUsuario(ArrayList<Jugador> arr, ConfiguracionJuego config, String user) {
 
 		user = user.trim();
+		user = user.substring(0, 1).toUpperCase()+ user.substring(1);;
 		user = user.replace(" ","");
 		if (arr.size() < config.getNumJugadores() && user != null) {
 
@@ -418,3 +416,5 @@ public class VentanaUsuarios extends JFrame {
 		textField.setText("");
 	}
 }
+
+

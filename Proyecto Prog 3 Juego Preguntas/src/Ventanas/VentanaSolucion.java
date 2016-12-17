@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import Threads.ThreadCargarPregunta;
 import Threads.ThreadSolucion;
 import TiposDeDatos.Partida;
+import TiposDeDatos.Pregunta;
 
 import java.awt.GridLayout;
 import javax.swing.JLabel;
@@ -37,9 +38,10 @@ public class VentanaSolucion extends JFrame {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			Pregunta pregunta=null;
 			public void run() {
 				try {
-					VentanaSolucion frame = new VentanaSolucion(true);
+					VentanaSolucion frame = new VentanaSolucion(true,pregunta);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -51,7 +53,7 @@ public class VentanaSolucion extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaSolucion(boolean acertado) {
+	public VentanaSolucion(boolean acertado, Pregunta preguntaAleatoria) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 345);
 		contentPane = new JPanel();
@@ -108,11 +110,12 @@ public class VentanaSolucion extends JFrame {
 		btnSiguiente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
+				Partida.siguiente=true;
 			}
 		});
 		panel_3.add(btnSiguiente);
 		
-		
+		int pos = Partida.aUsuario.indexOf(Partida.jugadorTurno);
 		if(acertado){
 			lblVida.setVisible(false);
 			lblPuntos.setVisible(true);
@@ -122,7 +125,8 @@ public class VentanaSolucion extends JFrame {
 			lblCorrecto.setVisible(true);
 			
 			//Sumar puntos
-			//Partida.jugadorTurno.setRecord(30);
+			Partida.jugadorTurno.setRecord(30);
+			Partida.aUsuario.set(pos, Partida.jugadorTurno);
 			
 		}
 		else{
@@ -134,8 +138,13 @@ public class VentanaSolucion extends JFrame {
 			lblCorrecto.setVisible(false);
 			
 			//Quitar vida
-			//Partida.aVidas.
+			
+			int num = Partida.aVidas.get(pos).intValue();
+			Partida.aVidas.set(pos, new Integer(num-1));
 		}
+		
+		//Actualizamos Base de datos con el resultado del jugador.
+		VentanaPrincipal.bd.inertarPreguntaContestada(Partida.jugadorTurno,preguntaAleatoria,acertado);
 		
 		//crear hilo
 		ThreadSolucion hiloParpadear = new ThreadSolucion();

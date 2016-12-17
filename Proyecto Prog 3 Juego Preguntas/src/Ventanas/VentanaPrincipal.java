@@ -256,10 +256,6 @@ public class VentanaPrincipal {
 		panel_centro_norte.add(imagenLogo, BorderLayout.CENTER);
 		imagenLogo.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-		// ImageIcon im = new ImageIcon("/images/admin50.png");
-		// lblFoto = new JLabel(im);
-		// lblFoto.setBounds(10, 11, 154, 172);
-		// lblFoto.resize(im.getIconWidth(), im.getIconHeight());
 
 	}
 
