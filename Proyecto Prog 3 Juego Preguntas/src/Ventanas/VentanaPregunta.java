@@ -158,6 +158,7 @@ public class VentanaPregunta extends JFrame{
 		this.dispose();
 		
 	}
+	
 
 
 }

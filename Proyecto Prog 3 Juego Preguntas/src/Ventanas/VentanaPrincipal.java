@@ -108,7 +108,6 @@ public class VentanaPrincipal {
 	public VentanaPrincipal() {
 		bd = new BD();
 		initialize();
-		
 	}
 
 	/**

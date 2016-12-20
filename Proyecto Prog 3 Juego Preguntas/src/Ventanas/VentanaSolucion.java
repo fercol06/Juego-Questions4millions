@@ -151,4 +151,5 @@ public class VentanaSolucion extends JFrame {
 		hiloParpadear.start();
 	}
 
+	
 }

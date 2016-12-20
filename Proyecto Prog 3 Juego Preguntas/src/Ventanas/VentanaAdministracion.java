@@ -234,4 +234,5 @@ public class VentanaAdministracion extends JFrame {
 		p=aP.get(i);
 		return p;
 	}
+	
 }

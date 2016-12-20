@@ -415,6 +415,7 @@ public class VentanaUsuarios extends JFrame {
 	public void limpiarCampos(){
 		textField.setText("");
 	}
+	
 }
 
 

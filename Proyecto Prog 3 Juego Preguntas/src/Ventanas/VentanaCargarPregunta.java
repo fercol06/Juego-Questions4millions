@@ -64,7 +64,7 @@ public class VentanaCargarPregunta extends JFrame {
 				VentanaPregunta vp = new VentanaPregunta(pregunta);
 				dispose();
 				vp.setVisible(true);
-				
+					
 			}
 		});
 		panelSur.add(btnJugar);
