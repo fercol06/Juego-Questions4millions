@@ -17,6 +17,9 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumnModel;
+
+import TiposDeDatos.Jugador;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -25,6 +28,11 @@ import javax.swing.JSeparator;
 import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Vector;
+
 import javax.swing.ScrollPaneConstants;
 
 public class VentanaMarcadores extends JFrame {
@@ -86,8 +94,17 @@ public class VentanaMarcadores extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 
-		String[] columnNames = {"#", "Usuario", "Puntuación máxima"};
-		Object[][] datos = {{"1","Emilio", "2340"},{"2","Augusto","8304"},{"3","Martín","450"}};
+		//creacion de un tablemodel para  añadir datos de la bd
+		Object[] columnas = {"#", "Usuario", "Puntuación máxima"};
+		ArrayList<Jugador> aJugadores= VentanaPrincipal.bd.obtenerUsuarios();
+		//Hay que covertir el array a vector.
+		Vector<Jugador> datos =new Vector<Jugador>();
+		Collections.copy(aJugadores, datos);
+		
+		DefaultTableModel modeloTabla = new DefaultTableModel(columnas, 0);
+		modeloTabla.addRow(datos);
+		
+		
 		
 		panel_norte = new JPanel();
 		contentPane.add(panel_norte, BorderLayout.NORTH);
@@ -111,7 +128,7 @@ public class VentanaMarcadores extends JFrame {
 		});
 		panel_sur.add(btnAtras);
 
-		tabla = new JTable(datos, columnNames); 
+		tabla = new JTable(modeloTabla); 
 		tabla.setPreferredScrollableViewportSize(new Dimension(500, 70));
 		tabla.setFillsViewportHeight(true);
 		
@@ -122,6 +139,11 @@ public class VentanaMarcadores extends JFrame {
 		//Renderer
 		tabla.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
 			
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
 					int row, int column) {
@@ -134,7 +156,7 @@ public class VentanaMarcadores extends JFrame {
 				if(row == 0 ){
 					def.setBackground(new Color(101, 255, 135));
 				}
-				else if(row == columnNames.length-1){
+				else if(row == columnas.length-1){
 					def.setBackground(new Color(255, 101, 111));
 				}
 				else{
@@ -162,5 +184,6 @@ public class VentanaMarcadores extends JFrame {
 		scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		contentPane.add(scroll);
 	}
-
+	
+	
 }
