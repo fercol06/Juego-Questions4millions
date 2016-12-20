@@ -32,9 +32,10 @@ public class Persona {
 		this.con = con;
 		this.tipoUser = tipoUser;
 	}
-	public Persona(String user) {
+	public Persona(String user, String tipoUser) {
 		//Para meter solo un nombre
 		this.user = user;
+		this.tipoUser= tipoUser;
 	}
 
 	/**

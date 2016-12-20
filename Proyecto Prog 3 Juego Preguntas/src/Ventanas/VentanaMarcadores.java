@@ -100,7 +100,7 @@ public class VentanaMarcadores extends JFrame {
 		//Hay que covertir el array a vector.
 		Vector<Jugador> datos =new Vector<Jugador>();
 		Collections.copy(aJugadores, datos);
-		
+		//
 		DefaultTableModel modeloTabla = new DefaultTableModel(columnas, 0);
 		modeloTabla.addRow(datos);
 		

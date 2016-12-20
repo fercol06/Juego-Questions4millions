@@ -21,6 +21,11 @@ public class Jugador extends Persona{
 		super(cod_user, user, con, "jugador");
 		this.record=record;
 	}
+	
+	public Jugador (String user){
+		super(user,"jugador");
+	}
+	
 	/**
 	 * @return the record
 	 */
@@ -36,9 +41,7 @@ public class Jugador extends Persona{
 		this.record =this.record + record;
 	}
 
-	public Jugador (String user){
-		super(user);
-	}
+	
 	
 
 }
