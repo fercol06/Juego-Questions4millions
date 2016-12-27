@@ -8,10 +8,12 @@ import Ventanas.VentanaPregunta;
 public class ThreadTiempo extends Thread{
 	
 	public long miliSegundos;
+	public final int numImages=11; 
 	
 	public ThreadTiempo(long miliSegundos){
 		super();
 		this.miliSegundos = miliSegundos;
+		
 	}
 	
 	public void run(){

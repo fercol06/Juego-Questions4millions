@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Threads.ThreadCargarPregunta;
+import Threads.tPregunta;
 import TiposDeDatos.Jugador;
 import TiposDeDatos.Pregunta;
 
@@ -18,7 +19,9 @@ import javax.swing.JSeparator;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 
 public class VentanaCargarPregunta extends JFrame {
 
@@ -36,6 +39,7 @@ public class VentanaCargarPregunta extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaCargarPregunta(Pregunta pregunta) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaCargarPregunta.class.getResource("/Images/logoCuadrado125.png")));
 		this.pregunta=pregunta;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -61,9 +65,11 @@ public class VentanaCargarPregunta extends JFrame {
 		btnJugar = new JButton("Jugar");
 		btnJugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				VentanaPregunta vp = new VentanaPregunta(pregunta);
+				VentanaPrincipal.logger.log( Level.INFO, "Boton jugar: Turno Jugador");
 				dispose();
-				vp.setVisible(true);
+				VentanaPregunta vp = new VentanaPregunta(pregunta);
+			    vp.setVisible(true);
+				
 					
 			}
 		});
@@ -94,6 +100,7 @@ public class VentanaCargarPregunta extends JFrame {
 		//crear hilo
 		ThreadCargarPregunta hiloBoton = new ThreadCargarPregunta();
 		hiloBoton.start();
+		btnJugar.setVisible(true);
 		
 		
 	}

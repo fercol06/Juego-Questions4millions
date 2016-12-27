@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2016-12-20T15:59:11</date>
-  <millis>1482245951178</millis>
+  <date>2016-12-26T23:19:49</date>
+  <millis>1482790789905</millis>
   <sequence>0</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -13,8 +13,8 @@
   <message>Inicio Q4M</message>
 </record>
 <record>
-  <date>2016-12-20T15:59:11</date>
-  <millis>1482245951468</millis>
+  <date>2016-12-26T23:19:50</date>
+  <millis>1482790790217</millis>
   <sequence>1</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -24,8 +24,8 @@
   <message>Hay Admin</message>
 </record>
 <record>
-  <date>2016-12-20T15:59:12</date>
-  <millis>1482245952634</millis>
+  <date>2016-12-26T23:19:51</date>
+  <millis>1482790791265</millis>
   <sequence>2</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -34,4 +34,47 @@
   <thread>15</thread>
   <message>Hay Preguntas en BD</message>
 </record>
-</log>
+<record>
+  <date>2016-12-26T23:19:53</date>
+  <millis>1482790793219</millis>
+  <sequence>3</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaUsuarios$5</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Dificultad 2 / Jugadores 2 / segundos 40</message>
+</record>
+<record>
+  <date>2016-12-26T23:19:55</date>
+  <millis>1482790795744</millis>
+  <sequence>4</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaUsuarios</class>
+  <method>anadirUsuario</method>
+  <thread>15</thread>
+  <message>Usuario añadido</message>
+</record>
+<record>
+  <date>2016-12-26T23:19:57</date>
+  <millis>1482790797193</millis>
+  <sequence>5</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaUsuarios</class>
+  <method>anadirUsuario</method>
+  <thread>15</thread>
+  <message>Usuario añadido</message>
+</record>
+<record>
+  <date>2016-12-26T23:19:59</date>
+  <millis>1482790799209</millis>
+  <sequence>6</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaUsuarios$2</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Botón Comenzar</message>
+</record>

@@ -23,6 +23,7 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Hashtable;
+import java.util.logging.Level;
 import java.awt.event.ActionEvent;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
@@ -42,6 +43,7 @@ import javax.swing.JTextPane;
 import javax.swing.JList;
 import javax.swing.JEditorPane;
 import java.awt.Font;
+import java.awt.Toolkit;
 
 @SuppressWarnings("serial")
 public class VentanaUsuarios extends JFrame {
@@ -80,6 +82,7 @@ public class VentanaUsuarios extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaUsuarios() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaUsuarios.class.getResource("/Images/logoCuadrado125.png")));
 
 		// Incializar arrays
 		aUsuario = new ArrayList<Jugador>();
@@ -100,19 +103,21 @@ public class VentanaUsuarios extends JFrame {
 
 		btnComenzar = new JButton("Comenzar");
 		btnComenzar.setVisible(false);
+	
 		btnComenzar.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				VentanaPrincipal.logger.log( Level.INFO, "Botón Comenzar");
 				int tam = aUsuario.size();
 				int tamMax = config.getNumJugadores();
 				if (tam == tamMax) {
 					partida = new Partida(config, aUsuario);
 					textArea.append("\n Partida creada\n Comenzando...");
 					//APARTIR DE AQUI JUEGO:
-					
-					partida.jugarPartida();
 					setVisible(false);
+					partida.jugarPartida();
+					
 
 				} else {
 					textArea.append("\n Faltan más usuarios!");
@@ -294,7 +299,10 @@ public class VentanaUsuarios extends JFrame {
 				int val2 = 2 + (jugslider.getValue()) * 4 / 100;
 				int val3 = 20 + (tiempslider.getValue()) * 40 / 100;
 
-				config = new ConfiguracionJuego(val1, val2, val3);
+				config = new ConfiguracionJuego(val1+1, val2, val3);
+				
+				VentanaPrincipal.logger.log( Level.INFO,"Dificultad "+(val1+1)+" / Jugadores "+val2+" / segundos "+val3);
+				
 				textPane_1.setText("Inserte Jugadores:");
 				textArea.setText(config.toString());
 				textPane_1.setText("\nAhora inserte los usuarios: ");
@@ -361,12 +369,13 @@ public class VentanaUsuarios extends JFrame {
 
 			boolean repe = validateUsuario(arr, user);
 			if (repe == false && 2<user.length() ) {
+				VentanaPrincipal.logger.log( Level.INFO, "Usuario añadido");
 				Jugador jug1 = new Jugador(user);
 				arr.add(jug1);
 				return "Usuario número "+arr.size()+" añadido:"+ "\n "+user;
 			} else {
 				if(repe == false )
-					return "Tama\u00F1o min \n no alcanzado";
+					return "Tama\u00F1o minimo \n no alcanzado";
 				else 
 					return "Error usuario repetido\n";
 			}
@@ -399,13 +408,13 @@ public class VentanaUsuarios extends JFrame {
 			while(i<arr.size()){
 				String	jugador1=arr.get(i).getUser();
 				
-						if(jugador1.equals(user)){
-							int iaux=i;
-							arr.remove(i);
-							return "Usuario numero "+(iaux+1)+"\n quitado"+
-									"\n Nombre: "+user+"\n Nuevo tama\u00F1o: "+arr.size();	
-														
-						}else{i++;}									
+					if(jugador1.equals(user)){
+						VentanaPrincipal.logger.log( Level.INFO, "Usuario quitado");
+						int iaux=i;
+						arr.remove(i);
+						return "Usuario numero "+(iaux+1)+"\n quitado"+
+								"\n Nombre: "+user+"\n Nuevo tama\u00F1o: "+arr.size();	
+					}else{i++;}									
 					
 			}				
 		

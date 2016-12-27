@@ -96,14 +96,24 @@ public class VentanaMarcadores extends JFrame {
 
 		//creacion de un tablemodel para  añadir datos de la bd
 		Object[] columnas = {"#", "Usuario", "Puntuación máxima"};
+		//Object[][] datos = {{"1","Emilio", "2340"},{"2","Augusto","8304"},{"3","Martín","450"}};
+		
 		ArrayList<Jugador> aJugadores= VentanaPrincipal.bd.obtenerUsuarios();
-		//Hay que covertir el array a vector.
-		Vector<Jugador> datos =new Vector<Jugador>();
-		Collections.copy(aJugadores, datos);
-		//
+		
+		Jugador jug=null;
+		Object[][] datos=null;
+		int pos=0;
+		/*for(int i=0; i<aJugadores.size();i++){
+			jug=aJugadores.get(i);
+			
+			datos[i][0]=pos;
+			datos[i][1]=jug.getUser();
+			datos[i][2]=jug.getRecord();
+		}
+		*/
 		DefaultTableModel modeloTabla = new DefaultTableModel(columnas, 0);
 		modeloTabla.addRow(datos);
-		
+			
 		
 		
 		panel_norte = new JPanel();

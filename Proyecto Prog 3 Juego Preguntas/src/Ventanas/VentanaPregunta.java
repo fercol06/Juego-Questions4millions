@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
+import Threads.Solucion;
 import Threads.ThreadTiempo;
 import TiposDeDatos.Partida;
 import TiposDeDatos.Pregunta;
@@ -16,9 +17,10 @@ import TiposDeDatos.Pregunta;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.Font;
 
-public class VentanaPregunta extends JFrame{
+public class VentanaPregunta extends JFrame implements ActionListener{
 
 
 	private JPanel panel_norte,panel_sur,panel_centro,panel_derecho;
@@ -34,8 +36,8 @@ public class VentanaPregunta extends JFrame{
 	/**
 	 * Create the application.
 	 */
-	public VentanaPregunta(Pregunta pregunta) {
-		this.pregunta=pregunta;
+	public VentanaPregunta(Pregunta preguntaAleatoria) {
+		this.pregunta=preguntaAleatoria;
 		setBounds(100, 100, 450, 300);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(new BorderLayout(0, 0));
@@ -78,7 +80,7 @@ public class VentanaPregunta extends JFrame{
 		panel_centro = new JPanel();
 		panel_Iniciar.add(panel_centro, BorderLayout.CENTER);
 		
-		lblPregunta = new JLabel(pregunta.getPregunta());
+		lblPregunta = new JLabel(preguntaAleatoria.getPregunta());
 		lblPregunta.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		panel_centro.add(lblPregunta);
 		
@@ -93,31 +95,35 @@ public class VentanaPregunta extends JFrame{
 		panel_11 = new JPanel();
 		panel.add(panel_11);
 		
-		btnRespuesta1 = new JButton(pregunta.getResp1());
+		btnRespuesta1 = new JButton(preguntaAleatoria.getResp1());
 		panel_11.add(btnRespuesta1);
+		btnRespuesta1.addActionListener(this);
 		
 		panel_12 = new JPanel();
 		panel.add(panel_12);
 		
-		btnRespuesta2 = new JButton(pregunta.getResp2());
+		btnRespuesta2 = new JButton(preguntaAleatoria.getResp2());
 		panel_12.add(btnRespuesta2);
+		btnRespuesta2.addActionListener(this);
 		
 		panel_21 = new JPanel();
 		panel.add(panel_21);
 		
-		btnRespuesta3 = new JButton(pregunta.getResp3());
+		btnRespuesta3 = new JButton(preguntaAleatoria.getResp3());
 		panel_21.add(btnRespuesta3);
+		btnRespuesta3.addActionListener(this);
 		
 		panel_22 = new JPanel();
 		panel.add(panel_22);
 		
-		btnRespuesta4 = new JButton(pregunta.getResp4());
+		btnRespuesta4 = new JButton(preguntaAleatoria.getResp4());
 		panel_22.add(btnRespuesta4);
-		
+		btnRespuesta4.addActionListener(this);
 		
 	}
-	
-	//AQUI?
+
+	//NO FUNCIONA
+	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		JButton botonPulsado =(JButton) e.getSource();
@@ -131,7 +137,8 @@ public class VentanaPregunta extends JFrame{
 			}
 		}
 		else if(botonPulsado == btnRespuesta2){
-			if(btnRespuesta2.getText().equals(respCorrecta)){
+			String text=btnRespuesta2.getText();
+			if(text.equals(respCorrecta)){
 				respuesta=true;
 			}else{
 				respuesta=false;
@@ -151,14 +158,43 @@ public class VentanaPregunta extends JFrame{
 				respuesta=false;
 			}
 		}
+		
+		
 		//Ya sabemos si ha acertado o fallado.
 		//Mandamos respuesta.
 		VentanaSolucion vs = new VentanaSolucion(respuesta,pregunta);
 		vs.setVisible(true);
+	
 		this.dispose();
 		
 	}
 	
-
+	
+	
+	public void contarLetras(){
+		String preguntaEntera=pregunta.getPregunta();
+		//Máximo 80. 
+		
+	}
+	
+	/**
+	 * Método que recibe un String y devuelve el número de palabras que contiene
+	 * @param s. Recive una cadena 
+	 * @return Devuelve un numero de palabras
+	 */
+	public static int contarPalabras(String s) {
+	    int contador = 1, pos;
+	    s = s.trim(); //eliminar los posibles espacios en blanco al principio y al final
+	    if (s.isEmpty()) { //si la cadena está vacía
+	    	contador = 0;
+	    } else {
+	    	pos = s.indexOf(" "); //se busca el primer espacio en blanco
+	    	while (pos != -1) { //mientras que se encuentre un espacio en blanco
+	    		contador++; //se cuenta una palabra
+	    		pos = s.indexOf(" ", pos + 1); //se busca el siguiente espacio en blanco
+	    	}                                               //a continuación del actual
+	    }
+	    return contador;
+	}
 
 }

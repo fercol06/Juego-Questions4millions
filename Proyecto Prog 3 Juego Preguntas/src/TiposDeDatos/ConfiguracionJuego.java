@@ -61,8 +61,23 @@ public class ConfiguracionJuego {
 	
 	@Override
 	public String toString(){
-		return (" Dificultad: "+dificultad
-				+ "\n Numero de Jugadores: "+(numJugadores)
+		String dif="";
+		switch (dificultad) {
+		case 1:
+			dif="Fácil";
+			break;
+		case 2:
+			dif="Media";
+			break;
+		case 3:
+			dif="Dificil";
+			break;
+		default:
+			dif="Media";
+			break;
+		}
+		return (" Dificultad: "+dif
+				+ "\n Número de Jugadores: "+(numJugadores)
 				+ "\n Segundos Preguntas: "+segundosPreguntas);
 	}
 	

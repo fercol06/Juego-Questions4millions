@@ -41,6 +41,16 @@ public class Jugador extends Persona{
 		this.record =this.record + record;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return ""+record;
+	}
+
+	
+
 	
 	
 

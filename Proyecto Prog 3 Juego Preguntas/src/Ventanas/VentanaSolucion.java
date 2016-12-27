@@ -19,7 +19,9 @@ import javax.swing.ImageIcon;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 
 public class VentanaSolucion extends JFrame {
 
@@ -32,28 +34,12 @@ public class VentanaSolucion extends JFrame {
 	private JPanel panel_2;
 	private JPanel panel_3;
 
-	
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			Pregunta pregunta=null;
-			public void run() {
-				try {
-					VentanaSolucion frame = new VentanaSolucion(true,pregunta);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
 	/**
 	 * Create the frame.
 	 */
 	public VentanaSolucion(boolean acertado, Pregunta preguntaAleatoria) {
+	
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaSolucion.class.getResource("/Images/logoCuadrado125.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 345);
 		contentPane = new JPanel();
@@ -109,8 +95,10 @@ public class VentanaSolucion extends JFrame {
 		btnSiguiente = new JButton("Siguiente");
 		btnSiguiente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				dispose();
+				VentanaPrincipal.logger.log( Level.INFO, "Botón Siguiente: Próximo Jugador");
 				Partida.siguiente=true;
+				dispose();
+				
 			}
 		});
 		panel_3.add(btnSiguiente);
@@ -127,6 +115,8 @@ public class VentanaSolucion extends JFrame {
 			//Sumar puntos
 			Partida.jugadorTurno.setRecord(30);
 			Partida.aUsuario.set(pos, Partida.jugadorTurno);
+			VentanaPrincipal.logger.log( Level.INFO,"ACERTADO");
+			VentanaPrincipal.logger.log( Level.INFO,"Puntos: +30");
 			
 		}
 		else{
@@ -141,6 +131,8 @@ public class VentanaSolucion extends JFrame {
 			
 			int num = Partida.aVidas.get(pos).intValue();
 			Partida.aVidas.set(pos, new Integer(num-1));
+			VentanaPrincipal.logger.log( Level.INFO,"FALLADO");
+			VentanaPrincipal.logger.log( Level.INFO,"Vida: -1");
 		}
 		
 		//Actualizamos Base de datos con el resultado del jugador.

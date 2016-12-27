@@ -57,7 +57,7 @@ public class VentanaPrincipal {
 	private static final String fichero = "Preguntados.txt";
 	
 	// Obtener un logger
-	private static Logger logger = Logger.getLogger( "Q4M" );
+	public static Logger logger = Logger.getLogger( "Q4M" );
 
 	/**
 	 * Launch the application.
@@ -257,6 +257,4 @@ public class VentanaPrincipal {
 
 
 	}
-
-	
 }

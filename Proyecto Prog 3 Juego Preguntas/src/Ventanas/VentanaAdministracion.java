@@ -20,6 +20,7 @@ import javax.swing.JOptionPane;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.logging.Level;
 
 import javax.swing.JLabel;
 import javax.swing.JSeparator;
@@ -110,6 +111,7 @@ public class VentanaAdministracion extends JFrame {
 				if(lstPreguntas.isSelectionEmpty()){
 					JOptionPane.showMessageDialog(null, "No has seleccionado ninguna pregunta.", "Error al seleccionar!", JOptionPane.ERROR_MESSAGE);
 				}else{
+					VentanaPrincipal.logger.log( Level.INFO, "Botón Editar Pregunta");
 					int posSeleccionado=lstPreguntas.getSelectedIndex();
 					Pregunta p=obtenerPreguntaPos(posSeleccionado);
 					VentanaAniadirPregunta vap = new VentanaAniadirPregunta(p);
@@ -125,7 +127,7 @@ public class VentanaAdministracion extends JFrame {
 		btnNueva = new JButton("Nueva");
 		btnNueva.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//String tipo="Nueva";
+				VentanaPrincipal.logger.log( Level.INFO, "Botón Nueva Pregunta");
 				VentanaAniadirPregunta vap = new VentanaAniadirPregunta();
 				vap.setVisible(true);
 				dispose();
@@ -139,6 +141,7 @@ public class VentanaAdministracion extends JFrame {
 				if(lstPreguntas.isSelectionEmpty()){
 					JOptionPane.showMessageDialog(null, "No has seleccionado ninguna pregunta.", "Error al seleccionar!", JOptionPane.ERROR_MESSAGE);
 				}else{
+					VentanaPrincipal.logger.log( Level.INFO, "Botón Borrar Pregunta");
 					//Confirmación que se desea borrar pregunta. 
 					int respuesta = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea eliminar esta pregunta?", "Confirmación borrar pregnta", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 					if(respuesta== JOptionPane.YES_OPTION){
@@ -163,7 +166,7 @@ public class VentanaAdministracion extends JFrame {
 		btnBasura = new JButton("");
 		btnBasura.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			
+				VentanaPrincipal.logger.log( Level.INFO, "Botón Reset Fabrica");
 				int respuesta = JOptionPane.showConfirmDialog(
 						null, "Has solicitado volver a los ajustes iniciales del juego. Perderá todos los ajustes guardados.\n ¿Está seguro que desea restaurar el juego a los ajustes iniciales? ",
 						"Confirmación restaurar juego", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
@@ -171,12 +174,14 @@ public class VentanaAdministracion extends JFrame {
 					boolean borrarTabla=VentanaPrincipal.bd.BorrarTablas();
 					boolean crearTabla=VentanaPrincipal.bd.crearTablas();
 					if(borrarTabla && crearTabla){
+						VentanaPrincipal.logger.log( Level.INFO, "Reset Fabrica Ok");
 						JOptionPane.showMessageDialog(null, "Todo ha salido perfectamente.\n Recuerda que la próxima vez que inicie deberá añadir un administrador. ",
 								"Ajustes reiniciado!", JOptionPane.INFORMATION_MESSAGE);
 						//cerrar sesion admin
 						VentanaPrincipal.numVentanasLogin=false;
 						dispose();
 					}else{
+						VentanaPrincipal.logger.log( Level.INFO, "Reset Fabrica Fail");
 						JOptionPane.showMessageDialog(null, "No se pudo restaurar a los ajustes niciales.",
 								"Sucedio un error!", JOptionPane.ERROR_MESSAGE);
 					}
@@ -195,6 +200,7 @@ public class VentanaAdministracion extends JFrame {
 		panel_bajo.add(btnCerrarSesion);
 		btnCerrarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				VentanaPrincipal.logger.log( Level.INFO, "Botón Cerrar Sesión");
 				dispose();
 				VentanaPrincipal.numVentanasLogin=false;
 			}

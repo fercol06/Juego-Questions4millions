@@ -93,6 +93,14 @@ public class Persona {
 	public void setTipoUser(String tipoUser) {
 		this.tipoUser = tipoUser;
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Persona [cod_user=" + cod_user + ", user=" + user + ", tipoUser=" + tipoUser + "]";
+	}
 	
 	
 }
