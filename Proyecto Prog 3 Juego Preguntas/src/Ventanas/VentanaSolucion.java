@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import Threads.ThreadCargarPregunta;
 import Threads.ThreadSolucion;
 import TiposDeDatos.Partida;
+import TiposDeDatos.Partida2;
 import TiposDeDatos.Pregunta;
 
 import java.awt.GridLayout;
@@ -96,7 +97,7 @@ public class VentanaSolucion extends JFrame {
 		btnSiguiente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				VentanaPrincipal.logger.log( Level.INFO, "Botón Siguiente: Próximo Jugador");
-				Partida.siguiente=true;
+				Partida2.siguiente=true;
 				dispose();
 				
 			}
