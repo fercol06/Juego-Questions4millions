@@ -31,6 +31,7 @@ import javax.swing.border.MatteBorder;
 import TiposDeDatos.ConfiguracionJuego;
 import TiposDeDatos.Jugador;
 import TiposDeDatos.Partida;
+import TiposDeDatos.Partida2;
 
 import java.awt.Cursor;
 import java.awt.BorderLayout;
@@ -56,7 +57,7 @@ public class VentanaUsuarios extends JFrame {
 	private JTextPane textPane_1;
 	private JSplitPane splitPane;
 	private JLabel lblAjusteCaract, lblNivel, lblNumJugadores, lblTiempoPregunta;
-	public static Partida partida; 
+	public static Partida2 partida; 
 	private JScrollPane scrollPane;
 	private JPanel panel;
 	private JScrollPane scrollPane_1;
@@ -112,7 +113,7 @@ public class VentanaUsuarios extends JFrame {
 				int tam = aUsuario.size();
 				int tamMax = config.getNumJugadores();
 				if (tam == tamMax) {
-					partida = new Partida(config, aUsuario);
+					partida = new Partida2(config, aUsuario);
 					textArea.append("\n Partida creada\n Comenzando...");
 					//APARTIR DE AQUI JUEGO:
 					setVisible(false);

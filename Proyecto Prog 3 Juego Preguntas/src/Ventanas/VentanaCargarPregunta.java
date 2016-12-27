@@ -66,10 +66,9 @@ public class VentanaCargarPregunta extends JFrame {
 		btnJugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				VentanaPrincipal.logger.log( Level.INFO, "Boton jugar: Turno Jugador");
-				dispose();
 				VentanaPregunta vp = new VentanaPregunta(pregunta);
-			    vp.setVisible(true);
-				
+				dispose();
+				vp.setVisible(true);
 					
 			}
 		});
@@ -100,7 +99,7 @@ public class VentanaCargarPregunta extends JFrame {
 		//crear hilo
 		ThreadCargarPregunta hiloBoton = new ThreadCargarPregunta();
 		hiloBoton.start();
-		btnJugar.setVisible(true);
+		//btnJugar.setVisible(true);
 		
 		
 	}

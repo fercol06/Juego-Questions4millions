@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.logging.Level;
 
-import Ventanas.VentanaCargarPregunta;
 import Ventanas.VentanaPrincipal;
 
-public class Partida2 {
+public class Partida3 {
 
 
 	private Pregunta preguntaAleatoria;
@@ -29,7 +28,7 @@ public class Partida2 {
 	 * @param config - Se le pasa un objeto config con la configuracion de la partida
 	 * @param aUsuario - Se pasa un array de usuarios con los integrantes de la partda
 	 */
-	public Partida2(ConfiguracionJuego config, ArrayList<Jugador> aUsuario) {
+	public Partida3(ConfiguracionJuego config, ArrayList<Jugador> aUsuario) {
 	
 		this.config = config;
 		this.aUsuario = aUsuario;
@@ -59,13 +58,13 @@ public class Partida2 {
 	    	
 			int i=0;
 			siguiente=true;
-			//while(true){
-				while(siguiente && i<aUsuario.size()){
-				//if(siguiente){	
+			while(true){
+				//while(siguiente && i<aUsuario.size()){
+				if(siguiente){	
 					System.out.println("A JUGAR");
 				    jugadorTurno=aUsuario.get(i);//usuario del que es el turno 
 					siguiente=false;
-					if(aVidas.get(i).intValue()!= -1){ //Miro si ha terminado la partida (-1 FIN PARTIDA)
+					//if(aVidas.get(i).intValue()!= -1){ //Miro si ha terminado la partida (-1 FIN PARTIDA)
 						//NO HA TERMINADO LA PARTIDA EL JUGADOR 
 						VentanaPrincipal.logger.log( Level.INFO,"Jugador: "+jugadorTurno.getUser()+" / Vidas:"+aVidas.get(i));
 						boolean enElJuego;
@@ -96,18 +95,18 @@ public class Partida2 {
 						//Mandar pregunta y usuario a la ventana pregunta
 						//hay que pasar por cargar pregunta. 
 					
-						
+								// TODO Auto-generated method stub
 						try {
 							Thread.sleep(1000);
 						} catch (InterruptedException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-						VentanaCargarPregunta vcp = new VentanaCargarPregunta(preguntaAleatoria);
+						/*VentanaCargarPregunta vcp = new VentanaCargarPregunta(preguntaAleatoria);
 						vcp.setVisible(true);
-						System.out.println("Pregunta cargada");
+						System.out.println("Pregunta cargada");*/
 						//Ventana2 v2 = new Ventana2();
-					}				
+					//}				
 					//termino con un usuario.
 					i++;
 					ronda++;
@@ -115,7 +114,7 @@ public class Partida2 {
 					
 				}
 				
-			//}
+			}
 			
 			//Cuando termino con la primera ronda inicializao a 0 para empezar otra ronda. 
 			/*if(ronda==aUsuario.size()){

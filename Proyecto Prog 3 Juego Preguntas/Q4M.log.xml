@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2016-12-26T23:19:49</date>
-  <millis>1482790789905</millis>
+  <date>2016-12-27T12:03:23</date>
+  <millis>1482836603223</millis>
   <sequence>0</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -13,8 +13,8 @@
   <message>Inicio Q4M</message>
 </record>
 <record>
-  <date>2016-12-26T23:19:50</date>
-  <millis>1482790790217</millis>
+  <date>2016-12-27T12:03:23</date>
+  <millis>1482836603515</millis>
   <sequence>1</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -24,8 +24,8 @@
   <message>Hay Admin</message>
 </record>
 <record>
-  <date>2016-12-26T23:19:51</date>
-  <millis>1482790791265</millis>
+  <date>2016-12-27T12:03:24</date>
+  <millis>1482836604884</millis>
   <sequence>2</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -35,8 +35,8 @@
   <message>Hay Preguntas en BD</message>
 </record>
 <record>
-  <date>2016-12-26T23:19:53</date>
-  <millis>1482790793219</millis>
+  <date>2016-12-27T12:03:26</date>
+  <millis>1482836606630</millis>
   <sequence>3</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -46,8 +46,8 @@
   <message>Dificultad 2 / Jugadores 2 / segundos 40</message>
 </record>
 <record>
-  <date>2016-12-26T23:19:55</date>
-  <millis>1482790795744</millis>
+  <date>2016-12-27T12:03:28</date>
+  <millis>1482836608496</millis>
   <sequence>4</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -57,8 +57,8 @@
   <message>Usuario añadido</message>
 </record>
 <record>
-  <date>2016-12-26T23:19:57</date>
-  <millis>1482790797193</millis>
+  <date>2016-12-27T12:03:30</date>
+  <millis>1482836610324</millis>
   <sequence>5</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -68,8 +68,8 @@
   <message>Usuario añadido</message>
 </record>
 <record>
-  <date>2016-12-26T23:19:59</date>
-  <millis>1482790799209</millis>
+  <date>2016-12-27T12:03:32</date>
+  <millis>1482836612246</millis>
   <sequence>6</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -77,4 +77,15 @@
   <method>actionPerformed</method>
   <thread>15</thread>
   <message>Botón Comenzar</message>
+</record>
+<record>
+  <date>2016-12-27T12:03:32</date>
+  <millis>1482836612256</millis>
+  <sequence>7</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>TiposDeDatos.Partida2</class>
+  <method>jugarPartida</method>
+  <thread>15</thread>
+  <message>Jugador: Aaa / Vidas:2</message>
 </record>

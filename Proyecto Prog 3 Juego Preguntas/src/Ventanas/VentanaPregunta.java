@@ -122,7 +122,6 @@ public class VentanaPregunta extends JFrame implements ActionListener{
 		
 	}
 
-	//NO FUNCIONA
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
