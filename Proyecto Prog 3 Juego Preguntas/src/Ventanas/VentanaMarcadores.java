@@ -97,25 +97,29 @@ public class VentanaMarcadores extends JFrame {
 		//creacion de un tablemodel para  añadir datos de la bd
 		Object[] columnas = {"#", "Usuario", "Puntuación máxima"};
 		//Object[][] datos = {{"1","Emilio", "2340"},{"2","Augusto","8304"},{"3","Martín","450"}};
+		DefaultTableModel modeloTabla = new DefaultTableModel(columnas, 0);
 		
 		ArrayList<Jugador> aJugadores= VentanaPrincipal.bd.obtenerUsuarios();
+		aJugadores.sort(new Comparator<Jugador>() {
+
+			@Override
+			public int compare(Jugador o1, Jugador o2) {
+				return o2.getRecord()-o1.getRecord();
+			}
+		});
 		
 		Jugador jug=null;
-		Object[][] datos=null;
+		Object[] datos=null;
 		int pos=0;
-		/*for(int i=0; i<aJugadores.size();i++){
+		for(int i=0; i<aJugadores.size();i++){
 			jug=aJugadores.get(i);
-			
-			datos[i][0]=pos;
-			datos[i][1]=jug.getUser();
-			datos[i][2]=jug.getRecord();
+			datos=new Object[3];
+			datos[0]=i+1;
+			datos[1]=jug.getUser();
+			datos[2]=jug.getRecord();
+			modeloTabla.addRow(datos);
 		}
-		*/
-		DefaultTableModel modeloTabla = new DefaultTableModel(columnas, 0);
-		modeloTabla.addRow(datos);
-			
-		
-		
+
 		panel_norte = new JPanel();
 		contentPane.add(panel_norte, BorderLayout.NORTH);
 		panel_norte.setLayout(new GridLayout(0, 1, 0, 0));

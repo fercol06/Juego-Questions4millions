@@ -9,7 +9,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Threads.ThreadCargarPregunta;
-import Threads.tPregunta;
 import TiposDeDatos.Jugador;
 import TiposDeDatos.Pregunta;
 

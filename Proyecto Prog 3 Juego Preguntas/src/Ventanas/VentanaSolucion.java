@@ -10,7 +10,6 @@ import javax.swing.border.EmptyBorder;
 import Threads.ThreadCargarPregunta;
 import Threads.ThreadSolucion;
 import TiposDeDatos.Partida;
-import TiposDeDatos.Partida2;
 import TiposDeDatos.Pregunta;
 
 import java.awt.GridLayout;
@@ -97,14 +96,14 @@ public class VentanaSolucion extends JFrame {
 		btnSiguiente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				VentanaPrincipal.logger.log( Level.INFO, "Botón Siguiente: Próximo Jugador");
-				Partida2.siguiente=true;
+				Partida.siguiente=true;
 				dispose();
 				
 			}
 		});
 		panel_3.add(btnSiguiente);
 		
-		int pos = Partida2.aUsuario.indexOf(Partida2.jugadorTurno);
+		int pos = Partida.aUsuario.indexOf(Partida.jugadorTurno);
 		if(acertado){
 			lblVida.setVisible(false);
 			lblPuntos.setVisible(true);
@@ -114,8 +113,8 @@ public class VentanaSolucion extends JFrame {
 			lblCorrecto.setVisible(true);
 			
 			//Sumar puntos
-			Partida2.jugadorTurno.setRecord(30);
-			Partida2.aUsuario.set(pos, Partida2.jugadorTurno);
+			Partida.jugadorTurno.setRecord(30);
+			Partida.aUsuario.set(pos, Partida.jugadorTurno);
 			VentanaPrincipal.logger.log( Level.INFO,"ACERTADO");
 			VentanaPrincipal.logger.log( Level.INFO,"Puntos: +30");
 			
@@ -130,14 +129,14 @@ public class VentanaSolucion extends JFrame {
 			
 			//Quitar vida
 			
-			int num = Partida2.aVidas.get(pos).intValue();
-			Partida2.aVidas.set(pos, new Integer(num-1));
+			int num = Partida.aVidas.get(pos).intValue();
+			Partida.aVidas.set(pos, new Integer(num-1));
 			VentanaPrincipal.logger.log( Level.INFO,"FALLADO");
 			VentanaPrincipal.logger.log( Level.INFO,"Vida: -1");
 		}
 		
 		//Actualizamos Base de datos con el resultado del jugador.
-		VentanaPrincipal.bd.inertarPreguntaContestada(Partida2.jugadorTurno,preguntaAleatoria,acertado);
+		VentanaPrincipal.bd.inertarPreguntaContestada(Partida.jugadorTurno,preguntaAleatoria,acertado);
 		
 		//crear hilo
 		ThreadSolucion hiloParpadear = new ThreadSolucion();

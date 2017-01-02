@@ -9,10 +9,8 @@ import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
-import Threads.Solucion;
 import Threads.ThreadTiempo;
 import TiposDeDatos.Partida;
-import TiposDeDatos.Partida2;
 import TiposDeDatos.Pregunta;
 
 import java.awt.FlowLayout;
@@ -61,7 +59,7 @@ public class VentanaPregunta extends JFrame implements ActionListener{
 		lblUsuario.setFont(new Font("Tahoma", Font.ITALIC, 16));
 		panel_norte.add(lblUsuario);
 		
-		lblNomUsuario = new JLabel(Partida2.jugadorTurno.getUser());
+		lblNomUsuario = new JLabel(Partida.jugadorTurno.getUser());
 		lblNomUsuario.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		panel_norte.add(lblNomUsuario);
 		

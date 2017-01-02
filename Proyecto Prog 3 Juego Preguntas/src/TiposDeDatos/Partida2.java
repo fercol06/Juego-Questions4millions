@@ -96,17 +96,9 @@ public class Partida2 {
 						//Mandar pregunta y usuario a la ventana pregunta
 						//hay que pasar por cargar pregunta. 
 					
-						
-						try {
-							Thread.sleep(1000);
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
 						VentanaCargarPregunta vcp = new VentanaCargarPregunta(preguntaAleatoria);
 						vcp.setVisible(true);
-						System.out.println("Pregunta cargada");
-						//Ventana2 v2 = new Ventana2();
+						
 					}				
 					//termino con un usuario.
 					i++;
@@ -132,6 +124,29 @@ public class Partida2 {
 		
 		
 	}
+	
+	/**
+	 * siguiente=true;
+		
+		while(true){
+			System.out.println("Entra al while");
+			if(siguiente){
+				siguiente=false;
+				System.out.println("Entra al if");
+				
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				VentanaCargarPregunta vcp = new VentanaCargarPregunta(new Pregunta("ABCD","A","B","C","D","A",1));
+				vcp.setVisible(true);
+				
+			}
+			System.out.println("Sale del if");
+		}
+	 */
 	
 	 
 	/**

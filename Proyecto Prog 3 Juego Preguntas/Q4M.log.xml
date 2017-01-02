@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2016-12-27T12:03:23</date>
-  <millis>1482836603223</millis>
+  <date>2017-01-02T12:48:10</date>
+  <millis>1483357690740</millis>
   <sequence>0</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -13,8 +13,8 @@
   <message>Inicio Q4M</message>
 </record>
 <record>
-  <date>2016-12-27T12:03:23</date>
-  <millis>1482836603515</millis>
+  <date>2017-01-02T12:48:11</date>
+  <millis>1483357691040</millis>
   <sequence>1</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -24,8 +24,8 @@
   <message>Hay Admin</message>
 </record>
 <record>
-  <date>2016-12-27T12:03:24</date>
-  <millis>1482836604884</millis>
+  <date>2017-01-02T12:48:12</date>
+  <millis>1483357692395</millis>
   <sequence>2</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -35,8 +35,8 @@
   <message>Hay Preguntas en BD</message>
 </record>
 <record>
-  <date>2016-12-27T12:03:26</date>
-  <millis>1482836606630</millis>
+  <date>2017-01-02T12:48:13</date>
+  <millis>1483357693829</millis>
   <sequence>3</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -46,8 +46,8 @@
   <message>Dificultad 2 / Jugadores 2 / segundos 40</message>
 </record>
 <record>
-  <date>2016-12-27T12:03:28</date>
-  <millis>1482836608496</millis>
+  <date>2017-01-02T12:48:16</date>
+  <millis>1483357696456</millis>
   <sequence>4</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -57,8 +57,8 @@
   <message>Usuario añadido</message>
 </record>
 <record>
-  <date>2016-12-27T12:03:30</date>
-  <millis>1482836610324</millis>
+  <date>2017-01-02T12:48:17</date>
+  <millis>1483357697934</millis>
   <sequence>5</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -68,8 +68,8 @@
   <message>Usuario añadido</message>
 </record>
 <record>
-  <date>2016-12-27T12:03:32</date>
-  <millis>1482836612246</millis>
+  <date>2017-01-02T12:48:19</date>
+  <millis>1483357699353</millis>
   <sequence>6</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -79,13 +79,57 @@
   <message>Botón Comenzar</message>
 </record>
 <record>
-  <date>2016-12-27T12:03:32</date>
-  <millis>1482836612256</millis>
+  <date>2017-01-02T12:48:19</date>
+  <millis>1483357699367</millis>
   <sequence>7</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
-  <class>TiposDeDatos.Partida2</class>
+  <class>TiposDeDatos.Partida</class>
   <method>jugarPartida</method>
+  <thread>20</thread>
+  <message>Jugador: 111 / Vidas:2</message>
+</record>
+<record>
+  <date>2017-01-02T12:48:21</date>
+  <millis>1483357701787</millis>
+  <sequence>8</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaCargarPregunta$1</class>
+  <method>actionPerformed</method>
   <thread>15</thread>
-  <message>Jugador: Aaa / Vidas:2</message>
+  <message>Boton jugar: Turno Jugador</message>
+</record>
+<record>
+  <date>2017-01-02T12:48:22</date>
+  <millis>1483357702402</millis>
+  <sequence>9</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaSolucion</class>
+  <method>&lt;init&gt;</method>
+  <thread>15</thread>
+  <message>FALLADO</message>
+</record>
+<record>
+  <date>2017-01-02T12:48:22</date>
+  <millis>1483357702402</millis>
+  <sequence>10</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaSolucion</class>
+  <method>&lt;init&gt;</method>
+  <thread>15</thread>
+  <message>Vida: -1</message>
+</record>
+<record>
+  <date>2017-01-02T12:48:23</date>
+  <millis>1483357703160</millis>
+  <sequence>11</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaSolucion$1</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Botón Siguiente: Próximo Jugador</message>
 </record>
