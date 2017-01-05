@@ -37,28 +37,13 @@ public class VentanaAniadirPregunta extends JFrame {
 	private JComboBox comboBoxNivel;
 	private JButton btnAtras,btnAniadir;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaAniadirPregunta frame = new VentanaAniadirPregunta();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Crea el frame de añadir nuevas preguntas.
 	 */
 	public VentanaAniadirPregunta() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaAniadirPregunta.class.getResource("/images/logoCuadrado125.png")));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

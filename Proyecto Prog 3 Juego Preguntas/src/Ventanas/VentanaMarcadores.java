@@ -19,6 +19,7 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumnModel;
 
 import TiposDeDatos.Jugador;
+import TiposDeDatos.Partida;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -37,9 +38,7 @@ import javax.swing.ScrollPaneConstants;
 
 public class VentanaMarcadores extends JFrame {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTable tabla;
@@ -49,27 +48,13 @@ public class VentanaMarcadores extends JFrame {
 	private JButton btnAtras;
 	private JLabel lblMarcadores;
 	private JSeparator separator;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaMarcadores frame = new VentanaMarcadores();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	protected ArrayList<Jugador> aJugadores= null;
+	
 
 	/**
 	 * Create the frame.
 	 */
-	public VentanaMarcadores() {
+	public VentanaMarcadores(boolean situacion) {
 		
 		/*
 		 * Cuando cierro la ventana me pone la variable estatica a false para que se pueda 
@@ -85,7 +70,7 @@ public class VentanaMarcadores extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(VentanaPrincipal.class.getResource("/images/logoCuadrado125.png")));
 		setBounds(100, 100, 450, 300);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		setTitle("Marcadores Q4M!");
 		
@@ -94,12 +79,29 @@ public class VentanaMarcadores extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 
+		
+		
 		//creacion de un tablemodel para  añadir datos de la bd
 		Object[] columnas = {"#", "Usuario", "Puntuación máxima"};
-		//Object[][] datos = {{"1","Emilio", "2340"},{"2","Augusto","8304"},{"3","Martín","450"}};
 		DefaultTableModel modeloTabla = new DefaultTableModel(columnas, 0);
 		
-		ArrayList<Jugador> aJugadores= VentanaPrincipal.bd.obtenerUsuarios();
+		
+		
+		
+		
+		
+		/*Depende si recibe un true o un false, se muestran unos datos u otros
+		 * Si se pasa un:
+		 * true - Ventana todos marcadores
+		 * false - Ventana solo partida
+		 * */
+		
+		if(situacion){
+			aJugadores= VentanaPrincipal.bd.obtenerUsuarios();
+		}
+		else{
+			aJugadores=Partida.aUsuario;
+		}
 		aJugadores.sort(new Comparator<Jugador>() {
 
 			@Override
@@ -107,7 +109,6 @@ public class VentanaMarcadores extends JFrame {
 				return o2.getRecord()-o1.getRecord();
 			}
 		});
-		
 		Jugador jug=null;
 		Object[] datos=null;
 		int pos=0;
@@ -119,7 +120,7 @@ public class VentanaMarcadores extends JFrame {
 			datos[2]=jug.getRecord();
 			modeloTabla.addRow(datos);
 		}
-
+		
 		panel_norte = new JPanel();
 		contentPane.add(panel_norte, BorderLayout.NORTH);
 		panel_norte.setLayout(new GridLayout(0, 1, 0, 0));
@@ -170,25 +171,13 @@ public class VentanaMarcadores extends JFrame {
 				if(row == 0 ){
 					def.setBackground(new Color(101, 255, 135));
 				}
-				else if(row == columnas.length-1){
+				else if(row ==  aJugadores.size()-1){
 					def.setBackground(new Color(255, 101, 111));
 				}
 				else{
 					def.setBackground(Color.WHITE);
 				}
-				/*
-				if(row %2==0){ 
-					def.setBackground(Color.WHITE);
-				}else{
-					def.setBackground(new Color(225, 225, 225));
-				}
-				*/
-				/*
-				DefaultTableModel dtm= (DefaultTableModel)table.getModel();
-				if(((String)dtm.getValueAt(row, column)).charAt(0)=='X'){
-					def.setForeground(Color.GREEN);
-				}
-				*/
+				
 				return def;
 			}
 		});

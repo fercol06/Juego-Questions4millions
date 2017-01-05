@@ -31,7 +31,6 @@ import javax.swing.border.MatteBorder;
 import TiposDeDatos.ConfiguracionJuego;
 import TiposDeDatos.Jugador;
 import TiposDeDatos.Partida;
-import TiposDeDatos.Partida2;
 
 import java.awt.Cursor;
 import java.awt.BorderLayout;
@@ -63,22 +62,7 @@ public class VentanaUsuarios extends JFrame {
 	private JScrollPane scrollPane_1;
 	private JTextArea textArea;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaUsuarios ventuser = new VentanaUsuarios();
-					ventuser.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	
 	/**
 	 * Create the frame.
 	 */
@@ -91,7 +75,7 @@ public class VentanaUsuarios extends JFrame {
 		// Relative layout
 
 		// getContentPane().setBackground(new Color(0, 128, 0));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 503, 641);
 		setTitle("Configuración de la partida:");
 
@@ -122,6 +106,15 @@ public class VentanaUsuarios extends JFrame {
 						@Override
 						public void run() {
 							partida.jugarPartida();	
+							//Mostrar tabla marcadores.
+							VentanaMarcadores vm = new VentanaMarcadores(false);
+							try {
+								Thread.sleep(1000);
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							vm.setVisible(true);
 						}
 					};
 					t.start();
@@ -186,7 +179,8 @@ public class VentanaUsuarios extends JFrame {
 		JPanel panel_3 = new JPanel();
 		panel_1.add(panel_3, BorderLayout.NORTH);
 
-		JLabel lblInserteUsuario = new JLabel("Inserte Usuario");
+		JLabel lblInserteUsuario = new JLabel("Inserte Usuario:");
+		lblInserteUsuario.setFont(new Font("Tahoma", Font.BOLD, 16));
 		panel_3.add(lblInserteUsuario);
 
 		JPanel panel_4 = new JPanel();
@@ -235,6 +229,8 @@ public class VentanaUsuarios extends JFrame {
 		textField.setColumns(10);
 
 		textPane_1 = new JTextPane();
+		textPane_1.setFont(new Font("Tahoma", Font.ITALIC, 17));
+		textPane_1.setEditable(false);
 		splitPane.setLeftComponent(textPane_1);
 		
 		
@@ -326,41 +322,58 @@ public class VentanaUsuarios extends JFrame {
 		lblNumJugadores = new JLabel("N\u00FAmero jugadores:");
 
 		lblTiempoPregunta = new JLabel("Tiempo por pregunta:");
+		
+		JButton btnAtras = new JButton("Atr\u00E1s");
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				//Volver a la otra ventana
+				VentanaPrincipal.frame.setVisible(true);
+				dispose();
+			}
+		});
 
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
-		gl_panel_2.setHorizontalGroup(gl_panel_2.createParallelGroup(Alignment.TRAILING).addGroup(Alignment.LEADING,
-				gl_panel_2.createSequentialGroup().addGap(34)
-						.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblAjusteCaract, GroupLayout.PREFERRED_SIZE, 199,
-										GroupLayout.PREFERRED_SIZE)
-								.addComponent(caractButton, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
-								.addComponent(tiempslider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-										GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblNumJugadores).addComponent(lblNivel)
-								.addComponent(difslider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-										GroupLayout.PREFERRED_SIZE)
-								.addComponent(jugslider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-										GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblTiempoPregunta))
-						.addContainerGap(22, Short.MAX_VALUE)));
-		gl_panel_2
-				.setVerticalGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+		gl_panel_2.setHorizontalGroup(
+			gl_panel_2.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_2.createSequentialGroup()
+					.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_panel_2.createSequentialGroup()
-								.addComponent(lblAjusteCaract, GroupLayout.PREFERRED_SIZE, 39,
-										GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.RELATED).addComponent(lblNivel).addGap(11)
-								.addComponent(difslider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-										GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.RELATED).addComponent(lblNumJugadores).addGap(4)
-								.addComponent(jugslider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-										GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.RELATED).addComponent(lblTiempoPregunta)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(tiempslider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-										GroupLayout.PREFERRED_SIZE)
-								.addGap(18)
-								.addComponent(caractButton, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(51, Short.MAX_VALUE)));
+							.addGap(34)
+							.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblAjusteCaract, GroupLayout.PREFERRED_SIZE, 199, GroupLayout.PREFERRED_SIZE)
+								.addComponent(caractButton, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
+								.addComponent(tiempslider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblNumJugadores)
+								.addComponent(lblNivel)
+								.addComponent(difslider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(jugslider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblTiempoPregunta)))
+						.addGroup(gl_panel_2.createSequentialGroup()
+							.addGap(94)
+							.addComponent(btnAtras)))
+					.addContainerGap(22, Short.MAX_VALUE))
+		);
+		gl_panel_2.setVerticalGroup(
+			gl_panel_2.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_2.createSequentialGroup()
+					.addComponent(lblAjusteCaract, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblNivel)
+					.addGap(11)
+					.addComponent(difslider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblNumJugadores)
+					.addGap(4)
+					.addComponent(jugslider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblTiempoPregunta)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(tiempslider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(caractButton, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addComponent(btnAtras))
+		);
 		panel_2.setLayout(gl_panel_2);
 		getContentPane().setLayout(groupLayout);
 		
@@ -432,7 +445,6 @@ public class VentanaUsuarios extends JFrame {
 	public void limpiarCampos(){
 		textField.setText("");
 	}
-	
 }
 
 

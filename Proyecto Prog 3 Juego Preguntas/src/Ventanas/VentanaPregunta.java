@@ -18,6 +18,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Font;
+import java.awt.Toolkit;
 
 public class VentanaPregunta extends JFrame implements ActionListener{
 
@@ -26,22 +27,26 @@ public class VentanaPregunta extends JFrame implements ActionListener{
 	private JPanel panel, panel_11,panel_12,panel_21,panel_22;
 	private JButton btnRespuesta1, btnRespuesta2, btnRespuesta3, btnRespuesta4;
 	private JLabel lblPregunta, lblUsuario;
-	private JPanel panel_Iniciar;
+	public static JPanel panel_Iniciar,panelWest;
 	private Pregunta pregunta;
 	private JLabel lblNomUsuario;
 	private boolean respuesta;
-
+	public static JLabel lblimg;
+	private int tiempoPregunta;
+	private ThreadTiempo th;
 	  
 	/**
 	 * Create the application.
 	 */
-	public VentanaPregunta(Pregunta preguntaAleatoria) {
+	public VentanaPregunta(Pregunta preguntaAleatoria,int tiempo) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaPregunta.class.getResource("/Images/logoCuadrado125.png")));
 		this.pregunta=preguntaAleatoria;
-		setBounds(100, 100, 450, 300);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.tiempoPregunta=tiempo;
+		
+		setBounds(100, 100, 745, 425);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		setTitle("Questions4millions");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setTitle("Atenci\u00F3n, \u00A1pregunta!");
 		
 		getContentPane().setLayout(new BorderLayout(0, 0));
@@ -72,9 +77,17 @@ public class VentanaPregunta extends JFrame implements ActionListener{
 		ttiempo.start();
 		*/
 		
-		ImagenPanel imagenTiempo= new ImagenPanel("/images/Progreso100.png");
-		panel_Iniciar.add(imagenTiempo, BorderLayout.WEST);
+		//ImagenPanel imagenTiempo= new ImagenPanel("/images/Progreso100.png");
+		//panel_Iniciar.add(imagenTiempo, BorderLayout.WEST);
 		
+		panelWest = new JPanel();
+		
+		
+		panel_Iniciar.add(panelWest,BorderLayout.WEST);
+		
+		lblimg = new JLabel("");
+		lblimg.setIcon(new ImageIcon(VentanaPregunta.class.getResource("/Images/Progreso000.png")));
+		panelWest.add(lblimg);
 		
 		panel_centro = new JPanel();
 		panel_Iniciar.add(panel_centro, BorderLayout.CENTER);
@@ -119,6 +132,10 @@ public class VentanaPregunta extends JFrame implements ActionListener{
 		panel_22.add(btnRespuesta4);
 		btnRespuesta4.addActionListener(this);
 		
+		
+		th = new ThreadTiempo(tiempoPregunta);
+		th.start();
+		
 	}
 
 	@Override
@@ -156,24 +173,27 @@ public class VentanaPregunta extends JFrame implements ActionListener{
 				respuesta=false;
 			}
 		}
-		
+		if(th.isAlive()){
+			th.stop();
+		}
 		
 		//Ya sabemos si ha acertado o fallado.
 		//Mandamos respuesta.
 		VentanaSolucion vs = new VentanaSolucion(respuesta,pregunta);
 		vs.setVisible(true);
-	
-		this.dispose();
-		
+		this.dispose();	
 	}
 	
 	
-	
-	public void contarLetras(){
+	/**
+	 * POR HACER:
+	 * Metodo que cuenta palabras. 
+	 */
+	/*public void contarLetras(){
 		String preguntaEntera=pregunta.getPregunta();
 		//Máximo 80. 
 		
-	}
+	}*/
 	
 	/**
 	 * Método que recibe un String y devuelve el número de palabras que contiene

@@ -7,6 +7,7 @@ import java.util.logging.Level;
 import org.junit.internal.runners.statements.RunAfters;
 
 import Ventanas.VentanaCargarPregunta;
+import Ventanas.VentanaMarcadores;
 import Ventanas.VentanaPregunta;
 import Ventanas.VentanaPrincipal;
 import Ventanas.VentanaSolucion;
@@ -52,81 +53,66 @@ public class Partida {
 	
 	//Mecanica del juego
 		public void jugarPartida(){
+			siguiente=true;
+			int i=0;
 			
-			preguntaAleatoria=null; 
-		    jugadorTurno=null;
-		    ronda=0;
-		   
-			//Recorro el array de vidas y mientras haya alguno diferente de -1
-		//	while(!haTerminadoJuego()&& ronda==0){ //SE ME CREAN MILES DE VENTANAS
-				
-		    	
-				int i=0;
-				siguiente=true;
-				//while(true){
-					while(siguiente && i<aUsuario.size()){
-					//if(siguiente){	
-						System.out.println("A JUGAR");
-					    jugadorTurno=aUsuario.get(i);//usuario del que es el turno 
-						siguiente=false;
-						if(aVidas.get(i).intValue()!= -1){ //Miro si ha terminado la partida (-1 FIN PARTIDA)
-							//NO HA TERMINADO LA PARTIDA EL JUGADOR 
-							VentanaPrincipal.logger.log( Level.INFO,"Jugador: "+jugadorTurno.getUser()+" / Vidas:"+aVidas.get(i));
-							boolean enElJuego;
-							boolean alUsuario;
-							int busquedaPregunta=0;
-							
-							do{
-								//Extraigo una pregunta
-								preguntaAleatoria = obtenerPreguntaAleatoria();
-								
-								//comprobando que no haya salido (en el array de preguntas)
-								enElJuego = buscarPreguntaDicha(preguntaAleatoria);
-								
-								//ni que le haya tocado anteriormente (base de datos)
-								//Mejor en BD por si hay mucho jugadores y muchas preguntas
-								alUsuario = VentanaPrincipal.bd.comprobarPregunta(preguntaAleatoria,jugadorTurno);
-							
-								//busquedapregunta incremento para que no se quede mirando siempre
-								//Si al de 100 sigue saliendo repetida, se pregunta una cualquiera.
-								busquedaPregunta++;
-								
-							}while((!enElJuego && !alUsuario) && busquedaPregunta<100);	
-								
-							
-							//Añadimos la preguntaAleatoria que ha salido en este turno al juego.
-							//Para ello, añadimos al ArrayList de aPreguntas. 
-							aPreguntas.add(preguntaAleatoria);
-							//Mandar pregunta y usuario a la ventana pregunta
-							//hay que pasar por cargar pregunta. 
-						
-							VentanaCargarPregunta vcp = new VentanaCargarPregunta(preguntaAleatoria);
-							vcp.setVisible(true);
-							
-						}				
-						//termino con un usuario.
-						i++;
-						ronda++;
-				
-						
-					}
+			while(!haTerminadoJuego()){
+				//System.out.println("Entra al while");
+				if(siguiente){
+					siguiente=false;
+					jugadorTurno=aUsuario.get(i);
+					//System.out.println("Entra al if");
 					
-				//}
+					//Miro si ha terminado la partida (0 FIN PARTIDA)
+					if(aVidas.get(i).intValue()!= 0){ 
+						//NO HA TERMINADO LA PARTIDA EL JUGADOR 
+						VentanaPrincipal.logger.log( Level.INFO,"Jugador: "+jugadorTurno.getUser()+" / Vidas:"+aVidas.get(i));
+						boolean enElJuego;
+						boolean alUsuario;
+						int busquedaPregunta=0;
+						
+						//METODO COMPROBAR PREGUNTAS y OBTENER ALEATORIAS
+						do{
+							//Extraigo una pregunta
+							preguntaAleatoria = obtenerPreguntaAleatoria();
+							
+							//comprobando que no haya salido (en el array de preguntas)
+							enElJuego = buscarPreguntaDicha(preguntaAleatoria);
+							
+							//ni que le haya tocado anteriormente (base de datos)
+							//Mejor en BD por si hay mucho jugadores y muchas preguntas
+							alUsuario = VentanaPrincipal.bd.comprobarPregunta(preguntaAleatoria,jugadorTurno);
+						
+							//busquedapregunta incremento para que no se quede mirando siempre
+							//Si al de 100 sigue saliendo repetida, se pregunta una cualquiera.
+							busquedaPregunta++;
+							
+						}while((!enElJuego && !alUsuario) && busquedaPregunta<100);	
+					
+
+						//Añadimos la preguntaAleatoria que ha salido en este turno al juego.
+						//Para ello, añadimos al ArrayList de aPreguntas. 
+						aPreguntas.add(preguntaAleatoria);
+						//Mandar pregunta y usuario a la ventana pregunta
+						//hay que pasar por cargar pregunta. 
+					
+						VentanaCargarPregunta vcp = new VentanaCargarPregunta(preguntaAleatoria,config.getSegundosPreguntas());
+						vcp.setVisible(true);
+						//termino con un usuario.	
+					}				
+					i++;
+				}
+				if(i==aUsuario.size()){
+					i=0;
+				}
 				
-				//Cuando termino con la primera ronda inicializao a 0 para empezar otra ronda. 
-				/*if(ronda==aUsuario.size()){
-					ronda=0;
-				}*/
-			//}
-			
+				//System.out.println("Sale del if");
+			}
+				
 			//HA TERMINADO PARTIDA. 
 			//Actualizo los usuarios.
 			//ActualizarUsuariosEnBD();
-			
-			//Mostrar tabla marcadores.
-				//Sin ordenarlos
-			
-			
+	
 		}
 	 
 	/**
@@ -170,7 +156,7 @@ public class Partida {
 		int numEnJuego=0;
 		
 		for(Integer vi: aVidas){	
-			if(vi==-1){ 
+			if(vi.intValue()==0){ 
 				numEnJuego++;
 			}
 		}
@@ -180,12 +166,14 @@ public class Partida {
 		return encontrado;
 	}
 	
-	
+	/**
+	 * Metodo que actualiza los datos de los usuarios en la base de datos. 
+	 */
 	private void ActualizarUsuariosEnBD (){
 		
-		ArrayList<Jugador> aJugadoresBD = null;
-		aJugadoresBD=VentanaPrincipal.bd.obtenerUsuarios();
-		Jugador jug=null; 
+		//ArrayList<Jugador> aJugadoresBD = VentanaPrincipal.bd.obtenerUsuarios();
+		Jugador jug=null;
+		Jugador jugBD=null;
 		
 		//Recorre a todos los usuarios de la partida
 		for(int i=0; i<aUsuario.size(); i++){
@@ -193,7 +181,7 @@ public class Partida {
 			if(VentanaPrincipal.bd.comprobarUsuario(jug)){//Preguntar BD
 				//EXISTE
 				//Comprobamos puntuacion.
-				Jugador jugBD=VentanaPrincipal.bd.ObtenerUsuario(jug);
+				jugBD=VentanaPrincipal.bd.ObtenerUsuario(jug);
 				if(jugBD.getRecord()>=jug.getRecord()){
 					jug=jugBD;
 				}

@@ -36,22 +36,7 @@ public class VentanaLogin extends JFrame {
 	private JPasswordField passwordFieldContrasenia;
 	private JLabel lblNombre, lblContrasenia;
 	private boolean situacion;
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaLogin frame = new VentanaLogin(true);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	
 	/**
 	 * Create the frame.
 	 */
@@ -59,7 +44,7 @@ public class VentanaLogin extends JFrame {
 		this.situacion=situacion;
 		setTitle("Acceso login");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaLogin.class.getResource("/images/logoCuadrado125.png")));
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

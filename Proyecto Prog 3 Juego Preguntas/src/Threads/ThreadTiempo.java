@@ -1,8 +1,10 @@
 package Threads;
 
-import javax.swing.ImageIcon;
+import java.awt.BorderLayout;
 
-import Ventanas.ImagenPanel;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 import Ventanas.VentanaPregunta;
 
 public class ThreadTiempo extends Thread{
@@ -18,24 +20,31 @@ public class ThreadTiempo extends Thread{
 	
 	public void run(){
 		
-		String aRutas[]={"/images/Progreso100.png","/images/Progreso090.png","/images/Progreso080.png", "/images/Progreso070.png",
-				"/images/Progreso060.png","/images/Progreso050.png","/images/Progreso040.png","/images/Progreso030.png",
-				"/images/Progreso020.png", "/images/Progreso010.png", "/images/Progreso000.png"};
+		String aRutas[]={"/Images/Progreso100.png","/Images/Progreso090.png","/Images/Progreso080.png", "/Images/Progreso070.png",
+				"/Images/Progreso060.png","/Images/Progreso050.png","/Images/Progreso040.png","/Images/Progreso030.png",
+				"/Images/Progreso020.png", "/Images/Progreso010.png", "/Images/Progreso000.png"};
 		int i=0;
-		
-		while(true){
-			ImagenPanel im = new ImagenPanel(aRutas[i]);
-			//imagenTiempo.setIcon(imagenTiempos); 
+		long mil = miliSegundos/aRutas.length-1;
+		while(miliSegundos>0 && i<aRutas.length){
+			
+			
+			//VentanaPregunta.panelWest.add(new JLabel(new ImageIcon(aRutas[i])), BorderLayout.WEST);
+			VentanaPregunta.lblimg.setIcon(new ImageIcon(VentanaPregunta.class.getResource(aRutas[i])));
+			VentanaPregunta.panelWest.add(VentanaPregunta.lblimg);
+			VentanaPregunta.panelWest.updateUI();
+			
 			i++;
-			if(i==aRutas.length){
-				i=0;
-			}
 			try {
-				Thread.sleep(miliSegundos);
+				Thread.sleep(mil);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			miliSegundos-=mil;
+			
+			/*
+			 	lblImg = new JLabel(new ImageIcon(VentanaPregunta.class.getResource("/Images/Progreso100.png")));
+				panelWest.add(lblImg);
+			 */
 		}
 	}
 

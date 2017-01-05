@@ -30,7 +30,7 @@ import java.awt.event.ActionEvent;
 
 public class VentanaPrincipal {
 
-	private JFrame frame;
+	protected static JFrame frame;
 	private JPanel panel_norte, panel_sur, panel_centro, panel_derecha, panel_izquierda;
 	private JPanel panel;
 	private JButton btnInstrucciones;
@@ -167,7 +167,7 @@ public class VentanaPrincipal {
 				if (!numVentanasMarcadores) { // comprobar que solo crea 1
 												// ventana.
 					numVentanasMarcadores = true;
-					VentanaMarcadores vl = new VentanaMarcadores();
+					VentanaMarcadores vl = new VentanaMarcadores(true);
 					vl.setVisible(true);
 				}
 

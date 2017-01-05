@@ -17,7 +17,7 @@ public class ConfiguracionJuego {
 	public ConfiguracionJuego(int dificultad, int numJugadores, int segundosPreguntas) {
 		this.dificultad = dificultad;
 		this.numJugadores = numJugadores;
-		this.segundosPreguntas = segundosPreguntas;
+		this.segundosPreguntas = segundosPreguntas*1000;
 		int vidas=0;
 		switch(dificultad){
 			case 1: vidas=3;break;
@@ -78,7 +78,7 @@ public class ConfiguracionJuego {
 		}
 		return (" Dificultad: "+dif
 				+ "\n Número de Jugadores: "+(numJugadores)
-				+ "\n Segundos Preguntas: "+segundosPreguntas);
+				+ "\n Segundos Preguntas: "+segundosPreguntas/1000);
 	}
 	
 }

@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2017-01-02T12:48:10</date>
-  <millis>1483357690740</millis>
+  <date>2017-01-05T11:16:07</date>
+  <millis>1483611367599</millis>
   <sequence>0</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -13,8 +13,8 @@
   <message>Inicio Q4M</message>
 </record>
 <record>
-  <date>2017-01-02T12:48:11</date>
-  <millis>1483357691040</millis>
+  <date>2017-01-05T11:16:07</date>
+  <millis>1483611367941</millis>
   <sequence>1</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -24,8 +24,8 @@
   <message>Hay Admin</message>
 </record>
 <record>
-  <date>2017-01-02T12:48:12</date>
-  <millis>1483357692395</millis>
+  <date>2017-01-05T11:16:09</date>
+  <millis>1483611369149</millis>
   <sequence>2</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -35,19 +35,19 @@
   <message>Hay Preguntas en BD</message>
 </record>
 <record>
-  <date>2017-01-02T12:48:13</date>
-  <millis>1483357693829</millis>
+  <date>2017-01-05T11:16:11</date>
+  <millis>1483611371316</millis>
   <sequence>3</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
-  <class>Ventanas.VentanaUsuarios$5</class>
+  <class>Ventanas.VentanaUsuarios$4</class>
   <method>actionPerformed</method>
   <thread>15</thread>
   <message>Dificultad 2 / Jugadores 2 / segundos 40</message>
 </record>
 <record>
-  <date>2017-01-02T12:48:16</date>
-  <millis>1483357696456</millis>
+  <date>2017-01-05T11:16:13</date>
+  <millis>1483611373519</millis>
   <sequence>4</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -57,8 +57,8 @@
   <message>Usuario añadido</message>
 </record>
 <record>
-  <date>2017-01-02T12:48:17</date>
-  <millis>1483357697934</millis>
+  <date>2017-01-05T11:16:14</date>
+  <millis>1483611374715</millis>
   <sequence>5</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -68,30 +68,30 @@
   <message>Usuario añadido</message>
 </record>
 <record>
-  <date>2017-01-02T12:48:19</date>
-  <millis>1483357699353</millis>
+  <date>2017-01-05T11:16:15</date>
+  <millis>1483611375714</millis>
   <sequence>6</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
-  <class>Ventanas.VentanaUsuarios$2</class>
+  <class>Ventanas.VentanaUsuarios$1</class>
   <method>actionPerformed</method>
   <thread>15</thread>
   <message>Botón Comenzar</message>
 </record>
 <record>
-  <date>2017-01-02T12:48:19</date>
-  <millis>1483357699367</millis>
+  <date>2017-01-05T11:16:15</date>
+  <millis>1483611375723</millis>
   <sequence>7</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
   <class>TiposDeDatos.Partida</class>
   <method>jugarPartida</method>
   <thread>20</thread>
-  <message>Jugador: 111 / Vidas:2</message>
+  <message>Jugador: Aaa / Vidas:2</message>
 </record>
 <record>
-  <date>2017-01-02T12:48:21</date>
-  <millis>1483357701787</millis>
+  <date>2017-01-05T11:16:18</date>
+  <millis>1483611378215</millis>
   <sequence>8</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -101,8 +101,8 @@
   <message>Boton jugar: Turno Jugador</message>
 </record>
 <record>
-  <date>2017-01-02T12:48:22</date>
-  <millis>1483357702402</millis>
+  <date>2017-01-05T11:16:20</date>
+  <millis>1483611380810</millis>
   <sequence>9</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -112,8 +112,8 @@
   <message>FALLADO</message>
 </record>
 <record>
-  <date>2017-01-02T12:48:22</date>
-  <millis>1483357702402</millis>
+  <date>2017-01-05T11:16:20</date>
+  <millis>1483611380811</millis>
   <sequence>10</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
@@ -123,9 +123,174 @@
   <message>Vida: -1</message>
 </record>
 <record>
-  <date>2017-01-02T12:48:23</date>
-  <millis>1483357703160</millis>
+  <date>2017-01-05T11:16:21</date>
+  <millis>1483611381914</millis>
   <sequence>11</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaSolucion$1</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Botón Siguiente: Próximo Jugador</message>
+</record>
+<record>
+  <date>2017-01-05T11:16:21</date>
+  <millis>1483611381915</millis>
+  <sequence>12</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>TiposDeDatos.Partida</class>
+  <method>jugarPartida</method>
+  <thread>20</thread>
+  <message>Jugador: Wwww / Vidas:2</message>
+</record>
+<record>
+  <date>2017-01-05T11:16:24</date>
+  <millis>1483611384198</millis>
+  <sequence>13</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaCargarPregunta$1</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Boton jugar: Turno Jugador</message>
+</record>
+<record>
+  <date>2017-01-05T11:16:33</date>
+  <millis>1483611393605</millis>
+  <sequence>14</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaSolucion</class>
+  <method>&lt;init&gt;</method>
+  <thread>15</thread>
+  <message>FALLADO</message>
+</record>
+<record>
+  <date>2017-01-05T11:16:33</date>
+  <millis>1483611393606</millis>
+  <sequence>15</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaSolucion</class>
+  <method>&lt;init&gt;</method>
+  <thread>15</thread>
+  <message>Vida: -1</message>
+</record>
+<record>
+  <date>2017-01-05T11:16:34</date>
+  <millis>1483611394854</millis>
+  <sequence>16</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaSolucion$1</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Botón Siguiente: Próximo Jugador</message>
+</record>
+<record>
+  <date>2017-01-05T11:16:34</date>
+  <millis>1483611394855</millis>
+  <sequence>17</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>TiposDeDatos.Partida</class>
+  <method>jugarPartida</method>
+  <thread>20</thread>
+  <message>Jugador: Aaa / Vidas:1</message>
+</record>
+<record>
+  <date>2017-01-05T11:16:37</date>
+  <millis>1483611397036</millis>
+  <sequence>18</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaCargarPregunta$1</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Boton jugar: Turno Jugador</message>
+</record>
+<record>
+  <date>2017-01-05T11:16:38</date>
+  <millis>1483611398492</millis>
+  <sequence>19</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaSolucion</class>
+  <method>&lt;init&gt;</method>
+  <thread>15</thread>
+  <message>FALLADO</message>
+</record>
+<record>
+  <date>2017-01-05T11:16:38</date>
+  <millis>1483611398493</millis>
+  <sequence>20</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaSolucion</class>
+  <method>&lt;init&gt;</method>
+  <thread>15</thread>
+  <message>Vida: -1</message>
+</record>
+<record>
+  <date>2017-01-05T11:16:39</date>
+  <millis>1483611399990</millis>
+  <sequence>21</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaSolucion$1</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Botón Siguiente: Próximo Jugador</message>
+</record>
+<record>
+  <date>2017-01-05T11:16:39</date>
+  <millis>1483611399991</millis>
+  <sequence>22</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>TiposDeDatos.Partida</class>
+  <method>jugarPartida</method>
+  <thread>20</thread>
+  <message>Jugador: Wwww / Vidas:1</message>
+</record>
+<record>
+  <date>2017-01-05T11:16:42</date>
+  <millis>1483611402118</millis>
+  <sequence>23</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaCargarPregunta$1</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Boton jugar: Turno Jugador</message>
+</record>
+<record>
+  <date>2017-01-05T11:16:43</date>
+  <millis>1483611403338</millis>
+  <sequence>24</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaSolucion</class>
+  <method>&lt;init&gt;</method>
+  <thread>15</thread>
+  <message>ACERTADO</message>
+</record>
+<record>
+  <date>2017-01-05T11:16:43</date>
+  <millis>1483611403339</millis>
+  <sequence>25</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaSolucion</class>
+  <method>&lt;init&gt;</method>
+  <thread>15</thread>
+  <message>Puntos: +30</message>
+</record>
+<record>
+  <date>2017-01-05T11:16:44</date>
+  <millis>1483611404612</millis>
+  <sequence>26</sequence>
   <logger>Q4M</logger>
   <level>INFO</level>
   <class>Ventanas.VentanaSolucion$1</class>

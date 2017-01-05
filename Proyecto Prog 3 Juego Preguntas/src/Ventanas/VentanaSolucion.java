@@ -40,7 +40,7 @@ public class VentanaSolucion extends JFrame {
 	public VentanaSolucion(boolean acertado, Pregunta preguntaAleatoria) {
 	
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaSolucion.class.getResource("/Images/logoCuadrado125.png")));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 450, 345);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

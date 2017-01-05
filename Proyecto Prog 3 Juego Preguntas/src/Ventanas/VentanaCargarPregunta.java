@@ -31,22 +31,23 @@ public class VentanaCargarPregunta extends JFrame {
 	private JSeparator separator;
 	public static JLabel lblmagenCargar,lblmagenOk;
 	private Pregunta pregunta;
-
+	private int tiempo;
 
 
 	/**
 	 * Create the frame.
 	 */
-	public VentanaCargarPregunta(Pregunta pregunta) {
+	public VentanaCargarPregunta(Pregunta pregunta, int tiempo) {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaCargarPregunta.class.getResource("/Images/logoCuadrado125.png")));
 		this.pregunta=pregunta;
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		setTitle("Próxima pregunta");
+		this.tiempo=tiempo;
 		
 		panelNorte = new JPanel();
 		contentPane.add(panelNorte, BorderLayout.NORTH);
@@ -65,10 +66,9 @@ public class VentanaCargarPregunta extends JFrame {
 		btnJugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				VentanaPrincipal.logger.log( Level.INFO, "Boton jugar: Turno Jugador");
-				VentanaPregunta vp = new VentanaPregunta(pregunta);
+				VentanaPregunta vp = new VentanaPregunta(pregunta,tiempo);
 				dispose();
-				vp.setVisible(true);
-					
+				vp.setVisible(true);	
 			}
 		});
 		panelSur.add(btnJugar);
