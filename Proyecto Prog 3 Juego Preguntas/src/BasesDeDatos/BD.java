@@ -265,7 +265,10 @@ public class BD {
 		return num;
 	}*/
 	
-	
+	/**
+	 * Método que obtiene una pregunta aleatoria de la base de datos
+	 * @return pregunta - Objeto Pregunta.
+	 */
 	/*public Pregunta obtenerPreguntaAleatoria(){
 		Pregunta p=null;
 		ArrayList<Pregunta> aP;
@@ -287,7 +290,11 @@ public class BD {
 	//////////////	METODOS TABLA USUARIOS	///////////
 	
 	
-	
+	/**
+	 * Metodo que obtiene el objeto usuario administrador de la Base De Datos
+	 * @param nombre - Nombre del administrador
+	 * @return Administrador- Devuelve un objeto administrador
+	 */
 	public Administrador obtenerUsuarioAdmin(String nombre) {
 		String query;
 		Administrador u = null;
@@ -306,7 +313,10 @@ public class BD {
 		return u;
 	}
 	
-	
+	/**
+	 * Metodo que obtiene todos los usuarios de la base de datos y los devuelve en un arra list.
+	 * @return ArrayList <Jugador>
+	 */
 	public ArrayList<Jugador> obtenerUsuarios (){
 		Jugador u=null;
 		ArrayList<Jugador> aU=new ArrayList<Jugador>();
@@ -365,6 +375,11 @@ public class BD {
 		
 	}
 	
+	/**
+	 * Metodo que comprueba si un usuario está en la base de datos. Para ello hay que pasarle el nombre del usuario.
+	 * @param jugador - String del nombre del usuario.
+	 * @return true - si está en la Base de Datos, false si no esta.
+	 */
 	public boolean comprobarUsuario(Jugador jugador){
 		String query = "SELECT * FROM usuario WHERE user='"+jugador.getUser()+ "' AND tipo='jugador'";
 		try {
@@ -381,6 +396,24 @@ public class BD {
 		return false; //no está jugador
 	}
 	
+	/**
+	 * Método que borra un usuario de la Base de datos
+	 * @param jug - Le pasamos un obeto Jugador con su nombre. 
+	 */
+	public void borrarUsuario(Jugador jug){
+		String query="DELETE FROM usuario WHERE user='"+jug.getUser()+"'";
+		try {
+			stmt.executeUpdate(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Método que inserta un usuario en la base de datos. Se le pasa un obeto jugador y lo añade. 
+	 * @param j - Objeto jugador a añadir en la base de datos. 
+	 */
 	public void insertarUsuario(Jugador j){
 		
 		String query = "INSERT INTO usuario (user,email,pass,record,tipo) VALUES ('"
@@ -396,6 +429,11 @@ public class BD {
 		
 	}
 	
+	/**
+	 * Método que obtiene un jugador de la Base de datos. 
+	 * @param jugador - Le pasamos un obejto Jugador
+	 * @return Devuelve un Jugador completo
+	 */
 	public Jugador ObtenerUsuario(Jugador jugador){
 		Jugador j=null;
 		String query = "SELECT * FROM usuario WHERE user='"+jugador.getUser()+ "' AND tipo='jugador'";
@@ -421,9 +459,9 @@ public class BD {
 	
 	/**
 	 * Metodo que inserta una pregunta que se le ha hecho a un usuario.
-	 * @param j
-	 * @param p
-	 * @param acertado
+	 * @param j - Obeto jugador
+	 * @param p - Objeto Pregunta
+	 * @param acertado - Booleano si que marca si ha acertado o no. 
 	 */
 	public void inertarPreguntaContestada (Jugador j, Pregunta p, boolean acertado){
 		

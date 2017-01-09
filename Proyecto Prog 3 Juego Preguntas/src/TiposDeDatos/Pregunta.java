@@ -13,13 +13,13 @@ public class Pregunta implements Comparable<Pregunta>{
 	
 	/**
 	 * Constructor con parametros clase pregunta
-	 * @param pregunta
-	 * @param resp1
-	 * @param resp2
-	 * @param resp3
-	 * @param resp4
-	 * @param respCorrecta
-	 * @param nivel
+	 * @param pregunta - String con la Pregunta
+	 * @param resp1 - String con la respuesta 1 (Puede ser correcta o incorrecta)
+	 * @param resp2 - String con la respuesta 2 (Puede ser correcta o incorrecta)
+	 * @param resp3 - String con la respuesta 3 (Puede ser correcta o incorrecta)
+	 * @param resp4 - String con la respuesta 4 (Puede ser correcta o incorrecta)
+	 * @param respCorrecta - String con la respuesta correcta. 
+	 * @param nivel - Nivel de dificultad de la pregunta. 
 	 */
 	public Pregunta(String pregunta, String resp1, String resp2, String resp3, String resp4, String respCorrecta, int nivel) {
 		this.cod_pr=0; //Inicializamos a 0 porque no vale.
@@ -33,14 +33,14 @@ public class Pregunta implements Comparable<Pregunta>{
 	}
 	/**
 	 * Constructor con parametros clase pregunta
-	 * @param cod_pr
-	 * @param pregunta
-	 * @param resp1
-	 * @param resp2
-	 * @param resp3
-	 * @param resp4
-	 * @param respCorrecta
-	 * @param nivel
+	 * @param cod_pr - Código de la pregunta.
+	 * @param pregunta - String con la Pregunta
+	 * @param resp1 - String con la respuesta 1 (Puede ser correcta o incorrecta)
+	 * @param resp2 - String con la respuesta 2 (Puede ser correcta o incorrecta)
+	 * @param resp3 - String con la respuesta 3 (Puede ser correcta o incorrecta)
+	 * @param resp4 - String con la respuesta 4 (Puede ser correcta o incorrecta)
+	 * @param respCorrecta - String con la respuesta correcta. 
+	 * @param nivel - Nivel de dificultad de la pregunta. 
 	 */
 	public Pregunta(int cod_pr, String pregunta, String resp1, String resp2, String resp3, String resp4, String respCorrecta, int nivel) {
 		this.cod_pr=cod_pr; 
@@ -165,6 +165,7 @@ public class Pregunta implements Comparable<Pregunta>{
 		*/
 		return cod_pr + ". " + pregunta + " ; " + respCorrecta + " [" + nivel + "]";
 	}
+
 	@Override
 	public int compareTo(Pregunta p) {
 		// TODO Auto-generated method stub

@@ -35,7 +35,9 @@ public class VentanaSolucion extends JFrame {
 	private JPanel panel_3;
 
 	/**
-	 * Create the frame.
+	 * Crea la ventana Solución. Recive si ha acertado y la pregunta que se le ha hecho. 
+	 * @param acertado - Boleano de si ha acertado la pregunta.
+	 * @param preguntaAleatoria - La pregunta que se le ha hecho al jugador. 
 	 */
 	public VentanaSolucion(boolean acertado, Pregunta preguntaAleatoria) {
 	
@@ -130,7 +132,7 @@ public class VentanaSolucion extends JFrame {
 			//Quitar vida
 			
 			int num = Partida.aVidas.get(pos).intValue();
-			Partida.aVidas.set(pos, new Integer(num-1));
+			--Partida.aVidas.set(pos, new Integer(num-1));
 			VentanaPrincipal.logger.log( Level.INFO,"FALLADO");
 			VentanaPrincipal.logger.log( Level.INFO,"Vida: -1");
 		}

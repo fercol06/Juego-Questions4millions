@@ -61,6 +61,7 @@ public class VentanaPrincipal {
 
 	/**
 	 * Launch the application.
+	 * Método principal y desde donde se inicia la aplicación. 
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -102,6 +103,7 @@ public class VentanaPrincipal {
 	public JFrame getWindow(){
 		return frame;
 	}
+	
 	/**
 	 * Create the application.
 	 */

@@ -38,7 +38,10 @@ public class VentanaLogin extends JFrame {
 	private boolean situacion;
 	
 	/**
-	 * Create the frame.
+	 * Crea el frame de la ventana Login. Dependiendo que le pasemos nos muestra el registro
+	 * o el login. 
+	 * @param situacion - Si es true el usuario está registrado y muestra para iniciar sesión. 
+	 * 					- Si es false nos muestra un botón de registrarnos. 
 	 */
 	public VentanaLogin(boolean situacion) {
 		this.situacion=situacion;
@@ -244,7 +247,7 @@ public class VentanaLogin extends JFrame {
 		this.setVisible(true);
 	}
 	/**
-	 * Método para borrar campos
+	 * Método para borrar campos de la ventana. 
 	 */
 	private void limpiarCampos() {
 		textFieldNombre.setText("");

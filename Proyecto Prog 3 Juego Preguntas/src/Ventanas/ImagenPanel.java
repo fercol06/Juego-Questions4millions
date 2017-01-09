@@ -11,10 +11,16 @@ public class ImagenPanel extends JPanel {
 	private ImageIcon imagenTiempo;
 	private String nombreImagen;
 	
-	
+	/**
+	 * Constructor
+	 * @param nombreImagen - Le pasamos el nombre de la imagen
+	 */
 	public ImagenPanel(String nombreImagen) {
 		this.nombreImagen = nombreImagen;
 	}
+	/**
+	 * Método que me dibuja la imagen que le hemos pasado. 
+	 */
 	protected void paintComponent (Graphics g){
 		Dimension d = getSize();
 		//Dimension d = new Dimension(getWidth(), 100);

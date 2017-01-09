@@ -16,10 +16,11 @@ public class Persona {
 	}
 
 	/**
-	 * @param cod_user
-	 * @param user
-	 * @param con
-	 * @param tipoUser
+	 * Constructor con paramtros de obejto Persona. 
+	 * @param cod_user - Código persona.
+	 * @param user - Nombre de la persona.
+	 * @param con - Contraseña de la persona.
+	 * @param tipoUser - Tipo de usuario a crear. 
 	 */
 	public Persona(int cod_user, String user, String con, String tipoUser) {
 		this.cod_user = cod_user;
@@ -27,11 +28,23 @@ public class Persona {
 		this.con = con;
 		this.tipoUser = tipoUser;
 	}
+	
+	/**
+	 * Constructor con 3 parametros. Inicaializa el nombre de usuario, la contraseña y el tipo de usuario. 
+	 * @param user - Nombre de la persona.
+	 * @param con - Contraseña de la Persona.
+	 * @param tipoUser - Tipo de usuario de la persona. 
+	 */
 	public Persona (String user, String con, String tipoUser){
 		this.user = user;
 		this.con = con;
 		this.tipoUser = tipoUser;
 	}
+	/**
+	 * Constructor con 2 parametros que inicializa el nombre del jugador y el tipo de usuario. 
+	 * @param user - Nombre de la persona. 
+	 * @param tipoUser - Tipo de usuario de la persona. 
+	 */
 	public Persona(String user, String tipoUser) {
 		//Para meter solo un nombre
 		this.user = user;

@@ -8,6 +8,9 @@ public class ThreadCargarPregunta extends Thread{
 		super();
 	}
 	
+	/**
+	 * Método que espera 1,5segundos y muestra el botón de Jugar
+	 */
 	public void run(){
 		
 		try {
@@ -18,7 +21,6 @@ public class ThreadCargarPregunta extends Thread{
 			VentanaCargarPregunta.lblmagenOk.setVisible(true);
 			
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

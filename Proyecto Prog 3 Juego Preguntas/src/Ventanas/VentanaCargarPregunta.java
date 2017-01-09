@@ -35,7 +35,7 @@ public class VentanaCargarPregunta extends JFrame {
 
 
 	/**
-	 * Create the frame.
+	 * Crea el frame de la ventana Cargar Pregunta
 	 */
 	public VentanaCargarPregunta(Pregunta pregunta, int tiempo) {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaCargarPregunta.class.getResource("/Images/logoCuadrado125.png")));
@@ -98,7 +98,6 @@ public class VentanaCargarPregunta extends JFrame {
 		//crear hilo
 		ThreadCargarPregunta hiloBoton = new ThreadCargarPregunta();
 		hiloBoton.start();
-		//btnJugar.setVisible(true);
 		
 		
 	}

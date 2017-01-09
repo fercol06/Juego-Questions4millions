@@ -41,7 +41,7 @@ public class VentanaAdministracion extends JFrame {
 
 	
 	/**
-	 * Create the frame.
+	 * Constructor de la ventana Administración.
 	 */
 	public VentanaAdministracion() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaAdministracion.class.getResource("/images/logoCuadrado125.png")));
@@ -69,13 +69,9 @@ public class VentanaAdministracion extends JFrame {
 		
 		JSeparator separator = new JSeparator();
 		panel_norte.add(separator);
-		
-		
-		/* INICIO Lista con Scroll*/
+	
 		
 		insertarPreguntaEnLista();
-		
-		/* FIN Lista con Scroll*/
 		
 		JPanel panel_sur = new JPanel();
 		contentPane.add(panel_sur, BorderLayout.SOUTH);

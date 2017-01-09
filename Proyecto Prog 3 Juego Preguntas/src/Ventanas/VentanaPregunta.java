@@ -34,14 +34,19 @@ public class VentanaPregunta extends JFrame implements ActionListener{
 	public static JLabel lblimg;
 	private int tiempoPregunta;
 	private ThreadTiempo th;
+	public static boolean estado;
 	  
 	/**
-	 * Create the application.
+	 * Crea la ventana pregunta a la que se le pasa la pregunta aleatoria
+	 * y el tiempo que tiene para contestar
+	 * @param preguntaAleatoria - Un objeto de tipo Pregunta. 
+	 * @param tiempo - Tiempo para la partida. 
 	 */
 	public VentanaPregunta(Pregunta preguntaAleatoria,int tiempo) {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaPregunta.class.getResource("/Images/logoCuadrado125.png")));
 		this.pregunta=preguntaAleatoria;
 		this.tiempoPregunta=tiempo;
+		estado=false;
 		
 		setBounds(100, 100, 745, 425);
 		getContentPane().setLayout(new BorderLayout(0, 0));
@@ -71,15 +76,7 @@ public class VentanaPregunta extends JFrame implements ActionListener{
 	
 		panel_derecho = new JPanel();
 		panel_Iniciar.add(panel_derecho, BorderLayout.EAST);
-		
-		/*
-		ThreadTiempo ttiempo = new ThreadTiempo();
-		ttiempo.start();
-		*/
-		
-		//ImagenPanel imagenTiempo= new ImagenPanel("/images/Progreso100.png");
-		//panel_Iniciar.add(imagenTiempo, BorderLayout.WEST);
-		
+	
 		panelWest = new JPanel();
 		
 		
@@ -133,7 +130,7 @@ public class VentanaPregunta extends JFrame implements ActionListener{
 		btnRespuesta4.addActionListener(this);
 		
 		
-		th = new ThreadTiempo(tiempoPregunta);
+		th = new ThreadTiempo(tiempoPregunta,this,pregunta);
 		th.start();
 		
 	}
@@ -143,6 +140,7 @@ public class VentanaPregunta extends JFrame implements ActionListener{
 		// TODO Auto-generated method stub
 		JButton botonPulsado =(JButton) e.getSource();
 		String respCorrecta= pregunta.getRespCorrecta();
+		estado=true;
 		
 		if(botonPulsado == btnRespuesta1){
 			if(btnRespuesta1.getText().equals(respCorrecta)){

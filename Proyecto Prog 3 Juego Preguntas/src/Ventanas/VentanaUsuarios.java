@@ -380,6 +380,13 @@ public class VentanaUsuarios extends JFrame {
 		
 	}
 
+	/**
+	 * Método que añade un usuario dependiendo de la cnfiguración.
+	 * @param arr - Array list de usuarios a jugar.
+	 * @param config - Obejto configuración de la partida. 
+	 * @param user - Nombre del usuario a añadir.
+	 * @return un mesaje de error si no se ha añadido. 
+	 */
 	
 	public String anadirUsuario(ArrayList<Jugador> arr, ConfiguracionJuego config, String user) {
 
@@ -405,6 +412,12 @@ public class VentanaUsuarios extends JFrame {
 		return "Usuarios Max alcanzados\n Comience la partida!";
 	}
 
+	/**
+	 * Método que comprueba que un usuario no se encuentra en el arraylist de jugadores. 
+	 * @param arr - Array list de jugadores.
+	 * @param jugador - Nombre del jugador a comprobar. 
+	 * @return Boolano que nos devuelve true si está repetido el usuair. 
+	 */
 	public boolean validateUsuario(ArrayList<Jugador> arr, String jugador) {
 		boolean repe = false;
 		int i = 0;
@@ -422,6 +435,13 @@ public class VentanaUsuarios extends JFrame {
 		return repe;
 	}
 	
+	/**
+	 * Método que quita un usuario si se encuentra en el arraylist de usuarios. 
+	 * @param arr - Array list de usuarios de la partida. 
+	 * @param config - Configuración de la partida. 
+	 * @param user - Nombre del usuario. 
+	 * @return Devuelve mensaje de error si no ha sido posible borrar al usuario.
+	 */
 	public String quitarUsuario (ArrayList<Jugador> arr, ConfiguracionJuego config,String user){
 		
 			int i=0;
@@ -442,6 +462,9 @@ public class VentanaUsuarios extends JFrame {
 		return "Error no existe el usuario";
 	}
 	
+	/**
+	 * Método que limpia los campos para añadir el usuario
+	 */
 	public void limpiarCampos(){
 		textField.setText("");
 	}

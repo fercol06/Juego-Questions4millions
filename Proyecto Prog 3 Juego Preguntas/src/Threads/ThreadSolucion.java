@@ -10,6 +10,9 @@ public class ThreadSolucion extends Thread{
 		super();
 	}
 	
+	/**
+	 * Método que muestra un texto parpadeante en diferentes colores.
+	 */
 	public void run(){
 		
 		while(true){
@@ -18,7 +21,6 @@ public class ThreadSolucion extends Thread{
 			try {
 				Thread.sleep(150);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			VentanaSolucion.lblCorrecto.setForeground(Color.GREEN);
@@ -26,7 +28,6 @@ public class ThreadSolucion extends Thread{
 			try {
 				Thread.sleep(150);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

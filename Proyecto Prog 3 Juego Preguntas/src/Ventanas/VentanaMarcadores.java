@@ -52,7 +52,10 @@ public class VentanaMarcadores extends JFrame {
 	
 
 	/**
-	 * Create the frame.
+	 * Crea la ventana de marcadores. Dependiendo que le pasemos abre solo unos pocos jugadores, 
+	 * o todos los que hay en la base de datos. 
+	 * @param situacion - Devuelve true si muestra todas las puntuaciones de los usuarios. 
+	 * 					- Devuelve false si solo los jugadores de la partida. 
 	 */
 	public VentanaMarcadores(boolean situacion) {
 		
@@ -79,17 +82,12 @@ public class VentanaMarcadores extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 
-		
-		
+
 		//creacion de un tablemodel para  añadir datos de la bd
 		Object[] columnas = {"#", "Usuario", "Puntuación máxima"};
 		DefaultTableModel modeloTabla = new DefaultTableModel(columnas, 0);
-		
-		
-		
-		
-		
-		
+
+
 		/*Depende si recibe un true o un false, se muestran unos datos u otros
 		 * Si se pasa un:
 		 * true - Ventana todos marcadores
@@ -138,6 +136,7 @@ public class VentanaMarcadores extends JFrame {
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				VentanaPrincipal.numVentanasMarcadores = false;
+				VentanaPrincipal.frame.setVisible(true);
 				dispose();
 			}
 		});
@@ -154,9 +153,6 @@ public class VentanaMarcadores extends JFrame {
 		//Renderer
 		tabla.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
 			
-			/**
-			 * 
-			 */
 			private static final long serialVersionUID = 1L;
 
 			@Override

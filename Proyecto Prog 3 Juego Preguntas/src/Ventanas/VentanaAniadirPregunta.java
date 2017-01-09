@@ -39,7 +39,7 @@ public class VentanaAniadirPregunta extends JFrame {
 
 
 	/**
-	 * Crea el frame de añadir nuevas preguntas.
+	 * Crea el frame de añadir nuevas preguntas sin pasarle una pregunta.
 	 */
 	public VentanaAniadirPregunta() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaAniadirPregunta.class.getResource("/images/logoCuadrado125.png")));
@@ -374,7 +374,8 @@ public class VentanaAniadirPregunta extends JFrame {
 	}
 	
 	/**
-	 * Metodo que añade datos a los campos
+	 * Metodo que añade los datos a los campos
+	 * @param p - Le pasamos una pregunta. 
 	 */
 	private void aniadeCampos(Pregunta p) {
 		textFieldPregunta.setText(p.getPregunta());
@@ -403,7 +404,9 @@ public class VentanaAniadirPregunta extends JFrame {
 	}
 	
 	/**
-	 * Comprueba si existe pregunta
+	 * Comprueba si existe una pregunta.
+	 * @param p - Le pasamos un obejto pregunta.
+	 * @return true - si exite la pregunta. 
 	 */
 	private boolean existePregunta(Pregunta p){
 		boolean existe=false;

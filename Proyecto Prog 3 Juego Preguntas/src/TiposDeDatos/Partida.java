@@ -50,18 +50,19 @@ public class Partida {
 	}
 
 	
-	
-	//Mecanica del juego
+	/**
+	 * Método que incluye toda la mecánica del juego con todas las condiciones que se deben de cumplir para que
+	 * el usuario siga jugando. 
+	 */
 		public void jugarPartida(){
 			siguiente=true;
 			int i=0;
 			
 			while(!haTerminadoJuego()){
-				//System.out.println("Entra al while");
+
 				if(siguiente){
 					siguiente=false;
 					jugadorTurno=aUsuario.get(i);
-					//System.out.println("Entra al if");
 					
 					//Miro si ha terminado la partida (0 FIN PARTIDA)
 					if(aVidas.get(i).intValue()!= 0){ 
@@ -87,7 +88,7 @@ public class Partida {
 							//Si al de 100 sigue saliendo repetida, se pregunta una cualquiera.
 							busquedaPregunta++;
 							
-						}while((!enElJuego && !alUsuario) && busquedaPregunta<100);	
+						}while((!enElJuego && !alUsuario) && busquedaPregunta<1000);	
 					
 
 						//Añadimos la preguntaAleatoria que ha salido en este turno al juego.
@@ -106,19 +107,18 @@ public class Partida {
 					i=0;
 				}
 				
-				//System.out.println("Sale del if");
 			}
 				
 			//HA TERMINADO PARTIDA. 
 			//Actualizo los usuarios.
-			//ActualizarUsuariosEnBD();
+			ActualizarUsuariosEnBD();
 	
 		}
 	 
 	/**
 	 * Metodo que busca en el array de preguntas si ha salido una pregunta que se le pasa por parametro. 
-	 * @param p
-	 * @return
+	 * @param p - Le pasamos un obeto Pregunta
+	 * @return true - SI la pregunta que le hemos pasado se ha dicho en la partida. 
 	 */
 	private boolean buscarPreguntaDicha(Pregunta p){
 		boolean encontrado=false;
@@ -133,8 +133,8 @@ public class Partida {
 	}
 	
 	/**
-	 * Metodo que genera una pregunta aleatoria.
-	 * @return
+	 * Método que genera una pregunta aleatoria y la devuelve.
+	 * @return p - Obeto pregunta con la pregunta aleatoria. 
 	 */
 	private Pregunta obtenerPreguntaAleatoria(){
 		
@@ -148,7 +148,7 @@ public class Partida {
 	
 	/**
 	 * Metod que nos devuelve un true si ha terminado el juego
-	 * @return
+	 * @return true - Si el juego ha terminado. 
 	 */
 	private boolean haTerminadoJuego(){
 		boolean encontrado=false;
@@ -185,6 +185,7 @@ public class Partida {
 				if(jugBD.getRecord()>=jug.getRecord()){
 					jug=jugBD;
 				}
+				VentanaPrincipal.bd.borrarUsuario(jug);
 			}
 			//actualizo al usuario en la BD.
 			VentanaPrincipal.bd.insertarUsuario(jug);
