@@ -1,5 +1,5 @@
 package Ventanas;
-import java.awt.EventQueue;
+
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -23,6 +23,7 @@ import java.awt.Toolkit;
 public class VentanaPregunta extends JFrame implements ActionListener{
 
 
+	private static final long serialVersionUID = -861869990532028500L;
 	private JPanel panel_norte,panel_sur,panel_centro,panel_derecho;
 	private JPanel panel, panel_11,panel_12,panel_21,panel_22;
 	private JButton btnRespuesta1, btnRespuesta2, btnRespuesta3, btnRespuesta4;
@@ -69,7 +70,8 @@ public class VentanaPregunta extends JFrame implements ActionListener{
 		lblUsuario.setFont(new Font("Tahoma", Font.ITALIC, 16));
 		panel_norte.add(lblUsuario);
 		
-		lblNomUsuario = new JLabel(Partida.jugadorTurno.getUser());
+		//Partida.jugadorTurno.getUser()
+		lblNomUsuario = new JLabel(Partida.jugadorTurno.getUser().substring(0, 1).toUpperCase()+ Partida.jugadorTurno.getUser().substring(1));
 		lblNomUsuario.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		panel_norte.add(lblNomUsuario);
 		
@@ -88,6 +90,13 @@ public class VentanaPregunta extends JFrame implements ActionListener{
 		
 		panel_centro = new JPanel();
 		panel_Iniciar.add(panel_centro, BorderLayout.CENTER);
+		
+		/* ---
+		 * 
+		 * AQUIIII
+		 * 
+		 * 
+		 */
 		
 		lblPregunta = new JLabel(preguntaAleatoria.getPregunta());
 		lblPregunta.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -182,16 +191,42 @@ public class VentanaPregunta extends JFrame implements ActionListener{
 		this.dispose();	
 	}
 	
-	
+
 	/**
-	 * POR HACER:
-	 * Metodo que cuenta palabras. 
+	 * Método que devuelve una cadena separada por saltos de linea.
+	 * @param  pasas una pregunta
+	 * @return pregunta devuelve una pregunta con espacios.
 	 */
-	/*public void contarLetras(){
-		String preguntaEntera=pregunta.getPregunta();
-		//Máximo 80. 
+	/*
+	public String separarLetras(String pregunta){
 		
-	}*/
+		int cont=0;
+		int numMax=80;
+		String caracter=" ";
+		String preguntaEntera=pregunta;
+		String suplente="";
+		
+		String[] palabrasSeparadas = preguntaEntera.split(caracter);
+		
+		if(preguntaEntera.length()>numMax){
+			for(int i=0; i<palabrasSeparadas.length; i++){
+				cont=cont+palabrasSeparadas[i].length()+1;
+				suplente=suplente.concat(palabrasSeparadas[i]);
+				suplente=suplente.concat(" ");
+				if(cont>70){
+					if(palabrasSeparadas[i+1].length()<10){
+						suplente=suplente.concat(palabrasSeparadas[i+1]);
+						i++;
+					}
+					suplente=suplente.concat("\n");
+					cont=0;
+				}
+			}
+		}
+		
+		return suplente;
+	}
+	 */	
 	
 	/**
 	 * Método que recibe un String y devuelve el número de palabras que contiene

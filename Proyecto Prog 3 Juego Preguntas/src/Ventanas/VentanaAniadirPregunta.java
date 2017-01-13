@@ -1,7 +1,6 @@
 package Ventanas;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -13,11 +12,8 @@ import javax.swing.JButton;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Random;
-import java.awt.CardLayout;
-import java.awt.FlowLayout;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 import javax.swing.JComboBox;
@@ -28,6 +24,8 @@ import java.awt.Toolkit;
 
 public class VentanaAniadirPregunta extends JFrame {
 
+
+	private static final long serialVersionUID = 2344473840880138519L;
 	private JPanel contentPane;
 	private JTextField textFieldPregunta;
 	private JTextField textFieldRespuestaIncorrecta1;

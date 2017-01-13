@@ -1,7 +1,6 @@
 package Ventanas;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -13,9 +12,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.FlowLayout;
-import java.awt.CardLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
 import java.awt.GridLayout;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -25,11 +21,12 @@ import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 import java.awt.Toolkit;
 import javax.swing.JSeparator;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+
 
 public class VentanaLogin extends JFrame {
 
+
+	private static final long serialVersionUID = -8284280331073501624L;
 	private JPanel contentPane;
 	private JTextField textFieldNombre;
 	private JButton btnIniciarSesion, btnAtras,btnRegistrarse;

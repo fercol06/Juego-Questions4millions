@@ -1,7 +1,6 @@
 package Ventanas;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -9,7 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Threads.ThreadCargarPregunta;
-import TiposDeDatos.Jugador;
 import TiposDeDatos.Pregunta;
 
 import javax.swing.JLabel;
@@ -24,6 +22,7 @@ import java.awt.Toolkit;
 
 public class VentanaCargarPregunta extends JFrame {
 
+	private static final long serialVersionUID = 2131205646660399343L;
 	private JPanel contentPane;
 	private JPanel panelNorte,panelSur,panelIzquierda,panelCentro,panelDerecha;
 	public static JButton btnJugar;
@@ -32,7 +31,7 @@ public class VentanaCargarPregunta extends JFrame {
 	public static JLabel lblmagenCargar,lblmagenOk;
 	private Pregunta pregunta;
 	private int tiempo;
-
+	private ThreadCargarPregunta hiloBoton;
 
 	/**
 	 * Crea el frame de la ventana Cargar Pregunta
@@ -40,6 +39,7 @@ public class VentanaCargarPregunta extends JFrame {
 	public VentanaCargarPregunta(Pregunta pregunta, int tiempo) {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaCargarPregunta.class.getResource("/Images/logoCuadrado125.png")));
 		this.pregunta=pregunta;
+		this.tiempo=tiempo;
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -47,7 +47,7 @@ public class VentanaCargarPregunta extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		setTitle("Próxima pregunta");
-		this.tiempo=tiempo;
+		
 		
 		panelNorte = new JPanel();
 		contentPane.add(panelNorte, BorderLayout.NORTH);
@@ -67,6 +67,9 @@ public class VentanaCargarPregunta extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				VentanaPrincipal.logger.log( Level.INFO, "Boton jugar: Turno Jugador");
 				VentanaPregunta vp = new VentanaPregunta(pregunta,tiempo);
+				if(hiloBoton.isAlive()){
+					hiloBoton.stop();
+				}
 				dispose();
 				vp.setVisible(true);	
 			}
@@ -96,7 +99,7 @@ public class VentanaCargarPregunta extends JFrame {
 		contentPane.add(panelDerecha, BorderLayout.EAST);
 		
 		//crear hilo
-		ThreadCargarPregunta hiloBoton = new ThreadCargarPregunta();
+		hiloBoton = new ThreadCargarPregunta();
 		hiloBoton.start();
 		
 		

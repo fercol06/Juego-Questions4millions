@@ -1,10 +1,7 @@
 
 package Ventanas;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
-import javax.swing.Action;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JPanel;
@@ -13,19 +10,12 @@ import java.awt.Color;
 import javax.swing.JTextArea;
 import javax.swing.JSlider;
 import javax.swing.JLabel;
-import java.awt.Button;
-import javax.swing.JScrollBar;
 import javax.swing.JButton;
-import javax.swing.UIManager;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
-import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.logging.Level;
 import java.awt.event.ActionEvent;
-import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
 
 import TiposDeDatos.ConfiguracionJuego;
@@ -34,14 +24,11 @@ import TiposDeDatos.Partida;
 
 import java.awt.Cursor;
 import java.awt.BorderLayout;
-import javax.swing.SwingConstants;
 import javax.swing.JSplitPane;
 import javax.swing.JScrollPane;
-import javax.swing.SpringLayout;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
-import javax.swing.JList;
-import javax.swing.JEditorPane;
+
 import java.awt.Font;
 import java.awt.Toolkit;
 
@@ -57,7 +44,6 @@ public class VentanaUsuarios extends JFrame {
 	private JSplitPane splitPane;
 	private JLabel lblAjusteCaract, lblNivel, lblNumJugadores, lblTiempoPregunta;
 	public static Partida partida; 
-	private JScrollPane scrollPane;
 	private JPanel panel;
 	private JScrollPane scrollPane_1;
 	private JTextArea textArea;
@@ -106,18 +92,22 @@ public class VentanaUsuarios extends JFrame {
 						@Override
 						public void run() {
 							partida.jugarPartida();	
+							
+							//while(Partida.siguiente){}
 							//Mostrar tabla marcadores.
 							VentanaMarcadores vm = new VentanaMarcadores(false);
 							try {
-								Thread.sleep(1000);
+								Thread.sleep(3000);
 							} catch (InterruptedException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
 							vm.setVisible(true);
+							
 						}
 					};
 					t.start();
+
 					
 
 				} else {
@@ -381,7 +371,7 @@ public class VentanaUsuarios extends JFrame {
 	}
 
 	/**
-	 * Método que añade un usuario dependiendo de la cnfiguración.
+	 * Método que añade un usuario dependiendo de la configuración.
 	 * @param arr - Array list de usuarios a jugar.
 	 * @param config - Obejto configuración de la partida. 
 	 * @param user - Nombre del usuario a añadir.
@@ -391,7 +381,7 @@ public class VentanaUsuarios extends JFrame {
 	public String anadirUsuario(ArrayList<Jugador> arr, ConfiguracionJuego config, String user) {
 
 		user = user.trim();
-		user = user.substring(0, 1).toUpperCase()+ user.substring(1);;
+		//user = user.substring(0, 1).toUpperCase()+ user.substring(1);
 		user = user.replace(" ","");
 		if (arr.size() < config.getNumJugadores() && user != null) {
 
@@ -444,20 +434,20 @@ public class VentanaUsuarios extends JFrame {
 	 */
 	public String quitarUsuario (ArrayList<Jugador> arr, ConfiguracionJuego config,String user){
 		
-			int i=0;
+		int i=0;
 			
-			while(i<arr.size()){
-				String	jugador1=arr.get(i).getUser();
+		while(i<arr.size()){
+			String	jugador1=arr.get(i).getUser();
 				
-					if(jugador1.equals(user)){
-						VentanaPrincipal.logger.log( Level.INFO, "Usuario quitado");
-						int iaux=i;
-						arr.remove(i);
-						return "Usuario numero "+(iaux+1)+"\n quitado"+
-								"\n Nombre: "+user+"\n Nuevo tama\u00F1o: "+arr.size();	
-					}else{i++;}									
+			if(jugador1.equals(user)){
+				VentanaPrincipal.logger.log( Level.INFO, "Usuario quitado");
+				int iaux=i;
+				arr.remove(i);
+				return "Usuario numero "+(iaux+1)+"\n quitado"+
+						"\n Nombre: "+user;	
+			}else{i++;}									
 					
-			}				
+		}				
 		
 		return "Error no existe el usuario";
 	}

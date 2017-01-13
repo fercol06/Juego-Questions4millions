@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
 
@@ -15,8 +14,6 @@ import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableColumnModel;
 
 import TiposDeDatos.Jugador;
 import TiposDeDatos.Partida;
@@ -30,16 +27,14 @@ import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.Vector;
 
 import javax.swing.ScrollPaneConstants;
 
 public class VentanaMarcadores extends JFrame {
 
-	
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = 7049488368949372936L;
 	private JPanel contentPane;
 	private JTable tabla;
 	private JScrollPane scroll;

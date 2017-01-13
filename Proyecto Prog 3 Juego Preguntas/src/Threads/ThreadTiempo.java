@@ -1,10 +1,8 @@
 package Threads;
 
-import java.awt.BorderLayout;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 import TiposDeDatos.Pregunta;
 import Ventanas.VentanaPregunta;
@@ -13,7 +11,6 @@ import Ventanas.VentanaSolucion;
 public class ThreadTiempo extends Thread{
 	
 	private long miliSegundos;
-	private final int numImages=11;
 	private JFrame ventana;
 	private Pregunta p;
 	

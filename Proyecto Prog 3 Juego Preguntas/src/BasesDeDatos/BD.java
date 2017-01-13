@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Random;
 
 import TiposDeDatos.Administrador;
 import TiposDeDatos.Jugador;
@@ -381,7 +380,7 @@ public class BD {
 	 * @return true - si está en la Base de Datos, false si no esta.
 	 */
 	public boolean comprobarUsuario(Jugador jugador){
-		String query = "SELECT * FROM usuario WHERE user='"+jugador.getUser()+ "' AND tipo='jugador'";
+		String query = "SELECT * FROM usuario WHERE user='"+jugador.getUser()+"' AND tipo='jugador'";
 		try {
 			ResultSet rs = stmt.executeQuery(query);
 			// Comprobamos si ha devuelto filas
@@ -436,7 +435,7 @@ public class BD {
 	 */
 	public Jugador ObtenerUsuario(Jugador jugador){
 		Jugador j=null;
-		String query = "SELECT * FROM usuario WHERE user='"+jugador.getUser()+ "' AND tipo='jugador'";
+		String query = "SELECT * FROM usuario WHERE user='"+jugador.getUser()+"' AND tipo='jugador'";
 		try {
 			ResultSet rs = stmt.executeQuery(query);
 			// Comprobamos si ha devuelto filas

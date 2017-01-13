@@ -3,27 +3,19 @@ package Ventanas;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import BasesDeDatos.BD;
 import Ficheros.GestionFicheros;
-import TiposDeDatos.Pregunta;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.GridLayout;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.ArrayList;
 import java.util.logging.*;
 import java.awt.FlowLayout;
-import javax.swing.SwingConstants;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -120,7 +112,7 @@ public class VentanaPrincipal {
 		frame.setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(VentanaPrincipal.class.getResource("/images/logoCuadrado125.png")));
 		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 		frame.setTitle("Questions4Millions!");
 

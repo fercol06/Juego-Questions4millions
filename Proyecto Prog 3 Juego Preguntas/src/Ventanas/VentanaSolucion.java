@@ -1,18 +1,15 @@
 package Ventanas;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Threads.ThreadCargarPregunta;
 import Threads.ThreadSolucion;
 import TiposDeDatos.Partida;
 import TiposDeDatos.Pregunta;
 
-import java.awt.GridLayout;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.ImageIcon;
@@ -25,6 +22,8 @@ import java.awt.Toolkit;
 
 public class VentanaSolucion extends JFrame {
 
+	
+	private static final long serialVersionUID = -3725562077742297576L;
 	private JPanel contentPane;
 	public static JLabel lblCorrecto,lblFallo,lblImagCorrecto,lblImagIncorrecto;
 	private JPanel panel;
@@ -33,6 +32,7 @@ public class VentanaSolucion extends JFrame {
 	private JButton btnSiguiente;
 	private JPanel panel_2;
 	private JPanel panel_3;
+	private ThreadSolucion hiloParpadear;
 
 	/**
 	 * Crea la ventana Solución. Recive si ha acertado y la pregunta que se le ha hecho. 
@@ -40,7 +40,6 @@ public class VentanaSolucion extends JFrame {
 	 * @param preguntaAleatoria - La pregunta que se le ha hecho al jugador. 
 	 */
 	public VentanaSolucion(boolean acertado, Pregunta preguntaAleatoria) {
-	
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaSolucion.class.getResource("/Images/logoCuadrado125.png")));
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 450, 345);
@@ -99,6 +98,10 @@ public class VentanaSolucion extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				VentanaPrincipal.logger.log( Level.INFO, "Botón Siguiente: Próximo Jugador");
 				Partida.siguiente=true;
+				//Partida.i++;
+				if(hiloParpadear.isAlive()){
+					hiloParpadear.stop();
+				}
 				dispose();
 				
 			}
@@ -132,7 +135,7 @@ public class VentanaSolucion extends JFrame {
 			//Quitar vida
 			
 			int num = Partida.aVidas.get(pos).intValue();
-			--Partida.aVidas.set(pos, new Integer(num-1));
+			Partida.aVidas.set(pos, new Integer(num-1));
 			VentanaPrincipal.logger.log( Level.INFO,"FALLADO");
 			VentanaPrincipal.logger.log( Level.INFO,"Vida: -1");
 		}
@@ -141,7 +144,7 @@ public class VentanaSolucion extends JFrame {
 		VentanaPrincipal.bd.inertarPreguntaContestada(Partida.jugadorTurno,preguntaAleatoria,acertado);
 		
 		//crear hilo
-		ThreadSolucion hiloParpadear = new ThreadSolucion();
+		hiloParpadear = new ThreadSolucion();
 		hiloParpadear.start();
 	}
 
