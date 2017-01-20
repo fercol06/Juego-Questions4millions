@@ -16,7 +16,7 @@ public class Jugador extends Persona{
 	 * @param cod_user - Codigo de usuario. 
 	 * @param user - Nombre del usuario. 
 	 * @param con - Contraseña del usuario.
-	 * @param tipoUser - Tipo del usuario.
+	 * @param record - puntuación del usuario.
 	 */
 	public Jugador(int cod_user, String user, String con,int record) {
 		super(cod_user, user, con, "jugador");

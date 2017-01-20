@@ -18,7 +18,6 @@ public class TestBD extends TestCase{
 	
 	/**
 	 * Méetodo que inicializa el test JUnit con la conexión de la Base de datos. 
-	 * @return
 	 */
 	@Override
 	public void setUp(){
@@ -30,7 +29,6 @@ public class TestBD extends TestCase{
 	
 	/**
 	 * Test que comprueba que se añaden preguntas.
-	 * @return 
 	 */
 	@Test
 	public void testAniadirPregunta() {	
@@ -40,7 +38,6 @@ public class TestBD extends TestCase{
 	
 	/**
 	 * Comprueba si se inserta un usuario
-	 * @return
 	 */
 	@Test
 	public void testInsertarUser() {	
@@ -51,7 +48,6 @@ public class TestBD extends TestCase{
 	
 	/**
 	 * Test que comprueba si hay pregunatas.
-	 * @return
 	 */
 	@Test
 	public void testhayPreguntas() {	
@@ -60,7 +56,6 @@ public class TestBD extends TestCase{
 	
 	/**
 	 * Test que comprueba si se añade admin. 
-	 * @return 
 	 */
 	@Test
 	public void testAniadeAdmin() {
@@ -70,7 +65,6 @@ public class TestBD extends TestCase{
 	
 	/**
 	 * Metodo para eliminar objetos
-	 * @return 
 	 */
 	@Override
 	public void tearDown(){
