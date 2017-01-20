@@ -98,7 +98,7 @@ public class VentanaUsuarios extends JFrame {
 							//Mostrar tabla marcadores.
 							VentanaMarcadores vm = new VentanaMarcadores(false);
 							try {
-								Thread.sleep(3000);
+								Thread.sleep(5000);
 							} catch (InterruptedException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
