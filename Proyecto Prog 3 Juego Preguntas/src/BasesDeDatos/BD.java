@@ -153,6 +153,7 @@ public class BD {
 	
 	/**
 	 * Método para obtener preguntas
+	 * @return devuelve un arraylist de preguntas
 	 */
 	public ArrayList<Pregunta> obtenerPreguntas() {
 		Pregunta p = null;
@@ -177,6 +178,7 @@ public class BD {
 
 	/**
 	 * Método para añadir una pregunta a la BD
+	 * @param p - se le pasa una pregunta para añadir
 	 */
 	public void aniadirPregunta(Pregunta p) {
 
@@ -210,6 +212,7 @@ public class BD {
 	
 	/**
 	 * Método para borrar una pregunta a la BD
+	 * @param p - Se le pasa una pregunta para borrar
 	 */
 	public void borrarPregunta(Pregunta p) {
 		
@@ -314,7 +317,7 @@ public class BD {
 	
 	/**
 	 * Metodo que obtiene todos los usuarios de la base de datos y los devuelve en un arra list.
-	 * @return ArrayList <Jugador>
+	 * @return Devuelve un arraylist de jugadores
 	 */
 	public ArrayList<Jugador> obtenerUsuarios (){
 		Jugador u=null;
@@ -357,7 +360,7 @@ public class BD {
 	
 	/**
 	 * Metodo que inserta un administrador en la base de datos. 
-	 * @param u
+	 * @param u - Se le pasa un usuario administrador.
 	 */
 	public void insertarAdmin(Administrador u){
 		

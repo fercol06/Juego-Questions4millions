@@ -36,6 +36,8 @@ public class VentanaCargarPregunta extends JFrame {
 
 	/**
 	 * Crea el frame de la ventana Cargar Pregunta
+	 * @param pregunta - Se le pasa una pregunta
+	 * @param tiempo - Es un avalor con el tiempo que va a estar funcionando la ventana
 	 */
 	public VentanaCargarPregunta(Pregunta pregunta, int tiempo) {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaCargarPregunta.class.getResource("/Images/logoCuadrado125.png")));

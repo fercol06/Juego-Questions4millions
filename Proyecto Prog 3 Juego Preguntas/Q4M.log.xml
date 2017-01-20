@@ -478,3 +478,121 @@
   <message>Botón Salir</message>
 </record>
 </log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-01-20T11:07:38</date>
+  <millis>1484906858797</millis>
+  <sequence>0</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaPrincipal$1</class>
+  <method>run</method>
+  <thread>15</thread>
+  <message>Inicio Q4M</message>
+</record>
+<record>
+  <date>2017-01-20T11:07:39</date>
+  <millis>1484906859103</millis>
+  <sequence>1</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaPrincipal$1</class>
+  <method>run</method>
+  <thread>15</thread>
+  <message>No hay Admin</message>
+</record>
+<record>
+  <date>2017-01-20T11:07:49</date>
+  <millis>1484906869828</millis>
+  <sequence>2</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaPrincipal$3</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Botón Marcadores</message>
+</record>
+<record>
+  <date>2017-01-20T11:08:04</date>
+  <millis>1484906884914</millis>
+  <sequence>3</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaPrincipal$5</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Botón Salir</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-01-20T11:31:33</date>
+  <millis>1484908293754</millis>
+  <sequence>0</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaPrincipal$1</class>
+  <method>run</method>
+  <thread>15</thread>
+  <message>Inicio Q4M</message>
+</record>
+<record>
+  <date>2017-01-20T11:31:34</date>
+  <millis>1484908294096</millis>
+  <sequence>1</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaPrincipal$1</class>
+  <method>run</method>
+  <thread>15</thread>
+  <message>Hay Admin</message>
+</record>
+<record>
+  <date>2017-01-20T11:31:35</date>
+  <millis>1484908295363</millis>
+  <sequence>2</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaPrincipal$6</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Botón Administracion</message>
+</record>
+<record>
+  <date>2017-01-20T11:31:38</date>
+  <millis>1484908298310</millis>
+  <sequence>3</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaAdministracion$4</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Botón Reset Fabrica</message>
+</record>
+<record>
+  <date>2017-01-20T11:31:44</date>
+  <millis>1484908304094</millis>
+  <sequence>4</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaAdministracion$4</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Reset Fabrica Ok</message>
+</record>
+<record>
+  <date>2017-01-20T11:31:46</date>
+  <millis>1484908306422</millis>
+  <sequence>5</sequence>
+  <logger>Q4M</logger>
+  <level>INFO</level>
+  <class>Ventanas.VentanaPrincipal$5</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Botón Salir</message>
+</record>
+</log>

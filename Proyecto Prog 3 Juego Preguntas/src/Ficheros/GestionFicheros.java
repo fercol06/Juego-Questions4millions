@@ -11,7 +11,7 @@ public class GestionFicheros {
 	/**
 	 * Método que se encarga de leer el fichero que le asignemos y lo añade a un arrayList de preguntas.  
 	 * @param fichero - NOmbre del fichero a leer.
-	 * @return ArrayList<Preguntas> - Devolvemos un array list con todas las preguntas leidas del fichero. 
+	 * @return Devolvemos un array list con todas las preguntas leidas del fichero. 
 	 */
 	public static ArrayList<Pregunta> leerFichero(String fichero){
 		Pregunta p = null;

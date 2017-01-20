@@ -9,10 +9,9 @@ public class ConfiguracionJuego {
 	
 	/**
 	 * Constructor de la configuración del juego con parametros
-	 * @param dificultad
-	 * @param numPreguntas
-	 * @param segundosPreguntas
-	 * @param numVidas
+	 * @param dificultad - La dificultad de la partida
+	 * @param numJugadores - El número de jugadores de la partida
+	 * @param segundosPreguntas - El número de segundos para cada pregunta de la partida
 	 */
 	public ConfiguracionJuego(int dificultad, int numJugadores, int segundosPreguntas) {
 		this.dificultad = dificultad;

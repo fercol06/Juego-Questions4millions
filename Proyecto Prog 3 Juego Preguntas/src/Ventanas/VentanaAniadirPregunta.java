@@ -165,6 +165,7 @@ public class VentanaAniadirPregunta extends JFrame {
 	
 	/**
 	 * Crea el frame de editar preguntas.
+	 * @param p - se le pasa una pregunta
 	 */
 	public VentanaAniadirPregunta( Pregunta p) {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaAniadirPregunta.class.getResource("/images/logoCuadrado125.png")));

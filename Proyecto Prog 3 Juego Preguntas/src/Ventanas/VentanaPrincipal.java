@@ -55,6 +55,8 @@ public class VentanaPrincipal {
 	/**
 	 * Launch the application.
 	 * Método principal y desde donde se inicia la aplicación. 
+	 *
+	 * @param args - Argumentos para el inicio
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
