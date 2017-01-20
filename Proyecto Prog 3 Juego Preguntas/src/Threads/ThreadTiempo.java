@@ -26,7 +26,7 @@ public class ThreadTiempo extends Thread{
 		this.ventana=ventana;
 		this.p=p;
 	}
-	
+		
 	/**
 	 * Método que hace que la barra de tiempo descienda, y cuando llega al final hace que hayas perdido la pregunta no puediendo contestar.
 	 */

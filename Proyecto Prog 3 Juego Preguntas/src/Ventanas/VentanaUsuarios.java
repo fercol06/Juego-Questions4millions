@@ -35,6 +35,7 @@ import java.awt.Toolkit;
 @SuppressWarnings("serial")
 public class VentanaUsuarios extends JFrame {
 
+	
 	private JTextField textField;
 	private ArrayList<Jugador> aUsuario;
 	private ConfiguracionJuego config;
@@ -107,8 +108,6 @@ public class VentanaUsuarios extends JFrame {
 						}
 					};
 					t.start();
-
-					
 
 				} else {
 					textArea.append("\n Faltan más usuarios!");

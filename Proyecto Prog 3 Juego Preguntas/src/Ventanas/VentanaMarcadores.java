@@ -33,7 +33,6 @@ import javax.swing.ScrollPaneConstants;
 
 public class VentanaMarcadores extends JFrame {
 
-
 	private static final long serialVersionUID = 7049488368949372936L;
 	private JPanel contentPane;
 	private JTable tabla;

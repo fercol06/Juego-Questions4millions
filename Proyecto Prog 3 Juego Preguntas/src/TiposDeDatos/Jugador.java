@@ -45,7 +45,7 @@ public class Jugador extends Persona{
 	public void setRecord(int record) {
 		this.record =this.record + record;
 	}
-
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */

@@ -28,7 +28,6 @@ import java.awt.Toolkit;
 
 public class VentanaAdministracion extends JFrame {
 
-
 	private static final long serialVersionUID = -8234428063951120675L;
 	private JPanel contentPane;
 	private JList <Pregunta> lstPreguntas;

@@ -22,6 +22,7 @@ import java.awt.event.ActionEvent;
 
 public class VentanaPrincipal {
 
+	
 	protected static JFrame frame;
 	private JPanel panel_norte, panel_sur, panel_centro, panel_derecha, panel_izquierda;
 	private JPanel panel;
@@ -64,7 +65,8 @@ public class VentanaPrincipal {
 					Handler h = new StreamHandler( System.out, new SimpleFormatter() );
 					h.setLevel( Level.FINEST );
 					logger.addHandler( h );  // Saca todos los errores a out
-					logger.addHandler( new FileHandler( "Q4M.log.xml") );
+					//logger.addHandler( new FileHandler( "Q4M.log.xml") );
+					logger.addHandler( new FileHandler( "Q4M.log.xml",true) );//añadiendo
 					logger.log( Level.INFO, "Inicio Q4M");
 					/*Logs*/
 					

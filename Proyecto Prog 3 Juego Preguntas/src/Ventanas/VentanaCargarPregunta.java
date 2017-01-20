@@ -22,6 +22,7 @@ import java.awt.Toolkit;
 
 public class VentanaCargarPregunta extends JFrame {
 
+	
 	private static final long serialVersionUID = 2131205646660399343L;
 	private JPanel contentPane;
 	private JPanel panelNorte,panelSur,panelIzquierda,panelCentro,panelDerecha;

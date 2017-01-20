@@ -10,6 +10,7 @@ import junit.framework.TestCase;
 
 public class TestBD extends TestCase{
 	
+	
 	private static BD bd;
 	private Pregunta nuevaPregunta;
 	private Jugador nuevoJugador;

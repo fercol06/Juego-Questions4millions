@@ -444,7 +444,7 @@ public class BD {
 				j = new Jugador(rs.getInt("cod_usr"), rs.getString("user"), rs.getString("pass"), rs.getInt("record"));
 			}
 			rs.close();
-
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

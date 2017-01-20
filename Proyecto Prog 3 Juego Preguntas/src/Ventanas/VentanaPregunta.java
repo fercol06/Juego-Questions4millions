@@ -19,6 +19,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Font;
 import java.awt.Toolkit;
+import javax.swing.JSeparator;
 
 public class VentanaPregunta extends JFrame implements ActionListener{
 
@@ -36,6 +37,8 @@ public class VentanaPregunta extends JFrame implements ActionListener{
 	private int tiempoPregunta;
 	private ThreadTiempo th;
 	public static boolean estado;
+	private JPanel panel_1;
+	private JSeparator separator;
 	  
 	/**
 	 * Crea la ventana pregunta a la que se le pasa la pregunta aleatoria
@@ -49,7 +52,7 @@ public class VentanaPregunta extends JFrame implements ActionListener{
 		this.tiempoPregunta=tiempo;
 		estado=false;
 		
-		setBounds(100, 100, 745, 425);
+		setBounds(100, 100, 745, 450);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		setTitle("Questions4millions");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -65,15 +68,23 @@ public class VentanaPregunta extends JFrame implements ActionListener{
 		
 		panel_norte = new JPanel();
 		panel_Iniciar.add(panel_norte, BorderLayout.NORTH);
+		panel_norte.setLayout(new GridLayout(2, 1, 0, 0));
+		
+		panel_1 = new JPanel();
+		panel_norte.add(panel_1);
 		
 		lblUsuario = new JLabel("Turno para: ");
+		panel_1.add(lblUsuario);
 		lblUsuario.setFont(new Font("Tahoma", Font.ITALIC, 16));
-		panel_norte.add(lblUsuario);
 		
-		//Partida.jugadorTurno.getUser()
+		//
 		lblNomUsuario = new JLabel(Partida.jugadorTurno.getUser().substring(0, 1).toUpperCase()+ Partida.jugadorTurno.getUser().substring(1));
+		//lblNomUsuario = new JLabel(Partida.jugadorTurno.getUser());
+		panel_1.add(lblNomUsuario);
 		lblNomUsuario.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		panel_norte.add(lblNomUsuario);
+		
+		separator = new JSeparator();
+		panel_norte.add(separator);
 		
 	
 		panel_derecho = new JPanel();
@@ -97,7 +108,6 @@ public class VentanaPregunta extends JFrame implements ActionListener{
 		 * 
 		 * 
 		 */
-		
 		lblPregunta = new JLabel(preguntaAleatoria.getPregunta());
 		lblPregunta.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		panel_centro.add(lblPregunta);

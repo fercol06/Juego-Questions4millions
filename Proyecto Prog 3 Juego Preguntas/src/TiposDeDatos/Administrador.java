@@ -34,7 +34,7 @@ public class Administrador extends Persona{
 		super(user,pass,"admin");
 
 	}
-
+	
 	/**
 	 * @return the email
 	 */

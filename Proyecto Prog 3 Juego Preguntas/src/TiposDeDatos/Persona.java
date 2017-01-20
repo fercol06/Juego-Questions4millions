@@ -14,7 +14,7 @@ public class Persona {
 	public Persona() {
 		tipoUser="jugador";
 	}
-
+	
 	/**
 	 * Constructor con paramtros de obejto Persona. 
 	 * @param cod_user - Código persona.

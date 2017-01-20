@@ -22,7 +22,6 @@ import java.awt.Toolkit;
 
 public class VentanaSolucion extends JFrame {
 
-	
 	private static final long serialVersionUID = -3725562077742297576L;
 	private JPanel contentPane;
 	public static JLabel lblCorrecto,lblFallo,lblImagCorrecto,lblImagIncorrecto;

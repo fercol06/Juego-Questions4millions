@@ -24,7 +24,6 @@ import java.awt.Toolkit;
 
 public class VentanaAniadirPregunta extends JFrame {
 
-
 	private static final long serialVersionUID = 2344473840880138519L;
 	private JPanel contentPane;
 	private JTextField textFieldPregunta;

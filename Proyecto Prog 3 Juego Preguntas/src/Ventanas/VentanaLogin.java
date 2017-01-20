@@ -25,7 +25,6 @@ import javax.swing.JSeparator;
 
 public class VentanaLogin extends JFrame {
 
-
 	private static final long serialVersionUID = -8284280331073501624L;
 	private JPanel contentPane;
 	private JTextField textFieldNombre;

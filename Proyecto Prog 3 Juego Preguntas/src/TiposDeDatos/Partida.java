@@ -173,7 +173,7 @@ public class Partida {
 		}
 		return encontrado;
 	}
-	
+		
 	/**
 	 * Metodo que actualiza los datos de los usuarios en la base de datos. 
 	 */

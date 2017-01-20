@@ -27,7 +27,7 @@ public class ConfiguracionJuego {
 		}
 		this.numVidas = vidas;
 	}
-	
+		
 	/**
 	 * Constructor sin parametros de la configuracion del juego.
 	 */

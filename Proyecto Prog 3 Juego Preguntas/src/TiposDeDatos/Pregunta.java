@@ -10,7 +10,7 @@ public class Pregunta implements Comparable<Pregunta>{
 	private String resp4;
 	private String respCorrecta;
 	private int nivel;
-	
+		
 	/**
 	 * Constructor con parametros clase pregunta
 	 * @param pregunta - String con la Pregunta
