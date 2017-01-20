@@ -316,7 +316,7 @@ public class BD {
 	}
 	
 	/**
-	 * Metodo que obtiene todos los usuarios de la base de datos y los devuelve en un arra list.
+	 * Metodo que obtiene todos los usuarios de la base de datos y los devuelve en un array list.
 	 * @return Devuelve un arraylist de jugadores
 	 */
 	public ArrayList<Jugador> obtenerUsuarios (){
