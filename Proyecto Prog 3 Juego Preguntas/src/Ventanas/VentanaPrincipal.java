@@ -8,16 +8,23 @@ import javax.swing.JPanel;
 
 import BasesDeDatos.BD;
 import Ficheros.GestionFicheros;
+import Threads.ThreadSonido;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.util.logging.*;
 import java.awt.FlowLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 
 public class VentanaPrincipal {
@@ -48,9 +55,14 @@ public class VentanaPrincipal {
 	
 	//nombre fichero de preguntas;
 	private static final String fichero = "Preguntados.txt";
+	private String nomSonido="src/Sonidos/popcorn.wav";
+	
+	private ThreadSonido hiloSonido;
 	
 	// Obtener un logger
 	public static Logger logger = Logger.getLogger( "Q4M" );
+	
+	
 
 	/**
 	 * Launch the application.
@@ -114,12 +126,17 @@ public class VentanaPrincipal {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setIconImage(Toolkit.getDefaultToolkit()
-				.getImage(VentanaPrincipal.class.getResource("/images/logoCuadrado125.png")));
+				.getImage(VentanaPrincipal.class.getResource("/Images/logoCuadrado125.png")));
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 		frame.setTitle("Questions4Millions!");
 
+		hiloSonido=new ThreadSonido(nomSonido, 133000);
+		hiloSonido.start();
+		
+		
+	
 		// imagenLogo.setSize(new Dimension(3000, 3000));
 		// imagenLogo.setBounds(imagenLogo.getX(), imagenLogo.getY(),
 		// imagenLogo.getWidth(), imagenLogo.getHeight());
@@ -137,6 +154,10 @@ public class VentanaPrincipal {
 		btnJugar = new JButton("Jugar");
 		btnJugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				if(hiloSonido.isAlive()){
+					ThreadSonido.sonido.close();
+					hiloSonido.stop();
+				}
 				if(VentanaPrincipal.bd.hayPreguntas()){
 					//Hay preguntas
 					logger.log( Level.INFO, "Hay Preguntas en BD");
@@ -200,6 +221,9 @@ public class VentanaPrincipal {
 			public void actionPerformed(ActionEvent arg0) {
 				logger.log( Level.INFO, "Botón Salir");
 				bd.desconectar();
+				if(hiloSonido.isAlive()){
+					hiloSonido.stop();
+				}
 				System.exit(0);
 			}
 		});
@@ -237,11 +261,11 @@ public class VentanaPrincipal {
 		// btnAdmin.setBounds(0, 0, 125, 125);
 		panel_centro_norte.add(btnAdmin, BorderLayout.EAST);
 		// Creamos un objeto ImageIcon con el nombre de la imagen
-		ImageIcon face = new ImageIcon(getClass().getResource("/images/admin40_25.png"));
+		ImageIcon face = new ImageIcon(getClass().getResource("/Images/admin40_25.png"));
 		// Añadimos la imagen al boton
 		btnAdmin.setIcon(face);
 		// Creamos un objeto ImageIcon con el nombre de la imagen
-		ImageIcon linked = new ImageIcon(getClass().getResource("/images/admin100_25.png"));
+		ImageIcon linked = new ImageIcon(getClass().getResource("/Images/admin100_25.png"));
 		// Añadimos la imagen al boton, con el metodo setRolloverIcon que hace
 		// que la imagen se muestre cuando pasamos el cursor encima del boton
 		btnAdmin.setRolloverIcon(linked);
@@ -249,7 +273,7 @@ public class VentanaPrincipal {
 		// panel_norte = new JPanel();
 		// frame.getContentPane().add(panel_norte, BorderLayout.NORTH);
 
-		ImagenPanel imagenLogo = new ImagenPanel("/images/AppLogo768x68.png");
+		ImagenPanel imagenLogo = new ImagenPanel("/Images/AppLogo768x68.png");
 		panel_centro_norte.add(imagenLogo, BorderLayout.CENTER);
 		imagenLogo.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 

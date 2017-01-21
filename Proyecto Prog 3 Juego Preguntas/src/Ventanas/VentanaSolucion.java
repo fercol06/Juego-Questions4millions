@@ -7,15 +7,23 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Threads.ThreadSolucion;
+import Threads.ThreadSonido;
 import TiposDeDatos.Partida;
 import TiposDeDatos.Pregunta;
 
 import javax.swing.JLabel;
 import java.awt.Font;
+
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
@@ -32,6 +40,7 @@ public class VentanaSolucion extends JFrame {
 	private JPanel panel_2;
 	private JPanel panel_3;
 	private ThreadSolucion hiloParpadear;
+	private ThreadSonido hiloSonido;
 
 	/**
 	 * Crea la ventana Solución. Recive si ha acertado y la pregunta que se le ha hecho. 
@@ -101,12 +110,17 @@ public class VentanaSolucion extends JFrame {
 				if(hiloParpadear.isAlive()){
 					hiloParpadear.stop();
 				}
+				if(hiloSonido.isAlive()){
+					ThreadSonido.sonido.close();
+					hiloSonido.stop();
+				}
 				dispose();
 				
 			}
 		});
 		panel_3.add(btnSiguiente);
 		
+		String nomSonido=null;
 		int pos = Partida.aUsuario.indexOf(Partida.jugadorTurno);
 		if(acertado){
 			lblVida.setVisible(false);
@@ -115,6 +129,7 @@ public class VentanaSolucion extends JFrame {
 			lblImagCorrecto.setVisible(true);	
 			lblFallo.setVisible(false);
 			lblCorrecto.setVisible(true);
+			nomSonido="src/Sonidos/kultur0407.wav";
 			
 			//Sumar puntos
 			Partida.jugadorTurno.setRecord(30);
@@ -124,12 +139,14 @@ public class VentanaSolucion extends JFrame {
 			
 		}
 		else{
+			
 			lblVida.setVisible(true);
 			lblPuntos.setVisible(false);
 			lblImagIncorrecto.setVisible(true);
 			lblImagCorrecto.setVisible(false);
 			lblFallo.setVisible(true);
 			lblCorrecto.setVisible(false);
+			nomSonido="src/Sonidos/boo.wav";
 			
 			//Quitar vida
 			
@@ -138,6 +155,9 @@ public class VentanaSolucion extends JFrame {
 			VentanaPrincipal.logger.log( Level.INFO,"FALLADO");
 			VentanaPrincipal.logger.log( Level.INFO,"Vida: -1");
 		}
+		
+		hiloSonido=new ThreadSonido(nomSonido,5000L);
+		hiloSonido.start();
 		
 		//Actualizamos Base de datos con el resultado del jugador.
 		VentanaPrincipal.bd.inertarPreguntaContestada(Partida.jugadorTurno,preguntaAleatoria,acertado);
