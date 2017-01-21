@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Threads.ThreadSonido;
 import TiposDeDatos.Administrador;
 
 import javax.swing.JLabel;
@@ -194,6 +195,10 @@ public class VentanaLogin extends JFrame {
 				if(!textFieldNombre.getText().equals("") && !passwordFieldContrasenia.getText().equals("")){
 					VentanaPrincipal.bd.insertarAdmin(new Administrador(textFieldNombre.getText(),passwordFieldContrasenia.getText()));
 					v.dispose();
+					if(VentanaPrincipal.hiloSonido.isAlive()){
+						ThreadSonido.sonido.close();
+						VentanaPrincipal.hiloSonido.stop();
+					}
 					VentanaPrincipal window = new VentanaPrincipal();
 					window.getWindow().setVisible(true);
 					

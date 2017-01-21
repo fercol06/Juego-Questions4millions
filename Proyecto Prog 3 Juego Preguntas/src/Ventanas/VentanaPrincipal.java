@@ -57,7 +57,7 @@ public class VentanaPrincipal {
 	private static final String fichero = "Preguntados.txt";
 	private String nomSonido="src/Sonidos/popcorn.wav";
 	
-	private ThreadSonido hiloSonido;
+	protected static ThreadSonido hiloSonido;
 	
 	// Obtener un logger
 	public static Logger logger = Logger.getLogger( "Q4M" );
